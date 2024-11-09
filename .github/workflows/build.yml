@@ -2,7 +2,7 @@ name: Silverblue
 
 on:
   schedule:
-    - cron: "0 0 * * *" # 4:40 utc monday
+    - cron: "0 10 * * *"
   push:
     branches:
       - main
