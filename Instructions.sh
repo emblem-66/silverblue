@@ -33,7 +33,7 @@ f_cachy
 ### Mesa-git Mesa Freeworld
 #f_mesa-git
 ### Gaming
-f_gaming
+#f_gaming
 ### Utils
 f_utils
 ### GNOME
