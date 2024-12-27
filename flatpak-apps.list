@@ -1,3 +1,5 @@
+org.gtk.Gtk3theme.adw-gtk3/x86_64/3.22
+org.gtk.Gtk3theme.adw-gtk3-dark/x86_64/3.22
 ca.edestcroix.Recordbox
 com.bitwarden.desktop
 com.github.tchx84.Flatseal
@@ -6,13 +8,20 @@ com.mattjakeman.ExtensionManager
 com.spotify.Client
 com.transmissionbt.Transmission
 com.usebottles.bottles
+com.valvesoftware.Steam
+com.valvesoftware.Steam.CompatibilityTool.Proton-GE
 com.vysp3r.ProtonPlus
+dev.qwery.AddWater
 io.github.cboxdoerfer.FSearch
 io.github.flattool.Warehouse
+io.github.limo_app.limo
 org.gnome.Calculator
 org.gnome.Loupe
+org.gnome.Loupe.HEIC
 org.gnome.Showtime
 org.gnome.TextEditor
 org.jdownloader.JDownloader
 org.mozilla.firefox
 org.prismlauncher.PrismLauncher
+runtime/org.freedesktop.Platform.VulkanLayer.MangoHud/x86_64/23.08
+runtime/org.freedesktop.Platform.VulkanLayer.MangoHud/x86_64/24.08
