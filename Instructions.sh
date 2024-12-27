@@ -39,7 +39,7 @@ f_utils
 ### GNOME
 f_gnome
 ### Tailscale
-f_tailscale
+#f_tailscale
 ### Distrobox
 #f_distrobox
 ### Sublime Text
