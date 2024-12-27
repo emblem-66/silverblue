@@ -21,7 +21,7 @@ f_flatpak
 ### First boot setup
 f_firstboot
 ### Multimedia
-f_multimedia
+#f_multimedia
 ### Firefox
 f_firefox
 ### Fonts
