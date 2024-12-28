@@ -11,9 +11,9 @@ source <(curl -s "https://raw.githubusercontent.com/Emblem-66/functions/refs/hea
 ### Run the functions
 
 ### Terra repos
-f_terra
+#f_terra
 ### RPM-fusion
-f_rpmfusion
+#f_rpmfusion
 ### Fedora auto updates
 f_updates
 ### Flatpak auto updates
