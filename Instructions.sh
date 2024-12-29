@@ -42,5 +42,7 @@ f_gnome
 #f_tailscale
 ### Distrobox
 f_distrobox
+### libvirt
+f_libvirt
 ### Sublime Text
 #f_sublime
