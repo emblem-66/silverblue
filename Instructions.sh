@@ -43,6 +43,6 @@ f_gnome
 ### Distrobox
 f_distrobox
 ### libvirt
-f_libvirt
+#f_libvirt
 ### Sublime Text
 #f_sublime
