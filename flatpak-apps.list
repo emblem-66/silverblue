@@ -16,6 +16,7 @@ io.github.cboxdoerfer.FSearch
 io.github.flattool.Warehouse
 io.github.limo_app.limo
 org.gnome.Calculator
+org.gnome.FileRoller
 org.gnome.Loupe
 org.gnome.Loupe.HEIC
 org.gnome.Showtime
@@ -23,5 +24,6 @@ org.gnome.TextEditor
 org.jdownloader.JDownloader
 org.mozilla.firefox
 org.prismlauncher.PrismLauncher
+page.tesk.Refine
 runtime/org.freedesktop.Platform.VulkanLayer.MangoHud/x86_64/23.08
 runtime/org.freedesktop.Platform.VulkanLayer.MangoHud/x86_64/24.08
