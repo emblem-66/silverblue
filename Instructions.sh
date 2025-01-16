@@ -35,7 +35,7 @@ f_fonts
 ### Gaming
 #f_gaming
 ### Utils
-f_utils
+#f_utils
 ### GNOME
 f_gnome
 ### Tailscale
