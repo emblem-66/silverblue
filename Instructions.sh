@@ -48,3 +48,6 @@ f_libvirt
 #f_sublime
 
 dnf install -y python-pip pipx
+
+dnf copr enable -y solopasha/hyprland
+dnf install -y hyprland
