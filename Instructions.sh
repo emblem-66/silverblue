@@ -47,4 +47,4 @@ f_libvirt
 ### Sublime Text
 #f_sublime
 
-dnf install -y python-pip
+dnf install -y python-pip pipx
