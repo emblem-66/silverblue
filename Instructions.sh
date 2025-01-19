@@ -46,3 +46,5 @@ f_distrobox
 f_libvirt
 ### Sublime Text
 #f_sublime
+
+dnf history info
