@@ -2,6 +2,8 @@
 
 set -ouex pipefail
 
+rpm -qa | sort
+
 FLATPAK_PACKAGE_LIST_URL="https://raw.githubusercontent.com/Emblem-66/Silverblue/refs/heads/main/flatpak-apps.list"
 
 
@@ -51,5 +53,7 @@ f_distrobox
 f_libvirt
 ### Sublime Text
 #f_sublime
+
+rpm -qa | sort
 
 dnf history info
