@@ -7,9 +7,9 @@ rpm -qa | sort
 FLATPAK_PACKAGE_LIST_URL="https://raw.githubusercontent.com/Emblem-66/Silverblue/refs/heads/main/flatpak-apps.list"
 
 
-dnf install -y gdm gnome-shell ptyxis nautilus xdg-user-dirs xdg-user-dirs-gtk bash-completion 
-systemctl enable gdm
-systemctl set-default graphical.target
+#dnf install -y gdm gnome-shell ptyxis nautilus xdg-user-dirs xdg-user-dirs-gtk bash-completion 
+#systemctl enable gdm
+#systemctl set-default graphical.target
 
 ### Import the functions
 
@@ -56,4 +56,4 @@ f_libvirt
 
 rpm -qa | sort
 
-dnf history info
+#dnf history info
