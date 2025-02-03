@@ -34,7 +34,7 @@ f_firstboot
 ### Firefox
 f_firefox
 ### Fonts
-f_fonts
+#f_fonts
 ### CachyOS Kernel
 #f_cachy
 ### Mesa-git Mesa Freeworld
