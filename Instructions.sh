@@ -44,15 +44,15 @@ f_firefox
 ### Gaming
 #f_gaming
 ### Utils
-f_utils
+#f_utils
 ### GNOME
 f_gnome
 ### Tailscale
 #f_tailscale
 ### Distrobox
-f_distrobox
+#f_distrobox
 ### libvirt
-f_libvirt
+#f_libvirt
 ### Sublime Text
 #f_sublime
 
