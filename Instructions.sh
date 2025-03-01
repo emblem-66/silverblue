@@ -6,8 +6,8 @@ rpm -qa | sort
 
 FLATPAK_PACKAGE_LIST_URL="https://raw.githubusercontent.com/Emblem-66/Silverblue/refs/heads/main/flatpak-apps.list"
 
-dnf copr enable -y solopasha/hyprland
-dnf install -y hyprland
+#dnf copr enable -y solopasha/hyprland
+#dnf install -y hyprland
 
 #dnf install -y gdm gnome-shell ptyxis nautilus xdg-user-dirs xdg-user-dirs-gtk bash-completion
 #systemctl enable gdm
