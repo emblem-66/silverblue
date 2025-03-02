@@ -28,7 +28,7 @@ f_updates
 ### Flatpak auto updates
 f_flatpak
 ### First boot setup
-f_firstboot
+#f_firstboot
 ### Multimedia
 #f_multimedia
 ### Firefox
