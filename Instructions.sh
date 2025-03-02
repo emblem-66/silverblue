@@ -36,7 +36,7 @@ f_firefox
 ### Fonts
 #f_fonts
 ### CachyOS Kernel
-f_cachy
+#f_cachy
 ### Mesa-git Mesa Freeworld
 f_mesa-freeworld
 ### Mesa-git Mesa Freeworld
