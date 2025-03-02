@@ -38,9 +38,9 @@ f_firefox
 ### CachyOS Kernel
 f_cachy
 ### Mesa-git Mesa Freeworld
-#f_mesa-freeworld
+f_mesa-freeworld
 ### Mesa-git Mesa Freeworld
-f_mesa-git
+#f_mesa-git
 ### Gaming
 f_gaming
 ### Utils
