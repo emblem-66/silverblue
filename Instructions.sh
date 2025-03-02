@@ -13,7 +13,7 @@ echo -e "[Unit]\nDescription=Update Flatpaks\n[Timer]\nOnCalendar=*:0/4\nPersist
 systemctl enable flatpak-update.timer
 
 ### Firefox
-dnf remove -y firefox firefox-langpacks
+dnf remove -y firefox*
 
 ### GNOME
 dnf remove -y gnome-shell-extension*
