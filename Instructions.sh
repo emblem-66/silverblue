@@ -2,60 +2,25 @@
 
 set -ouex pipefail
 
-rpm -qa | sort
-
-FLATPAK_PACKAGE_LIST_URL="https://raw.githubusercontent.com/Emblem-66/Silverblue/refs/heads/main/flatpak-apps.list"
-
-#dnf copr enable -y solopasha/hyprland
-#dnf install -y hyprland
-
-#dnf install -y gdm gnome-shell ptyxis nautilus xdg-user-dirs xdg-user-dirs-gtk bash-completion
-#systemctl enable gdm
-#systemctl set-default graphical.target
-
-### Import the functions
-
-source <(curl -s "https://raw.githubusercontent.com/Emblem-66/functions/refs/heads/main/fedora-ostree.sh")
-
-### Run the functions
-
-### Terra repos
-#f_terra
-### RPM-fusion
-#f_rpmfusion
 ### Fedora auto updates
-f_updates
+sed -i 's/#AutomaticUpdatePolicy=none/AutomaticUpdatePolicy=stage/' /etc/rpm-ostreed.conf
+systemctl enable rpm-ostreed-automatic.timer
+
 ### Flatpak auto updates
-f_flatpak
-### First boot setup
-#f_firstboot
-### Multimedia
-#f_multimedia
+echo -e "[Unit]\nDescription=Update Flatpaks\n[Service]\nType=oneshot\nExecStart=/usr/bin/flatpak uninstall --unused -y --noninteractive ; /usr/bin/flatpak update -y --noninteractive ; /usr/bin/flatpak repair\n[Install]\nWantedBy=default.target\n" | tee /etc/systemd/system/flatpak-update.service
+systemctl enable flatpak-update.service
+echo -e "[Unit]\nDescription=Update Flatpaks\n[Timer]\nOnCalendar=*:0/4\nPersistent=true\n[Install]\nWantedBy=timers.target\n" | tee /etc/systemd/system/flatpak-update.timer
+systemctl enable flatpak-update.timer
+
 ### Firefox
-f_firefox
-### Fonts
-#f_fonts
-### CachyOS Kernel
-#f_cachy
-### Mesa-git Mesa Freeworld
-#f_mesa-freeworld
-### Mesa-git Mesa Freeworld
-#f_mesa-git
-### Gaming
-#f_gaming
-### Utils
-#f_utils
+dnf remove -y firefox firefox-langpacks
+
 ### GNOME
-f_gnome
-### Tailscale
-#f_tailscale
-### Distrobox
-#f_distrobox
-### libvirt
-#f_libvirt
-### Sublime Text
-#f_sublime
+dnf remove -y gnome-shell-extension*
+dnf remove -y gnome-tour
+dnf remove -y yelp*
+dnf remove -y gnome-software*
+dnf remove -y virtualbox-guest-additions
+dnf install -y adw-gtk3-theme ffmpegthumbnailer gnome-shell-extension-caffeine
+git clone https://github.com/mukul29/legacy-theme-auto-switcher-gnome-extension.git /usr/share/gnome-shell/extensions/legacyschemeautoswitcher@joshimukul29.gmail.com
 
-rpm -qa | sort
-
-#dnf history info
