@@ -24,3 +24,6 @@ dnf remove -y virtualbox-guest-additions
 dnf install -y adw-gtk3-theme ffmpegthumbnailer gnome-shell-extension-caffeine
 git clone https://github.com/mukul29/legacy-theme-auto-switcher-gnome-extension.git /usr/share/gnome-shell/extensions/legacyschemeautoswitcher@joshimukul29.gmail.com
 
+# S.M.A.R.T.
+dnf install smartmontools
+systemctl enable smartd
