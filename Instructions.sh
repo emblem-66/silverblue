@@ -27,6 +27,3 @@ git clone https://github.com/mukul29/legacy-theme-auto-switcher-gnome-extension.
 # S.M.A.R.T.
 dnf install -y smartmontools
 systemctl enable smartd
-
-# Tools
-dnf install -y grsync
