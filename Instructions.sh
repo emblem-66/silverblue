@@ -30,6 +30,6 @@ dnf install -y smartmontools
 systemctl enable smartd
 
 
-curl -sSL https://raw.githubusercontent.com/emblem-66/Silverblue/refs/heads/main/install.list | xargs -r dnf install -y
+curl -sSL https://raw.githubusercontent.com/emblem-66/Silverblue/refs/heads/main/dnf-install.list | xargs -r dnf install -y
 
-curl -sSL https://raw.githubusercontent.com/emblem-66/Silverblue/refs/heads/main/remove.list | xargs -r dnf remove -y
+curl -sSL https://raw.githubusercontent.com/emblem-66/Silverblue/refs/heads/main/dnf-remove.list | xargs -r dnf remove -y
