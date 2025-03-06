@@ -1,6 +1,6 @@
-firefox
-gnome-shell-extension
+firefox*
+gnome-shell-extension*
 gnome-tour
-yelp
-gnome-software
+yelp*
+gnome-software*
 virtualbox-guest-additions
