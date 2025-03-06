@@ -28,3 +28,8 @@ dnf install -y adw-gtk3-theme ffmpegthumbnailer #gnome-shell-extension-caffeine
 # S.M.A.R.T.
 dnf install -y smartmontools
 systemctl enable smartd
+
+
+curl -sSL https://raw.githubusercontent.com/emblem-66/Silverblue/refs/heads/main/install.list | xargs -r dnf install -y
+
+curl -sSL https://raw.githubusercontent.com/emblem-66/Silverblue/refs/heads/main/remove.list | xargs -r dnf remove -y
