@@ -14,15 +14,15 @@ echo -e "[Unit]\nDescription=Update Flatpaks\n[Timer]\nOnCalendar=*:0/4\nPersist
 systemctl enable flatpak-update.timer
 
 ### Firefox
-dnf remove -y firefox*
+#dnf remove -y firefox*
 
 ### GNOME
-dnf remove -y gnome-shell-extension*
-dnf remove -y gnome-tour
-dnf remove -y yelp*
-dnf remove -y gnome-software*
-dnf remove -y virtualbox-guest-additions
-dnf install -y adw-gtk3-theme ffmpegthumbnailer #gnome-shell-extension-caffeine
+#dnf remove -y gnome-shell-extension*
+#dnf remove -y gnome-tour
+#dnf remove -y yelp*
+#dnf remove -y gnome-software*
+#dnf remove -y virtualbox-guest-additions
+#dnf install -y adw-gtk3-theme ffmpegthumbnailer #gnome-shell-extension-caffeine
 #git clone https://github.com/mukul29/legacy-theme-auto-switcher-gnome-extension.git /usr/share/gnome-shell/extensions/legacyschemeautoswitcher@joshimukul29.gmail.com
 
 # S.M.A.R.T.
