@@ -15,12 +15,12 @@ com.usebottles.bottles
 com.valvesoftware.Steam
 com.valvesoftware.Steam.CompatibilityTool.Proton-GE
 com.vysp3r.ProtonPlus
-dev.qwery.AddWater
 io.github.cboxdoerfer.FSearch
 io.github.flattool.Warehouse
 io.github.limo_app.limo
 io.gitlab.librewolf-community
 net.mediaarea.MediaInfo
+net.mullvad.MullvadBrowser
 net.waterfox.waterfox
 one.ablaze.floorp
 org.gnome.Calculator
