@@ -23,18 +23,6 @@ curl -sSL https://raw.githubusercontent.com/emblem-66/Silverblue/refs/heads/main
 # DNF Install packages
 curl -sSL https://raw.githubusercontent.com/emblem-66/Silverblue/refs/heads/main/dnf-install.list | xargs -r dnf install -y
 
-# Firefox
-#dnf remove -y firefox*
-
-# GNOME
-#dnf remove -y gnome-shell-extension*
-#dnf remove -y gnome-tour
-#dnf remove -y yelp*
-#dnf remove -y gnome-software*
-#dnf remove -y virtualbox-guest-additions
-#dnf install -y adw-gtk3-theme ffmpegthumbnailer #gnome-shell-extension-caffeine
-#git clone https://github.com/mukul29/legacy-theme-auto-switcher-gnome-extension.git /usr/share/gnome-shell/extensions/legacyschemeautoswitcher@joshimukul29.gmail.com
-
 # S.M.A.R.T.
 dnf install -y smartmontools
 systemctl enable smartd
