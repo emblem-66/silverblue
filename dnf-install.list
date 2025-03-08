@@ -1,6 +1,6 @@
 adw-gtk3-theme
-gnome-shell-extension-caffeine
-mangohud
+#gnome-shell-extension-caffeine
+#mangohud
 grsync
 fdupes
 rdfind
