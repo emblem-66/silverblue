@@ -22,3 +22,13 @@ curl -sSL https://raw.githubusercontent.com/emblem-66/Silverblue/refs/heads/main
 dnf install -y smartmontools
 systemctl enable smartd
 
+# Tailscale
+dnf config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo
+dnf install tailscale
+systemctl enable tailscaled
+# Connect your machine to your Tailscale network and authenticate in your browser:
+# tailscale up
+# You can find your Tailscale IPv4 address by running:
+# tailscale ip -4
+
+
