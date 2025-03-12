@@ -1,6 +1,6 @@
-org.gtk.Gtk3theme.adw-gtk3/x86_64/3.22
-org.gtk.Gtk3theme.adw-gtk3-dark/x86_64/3.22
 runtime/org.freedesktop.Platform.VulkanLayer.MangoHud/x86_64/24.08
+org.gtk.Gtk3theme.adw-gtk3
+org.gtk.Gtk3theme.adw-gtk3-dark
 app.zen_browser.zen
 ca.edestcroix.Recordbox
 com.bitwarden.desktop
@@ -13,15 +13,11 @@ com.transmissionbt.Transmission
 com.usebottles.bottles
 com.valvesoftware.Steam
 com.valvesoftware.Steam.CompatibilityTool.Proton-GE
-com.vysp3r.ProtonPlus
 io.github.cboxdoerfer.FSearch
 io.github.flattool.Warehouse
 io.github.limo_app.limo
 io.gitlab.librewolf-community
 net.mediaarea.MediaInfo
-net.mullvad.MullvadBrowser
-net.waterfox.waterfox
-one.ablaze.floorp
 org.gnome.Calculator
 org.gnome.FileRoller
 org.gnome.Loupe
