@@ -24,7 +24,7 @@ systemctl enable smartd
 
 # Tailscale
 dnf config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo
-dnf install tailscale
+dnf install -y tailscale
 systemctl enable tailscaled
 # Connect your machine to your Tailscale network and authenticate in your browser:
 # tailscale up
