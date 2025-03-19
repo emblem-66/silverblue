@@ -19,8 +19,8 @@ curl -sSL https://raw.githubusercontent.com/emblem-66/Silverblue/refs/heads/main
 curl -sSL https://raw.githubusercontent.com/emblem-66/Silverblue/refs/heads/main/dnf-install.list | xargs -r dnf install -y
 
 # S.M.A.R.T.
-dnf install -y smartmontools
-systemctl enable smartd
+#dnf install -y smartmontools
+#systemctl enable smartd
 
 # Tailscale
 dnf config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo
