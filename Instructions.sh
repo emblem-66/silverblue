@@ -21,6 +21,8 @@ curl -sSL https://raw.githubusercontent.com/emblem-66/Silverblue/refs/heads/main
 # DNF install packages
 curl -sSL https://raw.githubusercontent.com/emblem-66/Silverblue/refs/heads/main/dnf-install.list | xargs -r dnf install -y
 
+dnf install -y @cosmic-desktop-environment
+
 # S.M.A.R.T.
 #dnf install -y smartmontools
 #systemctl enable smartd
