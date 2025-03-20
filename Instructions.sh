@@ -12,10 +12,13 @@ systemctl enable flatpak-update.service
 echo -e "[Unit]\nDescription=Update Flatpaks\n[Timer]\nOnCalendar=*:0/4\nPersistent=true\n[Install]\nWantedBy=timers.target\n" | tee /etc/systemd/system/flatpak-update.timer
 systemctl enable flatpak-update.timer
 
-# DNF Remove packages
+# DNF remove packages
 curl -sSL https://raw.githubusercontent.com/emblem-66/Silverblue/refs/heads/main/dnf-remove.list | xargs -r dnf remove -y
 
-# DNF Install packages
+# COPR repo install
+curl -sSL https://raw.githubusercontent.com/emblem-66/Silverblue/refs/heads/main/copr-install.list | xargs -r dnf copr enable -y
+
+# DNF install packages
 curl -sSL https://raw.githubusercontent.com/emblem-66/Silverblue/refs/heads/main/dnf-install.list | xargs -r dnf install -y
 
 # S.M.A.R.T.
