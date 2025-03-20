@@ -16,7 +16,7 @@ systemctl enable flatpak-update.timer
 curl -sSL https://raw.githubusercontent.com/emblem-66/Silverblue/refs/heads/main/dnf-remove.list | xargs -r dnf remove -y
 
 # COPR repo install
-curl -sSL https://raw.githubusercontent.com/emblem-66/Silverblue/refs/heads/main/copr-install.list | xargs -r dnf copr enable -y
+curl -sSL https://raw.githubusercontent.com/emblem-66/Silverblue/refs/heads/main/dnf-copr.list | xargs -r dnf copr enable -y
 
 # DNF install packages
 curl -sSL https://raw.githubusercontent.com/emblem-66/Silverblue/refs/heads/main/dnf-install.list | xargs -r dnf install -y
