@@ -21,13 +21,6 @@ curl -sSL https://raw.githubusercontent.com/emblem-66/Silverblue/refs/heads/main
 # DNF install packages
 curl -sSL https://raw.githubusercontent.com/emblem-66/Silverblue/refs/heads/main/dnf-install.list | xargs -r dnf install -y
 
-
-# PLEX media server
-echo -e "[Plexrepo]\nname=plexrepo\nbaseurl=https://downloads.plex.tv/repo/rpm/\$basearch/\nenabled=1\ngpgkey=https://downloads.plex.tv/plex-keys/PlexSign.key\ngpgcheck=1\n" | tee /etc/yum.repos.d/plex.repo
-dnf install -y plexmediaserver
-systemctl enable plexmediaserver.service
-# http://127.0.0.1:8888/web
-
 # S.M.A.R.T.
 #dnf install -y smartmontools
 #systemctl enable smartd
@@ -40,5 +33,3 @@ systemctl enable tailscaled
 # tailscale up
 # You can find your Tailscale IPv4 address by running:
 # tailscale ip -4
-
-
