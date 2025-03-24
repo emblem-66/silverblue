@@ -33,3 +33,19 @@ systemctl enable tailscaled
 # tailscale up
 # You can find your Tailscale IPv4 address by running:
 # tailscale ip -4
+
+# PLEX media server
+
+#sudo tee /etc/yum.repos.d/plex.repo<<EOF
+#[Plexrepo]
+#name=plexrepo
+#baseurl=https://downloads.plex.tv/repo/rpm/\$basearch/
+#enabled=1
+#gpgkey=https://downloads.plex.tv/plex-keys/PlexSign.key
+#gpgcheck=1
+#EOF
+
+echo -e "[Plexrepo]\nname=plexrepo\nbaseurl=https://downloads.plex.tv/repo/rpm/\$basearch/\nenabled=1\ngpgkey=https://downloads.plex.tv/plex-keys/PlexSign.key\ngpgcheck=1\n" | tee /etc/yum.repos.d/plex.repo
+
+dnf install -y plexmediaserver
+systemctl enable plexmediaserver
