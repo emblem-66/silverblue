@@ -44,8 +44,3 @@ systemctl enable tailscaled
 #gpgkey=https://downloads.plex.tv/plex-keys/PlexSign.key
 #gpgcheck=1
 #EOF
-
-echo -e "[Plexrepo]\nname=plexrepo\nbaseurl=https://downloads.plex.tv/repo/rpm/\$basearch/\nenabled=1\ngpgkey=https://downloads.plex.tv/plex-keys/PlexSign.key\ngpgcheck=1\n" | tee /etc/yum.repos.d/plex.repo
-
-dnf install -y plexmediaserver
-systemctl enable plexmediaserver
