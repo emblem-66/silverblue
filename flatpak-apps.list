@@ -12,6 +12,7 @@ com.usebottles.bottles
 com.valvesoftware.Steam
 com.valvesoftware.Steam.CompatibilityTool.Proton-GE
 io.github.cboxdoerfer.FSearch
+io.github.celluloid_player.Celluloid
 io.github.flattool.Warehouse
 io.github.limo_app.limo
 net.mediaarea.MediaInfo
