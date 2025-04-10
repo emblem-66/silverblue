@@ -44,3 +44,29 @@ systemctl enable tailscaled
 #gpgkey=https://downloads.plex.tv/plex-keys/PlexSign.key
 #gpgcheck=1
 #EOF
+
+
+# Local RPM - Heroic
+wget -O heroic-latest.rpm $(curl -s https://api.github.com/repos/Heroic-Games-Launcher/HeroicGamesLauncher/releases/latest | jq -r '.assets[] | select(.name | contains ("rpm")) | .browser_download_url')
+#curl -L -o /tmp/heroic-latest.rpm $(curl -s https://api.github.com/repos/Heroic-Games-Launcher/HeroicGamesLauncher/releases/latest | jq -r '.assets[] | select(.name | contains ("rpm")) | .browser_download_url')
+#dnf install -y /tmp/heroic-latest.rpm
+#rpm-ostree install heroic-latest.rpm
+
+# Emby server
+wget -O emby-server.rpm $(curl -s https://api.github.com/repos/MediaBrowser/Emby.Releases/releases/latest | jq -r '.assets[] | select(.name | test("emby-server-rpm.*\\x86_64.rpm")) | .browser_download_url')
+dnf install -y emby-server.rpm
+
+# GitHub repository URL (Emby Releases in this case)
+#REPO_URL="https://api.github.com/repos/MediaBrowser/Emby.Releases/releases/latest"
+
+# Get the latest release URL using GitHub API and jq
+#LATEST_RPM_URL=$(curl -s $REPO_URL | jq -r '.assets[] | select(.name | test("emby-server-rpm.*\\.rpm")) | .browser_download_url')
+
+# Download the latest RPM package
+#if [ -n "$LATEST_RPM_URL" ]; then
+#    echo "Downloading $LATEST_RPM_URL..."
+#    wget -q --show-progress "$LATEST_RPM_URL"
+#else
+#    echo "No RPM file found."
+#fi
+
