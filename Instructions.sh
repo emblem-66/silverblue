@@ -53,7 +53,7 @@ wget -O heroic-latest.rpm $(curl -s https://api.github.com/repos/Heroic-Games-La
 #rpm-ostree install heroic-latest.rpm
 
 # Emby server
-wget -O emby-server.rpm $(curl -s https://api.github.com/repos/MediaBrowser/Emby.Releases/releases/latest | jq -r '.assets[] | select(.name | test("emby-server-rpm.*\\x86_64.rpm")) | .browser_download_url')
+wget -O emby-server.rpm $(curl -s https://api.github.com/repos/MediaBrowser/Emby.Releases/releases/latest | jq -r '.assets[] | select(.name | test("emby-server-rpm.*x86_64.rpm")) | .browser_download_url')
 dnf install -y emby-server.rpm
 
 # GitHub repository URL (Emby Releases in this case)
