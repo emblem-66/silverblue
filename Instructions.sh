@@ -70,3 +70,8 @@ dnf install -y emby-server.rpm
 #    echo "No RPM file found."
 #fi
 
+
+# SSH
+dnf install -y openssh
+systemctl start sshd.service
+
