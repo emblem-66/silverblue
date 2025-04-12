@@ -21,26 +21,24 @@ curl -sSL https://raw.githubusercontent.com/emblem-66/Silverblue/refs/heads/main
 # DNF install packages
 curl -sSL https://raw.githubusercontent.com/emblem-66/Silverblue/refs/heads/main/dnf-install.list | xargs -r dnf install -y
 
-
-
 # DNF install packages
-curl -sSL https://raw.githubusercontent.com/emblem-66/Silverblue/refs/heads/main/systemd-services.list | xargs -r systemctl enable
+curl -sSL https://raw.githubusercontent.com/emblem-66/Silverblue/refs/heads/main/systemd.list | xargs -r systemctl enable
 
 
 
 # S.M.A.R.T.
 dnf install -y smartmontools
-systemctl enable smartd
+#systemctl enable smartd
 
 # Tailscale
 dnf config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo
 dnf install -y tailscale
-systemctl enable tailscaled
+#systemctl enable tailscaled
 # Connect your machine to your Tailscale network and authenticate in your browser:
 # tailscale up
 # You can find your Tailscale IPv4 address by running:
 # tailscale ip -4
-rm /etc/yum.repos.d/tailscale.repo
+#rm /etc/yum.repos.d/tailscale.repo
 
 # PLEX media server
 
@@ -81,7 +79,7 @@ rm /etc/yum.repos.d/tailscale.repo
 
 # SSH
 #dnf install -y openssh
-systemctl enable sshd.service
+#systemctl enable sshd.service
 
 # Cleanup
 
