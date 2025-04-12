@@ -22,7 +22,7 @@ curl -sSL https://raw.githubusercontent.com/emblem-66/Silverblue/refs/heads/main
 curl -sSL https://raw.githubusercontent.com/emblem-66/Silverblue/refs/heads/main/dnf-install.list | xargs -r dnf install -y
 
 # S.M.A.R.T.
-dnf install -y smartmontools
+#dnf install -y smartmontools
 systemctl enable smartd
 
 # Tailscale
@@ -47,14 +47,14 @@ systemctl enable tailscaled
 
 
 # Local RPM - Heroic
-wget -O heroic-latest.rpm $(curl -s https://api.github.com/repos/Heroic-Games-Launcher/HeroicGamesLauncher/releases/latest | jq -r '.assets[] | select(.name | contains ("rpm")) | .browser_download_url')
+#wget -O heroic-latest.rpm $(curl -s https://api.github.com/repos/Heroic-Games-Launcher/HeroicGamesLauncher/releases/latest | jq -r '.assets[] | select(.name | contains ("rpm")) | .browser_download_url')
 #curl -L -o /tmp/heroic-latest.rpm $(curl -s https://api.github.com/repos/Heroic-Games-Launcher/HeroicGamesLauncher/releases/latest | jq -r '.assets[] | select(.name | contains ("rpm")) | .browser_download_url')
 #dnf install -y /tmp/heroic-latest.rpm
 #rpm-ostree install heroic-latest.rpm
 
 # Emby server
-wget -O emby-server.rpm $(curl -s https://api.github.com/repos/MediaBrowser/Emby.Releases/releases/latest | jq -r '.assets[] | select(.name | test("emby-server-rpm.*x86_64.rpm")) | .browser_download_url')
-dnf install -y emby-server.rpm
+#wget -O emby-server.rpm $(curl -s https://api.github.com/repos/MediaBrowser/Emby.Releases/releases/latest | jq -r '.assets[] | select(.name | test("emby-server-rpm.*x86_64.rpm")) | .browser_download_url')
+#dnf install -y emby-server.rpm
 
 # GitHub repository URL (Emby Releases in this case)
 #REPO_URL="https://api.github.com/repos/MediaBrowser/Emby.Releases/releases/latest"
