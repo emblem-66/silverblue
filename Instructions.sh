@@ -21,8 +21,12 @@ curl -sSL https://raw.githubusercontent.com/emblem-66/Silverblue/refs/heads/main
 # DNF install packages
 curl -sSL https://raw.githubusercontent.com/emblem-66/Silverblue/refs/heads/main/dnf-install.list | xargs -r dnf install -y
 
-# COPR repo remove
-curl -sSL https://raw.githubusercontent.com/emblem-66/Silverblue/refs/heads/main/dnf-copr.list | xargs -r dnf copr remove -y
+
+
+# DNF install packages
+curl -sSL https://raw.githubusercontent.com/emblem-66/Silverblue/refs/heads/main/systemd-services.list | xargs -r systemctl enable
+
+
 
 # S.M.A.R.T.
 dnf install -y smartmontools
@@ -36,6 +40,7 @@ systemctl enable tailscaled
 # tailscale up
 # You can find your Tailscale IPv4 address by running:
 # tailscale ip -4
+rm /etc/yum.repos.d/tailscale.repo
 
 # PLEX media server
 
@@ -77,4 +82,13 @@ systemctl enable tailscaled
 # SSH
 #dnf install -y openssh
 systemctl enable sshd.service
+
+# Cleanup
+
+# COPR repo remove
+curl -sSL https://raw.githubusercontent.com/emblem-66/Silverblue/refs/heads/main/dnf-copr.list | xargs -r dnf copr remove -y
+
+rm /etc/yum.repos.d/tailscale.repo
+
+
 
