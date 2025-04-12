@@ -1,3 +1,6 @@
-tailscaled
-smartd
-sshd
+rpm-ostreed-automatic.timer
+flatpak-update.service
+flatpak-update.timer
+tailscaled.service
+sshd.service
+smartd.service
