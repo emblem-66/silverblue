@@ -2,5 +2,5 @@ firefox*
 gnome-shell-extension*
 gnome-tour
 yelp*
-gnome-software*
+gnome-software-rpm-ostree
 virtualbox-guest-additions
