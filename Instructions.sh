@@ -73,5 +73,5 @@ systemctl enable tailscaled
 
 # SSH
 #dnf install -y openssh
-systemctl start sshd.service
+#systemctl start sshd.service
 
