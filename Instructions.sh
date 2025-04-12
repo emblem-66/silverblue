@@ -22,7 +22,7 @@ curl -sSL https://raw.githubusercontent.com/emblem-66/Silverblue/refs/heads/main
 curl -sSL https://raw.githubusercontent.com/emblem-66/Silverblue/refs/heads/main/dnf-install.list | xargs -r dnf install -y
 
 # S.M.A.R.T.
-#dnf install -y smartmontools
+dnf install -y smartmontools
 systemctl enable smartd
 
 # Tailscale
