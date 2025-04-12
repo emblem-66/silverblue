@@ -1,11 +1,9 @@
 adw-gtk3-theme
 morewaita-icon-theme
 tailscale
-fzf
 distrobox
-just
-libratbag-ratbagd
-nvme-cli
 smartmontools
+just
+fzf
+libratbag-ratbagd
 solaar-udev
-
