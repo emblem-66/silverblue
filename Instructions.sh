@@ -8,7 +8,7 @@ curl -s https://raw.githubusercontent.com/Emblem-66/Silverblue/refs/heads/main/C
 
 
 # COPR repo add
-curl -sSL https://raw.githubusercontent.com/emblem-66/Silverblue/refs/heads/main/dnf-repo.list | xargs -r dnf config-manager addrepo -y
+curl -sSL https://raw.githubusercontent.com/emblem-66/Silverblue/refs/heads/main/dnf-repo.list | xargs -r dnf config-manager addrepo
 
 
 
