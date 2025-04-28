@@ -36,6 +36,3 @@ curl -sSL https://raw.githubusercontent.com/emblem-66/Silverblue/refs/heads/main
 
 # Tailscale repo remove
 rm /etc/yum.repos.d/tailscale.repo
-
-wget https://github.com/trapexit/mergerfs/releases/download/<ver>/mergerfs-<ver>.fc<rel>.<arch>.rpm
-rpm -i mergerfs-<ver>.fc<rel>.<arch>.rpm
