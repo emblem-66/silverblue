@@ -3,8 +3,10 @@ org.gtk.Gtk3theme.adw-gtk3
 org.gtk.Gtk3theme.adw-gtk3-dark
 ca.edestcroix.Recordbox
 com.bitwarden.desktop
+app.drey.Typewriter
 com.github.tchx84.Flatseal
 com.heroicgameslauncher.hgl
+com.ranfdev.DistroShelf
 com.spotify.Client
 com.transmissionbt.Transmission
 com.usebottles.bottles
@@ -21,6 +23,7 @@ org.gnome.Calculator
 org.gnome.FileRoller
 org.gnome.Loupe
 org.gnome.Papers
+org.gnome.Showtime
 org.gnome.TextEditor
 org.gnome.gitlab.YaLTeR.Identity
 org.gnome.gitlab.YaLTeR.VideoTrimmer
