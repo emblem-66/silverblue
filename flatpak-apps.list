@@ -12,6 +12,7 @@ com.transmissionbt.Transmission
 com.usebottles.bottles
 com.valvesoftware.Steam
 com.valvesoftware.Steam.CompatibilityTool.Proton-GE
+io.beekeeperstudio.Studio
 io.github.cboxdoerfer.FSearch
 io.github.celluloid_player.Celluloid
 io.github.josephmawa.TextCompare
