@@ -12,11 +12,11 @@ curl -sSL https://raw.githubusercontent.com/emblem-66/Silverblue/refs/heads/main
 
 
 # Brave
-dnf config-manager addrepo --from-repofile=https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
+#dnf config-manager addrepo --from-repofile=https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
 
-dnf install -y brave-browser
+#dnf install -y brave-browser
 
-echo -e "{\n“BraveRewardsDisabled”: true,\n“BraveWalletDisabled”: true,\n“BraveVPNDisabled”: 1,\n“BraveAIChatEnabled”: false,\n“TorDisabled”: true,\n}\n" | tee /etc/brave/policies/managed/test_policy.json
+#echo -e "{\n“BraveRewardsDisabled”: true,\n“BraveWalletDisabled”: true,\n“BraveVPNDisabled”: 1,\n“BraveAIChatEnabled”: false,\n“TorDisabled”: true,\n}\n" | tee /etc/brave/policies/managed/test_policy.json
 
 
 
