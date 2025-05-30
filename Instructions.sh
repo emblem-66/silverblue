@@ -39,4 +39,4 @@ curl -sSL https://raw.githubusercontent.com/emblem-66/Silverblue/refs/heads/main
 curl -sSL https://raw.githubusercontent.com/emblem-66/Silverblue/refs/heads/main/dnf-copr.list | xargs -r dnf copr remove -y
 
 # Tailscale repo remove
-rm /etc/yum.repos.d/tailscale.repo
+#rm /etc/yum.repos.d/tailscale.repo
