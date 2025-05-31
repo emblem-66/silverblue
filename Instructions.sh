@@ -16,6 +16,8 @@ curl -sSL https://raw.githubusercontent.com/emblem-66/Silverblue/refs/heads/main
 
 #dnf install -y brave-browser
 
+
+# trying if this works with flatpak Brave
 mkdir -p /etc/brave/policies/managed/
 echo -e "{\n“BraveRewardsDisabled”: true,\n“BraveWalletDisabled”: true,\n“BraveVPNDisabled”: 1,\n“BraveAIChatEnabled”: false,\n“TorDisabled”: true,\n}\n" | tee /etc/brave/policies/managed/test_policy.json
 
