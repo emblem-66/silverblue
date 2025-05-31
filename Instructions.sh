@@ -18,6 +18,7 @@ curl -sSL https://raw.githubusercontent.com/emblem-66/Silverblue/refs/heads/main
 
 
 # trying if this works with flatpak Brave
+# policy grabbed from Nobara's changelog, and here https://support.brave.com/hc/en-us/articles/360039248271-Group-Policy
 mkdir -p /etc/brave/policies/managed/
 echo -e "{\n“BraveRewardsDisabled”: true,\n“BraveWalletDisabled”: true,\n“BraveVPNDisabled”: 1,\n“BraveAIChatEnabled”: false,\n“TorDisabled”: true,\n}\n" | tee /etc/brave/policies/managed/test_policy.json
 
