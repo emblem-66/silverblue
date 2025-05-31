@@ -5,26 +5,8 @@ set -ouex pipefail
 # Config files
 curl -s https://raw.githubusercontent.com/Emblem-66/Silverblue/refs/heads/main/ConfigFiles.sh | bash
 
-
-
 # COPR repo add
 curl -sSL https://raw.githubusercontent.com/emblem-66/Silverblue/refs/heads/main/dnf-repo.list | xargs -r dnf config-manager addrepo
-
-
-# Brave
-#dnf config-manager addrepo --from-repofile=https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
-
-#dnf install -y brave-browser
-
-
-# trying if this works with flatpak Brave
-# policy grabbed from Nobara's changelog, and here https://support.brave.com/hc/en-us/articles/360039248271-Group-Policy
-mkdir -p /etc/brave/policies/managed/
-echo -e "{\n“BraveRewardsDisabled”: true,\n“BraveWalletDisabled”: true,\n“BraveVPNDisabled”: 1,\n“BraveAIChatEnabled”: false,\n“TorDisabled”: true,\n}\n" | tee /etc/brave/policies/managed/test_policy.json
-
-
-# Tailscale repo add
-#dnf config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo
 
 # COPR repo add
 curl -sSL https://raw.githubusercontent.com/emblem-66/Silverblue/refs/heads/main/dnf-copr.list | xargs -r dnf copr enable -y
