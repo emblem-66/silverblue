@@ -26,8 +26,8 @@ curl -sSL https://raw.githubusercontent.com/emblem-66/Silverblue/refs/heads/main
 # Tailscale repo remove
 #rm /etc/yum.repos.d/tailscale.repo
 
-dnf install -y virt-manager libvirt
-systemctl enable libvirt
+dnf install -y virt-manager virt-install libvirt
+systemctl enable libvirtd
 
 # Check packages
 #curl -sSL https://raw.githubusercontent.com/emblem-66/Silverblue/refs/heads/main/.list | xargs -r rpm -qa | sort | grep
