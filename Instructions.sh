@@ -28,12 +28,6 @@ curl -sSL https://raw.githubusercontent.com/emblem-66/Silverblue/refs/heads/main
 
 
 
-wget -O /etc/yum.repos.d/jellyfin.repo https://repo.jellyfin.org/releases/server/fedora/jellyfin-10.repo
-dnf install -y jellyfin
-systemctl enable jellyfin.service
-
-wget https://download.onlyoffice.com/install/desktop/editors/linux/onlyoffice-desktopeditors.x86_64.rpm
-dnf install -y ./onlyoffice-desktopeditors.x86_64.rpm
 
 dnf install -y tigervnc-server
 # https://idroot.us/install-vnc-server-fedora-42/
