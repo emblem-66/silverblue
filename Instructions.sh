@@ -30,6 +30,10 @@ rpm -v --import https://download.sublimetext.com/sublimehq-rpm-pub.gpg
 sudo dnf config-manager --add-repo https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo
 d f install -y sublime-text
 
+dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/x86_64/
+rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+dnf install -y brave-browser
+
 # Check packages
 #curl -sSL https://raw.githubusercontent.com/emblem-66/Silverblue/refs/heads/main/.list | xargs -r rpm -qa | sort | grep
 
