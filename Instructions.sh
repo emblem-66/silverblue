@@ -26,20 +26,6 @@ curl -sSL https://raw.githubusercontent.com/emblem-66/Silverblue/refs/heads/main
 # Tailscale repo remove
 #rm /etc/yum.repos.d/tailscale.repo
 
-
-
-
-dnf install -y tigervnc-server
-# https://idroot.us/install-vnc-server-fedora-42/
-
-#rpm -v --import https://download.sublimetext.com/sublimehq-rpm-pub.gpg
-#dnf config-manager add-repo --from-repofile=https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo
-#dnf install -y sublime-text
-
-dnf config-manager add-repo --from-repofile=https://brave-browser-rpm-release.s3.brave.com/x86_64/
-rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
-dnf install -y brave-browser
-
 # Check packages
 #curl -sSL https://raw.githubusercontent.com/emblem-66/Silverblue/refs/heads/main/.list | xargs -r rpm -qa | sort | grep
 
