@@ -34,6 +34,11 @@ dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/x86
 rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
 dnf install -y brave-browser
 
+wget -O /etc/yum.repos.d/jellyfin.repo https://repo.jellyfin.org/releases/server/fedora/jellyfin-10.repo
+dnf install -y jellyfin
+systemctl enable jellyfin.service
+
+
 # Check packages
 #curl -sSL https://raw.githubusercontent.com/emblem-66/Silverblue/refs/heads/main/.list | xargs -r rpm -qa | sort | grep
 
