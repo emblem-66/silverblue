@@ -2,6 +2,13 @@ adw-gtk3-theme
 morewaita-icon-theme
 catfish
 cockpit
+cockpit-navigator
+cockpit-composer
+cockpit-files
+cockpit-machines
+cockpit-ostree
+cockpit-podman
+cockpit-file-sharing
 tigervnc
 tailscale
 smartmontools
