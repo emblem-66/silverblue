@@ -29,6 +29,11 @@ curl -sSL https://raw.githubusercontent.com/emblem-66/Silverblue/refs/heads/main
 # Check packages
 #curl -sSL https://raw.githubusercontent.com/emblem-66/Silverblue/refs/heads/main/.list | xargs -r rpm -qa | sort | grep
 
+dnf search cockpit
+dnf install -y tigervnc
+# cockpit.socket
+
+
 rpm -qa | sort | grep kernel
 rpm -qa | sort | grep mesa
 rpm -qa | sort | grep mutter
