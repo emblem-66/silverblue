@@ -5,7 +5,6 @@ ca.edestcroix.Recordbox
 com.bitwarden.desktop
 com.github.tchx84.Flatseal
 com.heroicgameslauncher.hgl
-com.jeffser.Pigment
 com.spotify.Client
 com.transmissionbt.Transmission
 com.usebottles.bottles
@@ -13,7 +12,6 @@ com.valvesoftware.Steam
 com.valvesoftware.Steam.CompatibilityTool.Proton-GE
 io.github.cboxdoerfer.FSearch
 io.github.celluloid_player.Celluloid
-io.github.Cookiiieee.WSelector
 org.gnome.Calculator
 org.gnome.FileRoller
 org.gnome.Loupe
