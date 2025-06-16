@@ -4,3 +4,8 @@ smartmontools
 libratbag-ratbagd
 solaar-udev
 cockpit
+cockpit-machines
+cockpit-podman
+cockpit-files
+cockpit-navigator
+cockpit-selinux
