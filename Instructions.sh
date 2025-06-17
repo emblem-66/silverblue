@@ -24,7 +24,7 @@ curl -sSL https://raw.githubusercontent.com/emblem-66/Silverblue/refs/heads/main
 curl -sSL https://raw.githubusercontent.com/emblem-66/Silverblue/refs/heads/main/dnf-copr.list | xargs -r dnf copr remove -y
 
 # Tailscale repo remove
-#rm /etc/yum.repos.d/tailscale.repo
+rm /etc/yum.repos.d/tailscale.repo
 
 # Netbird
 
@@ -39,6 +39,8 @@ repo_gpgcheck=1
 EOF
 
 dnf install -y netbird
+
+rm /etc/yum.repos.d/netbird.repo
 
 # Check packages
 #curl -sSL https://raw.githubusercontent.com/emblem-66/Silverblue/refs/heads/main/.list | xargs -r rpm -qa | sort | grep
