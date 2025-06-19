@@ -3,3 +3,4 @@ flatpak-update.timer
 tailscaled.service
 sshd.service
 cockpit.socket
+libvirtd
