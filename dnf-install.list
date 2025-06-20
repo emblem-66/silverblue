@@ -3,6 +3,7 @@ tailscale
 smartmontools
 libratbag-ratbagd
 solaar-udev
+libvirt
 cockpit
 cockpit-machines
 cockpit-podman
