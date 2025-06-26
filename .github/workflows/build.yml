@@ -38,7 +38,7 @@ jobs:
     #  run: podman build . -t ghcr.io/emblem-66/silverblue:latest
     - name: Build Silverblue Image
       shell: bash
-      run: podman build ./Containerfile -t ghcr.io/emblem-66/silverblue:latest
+      run: podman build . -t ghcr.io/emblem-66/silverblue:latest
     - name: Build Serverblue Image
       shell: bash
       run: podman build . -t ghcr.io/emblem-66/serverblue:latest
