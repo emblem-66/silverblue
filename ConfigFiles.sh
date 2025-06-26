@@ -14,3 +14,10 @@ echo -e "[Unit]\nDescription=Update Flatpaks\n[Timer]\nOnCalendar=*:0/4\nPersist
 
 # Morewaita Icons
 git clone https://github.com/somepaulo/MoreWaita.git /usr/share/icons/MoreWaita/
+
+# Repo cleanup
+rm -rf /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:phracek:PyCharm.repo
+rm -rf /etc/yum.repos.d/fedora-cisco-openh264.repo
+rm -rf /etc/yum.repos.d/google-chrome.repo
+rm -rf /etc/yum.repos.d/rpmfusion-nonfree-nvidia-driver.repo
+rm -rf /etc/yum.repos.d/rpmfusion-nonfree-steam.repo
