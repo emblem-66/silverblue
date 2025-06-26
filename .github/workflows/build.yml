@@ -1,0 +1,46 @@
+name: Silverblue
+
+on:
+  schedule:
+    - cron: "0 7 * * *"
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - '**.md'
+      - '**.txt'
+      - '**.sh'
+      - '**.list'
+  workflow_dispatch:
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Maximize build disk space (Only remove unwanted software)
+      uses: AdityaGarg8/remove-unwanted-software@v5
+    - name: Checkout Push to Registry action
+      uses: actions/checkout@v4
+    - name: Log in to GHCR
+      uses: podman/login-action@v3
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+    - name: Build image
+      run: |
+        podman build -t ghcr.io/${{ github.repository_owner }}/silverblue-custom:latest .
+    - name: Push image
+      run: |
+        podman push ghcr.io/${{ github.repository_owner }}/silverblue-custom:latest
+    - name: Sign image with cosign
+      uses: sigstore/cosign-installer@v3
+      with:
+        cosign-release: "v2.2.2"  # or latest stable
+    - name: Sign the container image
+      env:
+        COSIGN_PASSWORD: ${{ secrets.COSIGN_PASSWORD }} # Optional if key is encrypted
+      run: |
+        cosign sign --key env://COSIGN_PRIVATE_KEY \
+          ghcr.io/${{ github.repository_owner }}/silverblue-custom:latest
