@@ -22,12 +22,9 @@ jobs:
       uses: AdityaGarg8/remove-unwanted-software@v5
     - name: Checkout Push to Registry action
       uses: actions/checkout@v4
-    - name: Log in to GHCR
-      uses: podman/login-action@v3
-      with:
-        registry: ghcr.io
-        username: ${{ github.actor }}
-        password: ${{ secrets.GITHUB_TOKEN }}
+    - name: Login to ghcr.io
+      shell: bash
+      run: podman login ghcr.io -u emblem-66 -p ${{ secrets.GITHUB_TOKEN }}
     - name: Build image
       run: |
         podman build -t ghcr.io/${{ github.repository_owner }}/silverblue-custom:latest .
