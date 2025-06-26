@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Maximize build disk space (Only remove unwanted software)
-      uses: AdityaGarg8/remove-unwanted-software@v4.1
+      uses: AdityaGarg8/remove-unwanted-software@v5
       with:
           remove-android: 'true'
           remove-dotnet: 'true'
@@ -30,13 +30,24 @@ jobs:
           remove-swapfile: 'true'
     - name: Checkout Push to Registry action
       uses: actions/checkout@v4
-    - name: Build Image
-      shell: bash
-      run: podman build . -t ghcr.io/emblem-66/silverblue:latest
     - name: Login to ghcr.io
       shell: bash
       run: podman login ghcr.io -u emblem-66 -p ${{ secrets.GITHUB_TOKEN }}
-    - name: Push Image to ghcr.io
+    #- name: Build Image
+    #  shell: bash
+    #  run: podman build . -t ghcr.io/emblem-66/silverblue:latest
+    - name: Build Silverblue Image
+      shell: bash
+      run: podman build Containerfile -t ghcr.io/emblem-66/silverblue:latest
+    - name: Build Serverblue Image
+      shell: bash
+      run: podman build . -t ghcr.io/emblem-66/serverblue:latest
+    #- name: Push Image to ghcr.io
+    #  shell: bash
+    #  run: podman push ghcr.io/emblem-66/silverblue:latest
+    - name: Push Silverblue Image to ghcr.io
       shell: bash
       run: podman push ghcr.io/emblem-66/silverblue:latest
-      
+    - name: Push Serverblue Image to ghcr.io
+      shell: bash
+      run: podman push ghcr.io/emblem-66/serverblue:latest
