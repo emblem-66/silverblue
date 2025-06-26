@@ -3,9 +3,10 @@ FROM quay.io/fedora/fedora-silverblue:latest
 #RUN bootc container lint
 
 RUN <<-'EOT' sh
-	set -eu
+	set -ouex pipefail
+
 	curl -s https://raw.githubusercontent.com/Emblem-66/Silverblue/refs/heads/main/Instructions.sh | bash 
-  rm -rf /tmp/* /var/*
+	rm -rf /tmp/* /var/*
 	rpm-ostree cleanup -m
-  ostree container commit
+	ostree container commit
 EOT
