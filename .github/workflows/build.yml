@@ -16,6 +16,9 @@ on:
 jobs: 
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     steps:
     - name: Maximize build disk space (Only remove unwanted software)
       uses: AdityaGarg8/remove-unwanted-software@v5
