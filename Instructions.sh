@@ -23,8 +23,6 @@ curl -sSL https://raw.githubusercontent.com/emblem-66/Silverblue/refs/heads/main
 # COPR repo remove
 curl -sSL https://raw.githubusercontent.com/emblem-66/Silverblue/refs/heads/main/dnf-copr.list | xargs -r dnf copr remove -y
 
-dnf install -y https://github.com/MediaBrowser/Emby.Releases/releases/download/4.8.11.0/emby-server-rpm_4.8.11.0_x86_64.rpm
-
 rm /etc/yum.repos.d/tailscale.repo
 
 # Check packages
