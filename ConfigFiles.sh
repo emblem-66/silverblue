@@ -4,6 +4,12 @@ set -ouex pipefail
 
 # DNF auto updates
 sed -i 's/#AutomaticUpdatePolicy=none/AutomaticUpdatePolicy=stage/' /etc/rpm-ostreed.conf
+sed -i 's/enabled=1/enabled=0/' \
+/etc/yum.repos.d/_copr:copr.fedorainfracloud.org:phracek:PyCharm.repo \
+/etc/yum.repos.d/fedora-cisco-openh264.repo \
+/etc/yum.repos.d/google-chrome.repo \
+/etc/yum.repos.d/rpmfusion-nonfree-nvidia-driver.repo \
+/etc/yum.repos.d/rpmfusion-nonfree-steam.repo
 
 # Flatpak setup
 #echo -e "[Unit]\nDescription=Update Flatpaks\n[Service]\nType=oneshot\nExecStart=/usr/bin/flatpak remote-modify --disable fedora ; /usr/bin/flatpak remote-modify --enable flathub ; /usr/bin/flatpak uninstall --unused -y --noninteractive ; /usr/bin/bash -c 'curl -sSL https://raw.githubusercontent.com/emblem-66/Silverblue/refs/heads/main/flatpak-apps.list | xargs -r flatpak install -y --noninteractive' ; /usr/bin/flatpak update -y --noninteractive\n[Install]\nWantedBy=default.target\n" | tee /etc/systemd/system/flatpak-update.service
