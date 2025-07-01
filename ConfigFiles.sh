@@ -13,8 +13,12 @@ sed -i 's/enabled=1/enabled=0/' \
 
 
 cat /etc/rpm-ostreed.conf 
+
+
 cat /etc/systemd/system/timers.target.wants/rpm-ostreed-automatic.timer
-cat /usr/lib/systemd/system/rpm-ostreed-automatic.timer
+
+
+#cat /usr/lib/systemd/system/rpm-ostreed-automatic.timer
 
 # cat /usr/lib/systemd/system/bootc-fetch-apply-updates.service
 #[Unit]
