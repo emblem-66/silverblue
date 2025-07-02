@@ -1,6 +1,7 @@
 adw-gtk3-theme
 tailscale
 distrobox
+podman-compose
 smartmontools
 libratbag-ratbagd
 solaar-udev
