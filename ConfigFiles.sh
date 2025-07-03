@@ -122,6 +122,11 @@ dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-
 dnf install --setopt=install_weak_deps=False --nogpgcheck --skip-unavailable -y deluge-web
 systemctl enable deluge-web
 
+dnf install --setopt=install_weak_deps=False --nogpgcheck --skip-unavailable -y transmission
+systemctl enable transmission
+
+
+
 # Jellyfin https://idroot.us/install-jellyfin-fedora-42/
 #dnf remove -y ffmpeg-free
 dnf install --setopt=install_weak_deps=False --nogpgcheck --skip-unavailable --allowerasing -y jellyfin
