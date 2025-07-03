@@ -119,11 +119,11 @@ dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-
 
 
 # DELUGE https://idroot.us/install-deluge-fedora-42/
-dnf --setopt=install_weak_deps=False --nogpgcheck --skip-unavailable -y deluge-web
+dnf install --setopt=install_weak_deps=False --nogpgcheck --skip-unavailable -y deluge-web
 systemctl enable deluge-web
 
 # Jellyfin https://idroot.us/install-jellyfin-fedora-42/
-dnf --setopt=install_weak_deps=False --nogpgcheck --skip-unavailable -y jellyfin
+dnf install --setopt=install_weak_deps=False --nogpgcheck --skip-unavailable -y jellyfin
 systemctl enable jellyfin
 #firewall-cmd --permanent --add-service=jellyfin
 #firewall-cmd --permanent --add-port=8096/tcp
@@ -137,12 +137,12 @@ systemctl enable jellyfin
 # NEXTCLOUD https://fedoraproject.org/wiki/Nextcloud
 
 # SAMBA https://idroot.us/install-samba-fedora-42/
-dnf --setopt=install_weak_deps=False --nogpgcheck --skip-unavailable -y samba samba-common samba-client
+dnf install --setopt=install_weak_deps=False --nogpgcheck --skip-unavailable -y samba samba-common samba-client
 systemctl enable smb nmb
 
 # immich
 dnf copr enable -y mbooth/immich 
-dnf --setopt=install_weak_deps=False --nogpgcheck --skip-unavailable -y immich
+dnf install --setopt=install_weak_deps=False --nogpgcheck --skip-unavailable -y immich
 
 # Caddy https://idroot.us/install-caddy-fedora-42/
 # Nginx https://idroot.us/install-nginx-fedora-42/
