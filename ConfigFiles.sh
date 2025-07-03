@@ -119,8 +119,8 @@ dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-
 
 
 # DELUGE https://idroot.us/install-deluge-fedora-42/
-dnf install --setopt=install_weak_deps=False --nogpgcheck --skip-unavailable -y deluge-web
-systemctl enable deluge-web
+dnf install --setopt=install_weak_deps=False --nogpgcheck --skip-unavailable -y deluge
+systemctl enable deluge
 
 dnf install --setopt=install_weak_deps=False --nogpgcheck --skip-unavailable -y transmission
 systemctl enable transmission
