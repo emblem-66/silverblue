@@ -123,8 +123,8 @@ dnf install --setopt=install_weak_deps=False --nogpgcheck --skip-unavailable -y 
 systemctl enable deluge-web
 
 # Jellyfin https://idroot.us/install-jellyfin-fedora-42/
-dnf remove -y ffmpeg-free
-dnf install --setopt=install_weak_deps=False --nogpgcheck --skip-unavailable -y jellyfin
+#dnf remove -y ffmpeg-free
+dnf install --setopt=install_weak_deps=False --nogpgcheck --skip-unavailable --allowerasing -y jellyfin
 systemctl enable jellyfin
 #firewall-cmd --permanent --add-service=jellyfin
 #firewall-cmd --permanent --add-port=8096/tcp
