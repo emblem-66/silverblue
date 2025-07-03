@@ -84,3 +84,70 @@ rm -rf /etc/yum.repos.d/fedora-cisco-openh264.repo
 rm -rf /etc/yum.repos.d/google-chrome.repo
 rm -rf /etc/yum.repos.d/rpmfusion-nonfree-nvidia-driver.repo
 rm -rf /etc/yum.repos.d/rpmfusion-nonfree-steam.repo
+
+dnf install -y podman podman-compose
+
+
+
+#---------------------
+
+# echo -e " " | tee /etc/containers/podman-compose.yml
+cat <<EOF > /etc/containers/podman-compose.yml
+services:
+  jellyfin:
+    image: lscr.io/linuxserver/jellyfin:latest
+    container_name: jellyfin
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Prague
+      - JELLYFIN_PublishedServerUrl=http://10.0.0.111 #optional
+    volumes:
+      - .config:/config
+      - /data/tvshows:/data/tvshows:ro
+      - /data/movies:/data/movies:ro
+    devices:
+      - /dev/dri:/dev/dri #Use for Intel QuickSync
+    ports:
+      - 8096:8096
+      - 7359:7359/udp #Service Discovery
+      - 1900:1900/udp #Client Discovery
+    restart: unless-stopped
+EOF
+
+# echo -e "  " | tee /etc/systemd/system/podman-compose.service
+cat <<EOF > /etc/containers/podman-compose.yml
+[Unit]
+Description=Jellyfin via Podman Compose
+Requires=network-online.target
+After=network-online.target
+[Service]
+Type=oneshot
+RemainAfterExit=true
+WorkingDirectory=/etc/containers/jellyfin-compose
+ExecStartPre=/usr/bin/podman-compose pull
+ExecStart=/usr/bin/podman-compose up -d
+ExecStop=/usr/bin/podman-compose down
+TimeoutStartSec=300
+TimeoutStopSec=60
+[Install]
+WantedBy=multi-user.target
+EOF
+
+
+# echo -e "  " | tee /etc/systemd/system/podman-compose.timer
+cat <<EOF > /etc/containers/podman-compose.yml
+[Unit]
+Description=Weekly update for Jellyfin Podman Compose stack
+[Timer]
+OnCalendar=weekly
+Persistent=true
+Unit=jellyfin-compose.service
+[Install]
+WantedBy=timers.target
+EOF
+
+systemctl enable podman-compose.service
+systemctl enable podman-compose.timer
+
+systemctl list-timers podman-compose.timer
