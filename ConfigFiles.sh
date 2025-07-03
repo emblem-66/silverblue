@@ -117,7 +117,6 @@ dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-
 # https://idroot.us/install-ftp-server-fedora-42/
 
 
-hostnamectl set-hostname --static server
 
 # DELUGE https://idroot.us/install-deluge-fedora-42/
 dnf --setopt=install_weak_deps=False --nogpgcheck --skip-unavailable -y deluge-web
