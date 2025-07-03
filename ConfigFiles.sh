@@ -101,17 +101,17 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Europe/Prague
-      - JELLYFIN_PublishedServerUrl=http://10.0.0.111 #optional
+      #- JELLYFIN_PublishedServerUrl=http://10.0.0.111 #optional
     volumes:
       - .config:/config
-      - /data/tvshows:/data/tvshows:ro
-      - /data/movies:/data/movies:ro
+      - /mnt/hdd3/Videos/Serialy:/data/tvshows:ro
+      - /mnt/hdd3/Videos/Filmy:/data/movies:ro
     devices:
       - /dev/dri:/dev/dri #Use for Intel QuickSync
     ports:
       - 8096:8096
-      - 7359:7359/udp #Service Discovery
-      - 1900:1900/udp #Client Discovery
+      #- 7359:7359/udp #Service Discovery
+      #- 1900:1900/udp #Client Discovery
     restart: unless-stopped
 EOF
 
