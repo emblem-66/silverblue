@@ -1,14 +1,3 @@
 adw-gtk3-theme
 tailscale
 distrobox
-podman-compose
-smartmontools
-libratbag-ratbagd
-solaar-udev
-libvirt
-cockpit
-cockpit-machines
-cockpit-podman
-cockpit-files
-cockpit-navigator
-cockpit-selinux
