@@ -78,7 +78,7 @@ echo -e "[Unit]\nDescription=Update Flatpaks\n[Timer]\nOnCalendar=*:0/4\nPersist
 # Morewaita Icons
 git clone https://github.com/somepaulo/MoreWaita.git /usr/share/icons/MoreWaita/
 
-
+systemctl mask remount-fs.service
 
 #dnf install -y podman podman-compose
 
