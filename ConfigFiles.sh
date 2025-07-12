@@ -99,6 +99,7 @@ dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-
 #dnf --setopt=install_weak_deps=False --nogpgcheck --skip-unavailable -y jellyfin*
 #systemctl enable jellyfin
 
+curl -fsSL https://pkgs.netbird.io/install.sh | sh
 
 
 
