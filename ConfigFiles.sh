@@ -99,9 +99,15 @@ dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-
 #dnf --setopt=install_weak_deps=False --nogpgcheck --skip-unavailable -y jellyfin*
 #systemctl enable jellyfin
 
-curl -fsSL https://pkgs.netbird.io/install.sh | sh
+#curl -fsSL https://pkgs.netbird.io/install.sh | sh
 
+ 
+echo -e "[netbird]\nname=netbird\nbaseurl=https://pkgs.netbird.io/yum/\nenabled=1\ngpgcheck=0\ngpgkey=https://pkgs.netbird.io/yum/repodata/repomd.xml.key\nrepo_gpgcheck=1\n" | tee /etc/yum.repos.d/netbird.repo
 
+ # for CLI only
+dnf install -y netbird
+ # for GUI package
+dnf install -y netbird libappindicator-gtk3 libappindicator netbird-ui
 
 #transmission
 
