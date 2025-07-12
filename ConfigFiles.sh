@@ -49,9 +49,9 @@ sed -i 's/enabled=1/enabled=0/' \
 #sed -i 's|^OnUnitInactiveSec=.*|OnUnitInactiveSec=7d\nPersistent=true|' /usr/lib/systemd/system/bootc-fetch-apply-updates.timer
 #sed -i 's|#AutomaticUpdatePolicy.*|AutomaticUpdatePolicy=stage|' /etc/rpm-ostreed.conf
 #sed -i 's|#LockLayering.*|LockLayering=true|' /etc/rpm-ostreed.conf
-cat /usr/lib/systemd/system/bootc-fetch-apply-updates.service
+#cat /usr/lib/systemd/system/bootc-fetch-apply-updates.service
 
-cat /usr/lib/systemd/system/bootc-fetch-apply-updates.timer
+#cat /usr/lib/systemd/system/bootc-fetch-apply-updates.timer
 
 
 # Disable the automatic reboot on the update service for bootc
@@ -72,24 +72,19 @@ cat /usr/lib/systemd/system/bootc-fetch-apply-updates.timer
 #echo -e "[Unit]\nDescription=Update Flatpaks\n[Service]\nType=oneshot\nExecStart=/usr/bin/flatpak remote-modify --disable fedora ; /usr/bin/flatpak remote-modify --enable flathub ; /usr/bin/flatpak uninstall --unused -y --noninteractive ; /usr/bin/bash -c 'curl -sSL https://raw.githubusercontent.com/emblem-66/Silverblue/refs/heads/main/flatpak-apps.list | xargs -r flatpak install -y --noninteractive' ; /usr/bin/bash -c 'cat /var/home/$(whoami)/.flatpak-apps.list | xargs -r flatpak install -y --noninteractive' ; /usr/bin/flatpak update -y --noninteractive\n[Install]\nWantedBy=default.target\n" | tee /etc/systemd/system/flatpak-update.service
 #echo -e "[Unit]\nDescription=Update Flatpaks\n[Timer]\nOnCalendar=*:0/4\nPersistent=true\n[Install]\nWantedBy=timers.target\n" | tee /etc/systemd/system/flatpak-update.timer
 
-echo -e "[Unit]\nDescription=Update Flatpaks\n[Service]\nType=oneshot\nExecStart=/usr/bin/flatpak remote-modify --disable fedora ; /usr/bin/flatpak remote-modify --enable flathub ; /usr/bin/flatpak uninstall --unused -y --noninteractive ; /usr/bin/bash -c 'curl -sSL https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/flatpak.list | xargs -r flatpak install -y --noninteractive' ; /usr/bin/bash -c 'cat /var/home/$(whoami)/.flatpak-apps.list | xargs -r flatpak install -y --noninteractive' ; /usr/bin/flatpak update -y --noninteractive\n[Install]\nWantedBy=default.target\n" | tee /etc/systemd/system/flatpak-update.service
+echo -e "[Unit]\nDescription=Update Flatpaks\n[Service]\nType=oneshot\nExecStart=/usr/bin/flatpak remote-modify --disable fedora ; /usr/bin/flatpak remote-modify --enable flathub ; /usr/bin/flatpak uninstall --unused -y --noninteractive ; /usr/bin/bash -c 'curl -sSL https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/flatpak/packages | xargs -r flatpak install -y --noninteractive' ; /usr/bin/bash -c 'cat ~/.flatpak-apps.list | xargs -r flatpak install -y --noninteractive' ; /usr/bin/flatpak update -y --noninteractive\n[Install]\nWantedBy=default.target\n" | tee /etc/systemd/system/flatpak-update.service
 echo -e "[Unit]\nDescription=Update Flatpaks\n[Timer]\nOnCalendar=*:0/4\nPersistent=true\n[Install]\nWantedBy=timers.target\n" | tee /etc/systemd/system/flatpak-update.timer
 
 # Morewaita Icons
 git clone https://github.com/somepaulo/MoreWaita.git /usr/share/icons/MoreWaita/
 
-# Repo cleanup
-rm -rf /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:phracek:PyCharm.repo
-rm -rf /etc/yum.repos.d/fedora-cisco-openh264.repo
-rm -rf /etc/yum.repos.d/google-chrome.repo
-rm -rf /etc/yum.repos.d/rpmfusion-nonfree-nvidia-driver.repo
-rm -rf /etc/yum.repos.d/rpmfusion-nonfree-steam.repo
+
 
 #dnf install -y podman podman-compose
 
 #dnf install -y --setopt=install_weak_deps=False --nogpgcheck --skip-unavailable NetworkManager
-dnf install --setopt=install_weak_deps=False --nogpgcheck --skip-unavailable -y cockpit* #* #cockpit-machines cockpit-podman cockpit-files cockpit-navigator cockpit-selinux
-systemctl enable cockpit.socket || true
+#dnf install --setopt=install_weak_deps=False --nogpgcheck --skip-unavailable -y cockpit* #* #cockpit-machines cockpit-podman cockpit-files cockpit-navigator cockpit-selinux
+#systemctl enable cockpit.socket || true
 
 #dnf install -y --setopt=install_weak_deps=False --nogpgcheck --skip-unavailable podman podman-compose
 
@@ -97,7 +92,7 @@ systemctl enable cockpit.socket || true
 #systemctl enable httpd.service || true
 
 # rpm-fusion
-dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+#dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
 #dnf install -y --allowerasing libavcodec-freeworld mesa*freeworld ffmpeg gstreamer*
 
@@ -119,18 +114,18 @@ dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-
 
 
 # DELUGE https://idroot.us/install-deluge-fedora-42/
-dnf install --setopt=install_weak_deps=False --nogpgcheck --skip-unavailable -y deluge
+#dnf install --setopt=install_weak_deps=False --nogpgcheck --skip-unavailable -y deluge
 #systemctl enable deluge
 
-dnf install --setopt=install_weak_deps=False --nogpgcheck --skip-unavailable -y transmission
+#dnf install --setopt=install_weak_deps=False --nogpgcheck --skip-unavailable -y transmission
 #systemctl enable transmission
 
 
 
 # Jellyfin https://idroot.us/install-jellyfin-fedora-42/
 #dnf remove -y ffmpeg-free
-dnf install --setopt=install_weak_deps=False --nogpgcheck --skip-unavailable --allowerasing -y jellyfin
-systemctl enable jellyfin
+#dnf install --setopt=install_weak_deps=False --nogpgcheck --skip-unavailable --allowerasing -y jellyfin
+#systemctl enable jellyfin
 #firewall-cmd --permanent --add-service=jellyfin
 #firewall-cmd --permanent --add-port=8096/tcp
 #firewall-cmd --permanent --add-port=8920/tcp
@@ -143,12 +138,12 @@ systemctl enable jellyfin
 # NEXTCLOUD https://fedoraproject.org/wiki/Nextcloud
 
 # SAMBA https://idroot.us/install-samba-fedora-42/
-dnf install --setopt=install_weak_deps=False --nogpgcheck --skip-unavailable -y samba samba-common samba-client
-systemctl enable smb nmb
+#dnf install --setopt=install_weak_deps=False --nogpgcheck --skip-unavailable -y samba samba-common samba-client
+#systemctl enable smb nmb
 
 # immich
-dnf copr enable -y mbooth/immich 
-dnf install --setopt=install_weak_deps=False --nogpgcheck --skip-unavailable -y immich
+#dnf copr enable -y mbooth/immich 
+#dnf install --setopt=install_weak_deps=False --nogpgcheck --skip-unavailable -y immich
 
 # Caddy https://idroot.us/install-caddy-fedora-42/
 # Nginx https://idroot.us/install-nginx-fedora-42/
