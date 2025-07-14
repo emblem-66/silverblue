@@ -22,7 +22,7 @@ jobs:
     steps:
     - name: Checkout Push to Registry action
       uses: actions/checkout@v4
-    - name: Login to ghcr.io
+    - name: Making the image
       shell: bash
       run: |
         podman login ghcr.io -u emblem-66 -p ${{ secrets.GITHUB_TOKEN }}
