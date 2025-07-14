@@ -36,3 +36,4 @@ RUN uname -r \
  && rm -rf /var/* /tmp/* \
  && ostree container commit
 RUN bootc container lint
+RUN rpm -qa | sort
