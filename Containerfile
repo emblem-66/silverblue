@@ -33,5 +33,6 @@ RUN uname -r \
  && systemctl mask remount-fs.service \
  && dnf clean all \
  && rpm-ostree cleanup -m \
+ && rm -rf /var/* /tmp/* \
  && ostree container commit
 RUN bootc container lint
