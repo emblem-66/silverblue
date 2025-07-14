@@ -2,4 +2,3 @@ rpm-ostreed-automatic.timer
 flatpak-update.timer
 sshd.service
 tailscaled.service
-syncthing.service
