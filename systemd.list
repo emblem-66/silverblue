@@ -2,3 +2,4 @@ rpm-ostreed-automatic.timer
 flatpak-update.timer
 sshd.service
 tailscaled.service
+systemctl --user enable syncthing.service
