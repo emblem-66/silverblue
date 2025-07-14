@@ -22,10 +22,15 @@ jobs:
     steps:
     - name: Checkout Push to Registry action
       uses: actions/checkout@v4
+#    - name: Making the image
+#      shell: bash
+#      run: |
+#        podman login ghcr.io -u ${{ github.actor }} -p ${{ secrets.GITHUB_TOKEN }}
+#        podman build -f Containerfile -t ghcr.io/emblem-66/silverblue:latest
+#        podman push ghcr.io/emblem-66/silverblue:latest
     - name: Making the image
       shell: bash
       run: |
-        podman login ghcr.io -u emblem-66 -p ${{ secrets.GITHUB_TOKEN }}
-        podman build -f Containerfile -t ghcr.io/emblem-66/silverblue:latest
-        podman push ghcr.io/emblem-66/silverblue:latest
-
+        podman login ghcr.io -u ${{ github.actor }} -p ${{ secrets.GITHUB_TOKEN }}
+        podman build -f Containerfile -t ghcr.io/${{ github.actor }}/${{ github.event.repository.name }}:latest
+        podman push ghcr.io/${{ github.actor }}/${{ github.event.repository.name }}:latest
