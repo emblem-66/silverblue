@@ -25,6 +25,10 @@ RUN uname -r \
     tailscale \
     syncthing \
     distrobox \
+ && dnf install -y --allowerasing \
+    mesa*freeworld \
+    ffmpeg \
+    libavcodec-freeworld
  && systemctl enable \
     rpm-ostreed-automatic.timer \
     flatpak-update.timer \
