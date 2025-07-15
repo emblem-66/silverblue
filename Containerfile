@@ -29,6 +29,7 @@ RUN uname -r \
     mesa*freeworld \
     ffmpeg \
     libavcodec-freeworld \
+    gstreamer1-plugins-bad-freeworld \
  && systemctl enable \
     rpm-ostreed-automatic.timer \
     flatpak-update.timer \
