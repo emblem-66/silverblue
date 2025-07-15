@@ -28,7 +28,7 @@ RUN uname -r \
  && dnf install -y --allowerasing \
     mesa*freeworld \
     ffmpeg \
-    libavcodec-freeworld
+    libavcodec-freeworld \
  && systemctl enable \
     rpm-ostreed-automatic.timer \
     flatpak-update.timer \
