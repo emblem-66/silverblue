@@ -20,7 +20,6 @@ RUN uname -r \
     virtualbox-guest-additions \
     malcontent-control \
     fedora-chromium-config* \
- && dnf upgrade -y \
  && dnf install -y \
     adw-gtk3-theme \
     tailscale \
