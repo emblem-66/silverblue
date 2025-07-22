@@ -33,7 +33,8 @@ RUN uname -r \
     libavcodec-freeworld \
     gstreamer1-plugins-bad-freeworld \
  && systemctl enable \
-    rpm-ostreed-automatic.timer \
+    #rpm-ostreed-automatic.timer \
+    bootc-update.timer \
     flatpak-update.timer \
     sshd.service \
     tailscaled.service \
