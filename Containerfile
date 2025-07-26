@@ -44,8 +44,9 @@ RUN echo "" \
  && ostree container commit \
  && bootc container lint
 
-
-#dnf config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo
-#curl -o /etc/yum.repos.d/tailscale.repo https://pkgs.tailscale.com/stable/fedora/tailscale.repo
-#dnf install -y tailscale
-#rm /etc/yum.repos.d/tailscale.repo
+# Tailscale
+# && dnf config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo \
+# && curl -o /etc/yum.repos.d/tailscale.repo https://pkgs.tailscale.com/stable/fedora/tailscale.repo \
+# && dnf install -y tailscale \
+# &&  systemctl enable tailscaled.service \
+# && rm /etc/yum.repos.d/tailscale.repo \
