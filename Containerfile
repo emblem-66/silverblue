@@ -47,6 +47,7 @@ RUN echo "" \
 # Tailscale
 # && dnf config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo \
 # && curl -o /etc/yum.repos.d/tailscale.repo https://pkgs.tailscale.com/stable/fedora/tailscale.repo \
+# && dnf upgrade -y \
 # && dnf install -y tailscale \
 # &&  systemctl enable tailscaled.service \
 # && rm /etc/yum.repos.d/tailscale.repo \
