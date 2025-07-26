@@ -43,3 +43,9 @@ RUN echo "" \
  && rpm -qa | sort && jq -r .packages[] /usr/share/rpm-ostree/treefile.json \
  && ostree container commit \
  && bootc container lint
+
+
+#dnf config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo
+#curl -o /etc/yum.repos.d/tailscale.repo https://pkgs.tailscale.com/stable/fedora/tailscale.repo
+#dnf install -y tailscale
+#rm /etc/yum.repos.d/tailscale.repo
