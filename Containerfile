@@ -16,7 +16,7 @@ RUN echo "" \
  && git clone https://github.com/somepaulo/MoreWaita.git /usr/share/icons/MoreWaita/ \
  && dnf config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo \
  && dnf config-manager addrepo --from-repofile=https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo \
-# && dnf install -y brave-browser \
+ && dnf install -y brave-browser \
  && dnf upgrade -y \
  && dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm \
 # && dnf config-manager setopt fedora-cisco-openh264.enabled=1 \
