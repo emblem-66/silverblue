@@ -15,6 +15,8 @@ RUN echo "" \
  && echo -e "[Unit]\nDescription=Update Flatpaks\n[Timer]\nOnCalendar=*:0/4\nPersistent=true\n[Install]\nWantedBy=timers.target\n" | tee /usr/lib/systemd/system/flatpak-update.timer \
  && git clone https://github.com/somepaulo/MoreWaita.git /usr/share/icons/MoreWaita/ \
  && dnf config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo \
+ && dnf config-manager addrepo --from-repofile=https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo \
+# && dnf install -y brave-browser \
  && dnf upgrade -y \
  && dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm \
 # && dnf config-manager setopt fedora-cisco-openh264.enabled=1 \
@@ -57,6 +59,10 @@ RUN echo "" \
 # &&  systemctl enable tailscaled.service \
 # && rm /etc/yum.repos.d/tailscale.repo \
 # && dnf config-manager setopt tailscale.enabled=0 \
+
+# Brave
+# && dnf config-manager addrepo --from-repofile=https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo \
+# && dnf install -y brave-browser \
 
 # RPM Fusion - Setup
 # && dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm \
