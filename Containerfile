@@ -15,11 +15,10 @@ RUN echo "" \
  && echo -e "[Unit]\nDescription=Update Flatpaks\n[Timer]\nOnCalendar=*:0/4\nPersistent=true\n[Install]\nWantedBy=timers.target\n" | tee /usr/lib/systemd/system/flatpak-update.timer \
  && git clone https://github.com/somepaulo/MoreWaita.git /usr/share/icons/MoreWaita/ \
  && dnf config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo \
-# && dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm \
-# && dnf config-manager setopt fedora-cisco-openh264.enabled=1 \
+ && dnf upgrade -y \
  && dnf config-manager setopt rpmfusion-nonfree-steam.enabled=1 \
  && dnf upgrade -y \
- && dnf install -y steam \
+ && dnf install -y steam steam-libs \
  && dnf remove -y \
     firefox* \
     gnome-shell-extension* \
@@ -45,7 +44,7 @@ RUN echo "" \
  && dnf clean all \
  && rpm-ostree cleanup -m \
  && rm -rf /var/* /tmp/* \
- && rpm -qa | sort && jq -r .packages[] /usr/share/rpm-ostree/treefile.json \
+# && rpm -qa | sort && jq -r .packages[] /usr/share/rpm-ostree/treefile.json \
  && ostree container commit \
  && bootc container lint
 
@@ -56,3 +55,17 @@ RUN echo "" \
 # && dnf install -y tailscale \
 # &&  systemctl enable tailscaled.service \
 # && rm /etc/yum.repos.d/tailscale.repo \
+# && dnf config-manager setopt tailscale.enabled=0 \
+
+# RPM Fusion - Setup
+# && dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm \
+# && dnf config-manager setopt fedora-cisco-openh264.enabled=1 \
+# && rpm --import https://rpmfusion.org/keys \
+
+# RPM Fusion - Steam
+# && dnf config-manager setopt rpmfusion-nonfree-steam.enabled=1 \
+# && dnf upgrade -y \
+# && dnf install -y steam steam-libs \
+
+# RPM Fusion - Freeworld
+
