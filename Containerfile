@@ -1,6 +1,6 @@
 FROM quay.io/fedora/fedora-silverblue:latest
 RUN echo "" \
- && rm -rf /opt \
+# && rm -rf /opt \
  && ln -s -T /var/opt /opt \
 # && sed -i 's/#AutomaticUpdatePolicy=none/AutomaticUpdatePolicy=stage/' /etc/rpm-ostreed.conf \
  && echo -e "[Unit]\nDescription=Bootc Update\nConditionPathExists=/run/ostree-booted\n[Service]\nType=oneshot\nExecStart=/usr/bin/bootc update" | tee /usr/lib/systemd/system/bootc-update.service \
