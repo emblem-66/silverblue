@@ -36,12 +36,14 @@ RUN echo "" \
     tailscale \
     syncthing \
     distrobox \
+    libratbag-ratbagd \
  && systemctl enable \
     #rpm-ostreed-automatic.timer \
     bootc-update.timer \
     flatpak-update.timer \
     sshd.service \
     tailscaled.service \
+    ratbagd.service \
  && systemctl mask remount-fs.service \
  && dnf autoremove -y \
  && dnf clean all \
@@ -50,6 +52,11 @@ RUN echo "" \
 # && rpm -qa | sort && jq -r .packages[] /usr/share/rpm-ostree/treefile.json \
  && ostree container commit \
  && bootc container lint
+
+
+#cat /usr/share/dbus-1/system.d/org.freedesktop.ratbag1.conf
+#cat /usr/share/dbus-1/system-services/org.freedesktop.ratbag1.conf
+#cat /usr/share/systemd/system/ratbagd.service
 
 # Tailscale
 # && dnf config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo \
