@@ -26,6 +26,7 @@ RUN echo "" \
     adw-gtk3-theme \
     libratbag-ratbagd \
     tailscale \
+    unrar \
  && systemctl enable \
     #rpm-ostreed-automatic.timer \
     bootc-update.timer \
