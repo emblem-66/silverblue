@@ -18,7 +18,7 @@ RUN echo "" \
     gnome-shell-extension* \
     gnome-tour \
     yelp* \
-    gnome-software-rpm-ostree \
+    gnome-software* \ #-rpm-ostree \
     virtualbox-guest-additions \
     malcontent-control \
     fedora-chromium-config* \
