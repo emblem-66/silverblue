@@ -24,6 +24,7 @@ RUN echo "" \
     fedora-chromium-config* \
  && dnf install -y \
     adw-gtk3-theme \
+    piper \
     libratbag-ratbagd \
     tailscale \
     unrar \
