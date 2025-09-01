@@ -9,10 +9,13 @@ RUN echo "" \
  && dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm \
  && sed -i 's/enabled=1/enabled=0/' \
     /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:phracek:PyCharm.repo \
-#    /etc/yum.repos.d/fedora-cisco-openh264.repo \
-#    /etc/yum.repos.d/google-chrome.repo \
+    /etc/yum.repos.d/fedora-cisco-openh264.repo \
+    /etc/yum.repos.d/google-chrome.repo \
     /etc/yum.repos.d/rpmfusion-nonfree-nvidia-driver.repo \
     /etc/yum.repos.d/rpmfusion-nonfree-steam.repo \
+ && sed -i 's/enabled=0/enabled=1/' \
+    /etc/yum.repos.d/fedora-cisco-openh264.repo \
+    /etc/yum.repos.d/google-chrome.repo \
  && dnf upgrade -y \
  && dnf remove -y \
     firefox* \
@@ -29,7 +32,7 @@ RUN echo "" \
     libratbag-ratbagd \
     tailscale \
     unrar \
-    google-chrome-stable \
+    google-chrome* \
     chromium \
 && systemctl enable \
     #rpm-ostreed-automatic.timer \
