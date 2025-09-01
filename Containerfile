@@ -32,7 +32,7 @@ RUN echo "" \
     libratbag-ratbagd \
     tailscale \
     unrar \
-    google-chrome* \
+    google-chrome-stable \
     chromium \
 && systemctl enable \
     #rpm-ostreed-automatic.timer \
