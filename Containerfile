@@ -29,7 +29,6 @@ RUN echo "" \
     libratbag-ratbagd \
     tailscale \
     unrar \
-    chromium \
 && systemctl enable \
     #rpm-ostreed-automatic.timer \
     bootc-update.timer \
