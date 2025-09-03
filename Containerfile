@@ -30,6 +30,7 @@ RUN echo "" \
     tailscale \
     unrar \
  && echo -e "# Rapture FOXTROT \nKERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", ATTRS{idVendor}=="fffe", ATTRS{idProduct}=="0072", MODE="0660", GROUP="users", TAG+="uaccess", TAG+="udev-acl"" | tee /etc/udev/rules.d/99-via-usb.rules \
+ && cat /etc/udev/rules.d/99-via-usb.rules \
  && systemctl enable \
     #rpm-ostreed-automatic.timer \
     bootc-update.timer \
