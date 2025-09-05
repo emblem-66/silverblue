@@ -22,6 +22,8 @@ RUN echo "" \
     virtualbox-guest-additions \
     malcontent-control \
     fedora-chromium-config* \
+ && dnf copr enable ryanabx/cosmic-epoch \
+ && dnf install -y cosmic-desktop \
  && dnf install -y \
     adw-gtk3-theme \
     piper \
