@@ -1,4 +1,13 @@
-FROM quay.io/fedora/fedora-silverblue:latest
+FROM quay.io/fedora/fedora-bootc:latest
+#FROM quay.io/fedora/fedora-silverblue:latest
+RUN dnf install -y dnf5-plugins && dnf clean all
+RUN dnf install -y gnome-shell ptyxis nautilus xdg-user-dirs xdg-user-dirs-gtk 
+RUN dnf install -y flatpak
+RUN dnf install -y bash-completion tar bzip2
+RUN dnf install -y langpacks-en firewalld openssh git curl wget rsync 
+RUN systemctl enable gdm
+RUN systemctl set-default graphical.target
+
 RUN echo "" \
 # && sed -i 's/#AutomaticUpdatePolicy=none/AutomaticUpdatePolicy=stage/' /etc/rpm-ostreed.conf \
  && echo -e "[Unit]\nDescription=Bootc Update\nConditionPathExists=/run/ostree-booted\n[Service]\nType=oneshot\nExecStart=/usr/bin/bootc update" | tee /usr/lib/systemd/system/bootc-update.service \
@@ -47,3 +56,6 @@ RUN echo "" \
  && rm -rf /var/* /tmp/* \
  && ostree container commit \
  && bootc container lint
+
+
+
