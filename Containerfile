@@ -16,22 +16,21 @@ RUN echo "" \
  && echo -e "[Unit]\nDescription=Update Flatpaks\n[Timer]\nOnCalendar=*:0/4\nPersistent=true\n[Install]\nWantedBy=timers.target\n" | tee /usr/lib/systemd/system/flatpak-update.timer \
  && dnf config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo \
 # && dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm \
- && sed -i 's/enabled=1/enabled=0/' \
-    /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:phracek:PyCharm.repo \
-    /etc/yum.repos.d/fedora-cisco-openh264.repo \
-    /etc/yum.repos.d/google-chrome.repo \
-    /etc/yum.repos.d/rpmfusion-nonfree-nvidia-driver.repo \
-    /etc/yum.repos.d/rpmfusion-nonfree-steam.repo \
- && dnf upgrade -y \
- && dnf remove -y \
-    firefox* \
-    gnome-shell-extension* \
-    gnome-tour \
-    yelp* \
-    gnome-software* \ #-rpm-ostree \
-    virtualbox-guest-additions \
-    malcontent-control \
-    fedora-chromium-config* \
+# && sed -i 's/enabled=1/enabled=0/' \
+#    /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:phracek:PyCharm.repo \
+#    /etc/yum.repos.d/fedora-cisco-openh264.repo \
+#    /etc/yum.repos.d/google-chrome.repo \
+#    /etc/yum.repos.d/rpmfusion-nonfree-nvidia-driver.repo \
+#    /etc/yum.repos.d/rpmfusion-nonfree-steam.repo \
+# && dnf remove -y \
+#    firefox* \
+#    gnome-shell-extension* \
+#    gnome-tour \
+#    yelp* \
+#    gnome-software* \ #-rpm-ostree \
+#    virtualbox-guest-additions \
+#    malcontent-control \
+#    fedora-chromium-config* \
  && dnf install -y \
     adw-gtk3-theme \
     piper \
