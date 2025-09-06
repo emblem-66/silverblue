@@ -39,7 +39,7 @@ RUN echo "" \
     sshd.service \
     tailscaled.service \
     ratbagd.service \
- && systemctl mask remount-fs.service \
+# && systemctl mask remount-fs.service \
  && git clone https://github.com/somepaulo/MoreWaita.git /usr/share/icons/MoreWaita/ \
 # && dnf config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo \
 # && rm /etc/yum.repos.d/tailscale.repo \
