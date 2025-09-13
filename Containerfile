@@ -9,14 +9,14 @@ RUN echo "starting" \
 # && echo -e "[Unit]\nDescription=Update Bootc\nConditionPathExists=/run/ostree-booted\nAfter=multi-user.timer\n[Timer]\nOnCalendar=*:0/4\nPersistent=true\n[Install]\nWantedBy=timers.target\n" | tee /usr/lib/systemd/system/bootc-update.timer \
  && systemctl enable bootc-fetch-apply-updates.timer \
  && echo "done" 
-  
+
 # Automatic Updates Flatpak
 RUN echo "starting" \
  && echo -e "[Unit]\nDescription=Update Flatpaks\n[Service]\nType=oneshot\nExecStart=/usr/bin/flatpak remote-modify --disable fedora ; /usr/bin/flatpak remote-modify --enable flathub ; /usr/bin/flatpak uninstall --unused -y --noninteractive ; /usr/bin/bash -c 'curl -sSL https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/flatpak/packages | xargs -r flatpak install -y --noninteractive' ; /usr/bin/bash -c 'cat ~/.flatpak-apps.list | xargs -r flatpak install -y --noninteractive' ; /usr/bin/flatpak update -y --noninteractive\n[Install]\nWantedBy=default.target\n" | tee /usr/lib/systemd/system/flatpak-update.service \
  && echo -e "[Unit]\nDescription=Update Flatpaks\n[Timer]\nOnCalendar=*:0/4\nPersistent=true\n[Install]\nWantedBy=timers.target\n" | tee /usr/lib/systemd/system/flatpak-update.timer \
  && systemctl enable flatpak-update.timer \
  && echo "done" 
-  
+
 # Tailscale
 RUN echo "starting" \
  && dnf config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo \
@@ -44,7 +44,7 @@ RUN echo "starting" \
  && dnf clean all \
  && rm -rf /var/cache/* /var/log/* /tmp/* \
  && echo "done"
- 
+
 # Remove unwanted Fedora stuff
 RUN echo "starting" \
  && dnf remove -y \
@@ -56,7 +56,7 @@ RUN echo "starting" \
  && dnf clean all \
  && rm -rf /var/cache/* /var/log/* /tmp/* \
  && echo "done"
- 
+
 # Remove unwanted GNOME stuff
 RUN echo "starting" \
  && dnf remove -y \
