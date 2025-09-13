@@ -112,8 +112,8 @@ RUN echo "starting" \
 
 # Homebrew
 RUN echo "starting" \
-# && mkdir /home/linuxbrew \
-# && mkdir /usr/share/homebrew \
+ && mkdir -p /home/linuxbrew/.linuxbrew \
+ && mkdir -p /usr/share/homebrew \
  && /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" \
  && /home/linuxbrew/.linuxbrew/bin/brew update \
  && mv /home/linuxbrew /usr/share/homebrew \
