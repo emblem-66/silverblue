@@ -5,11 +5,9 @@ on:
   push:
     branches:
       - main
-    paths-ignore:
-      - '**.md'
-      - '**.txt'
-      - '**.sh'
-      - '**.list'
+    paths:
+      - .github/workflows/*.yml
+      - Containerfile*
   workflow_dispatch:
 jobs: 
   build:
