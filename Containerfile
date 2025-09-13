@@ -1,5 +1,5 @@
 # homebrew
-FROM quay.io/fedora/fedora-silverblue:latest AS homebrew
+FROM quay.io/fedora/fedora:latest AS homebrew
 
 RUN echo "hello world"
 
