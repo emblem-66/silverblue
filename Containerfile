@@ -51,7 +51,7 @@ RUN echo "starting" \
     virtualbox-guest-additions \
     fedora-chromium-config* \
     fedora-bookmarks \
-    fedora-flathub-remote \ # filtered flathub
+    fedora-flathub-remote \
  && dnf autoremove -y \
  && dnf clean all \
  && rm -rf /var/cache/* /var/log/* /tmp/* \
