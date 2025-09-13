@@ -17,9 +17,6 @@ jobs:
     permissions:
       contents: read
       packages: write
-    strategy:
-      matrix:
-        image: [latest]
     steps:
     - name: Checkout Push to Registry action
       uses: actions/checkout@v4
@@ -30,8 +27,8 @@ jobs:
     - name: Build
       shell: bash
       run: |
-        podman build -f Containerfile -t ghcr.io/${{ github.actor }}/${{ github.event.repository.name }}:${{ matrix.image }} --target ${{ matrix.image }} .
+        podman build -f Containerfile -t ghcr.io/${{ github.actor }}/${{ github.event.repository.name }}:latest
     - name: Push
       shell: bash
       run: |
-        podman push ghcr.io/${{ github.actor }}/${{ github.event.repository.name }}:${{ matrix.image }}     	
+        podman push ghcr.io/${{ github.actor }}/${{ github.event.repository.name }}:latest
