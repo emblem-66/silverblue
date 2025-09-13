@@ -1,3 +1,8 @@
+# homebrew
+FROM quay.io/fedora/fedora-silverblue:latest AS homebrew
+
+RUN echo "hello world"
+
 # Currently based on Silverblue image. In future, I am considering using fedora-bootc image.
 FROM quay.io/fedora/fedora-silverblue:latest AS latest
 
