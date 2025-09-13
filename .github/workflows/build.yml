@@ -1,5 +1,4 @@
 name: Silverblue
-
 on:
   schedule:
     - cron: "0 7 * * *"
@@ -12,19 +11,27 @@ on:
       - '**.sh'
       - '**.list'
   workflow_dispatch:
-
 jobs: 
   build:
     runs-on: ubuntu-latest
     permissions:
       contents: read
       packages: write
+    strategy:
+      matrix:
+        image: [latest]
     steps:
     - name: Checkout Push to Registry action
       uses: actions/checkout@v4
-    - name: Making the image (login, build, push)
+    - name: Login
       shell: bash
       run: |
         podman login ghcr.io -u ${{ github.actor }} -p ${{ secrets.GITHUB_TOKEN }}
-        podman build -f Containerfile -t ghcr.io/${{ github.actor }}/${{ github.event.repository.name }}:latest
-        podman push ghcr.io/${{ github.actor }}/${{ github.event.repository.name }}:latest
+    - name: Build
+      shell: bash
+      run: |
+        podman build -f Containerfile -t ghcr.io/${{ github.actor }}/${{ github.event.repository.name }}:${{ matrix.image }} --target ${{ matrix.image }} .
+    - name: Push
+      shell: bash
+      run: |
+        podman push ghcr.io/${{ github.actor }}/${{ github.event.repository.name }}:${{ matrix.image }}     	
