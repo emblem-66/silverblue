@@ -12,28 +12,28 @@ RUN echo "starting" \
 # && echo -e "[Unit]\nDescription=Update Flatpaks\n[Service]\nType=oneshot\nExecStart=/usr/bin/flatpak remote-modify --disable fedora ; /usr/bin/flatpak remote-modify --enable flathub ; /usr/bin/flatpak uninstall --unused -y --noninteractive ; /usr/bin/bash -c 'curl -sSL https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/flatpak/packages | xargs -r flatpak install -y --noninteractive' ; /usr/bin/bash -c 'cat ~/.flatpak-apps.list | xargs -r flatpak install -y --noninteractive' ; /usr/bin/flatpak update -y --noninteractive\n[Install]\nWantedBy=default.target\n" | tee /usr/lib/systemd/system/flatpak-update.service \
 # && echo -e "[Unit]\nDescription=Update Flatpaks\n[Timer]\nOnCalendar=*:0/4\nPersistent=true\n[Install]\nWantedBy=timers.target\n" | tee /usr/lib/systemd/system/flatpak-update.timer \
 # Service
- && echo "[Unit]" | tee /usr/lib/systemd/system/flatpak-update.service \
- && echo "Description=Update Flatpaks" | tee /usr/lib/systemd/system/flatpak-update.service \
- && echo "[Service]" | tee /usr/lib/systemd/system/flatpak-update.service \
- && echo "Type=oneshot" | tee /usr/lib/systemd/system/flatpak-update.service \
- && echo "ExecStart=/usr/bin/flatpak remote-modify --disable fedora" | tee /usr/lib/systemd/system/flatpak-update.service \
- && echo "ExecStart=/usr/bin/flatpak remote-modify --enable flathub" | tee /usr/lib/systemd/system/flatpak-update.service \
- && echo "ExecStart=/usr/bin/flatpak uninstall --unused -y --noninteractive" | tee /usr/lib/systemd/system/flatpak-update.service \
+ && echo "[Unit]" >> /usr/lib/systemd/system/flatpak-update.service \
+ && echo "Description=Update Flatpaks" >> /usr/lib/systemd/system/flatpak-update.service \
+ && echo "[Service]" >> /usr/lib/systemd/system/flatpak-update.service \
+ && echo "Type=oneshot" >> /usr/lib/systemd/system/flatpak-update.service \
+ && echo "ExecStart=/usr/bin/flatpak remote-modify --disable fedora" >> /usr/lib/systemd/system/flatpak-update.service \
+ && echo "ExecStart=/usr/bin/flatpak remote-modify --enable flathub" >> /usr/lib/systemd/system/flatpak-update.service \
+ && echo "ExecStart=/usr/bin/flatpak uninstall --unused -y --noninteractive" >> /usr/lib/systemd/system/flatpak-update.service \
 # Install list of flatpak apps from my repo
- && echo "ExecStart=/usr/bin/bash -c 'curl -sSL https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/flatpak/packages | xargs -r flatpak install -y --noninteractive'" | tee /usr/lib/systemd/system/flatpak-update.service \
+ && echo "ExecStart=/usr/bin/bash -c 'curl -sSL https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/flatpak/packages | xargs -r flatpak install -y --noninteractive'" >> /usr/lib/systemd/system/flatpak-update.service \
 # Install list of flatpak apps from ~/.flatpak-apps.list
- && echo "ExecStart=/usr/bin/bash -c 'cat ~/.flatpak-apps.list | xargs -r flatpak install -y --noninteractive'" | tee /usr/lib/systemd/system/flatpak-update.service \
- && echo "ExecStart=/usr/bin/flatpak update -y --noninteractive" | tee /usr/lib/systemd/system/flatpak-update.service \
- && echo "[Install]" | tee /usr/lib/systemd/system/flatpak-update.service \
- && echo "WantedBy=default.target" | tee /usr/lib/systemd/system/flatpak-update.service \
+ && echo "ExecStart=/usr/bin/bash -c 'cat ~/.flatpak-apps.list | xargs -r flatpak install -y --noninteractive'" >> /usr/lib/systemd/system/flatpak-update.service \
+ && echo "ExecStart=/usr/bin/flatpak update -y --noninteractive" >> /usr/lib/systemd/system/flatpak-update.service \
+ && echo "[Install]" >> /usr/lib/systemd/system/flatpak-update.service \
+ && echo "WantedBy=default.target" >> /usr/lib/systemd/system/flatpak-update.service \
 # Timer
- && echo "[Unit]" | tee /usr/lib/systemd/system/flatpak-update.timer \
- && echo "Description=Update Flatpaks" | tee /usr/lib/systemd/system/flatpak-update.timer \
- && echo "[Timer]" | tee /usr/lib/systemd/system/flatpak-update.timer \
- && echo "OnCalendar=*:0/4" | tee /usr/lib/systemd/system/flatpak-update.timer \
- && echo "Persistent=true" | tee /usr/lib/systemd/system/flatpak-update.timer \
- && echo "[Install]" | tee /usr/lib/systemd/system/flatpak-update.timer \
- && echo "WantedBy=timers.target" | tee /usr/lib/systemd/system/flatpak-update.timer \
+ && echo "[Unit]" >> /usr/lib/systemd/system/flatpak-update.timer \
+ && echo "Description=Update Flatpaks" >> /usr/lib/systemd/system/flatpak-update.timer \
+ && echo "[Timer]" >> /usr/lib/systemd/system/flatpak-update.timer \
+ && echo "OnCalendar=*:0/4" >> /usr/lib/systemd/system/flatpak-update.timer \
+ && echo "Persistent=true" >> /usr/lib/systemd/system/flatpak-update.timer \
+ && echo "[Install]" >> /usr/lib/systemd/system/flatpak-update.timer \
+ && echo "WantedBy=timers.target" >> /usr/lib/systemd/system/flatpak-update.timer \
 # Enable
  && systemctl enable flatpak-update.timer \
  && echo "done" 
