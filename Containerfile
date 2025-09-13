@@ -110,6 +110,15 @@ RUN echo "starting" \
  && rm -rf /var/cache/* /var/log/* /tmp/* \
  && echo "done"
 
+# Homebrew
+RUN echo "starting" \
+# && mkdir /home/linuxbrew \
+# && mkdir /usr/share/homebrew \
+ && /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" \
+ && /home/linuxbrew/.linuxbrew/bin/brew update \
+ && mv /home/linuxbrew /usr/share/homebrew \
+ && echo "done"
+
 # Finish
 RUN echo "starting" \
  && rm -rf /var/cache/* /var/log/* /tmp/* \
