@@ -111,12 +111,20 @@ RUN echo "starting" \
  && echo "done"
 
 # Homebrew
+#RUN echo "starting" \
+# && mkdir -p /home/linuxbrew/.linuxbrew \
+# && mkdir -p /usr/share/homebrew \
+# && /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" \
+# && /home/linuxbrew/.linuxbrew/bin/brew update \
+# && mv /home/linuxbrew /usr/share/homebrew \
+# && echo "done"
 RUN echo "starting" \
- && mkdir -p /home/linuxbrew/.linuxbrew \
+ && install -d -o root -g root /home/linuxbrew/.linuxbrew \
  && mkdir -p /usr/share/homebrew \
  && /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" \
- && /home/linuxbrew/.linuxbrew/bin/brew update \
  && mv /home/linuxbrew /usr/share/homebrew \
+ && ln -s /usr/share/homebrew/.linuxbrew/bin/brew /usr/local/bin/brew \
+ && /usr/share/homebrew/.linuxbrew/bin/brew update \
  && echo "done"
 
 # Finish
