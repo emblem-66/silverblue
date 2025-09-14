@@ -102,13 +102,13 @@ RUN echo "starting" \
  && echo "done"
 
 # COSMIC-EPOCH
-RUN echo "starting" \
- && dnf copr enable -y ryanabx/cosmic-epoch \
- && dnf install -y cosmic-desktop \
- && dnf autoremove -y \
- && dnf clean all \
- && rm -rf /var/cache/* /var/log/* /tmp/* \
- && echo "done"
+#RUN echo "starting" \
+# && dnf copr enable -y ryanabx/cosmic-epoch \
+# && dnf install -y cosmic-desktop \
+# && dnf autoremove -y \
+# && dnf clean all \
+# && rm -rf /var/cache/* /var/log/* /tmp/* \
+# && echo "done"
 
 # Homebrew
 #RUN echo "starting" \
