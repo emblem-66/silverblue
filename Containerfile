@@ -36,6 +36,7 @@ RUN echo "starting" \
  && echo "WantedBy=timers.target" >> /usr/lib/systemd/system/flatpak-update.timer \
 # Enable
  && systemctl enable flatpak-update.timer \
+ && systemctl disable flatpak-add-fedora-repos.service \
  && echo "done" 
 
 # Tailscale
