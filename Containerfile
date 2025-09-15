@@ -178,7 +178,7 @@ RUN echo "starting" \
 
 # Tweaks
 RUN echo "starting" \
- && echo systemd-remount-fs.service \
+ && echo systemctl disable systemd-remount-fs.service \
  && echo "done"
 
 # Finish
