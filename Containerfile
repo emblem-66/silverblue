@@ -203,17 +203,6 @@ RUN echo "" \
  && echo ""
 
 RUN echo "" \
- && echo "Description=Unprivileged HTTPD container" >> /etc/containers/systemd/httpd.container \
- && echo "[Container]" >> /etc/containers/systemd/httpd.container \
- && echo "ContainerName=httpd" >> /etc/containers/systemd/httpd.container \
- && echo "Image=docker.io/httpd" >> /etc/containers/systemd/httpd.container \
- && echo "AutoUpdate=registry" >> /etc/containers/systemd/httpd.container \
- && echo "PublishPort=9090:80" >> /etc/containers/systemd/httpd.container \
- && echo "[Install]" >> /etc/containers/systemd/httpd.container \
- && echo "WantedBy=multi-user.target" >> /etc/containers/systemd/httpd.container \
- && echo ""
-
-RUN echo "" \
  && echo "[Container]" > /etc/containers/systemd/jellyfin.container \
  && echo "Image=docker.io/jellyfin/jellyfin:latest" > /etc/containers/systemd/jellyfin.container \
  && echo "AutoUpdate=registry" > /etc/containers/systemd/jellyfin.container \
