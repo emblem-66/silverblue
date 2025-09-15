@@ -18,12 +18,12 @@ RUN echo "starting" \
  && echo "Type=oneshot" >> /usr/lib/systemd/system/flatpak-update.service \
  && echo "ExecStart=/usr/bin/flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo" >> /usr/lib/systemd/system/flatpak-update.service \
 # && echo "ExecStart=/usr/bin/flatpak remote-modify --disable fedora" >> /usr/lib/systemd/system/flatpak-update.service \
- && echo "ExecStart=/usr/bin/flatpak remote-modify --enable flathub" >> /usr/lib/systemd/system/flatpak-update.service \
+# && echo "ExecStart=/usr/bin/flatpak remote-modify --enable flathub" >> /usr/lib/systemd/system/flatpak-update.service \
  && echo "ExecStart=/usr/bin/flatpak uninstall --unused -y --noninteractive" >> /usr/lib/systemd/system/flatpak-update.service \
 # Install list of flatpak apps from my repo
- && echo "ExecStart=/usr/bin/bash -c 'curl -sSL https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/flatpak/packages | xargs -r flatpak install -y --noninteractive'" >> /usr/lib/systemd/system/flatpak-update.service \
+ && echo "ExecStart=/usr/bin/bash -c 'curl -sSL https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/flatpak/packages | xargs -r flatpak install --user -y --noninteractive'" >> /usr/lib/systemd/system/flatpak-update.service \
 # Install list of flatpak apps from ~/.flatpak-apps.list
- && echo "ExecStart=/usr/bin/bash -c 'cat ~/.flatpak-apps.list | xargs -r flatpak install -y --noninteractive'" >> /usr/lib/systemd/system/flatpak-update.service \
+ && echo "ExecStart=/usr/bin/bash -c 'cat ~/.flatpak-apps.list | xargs -r flatpak install --user -y --noninteractive'" >> /usr/lib/systemd/system/flatpak-update.service \
  && echo "ExecStart=/usr/bin/flatpak update -y --noninteractive" >> /usr/lib/systemd/system/flatpak-update.service \
  && echo "[Install]" >> /usr/lib/systemd/system/flatpak-update.service \
  && echo "WantedBy=default.target" >> /usr/lib/systemd/system/flatpak-update.service \
