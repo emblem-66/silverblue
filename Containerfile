@@ -2,13 +2,13 @@
 FROM quay.io/fedora/fedora-silverblue:latest
 
 # Automatic Updates DNF
-RUN echo "starting" \
+RUN echo "" \
  && sed -i 's|ExecStart=/usr/bin/bootc upgrade --apply --quiet|ExecStart=/usr/bin/bootc upgrade --quiet|' /usr/lib/systemd/system/bootc-fetch-apply-updates.service \
  && systemctl enable bootc-fetch-apply-updates.timer \
- && echo "done" 
+ && echo "" 
 
 # Automatic Updates Flatpak
-RUN echo "starting" \
+RUN echo "" \
 # && echo -e "[Unit]\nDescription=Update Flatpaks\n[Service]\nType=oneshot\nExecStart=/usr/bin/flatpak remote-modify --disable fedora ; /usr/bin/flatpak remote-modify --enable flathub ; /usr/bin/flatpak uninstall --unused -y --noninteractive ; /usr/bin/bash -c 'curl -sSL https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/flatpak/packages | xargs -r flatpak install -y --noninteractive' ; /usr/bin/bash -c 'cat ~/.flatpak-apps.list | xargs -r flatpak install -y --noninteractive' ; /usr/bin/flatpak update -y --noninteractive\n[Install]\nWantedBy=default.target\n" | tee /usr/lib/systemd/system/flatpak-update.service \
 # && echo -e "[Unit]\nDescription=Update Flatpaks\n[Timer]\nOnCalendar=*:0/4\nPersistent=true\n[Install]\nWantedBy=timers.target\n" | tee /usr/lib/systemd/system/flatpak-update.timer \
 # Service
@@ -72,38 +72,38 @@ RUN echo "starting" \
  && systemctl enable flatpak-update.timer \
  && systemctl disable flatpak-add-fedora-repos.service \
  && systemctl disable fedora-third-party-refresh.service \
- && echo "done" 
+ && echo "" 
 
 # Tailscale
-RUN echo "starting" \
+RUN echo "" \
  && dnf config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo \
  && dnf install -y tailscale \
  && systemctl enable tailscaled.service sshd.service \
  && dnf autoremove -y \
  && dnf clean all \
  && rm -rf /var/cache/* /var/log/* /tmp/* \
- && echo "done" 
+ && echo "" 
 
 # Piper
-RUN echo "starting" \
+RUN echo "" \
  && dnf install -y libratbag-ratbagd \
 # && echo -e "# Rapture FOXTROT \nKERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", ATTRS{idVendor}=="fffe", ATTRS{idProduct}=="0072", MODE="0660", GROUP="users", TAG+="uaccess", TAG+="udev-acl"" | tee /etc/udev/rules.d/99-via-usb.rules \
  && systemctl enable ratbagd.service \
  && dnf autoremove -y \
  && dnf clean all \
  && rm -rf /var/cache/* /var/log/* /tmp/* \
- && echo "done"
+ && echo ""
 
 # Remove Firefox
-RUN echo "starting" \
+RUN echo "" \
  && dnf remove -y firefox* \
  && dnf autoremove -y \
  && dnf clean all \
  && rm -rf /var/cache/* /var/log/* /tmp/* \
- && echo "done"
+ && echo ""
 
 # Remove unwanted Fedora stuff
-RUN echo "starting" \
+RUN echo "" \
  && dnf remove -y \
     virtualbox-guest-additions \
     fedora-chromium-config* \
@@ -113,10 +113,10 @@ RUN echo "starting" \
  && dnf autoremove -y \
  && dnf clean all \
  && rm -rf /var/cache/* /var/log/* /tmp/* \
- && echo "done"
+ && echo ""
 
 # Remove unwanted GNOME stuff
-RUN echo "starting" \
+RUN echo "" \
  && dnf remove -y \
     gnome-shell-extension* \
     gnome-tour \
@@ -127,93 +127,89 @@ RUN echo "starting" \
  && dnf autoremove -y \
  && dnf clean all \
  && rm -rf /var/cache/* /var/log/* /tmp/* \
- && echo "done"
+ && echo ""
 
 # Install adw-gtk3-theme & morewaita
-RUN echo "starting" \
+RUN echo "" \
  && dnf copr enable -y trixieua/morewaita-icon-theme \
  && dnf install -y adw-gtk3-theme morewaita-icon-theme \
  && dnf autoremove -y \
  && dnf clean all \
  && rm -rf /var/cache/* /var/log/* /tmp/* \
- && echo "done"
+ && echo ""
 
 # COSMIC-EPOCH
-#RUN echo "starting" \
+#RUN echo "" \
 # && dnf copr enable -y ryanabx/cosmic-epoch \
 # && dnf install -y cosmic-desktop \
 # && dnf autoremove -y \
 # && dnf clean all \
 # && rm -rf /var/cache/* /var/log/* /tmp/* \
-# && echo "done"
+# && echo ""
 
 # Homebrew
-#RUN echo "starting" \
+#RUN echo "" \
 # && mkdir -p /home/linuxbrew/.linuxbrew \
 # && mkdir -p /usr/share/homebrew \
 # && /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" \
 # && /home/linuxbrew/.linuxbrew/bin/brew update \
 # && mv /home/linuxbrew /usr/share/homebrew \
-# && echo "done"
-#RUN echo "starting" \
+# && echo ""
+#RUN echo "" \
 # && mkdir -p /usr/share/homebrew \
 # && NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" \
 # && mv /home/linuxbrew /usr/share/homebrew \
 # && ln -s /usr/share/homebrew/.linuxbrew/bin/brew /usr/local/bin/brew \
 # && /usr/share/homebrew/.linuxbrew/bin/brew update \
-# && echo "done"
+# && echo ""
 
 # Quadlet test
-#RUN echo "starting" \
+#RUN echo "" \
 # && echo "
 #" >> /etc/containers/systemd/ngnix.container \
-# && echo "done"
-RUN echo "starting" \
+# && echo ""
+RUN echo "" \
  && echo "[Container]" >> /etc/containers/systemd/ngnix.container \
  && echo "ContainerName=nginx" >> /etc/containers/systemd/ngnix.container \
  && echo "Image=docker.io/nginxinc/nginx-unprivileged" >> /etc/containers/systemd/ngnix.container \
  && echo "AutoUpdate=registry" >> /etc/containers/systemd/ngnix.container \
  && echo "PublishPort=8080:8080" >> /etc/containers/systemd/ngnix.container \
 # && systemctl enable nginx.container \
- && echo "done"
+ && echo ""
 
-#RUN echo "starting" \
+#RUN echo "" \
 # && echo "[Unit]" > /etc/containers/systemd/nginx.container \
 # && echo "Description=Unprivileged NGINX container" >> /etc/containers/systemd/nginx.container \
-# && echo "" >> /etc/containers/systemd/nginx.container \
 # && echo "[Container]" >> /etc/containers/systemd/nginx.container \
 # && echo "ContainerName=nginx" >> /etc/containers/systemd/nginx.container \
 # && echo "Image=docker.io/nginxinc/nginx-unprivileged" >> /etc/containers/systemd/nginx.container \
 # && echo "AutoUpdate=registry" >> /etc/containers/systemd/nginx.container \
 # && echo "PublishPort=8080:8080" >> /etc/containers/systemd/nginx.container \
-# && echo "" >> /etc/containers/systemd/nginx.container \
 # && echo "[Install]" >> /etc/containers/systemd/nginx.container \
 # && echo "WantedBy=multi-user.target" >> /etc/containers/systemd/nginx.container \
 # && systemctl enable nginx.container \
-# && echo "done"
+# && echo ""
 
-RUN echo "starting" \
+RUN echo "" \
  && echo "[Unit]" > /etc/containers/systemd/httpd.container \
  && echo "Description=Unprivileged HTTPD container" >> /etc/containers/systemd/httpd.container \
- && echo "" >> /etc/containers/systemd/httpd.container \
  && echo "[Container]" >> /etc/containers/systemd/httpd.container \
  && echo "ContainerName=httpd" >> /etc/containers/systemd/httpd.container \
  && echo "Image=docker.io/httpd" >> /etc/containers/systemd/httpd.container \
  && echo "AutoUpdate=registry" >> /etc/containers/systemd/httpd.container \
  && echo "PublishPort=9090:80" >> /etc/containers/systemd/httpd.container \
- && echo "" >> /etc/containers/systemd/httpd.container \
  && echo "[Install]" >> /etc/containers/systemd/httpd.container \
  && echo "WantedBy=multi-user.target" >> /etc/containers/systemd/httpd.container \
 # && systemctl enable httpd.container \
- && echo "done"
+ && echo ""
 
 # Tweaks
-RUN echo "starting" \
+RUN echo "" \
  && echo systemctl disable systemd-remount-fs.service \
- && echo "done"
+ && echo ""
 
 # Finish
-RUN echo "starting" \
+RUN echo "" \
  && dnf clean all \
  && rm -rf /var/cache/* /var/log/* /var/lib/dnf/* /tmp/* \
  && ostree container commit \
