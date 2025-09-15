@@ -14,6 +14,8 @@ RUN echo "starting" \
 # Service
  && echo "[Unit]" >> /usr/lib/systemd/system/flatpak-update.service \
  && echo "Description=Update Flatpaks" >> /usr/lib/systemd/system/flatpak-update.service \
+ && echo "After=network-online.target" >> /usr/lib/systemd/system/flatpak-update.service \
+ && echo "Wants=network-online.target" >> /usr/lib/systemd/system/flatpak-update.service \
  && echo "[Service]" >> /usr/lib/systemd/system/flatpak-update.service \
  && echo "Type=oneshot" >> /usr/lib/systemd/system/flatpak-update.service \
  && echo "ExecStart=/usr/bin/flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo" >> /usr/lib/systemd/system/flatpak-update.service \
