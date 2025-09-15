@@ -176,6 +176,11 @@ RUN echo "starting" \
 # && systemctl enable httpd.container \
  && echo "done"
 
+# Tweaks
+RUN echo "starting" \
+ && echo systemd-remount-fs.service \
+ && echo "done"
+
 # Finish
 RUN echo "starting" \
  && dnf clean all \
