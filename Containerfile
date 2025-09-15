@@ -139,6 +139,37 @@ RUN echo "starting" \
  && echo "Image=docker.io/nginxinc/nginx-unprivileged" >> /etc/containers/systemd/ngnix.container \
  && echo "AutoUpdate=registry" >> /etc/containers/systemd/ngnix.container \
  && echo "PublishPort=8080:8080" >> /etc/containers/systemd/ngnix.container \
+ && systemctl enable nginx.container \
+ && echo "done"
+
+#RUN echo "starting" \
+# && echo "[Unit]" > /etc/containers/systemd/nginx.container \
+# && echo "Description=Unprivileged NGINX container" >> /etc/containers/systemd/nginx.container \
+# && echo "" >> /etc/containers/systemd/nginx.container \
+# && echo "[Container]" >> /etc/containers/systemd/nginx.container \
+# && echo "ContainerName=nginx" >> /etc/containers/systemd/nginx.container \
+# && echo "Image=docker.io/nginxinc/nginx-unprivileged" >> /etc/containers/systemd/nginx.container \
+# && echo "AutoUpdate=registry" >> /etc/containers/systemd/nginx.container \
+# && echo "PublishPort=8080:8080" >> /etc/containers/systemd/nginx.container \
+# && echo "" >> /etc/containers/systemd/nginx.container \
+# && echo "[Install]" >> /etc/containers/systemd/nginx.container \
+# && echo "WantedBy=multi-user.target" >> /etc/containers/systemd/nginx.container \
+# && systemctl enable nginx.container \
+# && echo "done"
+
+RUN echo "starting" \
+ && echo "[Unit]" > /etc/containers/systemd/httpd.container \
+ && echo "Description=Unprivileged HTTPD container" >> /etc/containers/systemd/httpd.container \
+ && echo "" >> /etc/containers/systemd/httpd.container \
+ && echo "[Container]" >> /etc/containers/systemd/httpd.container \
+ && echo "ContainerName=httpd" >> /etc/containers/systemd/httpd.container \
+ && echo "Image=docker.io/httpd" >> /etc/containers/systemd/httpd.container \
+ && echo "AutoUpdate=registry" >> /etc/containers/systemd/httpd.container \
+ && echo "PublishPort=9090:80" >> /etc/containers/systemd/httpd.container \
+ && echo "" >> /etc/containers/systemd/httpd.container \
+ && echo "[Install]" >> /etc/containers/systemd/httpd.container \
+ && echo "WantedBy=multi-user.target" >> /etc/containers/systemd/httpd.container \
+ && systemctl enable httpd.container \
  && echo "done"
 
 # Finish
