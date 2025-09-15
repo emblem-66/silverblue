@@ -16,7 +16,7 @@ RUN echo "starting" \
  && echo "Description=Update Flatpaks" >> /usr/lib/systemd/system/flatpak-update.service \
  && echo "[Service]" >> /usr/lib/systemd/system/flatpak-update.service \
  && echo "Type=oneshot" >> /usr/lib/systemd/system/flatpak-update.service \
- && echo "ExecStart=/usr/bin/flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo" >> /usr/lib/systemd/system/flatpak-update.service \
+ && echo "ExecStart=/usr/bin/flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo" >> /usr/lib/systemd/system/flatpak-update.service \
  && echo "ExecStart=/usr/bin/flatpak remote-modify --disable fedora" >> /usr/lib/systemd/system/flatpak-update.service \
  && echo "ExecStart=/usr/bin/flatpak remote-modify --enable flathub" >> /usr/lib/systemd/system/flatpak-update.service \
  && echo "ExecStart=/usr/bin/flatpak uninstall --unused -y --noninteractive" >> /usr/lib/systemd/system/flatpak-update.service \
