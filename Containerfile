@@ -128,6 +128,19 @@ RUN echo "starting" \
 # && /usr/share/homebrew/.linuxbrew/bin/brew update \
 # && echo "done"
 
+# Quadlet test
+#RUN echo "starting" \
+# && echo "
+#" >> /etc/containers/systemd/ngnix.container \
+# && echo "done"
+RUN echo "starting" \
+ && echo "[Container]" >> /etc/containers/systemd/ngnix.container \
+ && echo "ContainerName=nginx" >> /etc/containers/systemd/ngnix.container \
+ && echo "Image=docker.io/nginxinc/nginx-unprivileged" >> /etc/containers/systemd/ngnix.container \
+ && echo "AutoUpdate=registry" >> /etc/containers/systemd/ngnix.container \
+ && echo "PublishPort=8080:8080" >> /etc/containers/systemd/ngnix.container \
+ && echo "done"
+
 # Finish
 RUN echo "starting" \
  && rm -rf /var/cache/* /var/log/* /tmp/* \
