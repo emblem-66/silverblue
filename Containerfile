@@ -16,7 +16,7 @@ RUN echo "starting" \
  && echo "Description=Update Flatpaks" >> /usr/lib/systemd/system/flatpak-update.service \
  && echo "[Service]" >> /usr/lib/systemd/system/flatpak-update.service \
  && echo "Type=oneshot" >> /usr/lib/systemd/system/flatpak-update.service \
- && echo "ExecStart=/usr/bin/flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo" >> /usr/lib/systemd/system/flatpak-update.service \
+ && echo "ExecStart=/usr/bin/flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo" >> /usr/lib/systemd/system/flatpak-update.service \
  && echo "ExecStart=/usr/bin/flatpak remote-modify --disable fedora" >> /usr/lib/systemd/system/flatpak-update.service \
  && echo "ExecStart=/usr/bin/flatpak remote-modify --enable flathub" >> /usr/lib/systemd/system/flatpak-update.service \
  && echo "ExecStart=/usr/bin/flatpak uninstall --unused -y --noninteractive" >> /usr/lib/systemd/system/flatpak-update.service \
@@ -52,7 +52,7 @@ RUN echo "starting" \
 
 # Piper
 RUN echo "starting" \
- && dnf install -y piper libratbag-ratbagd \
+ && dnf install -y libratbag-ratbagd \
 # && echo -e "# Rapture FOXTROT \nKERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", ATTRS{idVendor}=="fffe", ATTRS{idProduct}=="0072", MODE="0660", GROUP="users", TAG+="uaccess", TAG+="udev-acl"" | tee /etc/udev/rules.d/99-via-usb.rules \
  && systemctl enable ratbagd.service \
  && dnf autoremove -y \
@@ -75,6 +75,7 @@ RUN echo "starting" \
     fedora-chromium-config* \
     fedora-bookmarks \
     fedora-flathub-remote \
+    fedora-third-party \
  && dnf autoremove -y \
  && dnf clean all \
  && rm -rf /var/cache/* /var/log/* /tmp/* \
