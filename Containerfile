@@ -38,6 +38,7 @@ RUN echo "starting" \
 # Enable
  && systemctl enable flatpak-update.timer \
  && systemctl disable flatpak-add-fedora-repos.service \
+ && systemctl disable fedora-third-party-refresh.service \
  && echo "done" 
 
 # Tailscale
