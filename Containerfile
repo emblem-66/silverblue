@@ -169,7 +169,7 @@ RUN echo "starting" \
  && echo "" >> /etc/containers/systemd/httpd.container \
  && echo "[Install]" >> /etc/containers/systemd/httpd.container \
  && echo "WantedBy=multi-user.target" >> /etc/containers/systemd/httpd.container \
- && systemctl enable httpd.container \
+# && systemctl enable httpd.container \
  && echo "done"
 
 # Finish
