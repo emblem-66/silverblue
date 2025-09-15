@@ -184,6 +184,6 @@ RUN echo "starting" \
 # Finish
 RUN echo "starting" \
  && dnf clean all \
- && rm -rf /var/cache/* /var/log/* /tmp/* \
+ && rm -rf /var/cache/* /var/log/* /var/lib/dnf/* /tmp/* \
  && ostree container commit \
  && bootc container lint
