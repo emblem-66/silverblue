@@ -139,7 +139,7 @@ RUN echo "starting" \
  && echo "Image=docker.io/nginxinc/nginx-unprivileged" >> /etc/containers/systemd/ngnix.container \
  && echo "AutoUpdate=registry" >> /etc/containers/systemd/ngnix.container \
  && echo "PublishPort=8080:8080" >> /etc/containers/systemd/ngnix.container \
- && systemctl enable nginx.container \
+# && systemctl enable nginx.container \
  && echo "done"
 
 #RUN echo "starting" \
