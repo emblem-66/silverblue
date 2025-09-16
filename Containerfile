@@ -216,7 +216,7 @@ RUN echo "" \
  && echo "[Service]" >> /etc/containers/systemd/jellyfin.container \
  && echo "SuccessExitStatus=0 143" >> /etc/containers/systemd/jellyfin.container \
  && echo "[Install]" >> /etc/containers/systemd/jellyfin.container \
- && echo "WantedBy=default.target" >> /etc/containers/systemd/jellyfin.container \
+ && echo "WantedBy=multi-user.target" >> /etc/containers/systemd/jellyfin.container \
  && echo ""
 
 RUN echo "" \
@@ -233,7 +233,7 @@ RUN echo "" \
  && echo "[Service]" >> /etc/containers/systemd/stash.container \
  && echo "SuccessExitStatus=0 143" >> /etc/containers/systemd/stash.container \
  && echo "[Install]" >> /etc/containers/systemd/stash.container \
- && echo "WantedBy=default.target" >> /etc/containers/systemd/stash.container \
+ && echo "WantedBy=multi-user.target" >> /etc/containers/systemd/stash.container \
  && echo ""
 
 
