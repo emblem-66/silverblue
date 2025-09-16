@@ -206,6 +206,7 @@ RUN echo "" \
  && echo "[Unit]" > /etc/containers/systemd/jellyfin.container \
  && echo "Description=Jellyfin container" >> /etc/containers/systemd/jellyfin.container \
  && echo "[Container]" >> /etc/containers/systemd/jellyfin.container \
+ && echo "ContainerName=jellyfin" >> /etc/containers/systemd/jellyfin.container \
  && echo "Image=docker.io/jellyfin/jellyfin:latest" >> /etc/containers/systemd/jellyfin.container \
  && echo "AutoUpdate=registry" >> /etc/containers/systemd/jellyfin.container \
  && echo "PublishPort=8096:8096/tcp" >> /etc/containers/systemd/jellyfin.container \
@@ -223,6 +224,7 @@ RUN echo "" \
  && echo "[Unit]" > /etc/containers/systemd/stash.container \
  && echo "Description=stash container" >> /etc/containers/systemd/stash.container \
  && echo "[Container]" >> /etc/containers/systemd/stash.container \
+ && echo "ContainerName=stash" >> /etc/containers/systemd/stash.container \
  && echo "Image=docker.io/stashapp/stash:latest" >> /etc/containers/systemd/stash.container \
  && echo "AutoUpdate=registry" >> /etc/containers/systemd/stash.container \
  && echo "PublishPort=9999:9999/tcp" >> /etc/containers/systemd/stash.container \
@@ -235,8 +237,6 @@ RUN echo "" \
  && echo "[Install]" >> /etc/containers/systemd/stash.container \
  && echo "WantedBy=multi-user.target" >> /etc/containers/systemd/stash.container \
  && echo ""
-
-
 
 # Tweaks
 RUN echo "" \
