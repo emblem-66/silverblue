@@ -177,18 +177,18 @@ RUN echo "" \
 # && systemctl enable nginx.container \
 # && echo ""
 
-RUN echo "" \
- && echo "[Unit]" > /etc/containers/systemd/nginx.container \
- && echo "Description=Unprivileged NGINX container" >> /etc/containers/systemd/nginx.container \
- && echo "[Container]" >> /etc/containers/systemd/nginx.container \
- && echo "ContainerName=nginx" >> /etc/containers/systemd/nginx.container \
- && echo "Image=docker.io/nginxinc/nginx-unprivileged" >> /etc/containers/systemd/nginx.container \
- && echo "AutoUpdate=registry" >> /etc/containers/systemd/nginx.container \
- && echo "PublishPort=8080:8080" >> /etc/containers/systemd/nginx.container \
- && echo "[Install]" >> /etc/containers/systemd/nginx.container \
- && echo "WantedBy=multi-user.target" >> /etc/containers/systemd/nginx.container \
+#RUN echo "" \
+# && echo "[Unit]" > /etc/containers/systemd/nginx.container \
+# && echo "Description=Unprivileged NGINX container" >> /etc/containers/systemd/nginx.container \
+# && echo "[Container]" >> /etc/containers/systemd/nginx.container \
+# && echo "ContainerName=nginx" >> /etc/containers/systemd/nginx.container \
+# && echo "Image=docker.io/nginxinc/nginx-unprivileged" >> /etc/containers/systemd/nginx.container \
+# && echo "AutoUpdate=registry" >> /etc/containers/systemd/nginx.container \
+# && echo "PublishPort=8080:8080" >> /etc/containers/systemd/nginx.container \
+# && echo "[Install]" >> /etc/containers/systemd/nginx.container \
+# && echo "WantedBy=multi-user.target" >> /etc/containers/systemd/nginx.container \
 # && systemctl enable nginx.container \
- && echo ""
+# && echo ""
 
 RUN echo "" \
  && echo "[Unit]" > /etc/containers/systemd/httpd.container \
@@ -203,19 +203,40 @@ RUN echo "" \
  && echo ""
 
 RUN echo "" \
- && echo "[Container]" > /etc/containers/systemd/jellyfin.container \
- && echo "Image=docker.io/jellyfin/jellyfin:latest" > /etc/containers/systemd/jellyfin.container \
- && echo "AutoUpdate=registry" > /etc/containers/systemd/jellyfin.container \
- && echo "PublishPort=8096:8096/tcp" > /etc/containers/systemd/jellyfin.container \
- && echo "UserNS=keep-id" > /etc/containers/systemd/jellyfin.container \
- && echo "Bind=/var/lib/jellyfin/config:/config:Z" > /etc/containers/systemd/jellyfin.container \
- && echo "Bind=/var/cache/jellyfin:/cache:Z" > /etc/containers/systemd/jellyfin.container \
- && echo "Bind=/mnt/media:/media:ro,Z" > /etc/containers/systemd/jellyfin.container \
- && echo "[Service]" > /etc/containers/systemd/jellyfin.container \
- && echo "SuccessExitStatus=0 143" > /etc/containers/systemd/jellyfin.container \
- && echo "[Install]" > /etc/containers/systemd/jellyfin.container \
- && echo "WantedBy=default.target" > /etc/containers/systemd/jellyfin.container \
+ && echo "[Unit]" > /etc/containers/systemd/jellyfin.container \
+ && echo "Description=Jellyfin container" >> /etc/containers/systemd/jellyfin.container \
+ && echo "[Container]" >> /etc/containers/systemd/jellyfin.container \
+ && echo "Image=docker.io/jellyfin/jellyfin:latest" >> /etc/containers/systemd/jellyfin.container \
+ && echo "AutoUpdate=registry" >> /etc/containers/systemd/jellyfin.container \
+ && echo "PublishPort=8096:8096/tcp" >> /etc/containers/systemd/jellyfin.container \
+ && echo "UserNS=keep-id" >> /etc/containers/systemd/jellyfin.container \
+ && echo "Bind=/var/lib/jellyfin/config:/config:Z" >> /etc/containers/systemd/jellyfin.container \
+ && echo "Bind=/var/cache/jellyfin:/cache:Z" >> /etc/containers/systemd/jellyfin.container \
+ && echo "Bind=/mnt/media:/media:ro,Z" >> /etc/containers/systemd/jellyfin.container \
+ && echo "[Service]" >> /etc/containers/systemd/jellyfin.container \
+ && echo "SuccessExitStatus=0 143" >> /etc/containers/systemd/jellyfin.container \
+ && echo "[Install]" >> /etc/containers/systemd/jellyfin.container \
+ && echo "WantedBy=default.target" >> /etc/containers/systemd/jellyfin.container \
  && echo ""
+
+RUN echo "" \
+ && echo "[Unit]" > /etc/containers/systemd/stash.container \
+ && echo "Description=stash container" >> /etc/containers/systemd/stash.container \
+ && echo "[Container]" >> /etc/containers/systemd/stash.container \
+ && echo "Image=docker.io/stashapp/stash:latest" >> /etc/containers/systemd/stash.container \
+ && echo "AutoUpdate=registry" >> /etc/containers/systemd/stash.container \
+ && echo "PublishPort=9999:9999/tcp" >> /etc/containers/systemd/stash.container \
+ && echo "UserNS=keep-id" >> /etc/containers/systemd/stash.container \
+ && echo "Bind=/var/lib/stash/config:/config:Z" >> /etc/containers/systemd/stash.container \
+ && echo "Bind=/var/cache/stash:/cache:Z" >> /etc/containers/systemd/stash.container \
+ && echo "Bind=/mnt/media:/media:ro,Z" >> /etc/containers/systemd/stash.container \
+ && echo "[Service]" >> /etc/containers/systemd/stash.container \
+ && echo "SuccessExitStatus=0 143" >> /etc/containers/systemd/stash.container \
+ && echo "[Install]" >> /etc/containers/systemd/stash.container \
+ && echo "WantedBy=default.target" >> /etc/containers/systemd/stash.container \
+ && echo ""
+
+
 
 # Tweaks
 RUN echo "" \
