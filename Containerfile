@@ -197,7 +197,7 @@ RUN echo "" \
  && echo "ContainerName=httpd" >> /etc/containers/systemd/httpd.container \
  && echo "Image=docker.io/httpd" >> /etc/containers/systemd/httpd.container \
  && echo "AutoUpdate=registry" >> /etc/containers/systemd/httpd.container \
- && echo "PublishPort=9090:80" >> /etc/containers/systemd/httpd.container \
+ && echo "PublishPort=80:80" >> /etc/containers/systemd/httpd.container \
  && echo "[Install]" >> /etc/containers/systemd/httpd.container \
  && echo "WantedBy=multi-user.target" >> /etc/containers/systemd/httpd.container \
  && echo ""
@@ -213,7 +213,7 @@ RUN echo "" \
  && echo "UserNS=keep-id" >> /etc/containers/systemd/jellyfin.container \
  && echo "Bind=/var/lib/jellyfin/config:/config:Z" >> /etc/containers/systemd/jellyfin.container \
  && echo "Bind=/var/cache/jellyfin:/cache:Z" >> /etc/containers/systemd/jellyfin.container \
- && echo "Bind=/mnt/media:/media:ro,Z" >> /etc/containers/systemd/jellyfin.container \
+ && echo "Bind=/mnt/media:/media:Z" >> /etc/containers/systemd/jellyfin.container \
  && echo "[Service]" >> /etc/containers/systemd/jellyfin.container \
  && echo "SuccessExitStatus=0 143" >> /etc/containers/systemd/jellyfin.container \
  && echo "[Install]" >> /etc/containers/systemd/jellyfin.container \
