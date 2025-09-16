@@ -210,7 +210,7 @@ RUN echo "" \
  && echo "Image=ghcr.io/jellyfin/jellyfin:latest" >> /etc/containers/systemd/jellyfin.container \
  && echo "AutoUpdate=registry" >> /etc/containers/systemd/jellyfin.container \
  && echo "PublishPort=8096:8096/tcp" >> /etc/containers/systemd/jellyfin.container \
- && echo "UserNS=keep-id" >> /etc/containers/systemd/jellyfin.container \
+ && echo "UserNS=keep-id:uid=1000,gid=1000" >> /etc/containers/systemd/jellyfin.container \
  && echo "Bind=/var/lib/jellyfin/config:/config:Z" >> /etc/containers/systemd/jellyfin.container \
  && echo "Bind=/var/cache/jellyfin:/cache:Z" >> /etc/containers/systemd/jellyfin.container \
  && echo "Bind=/mnt/media:/media:Z" >> /etc/containers/systemd/jellyfin.container \
@@ -228,7 +228,7 @@ RUN echo "" \
  && echo "Image=docker.io/stashapp/stash:latest" >> /etc/containers/systemd/stash.container \
  && echo "AutoUpdate=registry" >> /etc/containers/systemd/stash.container \
  && echo "PublishPort=9999:9999/tcp" >> /etc/containers/systemd/stash.container \
- && echo "UserNS=keep-id" >> /etc/containers/systemd/stash.container \
+ && echo "UserNS=keep-id:uid=1000,gid=1000" >> /etc/containers/systemd/stash.container \
  && echo "Bind=/var/lib/stash/config:/config:Z" >> /etc/containers/systemd/stash.container \
  && echo "Bind=/var/cache/stash:/cache:Z" >> /etc/containers/systemd/stash.container \
  && echo "Bind=/mnt/media:/media:ro,Z" >> /etc/containers/systemd/stash.container \
