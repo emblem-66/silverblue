@@ -238,6 +238,23 @@ RUN echo "" \
  && echo "WantedBy=multi-user.target" >> /etc/containers/systemd/stash.container \
  && echo ""
 
+
+RUN echo "" \
+ && echo "[Unit]" >> /etc/containers/systemd/caddy.container \
+ && echo "Description=Caddy" >> /etc/containers/systemd/caddy.container \
+ && echo "[Container]" >> /etc/containers/systemd/caddy.container \
+ && echo "Image=docker.io/library/caddy:latest" >> /etc/containers/systemd/caddy.container \
+ && echo "PublishPort=8000:80" >> /etc/containers/systemd/caddy.container \
+ && echo "PublishPort=8443:443" >> /etc/containers/systemd/caddy.container \
+ && echo "Volume=./Caddyfile:/etc/caddy/Caddyfile:Z" >> /etc/containers/systemd/caddy.container \
+ && echo "Volume=caddy_data:/data" >> /etc/containers/systemd/caddy.container \
+ && echo "[Service]" >> /etc/containers/systemd/caddy.container \
+ && echo "Restart=always" >> /etc/containers/systemd/caddy.container \
+ && echo "[Install]" >> /etc/containers/systemd/caddy.container \
+ && echo "WantedBy=default.target" >> /etc/containers/systemd/caddy.container \
+ && echo ""
+
+
 # Tweaks
 RUN echo "" \
  && echo systemctl enable podman-auto-update.timer \
