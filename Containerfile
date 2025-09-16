@@ -207,7 +207,7 @@ RUN echo "" \
  && echo "Description=Jellyfin container" >> /etc/containers/systemd/jellyfin.container \
  && echo "[Container]" >> /etc/containers/systemd/jellyfin.container \
  && echo "ContainerName=jellyfin" >> /etc/containers/systemd/jellyfin.container \
- && echo "Image=docker.io/jellyfin/jellyfin:latest" >> /etc/containers/systemd/jellyfin.container \
+ && echo "Image=ghcr.io/jellyfin/jellyfin:latest" >> /etc/containers/systemd/jellyfin.container \
  && echo "AutoUpdate=registry" >> /etc/containers/systemd/jellyfin.container \
  && echo "PublishPort=8096:8096/tcp" >> /etc/containers/systemd/jellyfin.container \
  && echo "UserNS=keep-id" >> /etc/containers/systemd/jellyfin.container \
