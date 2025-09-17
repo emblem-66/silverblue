@@ -40,34 +40,37 @@ RUN echo "" \
 #
 #
 #
- && echo "[Unit]" >> /etc/systemd/system/flatpak-update.service \
- && echo "Description=Update Flatpak" >> /etc/systemd/system/flatpak-update.service \
- && echo "After=network-online.target" >> /etc/systemd/system/flatpak-update.service \
- && echo "Wants=network-online.target" >> /etc/systemd/system/flatpak-update.service \
- && echo "[Service]" >> /etc/systemd/system/flatpak-update.service \
- && echo "Type=oneshot" >> /etc/systemd/system/flatpak-update.service \
- && echo "ExecStart=/usr/bin/flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo" >> /etc/systemd/system/flatpak-update.service \
+# && echo "[Unit]" >> /etc/systemd/system/flatpak-update.service \
+# && echo "Description=Update Flatpak" >> /etc/systemd/system/flatpak-update.service \
+# && echo "After=network-online.target" >> /etc/systemd/system/flatpak-update.service \
+# && echo "Wants=network-online.target" >> /etc/systemd/system/flatpak-update.service \
+# && echo "[Service]" >> /etc/systemd/system/flatpak-update.service \
+# && echo "Type=oneshot" >> /etc/systemd/system/flatpak-update.service \
+# && echo "ExecStart=/usr/bin/flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo" >> /etc/systemd/system/flatpak-update.service \
 # && echo "ExecStart=/usr/bin/flatpak remote-modify --disable fedora" >> /etc/systemd/system/flatpak-update.service \
 # && echo "ExecStart=/usr/bin/flatpak remote-modify --enable flathub" >> /etc/systemd/system/flatpak-update.service \
 # Install list of flatpak apps from my repo
- && echo "ExecStart=/usr/bin/bash -c 'curl -sSL https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/flatpak/packages | xargs -r flatpak install -y --noninteractive'" >> /etc/systemd/system/flatpak-update.service \
+# && echo "ExecStart=/usr/bin/bash -c 'curl -sSL https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/flatpak/packages | xargs -r flatpak install -y --noninteractive'" >> /etc/systemd/system/flatpak-update.service \
 # Install list of flatpak apps from ~/.flatpak-apps.list" >> /etc/systemd/system/flatpak-update.service \
- && echo "ExecStart=/usr/bin/bash -c 'cat ~/.flatpak-apps.list | xargs -r flatpak install -y --noninteractive'" >> /etc/systemd/system/flatpak-update.service \
- && echo "ExecStart=/usr/bin/flatpak update --noninteractive --assumeyes" >> /etc/systemd/system/flatpak-update.service \
- && echo "[Install]" >> /etc/systemd/system/flatpak-update.service \
- && echo "WantedBy=multi-user.target" >> /etc/systemd/system/flatpak-update.service \
+# && echo "ExecStart=/usr/bin/bash -c 'cat ~/.flatpak-apps.list | xargs -r flatpak install -y --noninteractive'" >> /etc/systemd/system/flatpak-update.service \
+# && echo "ExecStart=/usr/bin/flatpak update --noninteractive --assumeyes" >> /etc/systemd/system/flatpak-update.service \
+# && echo "[Install]" >> /etc/systemd/system/flatpak-update.service \
+# && echo "WantedBy=multi-user.target" >> /etc/systemd/system/flatpak-update.service \
 # Timer
- && echo "[Unit]" >> /etc/systemd/system/flatpak-update.timer \
- && echo "Description=Update Flatpak" >> /etc/systemd/system/flatpak-update.timer \
- && echo "[Timer]" >> /etc/systemd/system/flatpak-update.timer \
- && echo "OnBootSec=2m" >> /etc/systemd/system/flatpak-update.timer \
- && echo "OnActiveSec=2m" >> /etc/systemd/system/flatpak-update.timer \
- && echo "OnUnitInactiveSec=24h" >> /etc/systemd/system/flatpak-update.timer \
- && echo "OnUnitActiveSec=24h" >> /etc/systemd/system/flatpak-update.timer \
- && echo "AccuracySec=1h" >> /etc/systemd/system/flatpak-update.timer \
- && echo "RandomizedDelaySec=10m" >> /etc/systemd/system/flatpak-update.timer \
- && echo "[Install]" >> /etc/systemd/system/flatpak-update.timer \
- && echo "WantedBy=timers.target" >> /etc/systemd/system/flatpak-update.timer \
+# && echo "[Unit]" >> /etc/systemd/system/flatpak-update.timer \
+# && echo "Description=Update Flatpak" >> /etc/systemd/system/flatpak-update.timer \
+# && echo "[Timer]" >> /etc/systemd/system/flatpak-update.timer \
+# && echo "OnBootSec=2m" >> /etc/systemd/system/flatpak-update.timer \
+# && echo "OnActiveSec=2m" >> /etc/systemd/system/flatpak-update.timer \
+# && echo "OnUnitInactiveSec=24h" >> /etc/systemd/system/flatpak-update.timer \
+# && echo "OnUnitActiveSec=24h" >> /etc/systemd/system/flatpak-update.timer \
+# && echo "AccuracySec=1h" >> /etc/systemd/system/flatpak-update.timer \
+# && echo "RandomizedDelaySec=10m" >> /etc/systemd/system/flatpak-update.timer \
+# && echo "[Install]" >> /etc/systemd/system/flatpak-update.timer \
+# && echo "WantedBy=timers.target" >> /etc/systemd/system/flatpak-update.timer \
+# && curl -o /etc/systemd/system/httpd.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/httpd.container \
+ && curl -o /etc/systemd/system/flatpak-update.service https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/flatpak/flatpak-update.service \
+ && curl -o /etc/systemd/system/flatpak-update.timer https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/flatpak/flatpak-update.timer \
 # Enable
  && systemctl enable flatpak-update.timer \
  && systemctl disable flatpak-add-fedora-repos.service \
