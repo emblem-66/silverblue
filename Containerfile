@@ -75,8 +75,8 @@ RUN echo "" \
  && curl -o /etc/systemd/system/flatpak-update.timer https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/flatpak/flatpak-update.timer \
 # Enable
  && systemctl enable flatpak-update.timer \
- && systemctl disable flatpak-add-fedora-repos.service \
- && systemctl disable fedora-third-party-refresh.service \
+# && systemctl disable flatpak-add-fedora-repos.service \
+# && systemctl disable fedora-third-party-refresh.service \
  && echo "" 
 
 # Tailscale
