@@ -69,6 +69,8 @@ RUN echo "" \
 # && echo "[Install]" >> /etc/systemd/system/flatpak-update.timer \
 # && echo "WantedBy=timers.target" >> /etc/systemd/system/flatpak-update.timer \
 # && curl -o /etc/systemd/system/httpd.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/httpd.container \
+# && curl -o /usr/lib/systemd/system/flatpak-update.service https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/flatpak/flatpak-update.service \
+# && curl -o /usr/lib/systemd/system/flatpak-update.timer https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/flatpak/flatpak-update.timer \
  && curl -o /etc/systemd/system/flatpak-update.service https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/flatpak/flatpak-update.service \
  && curl -o /etc/systemd/system/flatpak-update.timer https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/flatpak/flatpak-update.timer \
 # Enable
