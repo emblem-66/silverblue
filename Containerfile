@@ -81,7 +81,7 @@ RUN echo "" \
  && systemctl enable tailscaled.service sshd.service \
  && dnf autoremove -y \
  && dnf clean all \
- && rm -rf /var/cache/* /var/log/* /tmp/* \
+ && rm -rf /var/* /tmp/* \
  && echo "" 
 
 # Piper
@@ -91,7 +91,7 @@ RUN echo "" \
  && systemctl enable ratbagd.service \
  && dnf autoremove -y \
  && dnf clean all \
- && rm -rf /var/cache/* /var/log/* /tmp/* \
+ && rm -rf /var/* /tmp/* \
  && echo ""
 
 # Remove Firefox
@@ -99,7 +99,7 @@ RUN echo "" \
  && dnf remove -y firefox* \
  && dnf autoremove -y \
  && dnf clean all \
- && rm -rf /var/cache/* /var/log/* /tmp/* \
+ && rm -rf /var/* /tmp/* \
  && echo ""
 
 # Remove unwanted Fedora stuff
@@ -112,7 +112,7 @@ RUN echo "" \
     fedora-third-party \
  && dnf autoremove -y \
  && dnf clean all \
- && rm -rf /var/cache/* /var/log/* /tmp/* \
+ && rm -rf /var/* /tmp/* \
  && echo ""
 
 # Remove unwanted GNOME stuff
@@ -126,7 +126,7 @@ RUN echo "" \
     malcontent-control \
  && dnf autoremove -y \
  && dnf clean all \
- && rm -rf /var/cache/* /var/log/* /tmp/* \
+ && rm -rf /var/* /tmp/* \
  && echo ""
 
 # Install adw-gtk3-theme & morewaita
@@ -135,7 +135,7 @@ RUN echo "" \
  && dnf install -y adw-gtk3-theme morewaita-icon-theme \
  && dnf autoremove -y \
  && dnf clean all \
- && rm -rf /var/cache/* /var/log/* /tmp/* \
+ && rm -rf /var/* /tmp/* \
  && echo ""
 
 # COSMIC-EPOCH
@@ -144,7 +144,7 @@ RUN echo "" \
 # && dnf install -y cosmic-desktop \
 # && dnf autoremove -y \
 # && dnf clean all \
-# && rm -rf /var/cache/* /var/log/* /tmp/* \
+# && rm -rf /var/* /tmp/* \
 # && echo ""
 
 # Homebrew
@@ -180,6 +180,6 @@ RUN echo "" \
 # Finish
 RUN echo "" \
  && dnf clean all \
- && rm -rf /var/cache/* /var/log/* /var/lib/dnf/* /tmp/* \
+ && rm -rf /var/* /tmp/* \
  && ostree container commit \
  && bootc container lint
