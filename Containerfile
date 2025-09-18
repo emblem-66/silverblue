@@ -106,11 +106,6 @@ RUN echo "" \
  && curl -o /etc/systemd/system/jellyfin.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/jellyfin.container \
  && echo ""
 
-RUN echo "" \
- && systemctl enable caddy.service
- && echo ""
-
-
 # Tweaks
 RUN echo "" \
  && systemctl enable podman-auto-update.timer \
