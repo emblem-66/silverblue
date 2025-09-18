@@ -26,6 +26,15 @@ RUN echo "" \
  && rm -rf /var/* /tmp/* \
  && echo ""
 
+# Cockpit
+RUN echo "" \
+ && dnf install -y cockpit.socket \
+ && systemctl enable cockpit.socket \
+ && dnf autoremove -y \
+ && dnf clean all \
+ && rm -rf /var/* /tmp/* \
+ && echo ""
+
 # Remove Firefox
 RUN echo "" \
  && dnf remove -y firefox* \
