@@ -5,7 +5,7 @@ FROM quay.io/fedora/fedora-silverblue:latest
 RUN echo "" \
  && sed -i 's|ExecStart=/usr/bin/bootc upgrade --apply --quiet|ExecStart=/usr/bin/bootc upgrade --quiet|' /usr/lib/systemd/system/bootc-fetch-apply-updates.service \
  && systemctl enable bootc-fetch-apply-updates.timer \
- && echo "" 
+ && echo ""
 
 # Automatic Updates Flatpak
 RUN echo "" \
@@ -77,7 +77,7 @@ RUN echo "" \
  && systemctl enable flatpak-update.timer \
 # && systemctl disable flatpak-add-fedora-repos.service \
 # && systemctl disable fedora-third-party-refresh.service \
- && echo "" 
+ && echo ""
 
 # Tailscale
 RUN echo "" \
@@ -87,7 +87,7 @@ RUN echo "" \
  && dnf autoremove -y \
  && dnf clean all \
  && rm -rf /var/* /tmp/* \
- && echo "" 
+ && echo ""
 
 # Piper
 RUN echo "" \
