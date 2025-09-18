@@ -28,7 +28,7 @@ RUN echo "" \
 
 # Cockpit
 RUN echo "" \
- && dnf install -y cockpit.socket \
+ && dnf install -y cockpit \
  && systemctl enable cockpit.socket \
  && dnf autoremove -y \
  && dnf clean all \
