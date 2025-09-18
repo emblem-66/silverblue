@@ -90,14 +90,14 @@ RUN echo "" \
  && echo ""
 
 # Piper
-RUN echo "" \
- && dnf install -y libratbag-ratbagd \
+#RUN echo "" \
+# && dnf install -y libratbag-ratbagd \
 # && echo -e "# Rapture FOXTROT \nKERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", ATTRS{idVendor}=="fffe", ATTRS{idProduct}=="0072", MODE="0660", GROUP="users", TAG+="uaccess", TAG+="udev-acl"" | tee /etc/udev/rules.d/99-via-usb.rules \
- && systemctl enable ratbagd.service \
- && dnf autoremove -y \
- && dnf clean all \
- && rm -rf /var/* /tmp/* \
- && echo ""
+# && systemctl enable ratbagd.service \
+# && dnf autoremove -y \
+# && dnf clean all \
+# && rm -rf /var/* /tmp/* \
+# && echo ""
 
 # Remove Firefox
 RUN echo "" \
@@ -120,7 +120,7 @@ RUN echo "" \
  && rm -rf /var/* /tmp/* \
  && echo ""
 
-# Remove unwanted GNOME stuff
+# GNOME
 RUN echo "" \
  && dnf remove -y \
     gnome-shell-extension* \
@@ -129,13 +129,6 @@ RUN echo "" \
     gnome-software* \
     virtualbox-guest-additions \
     malcontent-control \
- && dnf autoremove -y \
- && dnf clean all \
- && rm -rf /var/* /tmp/* \
- && echo ""
-
-# Install adw-gtk3-theme & morewaita
-RUN echo "" \
  && dnf copr enable -y trixieua/morewaita-icon-theme \
  && dnf install -y adw-gtk3-theme morewaita-icon-theme \
  && dnf autoremove -y \
@@ -169,19 +162,19 @@ RUN echo "" \
 # && echo ""
 
 # Podman Quadlets
-RUN echo "" \
- && curl -o /etc/systemd/system/httpd.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/httpd.container \
- && curl -o /etc/systemd/system/nginx.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/nginx.container \
- && curl -o /etc/systemd/system/caddy.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/caddy.container \
- && curl -o /etc/systemd/system/jellyfin.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/jellyfin.container \
- && echo ""
+#RUN echo "" \
+# && curl -o /etc/systemd/system/httpd.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/httpd.container \
+# && curl -o /etc/systemd/system/nginx.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/nginx.container \
+# && curl -o /etc/systemd/system/caddy.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/caddy.container \
+# && curl -o /etc/systemd/system/jellyfin.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/jellyfin.container \
+# && echo ""
 
 # Tweaks
-RUN echo "" \
- && systemctl enable podman-auto-update.timer \
- && systemctl disable systemd-remount-fs.service \
- && flatpak remotes \
- && echo ""
+#RUN echo "" \
+# && systemctl enable podman-auto-update.timer \
+# && systemctl disable systemd-remount-fs.service \
+# && flatpak remotes \
+# && echo ""
 
 # Finish
 RUN echo "" \
