@@ -109,6 +109,13 @@ RUN echo "" \
 # && rm -rf /var/* /tmp/* \
 # && echo ""
 
+RUN echo "" \
+ && curl -o /etc/systemd/system/caddy.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/caddy1.container \
+ && systemctl daemon-reload
+ && systemctl enable caddy.service
+ && echo ""
+
+
 # Tweaks
 RUN echo "" \
  && systemctl enable podman-auto-update.timer \
