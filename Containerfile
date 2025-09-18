@@ -178,8 +178,9 @@ RUN echo "" \
 
 # Tweaks
 RUN echo "" \
- && echo systemctl enable podman-auto-update.timer \
- && echo systemctl disable systemd-remount-fs.service \
+ && systemctl enable podman-auto-update.timer \
+ && systemctl disable systemd-remount-fs.service \
+ && flatpak remotes \
  && echo ""
 
 # Finish
