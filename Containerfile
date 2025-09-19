@@ -29,6 +29,9 @@ RUN echo "" \
     cockpit \
     cockpit-podman \
  && systemctl enable cockpit.socket \
+# Caddy
+ && dnf copr enable -y @caddy/caddy \
+ && dnf install -y caddy \
 # Cleanup
  && dnf autoremove -y \
  && dnf clean all \
