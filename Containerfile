@@ -18,15 +18,18 @@ RUN echo "" \
 
 ### REMOTE MANAGEMENT
 RUN echo "" \
+# SSH
+ && systemctl enable sshd.service \
 # Tailscale
  && dnf config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo \
  && dnf install -y tailscale \
  && systemctl enable tailscaled.service \
-# SSH
- && systemctl enable sshd.service \
 # Cockpit
- && dnf install -y cockpit \
+ && dnf install -y \
+    cockpit \
+    cockpit-podman \
  && systemctl enable cockpit.socket \
+# Cleanup
  && dnf autoremove -y \
  && dnf clean all \
  && rm -rf /var/* /tmp/* \
