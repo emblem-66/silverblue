@@ -18,10 +18,18 @@ jobs:
     steps:
     - name: Checkout Push to Registry action
       uses: actions/checkout@v4
-    - name: Login
-      shell: bash
-      run: |
-        podman login ghcr.io -u ${{ github.actor }} -p ${{ secrets.GITHUB_TOKEN }}
+#    - name: Login
+#      shell: bash
+#      run: |
+#        podman login ghcr.io -u ${{ github.actor }} -p ${{ secrets.GITHUB_TOKEN }}
+#    - name: Build
+#      shell: bash
+#      run: |
+#        podman build -f Containerfile -t ghcr.io/${{ github.actor }}/${{ github.event.repository.name }}:latest
+#    - name: Push
+#      shell: bash
+#      run: |
+#        podman push ghcr.io/${{ github.actor }}/${{ github.event.repository.name }}:latest
     - name: Build
       shell: bash
       run: |
@@ -29,4 +37,4 @@ jobs:
     - name: Push
       shell: bash
       run: |
-        podman push ghcr.io/${{ github.actor }}/${{ github.event.repository.name }}:latest
+        podman push --creds=${{ github.actor }}:${{ secrets.GITHUB_TOKEN }} ghcr.io/${{ github.actor }}/${{ github.event.repository.name }}:latest
