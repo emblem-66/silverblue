@@ -16,18 +16,15 @@ RUN echo "" \
  && systemctl disable fedora-third-party-refresh.service \
  && echo ""
 
-# Tailscale
+### REMOTE MANAGEMENT
 RUN echo "" \
+# Tailscale
  && dnf config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo \
  && dnf install -y tailscale \
- && systemctl enable tailscaled.service sshd.service \
- && dnf autoremove -y \
- && dnf clean all \
- && rm -rf /var/* /tmp/* \
- && echo ""
-
+ && systemctl enable tailscaled.service \
+# SSH
+ && systemctl enable sshd.service \
 # Cockpit
-RUN echo "" \
  && dnf install -y cockpit \
  && systemctl enable cockpit.socket \
  && dnf autoremove -y \
