@@ -14,8 +14,8 @@ RUN echo "" \
  && curl -o /etc/systemd/system/flatpak-update.service https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/flatpak/flatpak-update.service \
  && curl -o /etc/systemd/system/flatpak-update.timer https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/flatpak/flatpak-update.timer \
  && systemctl enable flatpak-update.timer \
- && systemctl disable flatpak-add-fedora-repos.service \
- && systemctl disable fedora-third-party-refresh.service \
+ && systemctl mask flatpak-add-fedora-repos.service \
+ && systemctl mask fedora-third-party-refresh.service \
  && echo ""
 
 ### REMOTE MANAGEMENT
@@ -103,18 +103,17 @@ RUN echo "" \
 # && echo ""
 
 # Podman Quadlets
-RUN echo "" \
- && curl -o /etc/systemd/system/httpd.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/httpd.container \
- && curl -o /etc/systemd/system/nginx.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/nginx.container \
- && curl -o /etc/systemd/system/caddy.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/caddy.container \
- && curl -o /etc/systemd/system/caddy1.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/caddy1.container \
- && curl -o /etc/systemd/system/jellyfin.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/jellyfin.container \
+#RUN echo "" \
+# && curl -o /etc/systemd/system/httpd.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/httpd.container \
+# && curl -o /etc/systemd/system/nginx.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/nginx.container \
+# && curl -o /etc/systemd/system/caddy.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/caddy.container \
+# && curl -o /etc/systemd/system/caddy1.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/caddy1.container \
+# && curl -o /etc/systemd/system/jellyfin.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/jellyfin.container \
  && echo ""
 
 # Tweaks
 RUN echo "" \
- && systemctl enable podman-auto-update.timer \
- && systemctl mask systemd-remount-fs.service \
+# && systemctl enable podman-auto-update.timer \
  && systemctl mask systemd-remount-fs.service \
  && echo ""
 
