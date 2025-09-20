@@ -4,6 +4,8 @@ FROM quay.io/fedora/fedora-silverblue:latest
 # Automatic Updates DNF
 RUN echo "" \
  && sed -i 's|ExecStart=/usr/bin/bootc upgrade --apply --quiet|ExecStart=/usr/bin/bootc upgrade --quiet|' /usr/lib/systemd/system/bootc-fetch-apply-updates.service \
+ && sed -i 's|OnBootSec=1h|OnBootSec=5m|' /usr/lib/systemd/system/bootc-fetch-apply-updates.timer \
+ && sed -i 's|RandomizedDelaySec=2h|#RandomizedDelaySec=2h|' /usr/lib/systemd/system/bootc-fetch-apply-updates.timer \
  && systemctl enable bootc-fetch-apply-updates.timer \
  && echo ""
 
