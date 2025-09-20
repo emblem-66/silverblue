@@ -40,7 +40,7 @@ RUN echo "" \
  && rm -rf /var/* /tmp/* \
  && echo ""
 
-# REMOVE UNWANTED STUFF
+### REMOVE UNWANTED STUFF
 RUN echo "" \
 # Remove Firefox
  && dnf remove -y firefox* \
@@ -51,7 +51,7 @@ RUN echo "" \
     fedora-bookmarks \
     fedora-flathub-remote \
     fedora-third-party \
-# GNOME
+# Remove GNOME stuff
  && dnf remove -y \
     gnome-shell-extension* \
     gnome-tour \
@@ -59,6 +59,7 @@ RUN echo "" \
     gnome-software* \
     virtualbox-guest-additions \
     malcontent-control \
+# Add adw-gtk3-theme & morewaita-icon-theme
  && dnf copr enable -y trixieua/morewaita-icon-theme \
  && dnf install -y adw-gtk3-theme morewaita-icon-theme \
 # Failing systemd-remount-fs.service
