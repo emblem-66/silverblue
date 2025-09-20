@@ -1,21 +1,21 @@
 # Currently based on Silverblue image. In future, I am considering using fedora-bootc image.
 FROM quay.io/fedora/fedora-silverblue:latest
 
-# Automatic Updates DNF
+### AUTOMATIC UPDATES
 RUN echo "" \
+# Automatic Updates DNF
  && sed -i 's|ExecStart=/usr/bin/bootc upgrade --apply --quiet|ExecStart=/usr/bin/bootc upgrade --quiet|' /usr/lib/systemd/system/bootc-fetch-apply-updates.service \
  && sed -i 's|OnBootSec=1h|OnBootSec=5m|' /usr/lib/systemd/system/bootc-fetch-apply-updates.timer \
  && sed -i 's|RandomizedDelaySec=2h|#RandomizedDelaySec=2h|' /usr/lib/systemd/system/bootc-fetch-apply-updates.timer \
  && systemctl enable bootc-fetch-apply-updates.timer \
- && echo ""
-
 # Automatic Updates Flatpak
-RUN echo "" \
  && curl -o /etc/systemd/system/flatpak-update.service https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/flatpak/flatpak-update.service \
  && curl -o /etc/systemd/system/flatpak-update.timer https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/flatpak/flatpak-update.timer \
  && systemctl enable flatpak-update.timer \
  && systemctl mask flatpak-add-fedora-repos.service \
  && systemctl mask fedora-third-party-refresh.service \
+# Podman updates
+# && systemctl enable podman-auto-update.timer \
  && echo ""
 
 ### REMOTE MANAGEMENT
@@ -40,29 +40,18 @@ RUN echo "" \
  && rm -rf /var/* /tmp/* \
  && echo ""
 
+# REMOVE UNWANTED STUFF
+RUN echo "" \
 # Remove Firefox
-RUN echo "" \
  && dnf remove -y firefox* \
- && dnf autoremove -y \
- && dnf clean all \
- && rm -rf /var/* /tmp/* \
- && echo ""
-
 # Remove unwanted Fedora stuff
-RUN echo "" \
  && dnf remove -y \
     virtualbox-guest-additions \
     fedora-chromium-config* \
     fedora-bookmarks \
     fedora-flathub-remote \
     fedora-third-party \
- && dnf autoremove -y \
- && dnf clean all \
- && rm -rf /var/* /tmp/* \
- && echo ""
-
 # GNOME
-RUN echo "" \
  && dnf remove -y \
     gnome-shell-extension* \
     gnome-tour \
@@ -72,6 +61,9 @@ RUN echo "" \
     malcontent-control \
  && dnf copr enable -y trixieua/morewaita-icon-theme \
  && dnf install -y adw-gtk3-theme morewaita-icon-theme \
+# Failing systemd-remount-fs.service
+ && systemctl mask systemd-remount-fs.service \
+# Cleanup
  && dnf autoremove -y \
  && dnf clean all \
  && rm -rf /var/* /tmp/* \
@@ -109,13 +101,7 @@ RUN echo "" \
 # && curl -o /etc/systemd/system/caddy.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/caddy.container \
 # && curl -o /etc/systemd/system/caddy1.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/caddy1.container \
 # && curl -o /etc/systemd/system/jellyfin.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/jellyfin.container \
- && echo ""
-
-# Tweaks
-RUN echo "" \
-# && systemctl enable podman-auto-update.timer \
- && systemctl mask systemd-remount-fs.service \
- && echo ""
+# && echo ""
 
 # Finish
 RUN echo "" \
