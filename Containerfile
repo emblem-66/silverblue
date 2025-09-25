@@ -1,6 +1,12 @@
 # Currently based on Silverblue image. In future, I am considering using fedora-bootc image.
 FROM quay.io/fedora/fedora-silverblue:latest
 
+RUN echo "" \
+# Just & Justfile
+ && dnf install -y just htop btop fastfetch \
+ && curl -o /etc/justfile https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/just/justfile \
+ && echo ""
+
 ### AUTOMATIC UPDATES
 RUN echo "" \
 # Automatic Updates DNF
@@ -16,8 +22,6 @@ RUN echo "" \
  && systemctl enable flatpak-update.timer \
  && systemctl mask flatpak-add-fedora-repos.service \
  && systemctl mask fedora-third-party-refresh.service \
-# Podman updates
-# && systemctl enable podman-auto-update.timer \
  && echo ""
 
 ### REMOTE MANAGEMENT
@@ -41,9 +45,6 @@ RUN echo "" \
 # Caddy
 # && dnf copr enable -y @caddy/caddy \
 # && dnf install -y caddy \
-# Just & Justfile
- && dnf install -y just \
- && curl -o /etc/justfile https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/just/justfile \
 # Cleanup
  && dnf autoremove -y \
  && dnf clean all \
@@ -107,6 +108,9 @@ RUN echo "" \
 
 # Podman Quadlets
 #RUN echo "" \
+# Podman updates
+# && systemctl enable podman-auto-update.timer \
+# Copy containers
 # && curl -o /etc/systemd/system/httpd.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/httpd.container \
 # && curl -o /etc/systemd/system/nginx.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/nginx.container \
 # && curl -o /etc/systemd/system/caddy.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/caddy.container \
