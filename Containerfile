@@ -18,7 +18,7 @@ RUN echo "" \
  && curl -o /etc/systemd/system/flatpak-install.service https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/flatpak/flatpak-install.service \
  && curl -o /etc/systemd/system/flatpak-update.service https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/flatpak/flatpak-update.service \
  && curl -o /etc/systemd/system/flatpak-update.timer https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/flatpak/flatpak-update.timer \
-# && systemctl enable flatpak-install.service \
+ && systemctl enable flatpak-install.service \
  && systemctl enable flatpak-update.timer \
  && systemctl mask flatpak-add-fedora-repos.service \
  && systemctl mask fedora-third-party-refresh.service \
