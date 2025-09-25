@@ -41,6 +41,9 @@ RUN echo "" \
 # Caddy
 # && dnf copr enable -y @caddy/caddy \
 # && dnf install -y caddy \
+# Just & Justfile
+ && dnf install -y just \
+ && curl -o /etc/justfile https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/just/justfile \
 # Cleanup
  && dnf autoremove -y \
  && dnf clean all \
