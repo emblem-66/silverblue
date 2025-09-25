@@ -35,7 +35,7 @@ RUN echo "" \
  && dnf install -y vsftpd \
  && sed -i 's|#write_enable=YES|write_enable=YES|' /etc/vsftpd/vsftpd.conf \
  && sed -i 's|#local_enable=YES|local_enable=YES|' /etc/vsftpd/vsftpd.conf \
- && systemctl enable systemctl enable vsftpd \
+# && systemctl enable systemctl enable vsftpd \
 # Caddy
  && dnf copr enable -y @caddy/caddy \
  && dnf install -y caddy \
