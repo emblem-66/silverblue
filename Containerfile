@@ -45,6 +45,8 @@ RUN echo "" \
 # && sed -i 's|#local_enable=YES|local_enable=YES|' /etc/vsftpd/vsftpd.conf \
 # && systemctl enable systemctl enable vsftpd \
 # Caddy
+# bootc-gtk
+ && dnf install -y bootc-gtk \
 # && dnf copr enable -y @caddy/caddy \
 # && dnf install -y caddy \
 # Cleanup
