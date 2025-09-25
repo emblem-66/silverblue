@@ -34,13 +34,13 @@ RUN echo "" \
     cockpit-podman \
  && systemctl enable cockpit.socket \
 # FTP
- && dnf install -y vsftpd \
- && sed -i 's|#write_enable=YES|write_enable=YES|' /etc/vsftpd/vsftpd.conf \
- && sed -i 's|#local_enable=YES|local_enable=YES|' /etc/vsftpd/vsftpd.conf \
+# && dnf install -y vsftpd \
+# && sed -i 's|#write_enable=YES|write_enable=YES|' /etc/vsftpd/vsftpd.conf \
+# && sed -i 's|#local_enable=YES|local_enable=YES|' /etc/vsftpd/vsftpd.conf \
 # && systemctl enable systemctl enable vsftpd \
 # Caddy
- && dnf copr enable -y @caddy/caddy \
- && dnf install -y caddy \
+# && dnf copr enable -y @caddy/caddy \
+# && dnf install -y caddy \
 # Cleanup
  && dnf autoremove -y \
  && dnf clean all \
