@@ -29,7 +29,7 @@ RUN echo "" \
 ### REMOTE MANAGEMENT
 RUN echo "" \
 # SSH
- && systemctl enable sshd.service \
+# && systemctl enable sshd.service \
 # Tailscale
  && dnf config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo \
  && dnf install -y tailscale \
