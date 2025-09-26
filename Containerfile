@@ -6,7 +6,8 @@ RUN echo "" \
  && dnf install -y just htop btop fastfetch \
  && curl -o /etc/justfile https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/just/justfile \
  && echo ""
-ENV JUST_JUSTFILE=/etc/justfile
+#ENV JUST_JUSTFILE=/etc/justfile
+ENV JUSTFILE=/etc/justfile
 
 ### AUTOMATIC UPDATES
 RUN echo "" \
