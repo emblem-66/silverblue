@@ -96,7 +96,11 @@ RUN echo "" \
 # && echo ""
 
 # Homebrew
-#RUN echo "" \
+RUN echo "" \
+ && dnf copr enable ublue-os/packages \
+ && dnf install -y ublue-brew \
+ && dnf config-manager --set-disabled "copr:copr.fedorainfracloud.org:ublue-os:packages" \
+ && echo ""
 # && mkdir -p /home/linuxbrew/.linuxbrew \
 # && mkdir -p /usr/share/homebrew \
 # && /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" \
