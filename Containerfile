@@ -1,33 +1,5 @@
-
-FROM quay.io/fedora/fedora:latest AS builder
-
-WORKDIR /tmp
-RUN <<-EOT sh
-	set -eu
-
-	touch /.dockerenv
-
-	# Install packages
-	dnf install -y git xz --setopt=install_weak_deps=False
-
-	# Instal Homebrew
-	case "$(rpm -E %{_arch})" in
-		x86_64)
-			curl -fLs \
-				https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash -s
-			/home/linuxbrew/.linuxbrew/bin/brew update
-			;;
-		*)
-			mkdir /home/linuxbrew
-			;;
-	esac
-EOT
-
-
 # Currently based on Silverblue image. In future, I am considering using fedora-bootc image.
 FROM quay.io/fedora/fedora-silverblue:latest
-
-COPY --from=builder --chown=1000:1000 /home/linuxbrew /usr/share/homebrew
 
 RUN echo "" \
 # Just & Justfile
