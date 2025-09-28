@@ -3,7 +3,7 @@ FROM quay.io/fedora/fedora-silverblue:latest
 
 RUN echo "" \
 # Just & Justfile
- && dnf install -y just htop btop fastfetch micro mc podlet \
+ && dnf install -y just htop btop fastfetch micro gnome-commander podlet \
  && curl -o /etc/justfile https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/just/justfile \
  && echo ""
 #ENV JUST_JUSTFILE=/etc/justfile
