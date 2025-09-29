@@ -5,12 +5,9 @@ RUN echo "" \
 # Just & Justfile
  && dnf install -y just htop btop fastfetch micro gnome-commander mc podlet \
  && curl -o /usr/etc/justfile https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/just/justfile \
- && echo ""
 #ENV JUST_JUSTFILE=/etc/justfile
 # just --justfile /etc/justfile
-
 ### AUTOMATIC UPDATES
-RUN echo "" \
 # Automatic Updates DNF
  && sed -i 's|ExecStart=/usr/bin/bootc upgrade --apply --quiet|ExecStart=/usr/bin/bootc upgrade --quiet|' /usr/lib/systemd/system/bootc-fetch-apply-updates.service \
  && sed -i 's|OnBootSec=1h|OnBootSec=5m|' /usr/lib/systemd/system/bootc-fetch-apply-updates.timer \
@@ -25,10 +22,7 @@ RUN echo "" \
  && systemctl enable flatpak-update.timer \
  && systemctl mask flatpak-add-fedora-repos.service \
  && systemctl mask fedora-third-party-refresh.service \
- && echo ""
-
 ### REMOTE MANAGEMENT
-RUN echo "" \
 # SSH
  && systemctl enable sshd.service \
 # Tailscale
@@ -50,14 +44,7 @@ RUN echo "" \
  && dnf install -y bootc-gtk \
 # && dnf copr enable -y @caddy/caddy \
 # && dnf install -y caddy \
-# Cleanup
- && dnf autoremove -y \
- && dnf clean all \
- && rm -rf /var/* /tmp/* \
- && echo ""
-
 ### REMOVE UNWANTED STUFF
-RUN echo "" \
 # Remove Firefox
  && dnf remove -y firefox* \
 # Remove unwanted Fedora stuff
@@ -80,14 +67,8 @@ RUN echo "" \
  && dnf install -y adw-gtk3-theme morewaita-icon-theme \
 # Failing systemd-remount-fs.service
  && systemctl mask systemd-remount-fs.service \
-# Cleanup
- && dnf autoremove -y \
- && dnf clean all \
- && rm -rf /var/* /tmp/* \
- && echo ""
-
 # Finish
-RUN echo "" \
+ && dnf autoremove -y \
  && dnf clean all \
  && rm -rf /var/* /tmp/* \
  && ostree container commit \
