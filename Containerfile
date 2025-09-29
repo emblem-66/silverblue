@@ -4,6 +4,7 @@ FROM quay.io/fedora/fedora-silverblue:latest
 RUN echo "" \
 # Just & Justfile
  && dnf install -y just htop btop fastfetch micro gnome-commander mc podlet \
+ && mkdir -p /usr/share/just/ \
  && curl -o /usr/share/just/justfile https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/just/justfile \
 #ENV JUST_JUSTFILE=/etc/justfile
 # just --justfile /etc/justfile
