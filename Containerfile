@@ -4,7 +4,7 @@ FROM quay.io/fedora/fedora-silverblue:latest
 RUN echo "" \
 # Just & Justfile
  && dnf install -y just htop btop fastfetch micro gnome-commander mc podlet \
- && curl -o /etc/justfile https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/just/justfile \
+ && curl -o /usr/etc/justfile https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/just/justfile \
  && echo ""
 #ENV JUST_JUSTFILE=/etc/justfile
 # just --justfile /etc/justfile
@@ -17,9 +17,9 @@ RUN echo "" \
  && sed -i 's|RandomizedDelaySec=2h|#RandomizedDelaySec=2h|' /usr/lib/systemd/system/bootc-fetch-apply-updates.timer \
 # && systemctl enable bootc-fetch-apply-updates.timer \
 # Automatic Updates Flatpak
- && curl -o /etc/systemd/system/flatpak-install.service https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/flatpak/flatpak-install.service \
- && curl -o /etc/systemd/system/flatpak-update.service https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/flatpak/flatpak-update.service \
- && curl -o /etc/systemd/system/flatpak-update.timer https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/flatpak/flatpak-update.timer \
+ && curl -o /usr/lib/systemd/system/flatpak-install.service https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/flatpak/flatpak-install.service \
+ && curl -o /usr/lib/systemd/system/flatpak-update.service https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/flatpak/flatpak-update.service \
+ && curl -o /usr/lib/systemd/system/flatpak-update.timer https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/flatpak/flatpak-update.timer \
  && systemctl enable flatpak-install.service \
  && systemctl enable flatpak-update.service \
  && systemctl enable flatpak-update.timer \
@@ -85,43 +85,6 @@ RUN echo "" \
  && dnf clean all \
  && rm -rf /var/* /tmp/* \
  && echo ""
-
-# COSMIC-EPOCH
-#RUN echo "" \
-# && dnf copr enable -y ryanabx/cosmic-epoch \
-# && dnf install -y cosmic-desktop \
-# && dnf autoremove -y \
-# && dnf clean all \
-# && rm -rf /var/* /tmp/* \
-# && echo ""
-
-# Homebrew
-#RUN echo "" \
-# && mkdir -p /home/linuxbrew/.linuxbrew \
-# && mkdir -p /usr/share/homebrew \
-# && /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" \
-# && /home/linuxbrew/.linuxbrew/bin/brew update \
-# && mv /home/linuxbrew /usr/share/homebrew \
-# && echo ""
-#RUN echo "" \
-# && mkdir -p /usr/share/homebrew \
-# && NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" \
-# && mv /home/linuxbrew /usr/share/homebrew \
-# && ln -s /usr/share/homebrew/.linuxbrew/bin/brew /usr/local/bin/brew \
-# && /usr/share/homebrew/.linuxbrew/bin/brew update \
-# && echo ""
-
-# Podman Quadlets
-#RUN echo "" \
-# Podman updates
-# && systemctl enable podman-auto-update.timer \
-# Copy containers
-# && curl -o /etc/systemd/system/httpd.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/httpd.container \
-# && curl -o /etc/systemd/system/nginx.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/nginx.container \
-# && curl -o /etc/systemd/system/caddy.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/caddy.container \
-# && curl -o /etc/systemd/system/caddy1.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/caddy1.container \
-# && curl -o /etc/systemd/system/jellyfin.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/jellyfin.container \
-# && echo ""
 
 # Finish
 RUN echo "" \
