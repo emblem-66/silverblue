@@ -7,7 +7,7 @@ RUN echo "" \
  && curl -o /etc/justfile https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/just/justfile \
  && echo ""
 #ENV JUST_JUSTFILE=/etc/justfile
-ENV JUSTFILE=/etc/justfile
+# just --justfile /etc/justfile
 
 ### AUTOMATIC UPDATES
 RUN echo "" \
