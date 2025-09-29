@@ -43,10 +43,7 @@ systemctl enable cockpit.socket
 dnf install -y bootc-gtk
 #dnf copr enable -y @caddy/caddy
 #dnf install -y caddy
-# Cleanup
-dnf autoremove -y
-dnf clean all
-rm -rf /var/* /tmp/*
+
 
 
 ### REMOVE UNWANTED STUFF
