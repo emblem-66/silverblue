@@ -41,6 +41,9 @@ RUN echo "" \
 # && sed -i 's|#local_enable=YES|local_enable=YES|' /etc/vsftpd/vsftpd.conf \
 # && systemctl enable systemctl enable vsftpd \
 # Caddy
+# Piper
+ && dnf install -y piper \
+ && systemctl enable ratbagd.service \
 # bootc-gtk
  && dnf install -y bootc-gtk \
 # && dnf copr enable -y @caddy/caddy \
