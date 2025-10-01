@@ -1,5 +1,17 @@
+
+FROM quay.io/fedora/fedora:latest AS builder
+COPY --chmod=755 brew.sh /
+WORKDIR /tmp
+RUN /brew.sh
+
+
+
+
+
 # Currently based on Silverblue image. In future, I am considering using fedora-bootc image.
 FROM quay.io/fedora/fedora-silverblue:latest
+
+COPY --from=builder --chown=1000:1000 /home/linuxbrew /usr/share/homebrew
 
 RUN echo "" \
 # Just & Justfile
