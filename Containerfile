@@ -66,6 +66,8 @@ RUN echo "" \
     gnome-software* \
     virtualbox-guest-additions \
     malcontent-control \
+# Remove qemu stuff
+ && rpm -qa 'qemu-user-static*' | xargs dnf remove -y \
 # Add adw-gtk3-theme & morewaita-icon-theme
  && dnf copr enable -y trixieua/morewaita-icon-theme \
  && dnf install -y adw-gtk3-theme morewaita-icon-theme \
