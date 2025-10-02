@@ -1,8 +1,8 @@
 
-FROM quay.io/fedora/fedora:latest AS builder
-COPY --chmod=755 brew.sh /
-WORKDIR /tmp
-RUN /brew.sh
+#FROM quay.io/fedora/fedora:latest AS builder
+#COPY --chmod=755 brew.sh /
+#WORKDIR /tmp
+#RUN /brew.sh
 
 
 
@@ -11,11 +11,12 @@ RUN /brew.sh
 # Currently based on Silverblue image. In future, I am considering using fedora-bootc image.
 FROM quay.io/fedora/fedora-silverblue:latest
 
+COPY var-home-linuxbrew.mount /usr/lib/systemd/system/
 COPY --from=builder --chown=1000:1000 /home/linuxbrew /usr/share/homebrew
 
 RUN echo "" \
 # Just & Justfile
- && dnf install -y just htop btop fastfetch micro gnome-commander mc podlet \
+ && dnf install -y just \
  && mkdir -p /usr/share/just/ \
  && curl -o /usr/share/just/justfile https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/just/justfile \
 #ENV JUST_JUSTFILE=/etc/justfile
