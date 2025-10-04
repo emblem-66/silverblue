@@ -11,8 +11,8 @@
 # Currently based on Silverblue image. In future, I am considering using fedora-bootc image.
 FROM quay.io/fedora/fedora-silverblue:latest
 
-COPY var-home-linuxbrew.mount /usr/lib/systemd/system/
-COPY --from=builder --chown=1000:1000 /home/linuxbrew /usr/share/homebrew
+#COPY var-home-linuxbrew.mount /usr/lib/systemd/system/
+#COPY --from=builder --chown=1000:1000 /home/linuxbrew /usr/share/homebrew
 
 RUN echo "" \
 # Just & Justfile
