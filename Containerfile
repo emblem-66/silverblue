@@ -1,10 +1,10 @@
 FROM scratch AS ctx
-COPY --chmod=755 script.sh /
+COPY --chmod=755 build.sh /
 
 # Base Image
 #FROM quay.io/fedora/fedora-bootc:latest
 FROM quay.io/fedora/fedora-silverblue:latest
-COPY 3rd_party.repo /etc/yum.repos.d/
+#COPY 3rd_party.repo /etc/yum.repos.d/
 
 ### HOMEBREW
 #COPY --from=builder --chown=1000:1000 /home/#linuxbrew /usr/share/homebrew
@@ -17,7 +17,7 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=cache,dst=/var/cache \
     --mount=type=cache,dst=/var/log \
     --mount=type=tmpfs,dst=/tmp \
-    /ctx/script.sh
+    /ctx/build.sh
 
 ### LINTING
 ## Verify final image and contents are correct.
