@@ -12,13 +12,14 @@ curl --create-dirs -o /usr/share/just/justfile https://raw.githubusercontent.com
 curl --create-dirs -o /usr/lib/systemd/system/bootc-fetch-apply-updates.service https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/bootc/bootc-update.service
 curl --create-dirs -o /usr/lib/systemd/system/bootc-fetch-apply-updates.timer https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/bootc/bootc-update.timer
 # systemd - flatpak
-curl --create-dirs -o /usr/lib/systemd/system/flatpak-install.service https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/flatpak/flatpak-install.service
+curl --create-dirs -o /usr/lib/systemd/system/flatpak-setup.service https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/flatpak/flatpak-setup.service
 curl --create-dirs -o /usr/lib/systemd/system/flatpak-update.service https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/flatpak/flatpak-update.service
 curl --create-dirs -o /usr/lib/systemd/system/flatpak-update.timer https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/flatpak/flatpak-update.timer
+curl --create-dirs -o /usr/lib/systemd/system/flatpak-packages.service https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/flatpak/flatpak-packages.service
 # systemd - brew
 curl --create-dirs -o /usr/lib/systemd/system/brew-setup.service https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/brew/brew-setup.service
 curl --create-dirs -o /usr/lib/systemd/system/brew-update.service https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/brew/brew-update.service
-curl --create-dirs -o /usr/lib/systemd/system/brew-github-packages.service https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/brew/brew-github-packages.service
+curl --create-dirs -o /usr/lib/systemd/system/brew-packages.service https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/brew/brew-packages.service
 
 ### Packages
 # Tailscale
@@ -58,13 +59,14 @@ systemctl enable sshd.service
 # bootc
 systemctl enable bootc-fetch-apply-updates.timer
 # flatpak
-systemctl enable flatpak-install.service
+systemctl enable flatpak-setup.service
 systemctl enable flatpak-update.service
 systemctl enable flatpak-update.timer
+systemctl enable flatpak-packages.service
 # brew
 systemctl enable brew-setup.service
 systemctl enable brew-update.service
-systemctl enable brew-github-packages.service
+systemctl enable brew-packages.service
 # mask
 systemctl mask flatpak-add-fedora-repos.service
 systemctl mask fedora-third-party-refresh.service
