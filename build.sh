@@ -3,7 +3,7 @@ set -xeuo pipefail
 
 ### Just
 #dnf install -y just
-#mkdir -p /usr/share/just/
+mkdir -p /usr/share/just/
 #curl -o /usr/share/just/justfile https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/just/justfile
 
 ### Tailscale
