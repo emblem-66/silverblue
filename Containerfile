@@ -1,10 +1,3 @@
-
-#FROM quay.io/fedora/fedora:latest AS builder
-#COPY --chmod=755 brew.sh /
-#WORKDIR /tmp
-#RUN /brew.sh
-
-
 FROM scratch AS ctx
 COPY --chmod=755 script.sh /
 
