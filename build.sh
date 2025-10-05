@@ -2,19 +2,23 @@
 set -xeuo pipefail
 
 ### Config files
-# tailscale
+# repo - tailscale
 curl --create-dirs -o /etc/yum.repos.d/tailscale.repo https://pkgs.tailscale.com/stable/fedora/tailscale.repo
-# just
+# repo - morewaita icons
+curl --create-dirs -o /etc/yum.repos.d/morewaite.repo https://copr.fedorainfracloud.org/coprs/trixieua/morewaita-icon-theme/repo/fedora-rawhide/trixieua-morewaita-icon-theme-fedora-rawhide.repo
+# justfile
 curl --create-dirs -o /usr/share/just/justfile https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/just/justfile
-# bootc
+# systemd - bootc
 curl --create-dirs -o /usr/lib/systemd/system/bootc-fetch-apply-updates.service https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/bootc/bootc-update.service
 curl --create-dirs -o /usr/lib/systemd/system/bootc-fetch-apply-updates.timer https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/bootc/bootc-update.timer
-# flatpak
+# systemd - flatpak
 curl --create-dirs -o /usr/lib/systemd/system/flatpak-install.service https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/flatpak/flatpak-install.service
 curl --create-dirs -o /usr/lib/systemd/system/flatpak-update.service https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/flatpak/flatpak-update.service
 curl --create-dirs -o /usr/lib/systemd/system/flatpak-update.timer https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/flatpak/flatpak-update.timer
-# morewaita icons
-curl --create-dirs -o /etc/yum.repos.d/morewaite.repo https://copr.fedorainfracloud.org/coprs/trixieua/morewaita-icon-theme/repo/fedora-rawhide/trixieua-morewaita-icon-theme-fedora-rawhide.repo
+# systemd - brew
+curl --create-dirs -o /usr/lib/systemd/system/brew-setup.service https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/brew/brew-setup.service
+curl --create-dirs -o /usr/lib/systemd/system/brew-update.service https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/brew/brew-update.service
+curl --create-dirs -o /usr/lib/systemd/system/brew-github-packages.service https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/brew/brew-github-packages.service
 
 ### Packages
 # Tailscale
