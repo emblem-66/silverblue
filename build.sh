@@ -1,30 +1,20 @@
 #!/bin/bash
 set -xeuo pipefail
 
-### Just
-#dnf install -y just
-#mkdir -p /usr/share/just/
-#curl -o /usr/share/just/justfile https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/just/justfile
-
-### Tailscale
-#dnf config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo
-#dnf install -y tailscale
-#systemctl enable tailscaled.service
-
 ### Config files
 # tailscale
-curl -o /etc/yum.repos.d/tailscale.repo https://pkgs.tailscale.com/stable/fedora/tailscale.repo
+curl --create-dirs -o /etc/yum.repos.d/tailscale.repo https://pkgs.tailscale.com/stable/fedora/tailscale.repo
 # just
 curl --create-dirs -o /usr/share/just/justfile https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/just/justfile
 # bootc
-curl -o /usr/lib/systemd/system/bootc-fetch-apply-updates.service https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/bootc/bootc-update.service
-curl -o /usr/lib/systemd/system/bootc-fetch-apply-updates.timer https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/bootc/bootc-update.timer
+curl --create-dirs -o /usr/lib/systemd/system/bootc-fetch-apply-updates.service https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/bootc/bootc-update.service
+curl --create-dirs -o /usr/lib/systemd/system/bootc-fetch-apply-updates.timer https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/bootc/bootc-update.timer
 # flatpak
-curl -o /usr/lib/systemd/system/flatpak-install.service https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/flatpak/flatpak-install.service
-curl -o /usr/lib/systemd/system/flatpak-update.service https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/flatpak/flatpak-update.service
-curl -o /usr/lib/systemd/system/flatpak-update.timer https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/flatpak/flatpak-update.timer
+curl --create-dirs -o /usr/lib/systemd/system/flatpak-install.service https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/flatpak/flatpak-install.service
+curl --create-dirs -o /usr/lib/systemd/system/flatpak-update.service https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/flatpak/flatpak-update.service
+curl --create-dirs -o /usr/lib/systemd/system/flatpak-update.timer https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/flatpak/flatpak-update.timer
 # morewaita icons
-curl -o /etc/yum.repos.d/morewaite.repo https://copr.fedorainfracloud.org/coprs/trixieua/morewaita-icon-theme/repo/fedora-rawhide/trixieua-morewaita-icon-theme-fedora-rawhide.repo
+curl --create-dirs -o /etc/yum.repos.d/morewaite.repo https://copr.fedorainfracloud.org/coprs/trixieua/morewaita-icon-theme/repo/fedora-rawhide/trixieua-morewaita-icon-theme-fedora-rawhide.repo
 
 ### Packages
 # Tailscale
@@ -44,7 +34,7 @@ dnf remove -y \
     fedora-bookmarks \
     fedora-flathub-remote \
     fedora-third-party
-    
+
 # Remove GNOME stuff
 dnf remove -y \
     gnome-shell-extension* \
@@ -53,13 +43,14 @@ dnf remove -y \
     gnome-software* \
     virtualbox-guest-additions \
     malcontent-control \
-    
+
 # Remove qemu stuff
 rpm -qa 'qemu-user-static*' | xargs dnf remove -y
 
 # Cockpit
 dnf install -y cockpit cockpit-podman
-
+# piper
+dnf install -y piper
 
 ### SystemD
 # tailscale
@@ -78,31 +69,5 @@ systemctl mask fedora-third-party-refresh.service
 systemctl mask systemd-remount-fs.service
 # cockpit
 systemctl enable cockpit.socket
-
-
-### AUTOMATIC UPDATES
-# Automatic Updates DNF
-
-# Automatic Updates Flatpak
-
-### REMOTE MANAGEMENT
-# SSH
-# Tailscale
-
-# Cockpit
-#dnf install -y cockpit cockpit-podman
-#systemctl enable cockpit.socket
-
-# Piper
-#dnf install -y piper
-#systemctl enable ratbagd.service
-# bootc-gtk
-#dnf install -y bootc-gtk
-
-### REMOVE UNWANTED STUFF
-
-# Add adw-gtk3-theme & morewaita-icon-theme
-#dnf copr enable -y trixieua/morewaita-icon-theme
-
-# Failing systemd-remount-fs.service
-#systemctl mask systemd-remount-fs.service
+# piper
+systemctl enable ratbagd.service
