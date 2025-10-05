@@ -25,20 +25,17 @@ curl --create-dirs -o /usr/lib/systemd/system/brew-github-packages.service https
 dnf install -y tailscale
 # Just
 dnf install -y just
-
+# theme & icons
 dnf install -y adw-gtk3-theme morewaita-icon-theme
-
 # Remove Firefox
 dnf remove -y firefox*
-
 # Remove unwanted Fedora stuff
 dnf remove -y \
     virtualbox-guest-additions \
     fedora-chromium-config* \
     fedora-bookmarks \
     fedora-flathub-remote \
-    fedora-third-party
-
+    fedora-third-party \
 # Remove GNOME stuff
 dnf remove -y \
     gnome-shell-extension* \
@@ -47,10 +44,8 @@ dnf remove -y \
     gnome-software* \
     virtualbox-guest-additions \
     malcontent-control \
-
-# Remove qemu stuff
+# bulk remove
 rpm -qa 'qemu-user-static*' | xargs dnf remove -y
-
 # Cockpit
 dnf install -y cockpit cockpit-podman
 # piper
@@ -66,6 +61,10 @@ systemctl enable bootc-fetch-apply-updates.timer
 systemctl enable flatpak-install.service
 systemctl enable flatpak-update.service
 systemctl enable flatpak-update.timer
+# brew
+systemctl enable brew-setup.service
+systemctl enable brew-update.service
+systemctl enable brew-github-packages.service
 # mask
 systemctl mask flatpak-add-fedora-repos.service
 systemctl mask fedora-third-party-refresh.service
