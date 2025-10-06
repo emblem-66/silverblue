@@ -15,6 +15,6 @@ jobs:
     - name: Checkout action
       uses: actions/checkout@v4
     - name: build
-      run: podman build -f Containerfile -t ${{ env.tag }} .
+      run: podman build -f Containerfile -t --disable-compression=false ${{ env.tag }} .
     - name: push
       run: podman push --creds=${{ github.actor }}:${{ secrets.GITHUB_TOKEN }} ${{ env.tag }}
