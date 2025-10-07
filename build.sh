@@ -20,6 +20,9 @@ curl --create-dirs -o /usr/lib/systemd/system/flatpak-packages.service https://r
 curl --create-dirs -o /usr/lib/systemd/system/brew-setup.service https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_system_brew-setup.service
 curl --create-dirs -o /usr/lib/systemd/system/brew-update.service https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_system_brew-update.service
 curl --create-dirs -o /usr/lib/systemd/system/brew-packages.service https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_system_brew-packages.service
+# wallpaper
+curl --create-dirs -o /usr/share/backgrounds/w1.jpg https://w.wallhaven.cc/full/w5/wallhaven-w5emlr.jpg
+curl --create-dirs -o /usr/share/backgrounds/w2.jpg https://w.wallhaven.cc/full/3l/wallhaven-3lr2p6.jpg
 
 ### Packages
 # Tailscale
