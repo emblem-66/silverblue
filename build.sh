@@ -40,8 +40,6 @@ curl --create-dirs -o /usr/lib/systemd/system/brew-setup.service https://raw.git
 curl --create-dirs -o /usr/lib/systemd/system/brew-update.service https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_system_brew-update.service
 curl --create-dirs -o /usr/lib/systemd/system/brew-packages.service https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_system_brew-packages.service
 
-flatpak --system remote-delete fedora || true
-
 ### Packages
 # Tailscale
 dnf install -y tailscale
