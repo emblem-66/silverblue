@@ -47,6 +47,8 @@ dnf remove -y \
     malcontent-control \
 # bulk remove
 rpm -qa 'qemu-user-static*' | xargs dnf remove -y
+rpm -qa '*backgrounds*' | xargs dnf remove -y
+
 # Cockpit
 dnf install -y cockpit cockpit-podman
 # piper
