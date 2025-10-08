@@ -26,8 +26,10 @@ curl --create-dirs -o /usr/lib/systemd/system/brew-packages.service https://raw.
 dnf install -y tailscale && rm -rf /etc/yum.repos.d/tailscale.repo
 # Just
 dnf install -y just
-# theme & icons
-dnf install -y adw-gtk3-theme morewaita-icon-theme && rm -rf /etc/yum.repos.d/morewaite.repo
+# morewaita icons
+dnf install -y morewaita-icon-theme && rm -rf /etc/yum.repos.d/morewaite.repo
+# adwaita theme
+dnf install -y adw-gtk3-theme 
 # Remove Firefox
 dnf remove -y firefox*
 # Remove unwanted Fedora stuff
