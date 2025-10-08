@@ -20,24 +20,14 @@ curl --create-dirs -o /usr/lib/systemd/system/flatpak-packages.service https://r
 curl --create-dirs -o /usr/lib/systemd/system/brew-setup.service https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_system_brew-setup.service
 curl --create-dirs -o /usr/lib/systemd/system/brew-update.service https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_system_brew-update.service
 curl --create-dirs -o /usr/lib/systemd/system/brew-packages.service https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_system_brew-packages.service
-# wallpaper
-curl --create-dirs -o /usr/share/backgrounds/gnome/w1.jpg https://w.wallhaven.cc/full/w5/wallhaven-w5emlr.jpg
-curl --create-dirs -o /usr/share/backgrounds/gnome/w2.jpg https://w.wallhaven.cc/full/3l/wallhaven-3lr2p6.jpg
-curl --create-dirs -o /usr/share/backgrounds/gnome/w3.jpg https://w.wallhaven.cc/full/3k/wallhaven-3k73r6.png
-curl --create-dirs -o /usr/share/backgrounds/gnome/w4.jpg https://w.wallhaven.cc/full/vm/wallhaven-vm2z55.png
-curl --create-dirs -o /usr/share/backgrounds/gnome/w5.jpg https://w.wallhaven.cc/full/2k/wallhaven-2k6z39.png
-curl --create-dirs -o /usr/share/backgrounds/gnome/w6.jpg https://w.wallhaven.cc/full/zx/wallhaven-zxv86v.jpg
-curl --create-dirs -o /usr/share/backgrounds/gnome/w7.jpg https://w.wallhaven.cc/full/eo/wallhaven-eov7lw.jpg
-curl --create-dirs -o /usr/share/backgrounds/gnome/w8.jpg https://w.wallhaven.cc/full/9d/wallhaven-9dkprw.png
-curl --create-dirs -o /usr/share/backgrounds/gnome/w9.jpg https://w.wallhaven.cc/full/6d/wallhaven-6de6wl.png
 
 ### Packages
 # Tailscale
-dnf install -y tailscale
+dnf install -y tailscale && rm -rf /etc/yum.repos.d/tailscale.repo
 # Just
 dnf install -y just
 # theme & icons
-dnf install -y adw-gtk3-theme morewaita-icon-theme
+dnf install -y adw-gtk3-theme morewaita-icon-theme && rm -rf /etc/yum.repos.d/morewaite.repo
 # Remove Firefox
 dnf remove -y firefox*
 # Remove unwanted Fedora stuff
