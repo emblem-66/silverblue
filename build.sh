@@ -84,3 +84,9 @@ systemctl mask systemd-remount-fs.service
 systemctl enable cockpit.socket
 # piper
 systemctl enable ratbagd.service
+
+# repo cleanup
+rm -rf /etc/yum.repos.d/_*.repo
+
+# tuned profiles
+# https://www.redhat.com/en/blog/linux-tuned-tuning-profiles
