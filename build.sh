@@ -56,8 +56,6 @@ dnf install -y cockpit cockpit-podman
 # piper
 dnf install -y piper
 
-dnf install -y tuned-gtk bootc-gtk
-
 # FTP
 dnf install -y vsftpd
 systemctl enable vsftpd
