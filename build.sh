@@ -61,6 +61,7 @@ dnf install -y tuned-gtk bootc-gtk
 # FTP
 dnf install -y vsftpd
 systemctl enable vsftpd
+cat /etc/vsftpd/vsftpd.conf
 
 # Cosmic
 #curl --create-dirs -o /etc/yum.repos.d/cosmic.repo https://copr.fedorainfracloud.org/coprs/ryanabx/cosmic-epoch/repo/fedora-$(rpm -E %fedora)/ryanabx/cosmic-epoch-fedora-$(rpm -E %fedora).repo
