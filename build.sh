@@ -23,11 +23,11 @@ curl --create-dirs -o /usr/lib/systemd/system/brew-packages.service https://raw.
 
 ### Packages
 # Tailscale
-dnf install -y tailscale && rm -rf /etc/yum.repos.d/tailscale.repo
+dnf install -y tailscale #&& rm -rf /etc/yum.repos.d/tailscale.repo
 # Just
 dnf install -y just
 # morewaita icons
-dnf install -y morewaita-icon-theme && rm -rf /etc/yum.repos.d/morewaite.repo
+dnf install -y morewaita-icon-theme #&& rm -rf /etc/yum.repos.d/morewaite.repo
 # adwaita theme
 dnf install -y adw-gtk3-theme 
 # Remove Firefox
@@ -65,7 +65,7 @@ cat /etc/vsftpd/vsftpd.conf
 
 # Cosmic
 #curl --create-dirs -o /etc/yum.repos.d/cosmic.repo https://copr.fedorainfracloud.org/coprs/ryanabx/cosmic-epoch/repo/fedora-$(rpm -E %fedora)/ryanabx/cosmic-epoch-fedora-$(rpm -E %fedora).repo
-#dnf install -y cosmic-desktop && rm -rf /etc/yum.repos.d/cosmic.repo
+#dnf install -y cosmic-desktop #&& rm -rf /etc/yum.repos.d/cosmic.repo
 
 ### SystemD
 # tailscale
