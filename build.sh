@@ -63,6 +63,9 @@ dnf install -y vsftpd
 systemctl enable vsftpd
 cat /etc/vsftpd/vsftpd.conf
 
+# docker
+dnf install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
 # Cosmic
 #curl --create-dirs -o /etc/yum.repos.d/cosmic.repo https://copr.fedorainfracloud.org/coprs/ryanabx/cosmic-epoch/repo/fedora-$(rpm -E %fedora)/ryanabx/cosmic-epoch-fedora-$(rpm -E %fedora).repo
 #dnf install -y cosmic-desktop #&& rm -rf /etc/yum.repos.d/cosmic.repo
@@ -91,6 +94,8 @@ systemctl mask systemd-remount-fs.service
 systemctl enable cockpit.socket
 # piper
 systemctl enable ratbagd.service
+# docker
+systemctl enable docker
 
 # repo cleanup
 rm -rf /etc/yum.repos.d/_*.repo
