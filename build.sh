@@ -59,9 +59,9 @@ dnf install -y cockpit cockpit-podman
 dnf install -y piper
 
 # FTP
-dnf install -y vsftpd
-systemctl enable vsftpd
-cat /etc/vsftpd/vsftpd.conf
+#dnf install -y vsftpd
+#systemctl enable vsftpd
+#chown 0777 /etc/vsftpd/vsftpd.conf
 
 # docker
 dnf install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
