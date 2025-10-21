@@ -58,6 +58,7 @@ dnf install -y cockpit cockpit-podman
 # piper
 dnf install -y piper
 
+dnf install -y input-remapper
 # FTP
 #dnf install -y vsftpd
 #systemctl enable vsftpd
@@ -97,6 +98,8 @@ systemctl mask systemd-remount-fs.service
 systemctl enable cockpit.socket
 # piper
 systemctl enable ratbagd.service
+# input remmaper
+systemctl enable input-remapper
 # docker
 systemctl enable docker
 
