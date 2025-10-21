@@ -97,9 +97,9 @@ systemctl mask systemd-remount-fs.service
 # cockpit
 systemctl enable cockpit.socket
 # piper
-systemctl enable ratbagd.service
+#systemctl enable ratbagd.service
 # input remmaper
-systemctl enable input-remapper
+#systemctl enable input-remapper
 # docker
 systemctl enable docker
 
