@@ -56,9 +56,9 @@ rpm -qa '*backgrounds*' | xargs dnf remove -y
 # Cockpit
 dnf install -y cockpit cockpit-podman
 # piper
-dnf install -y piper
+#dnf install -y piper
 
-dnf install -y input-remapper
+#dnf install -y input-remapper
 # FTP
 #dnf install -y vsftpd
 #systemctl enable vsftpd
