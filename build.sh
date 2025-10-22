@@ -60,7 +60,7 @@ dnf install -y cockpit cockpit-podman
 
 #dnf install -y input-remapper
 # FTP
-#dnf install -y vsftpd
+dnf install -y vsftpd
 #systemctl enable vsftpd
 #chown 0777 /etc/vsftpd/vsftpd.conf
 
@@ -103,8 +103,23 @@ systemctl enable cockpit.socket
 # docker
 systemctl enable docker
 
+# rpm fusion
+dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+dnf install -y rpmfusion-free-release-tainted rpmfusion-nonfree-release-tainted
+
+# all codecs
+dnf install -y libavcodec-freeworld 
+dnf install -y --allowerasing ffmpeg
+
+# jellyfin/kodi
+dnf install -y jellyfin
+
+systemctl enable jellyfin
+
 # repo cleanup
 rm -rf /etc/yum.repos.d/_*.repo
 
 # tuned profiles
 # https://www.redhat.com/en/blog/linux-tuned-tuning-profiles
+
+dnf install -y nfs-utils samba tmux
