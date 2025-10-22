@@ -118,6 +118,7 @@ systemctl enable jellyfin
 
 # repo cleanup
 rm -rf /etc/yum.repos.d/_*.repo
+rm -rf /etc/yum.repos.d/rpmfusion*.repo
 
 # tuned profiles
 # https://www.redhat.com/en/blog/linux-tuned-tuning-profiles
