@@ -117,7 +117,7 @@ systemctl enable cockpit.socket
 # jellyfin/kodi
 #dnf install -y jellyfin
 
-#systemctl enable jellyfin
+systemctl enable jellyfin.service
 
 # repo cleanup
 rm -rf /etc/yum.repos.d/_*.repo
