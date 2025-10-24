@@ -6,6 +6,8 @@ set -xeuo pipefail
 curl --create-dirs -o /etc/yum.repos.d/_tailscale.repo https://pkgs.tailscale.com/stable/fedora/tailscale.repo
 # repo - morewaita icons
 curl --create-dirs -o /etc/yum.repos.d/_morewaita.repo https://copr.fedorainfracloud.org/coprs/trixieua/morewaita-icon-theme/repo/fedora-$(rpm -E %fedora)/trixieua-morewaita-icon-theme-fedora-$(rpm -E %fedora).repo
+# repo - mergerfs
+curl --create-dirs -o /etc/yum.repos.d/_morewaita.repo https://copr.fedorainfracloud.org/coprs/errornointernet/mergerfs/repo/fedora-$(rpm -E %fedora)/errornointernet-mergerfs-fedora-$(rpm -E %fedora).repo
 # repo - docker
 curl --create-dirs -o /etc/yum.repos.d/_docker.repo https://download.docker.com/linux/fedora/docker-ce.repo
 # justfile
@@ -118,6 +120,8 @@ systemctl enable cockpit.socket
 #dnf install -y jellyfin
 
 #systemctl enable jellyfin.service
+
+dnf install -y mergerfs
 
 # repo cleanup
 rm -rf /etc/yum.repos.d/_*.repo
