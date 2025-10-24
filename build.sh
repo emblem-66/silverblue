@@ -1,6 +1,9 @@
 #!/bin/bash
 set -xeuo pipefail
 
+# check image release
+cat /etc/os-release
+
 ### Config files
 # repo - tailscale
 curl --create-dirs -o /etc/yum.repos.d/_tailscale.repo https://pkgs.tailscale.com/stable/fedora/tailscale.repo
