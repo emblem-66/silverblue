@@ -43,7 +43,6 @@ dnf install -y adw-gtk3-theme
 dnf remove -y firefox*
 # Remove unwanted Fedora stuff
 dnf remove -y \
-    httpd \
     virtualbox-guest-additions \
     fedora-chromium-config* \
     fedora-bookmarks \
