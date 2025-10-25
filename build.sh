@@ -33,6 +33,7 @@ curl --create-dirs -o /usr/share/containers/systemd/container_jellyfin.container
 curl --create-dirs -o /usr/share/containers/systemd/container_audiobookshelf.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/audiobookshelf.container
 curl --create-dirs -o /usr/share/containers/systemd/container_syncthing.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/syncthing.container
 curl --create-dirs -o /usr/share/containers/systemd/container_stash.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/stash.container
+curl --create-dirs -o /usr/share/containers/systemd/container_stirlingpdf.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/stirlingpdf.container
 
 ### Packages
 # Tailscale
