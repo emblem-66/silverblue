@@ -31,6 +31,7 @@ curl --create-dirs -o /usr/lib/systemd/system/brew-packages.service https://raw.
 # containers
 curl --create-dirs -o /usr/share/containers/systemd/container_jellyfin.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/jellyfin.container
 curl --create-dirs -o /usr/share/containers/systemd/container_audiobookshelf.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/audiobookshelf.container
+curl --create-dirs -o /usr/share/containers/systemd/container_syncthing.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/syncthing.container
 
 ### Packages
 # Tailscale
