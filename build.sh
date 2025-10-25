@@ -130,6 +130,7 @@ echo "enable audiobookshelf.service" >> /usr/lib/systemd/system-preset/100-conta
 echo "enable jellyfin.service" >> /usr/lib/systemd/system-preset/100-containers.preset
 echo "enable stash.service" >> /usr/lib/systemd/system-preset/100-containers.preset
 echo "enable syncthing.service" >> /usr/lib/systemd/system-preset/100-containers.preset
+echo "enable container_stirlingpdf.service" >> /usr/lib/systemd/system-preset/100-containers.preset
 
 
 dnf install -y mergerfs
