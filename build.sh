@@ -122,7 +122,9 @@ systemctl enable cockpit.socket
 # jellyfin/kodi
 #dnf install -y jellyfin
 
-#systemctl enable jellyfin.service
+
+echo "enable jellyfin.service" >> /usr/lib/systemd/system-preset/100-containers.preset
+
 
 dnf install -y mergerfs
 
