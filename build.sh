@@ -122,7 +122,7 @@ systemctl enable cockpit.socket
 # jellyfin/kodi
 #dnf install -y jellyfin
 
-
+echo "enable audiobookshelf.service" >> /usr/lib/systemd/system-preset/100-containers.preset
 echo "enable jellyfin.service" >> /usr/lib/systemd/system-preset/100-containers.preset
 
 
