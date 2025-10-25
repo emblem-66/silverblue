@@ -3,7 +3,7 @@ set -xeuo pipefail
 
 # check image release
 #cat /etc/os-release
-source /usr/lib/os-release && echo "$OSTREE_VERSION"
+#source /usr/lib/os-release && echo "$OSTREE_VERSION"
 
 ### Config files
 # repo - tailscale
