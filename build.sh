@@ -29,11 +29,12 @@ curl --create-dirs -o /usr/lib/systemd/system/brew-setup.service https://raw.git
 curl --create-dirs -o /usr/lib/systemd/system/brew-update.service https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_system_brew-update.service
 curl --create-dirs -o /usr/lib/systemd/system/brew-packages.service https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_system_brew-packages.service
 # containers
-curl --create-dirs -o /usr/share/containers/systemd/container_jellyfin.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/jellyfin.container
-curl --create-dirs -o /usr/share/containers/systemd/container_audiobookshelf.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/audiobookshelf.container
-curl --create-dirs -o /usr/share/containers/systemd/container_syncthing.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/syncthing.container
-curl --create-dirs -o /usr/share/containers/systemd/container_stash.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/stash.container
-curl --create-dirs -o /usr/share/containers/systemd/container_stirlingpdf.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/stirlingpdf.container
+curl --create-dirs -o /usr/share/containers/systemd/jellyfin.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/jellyfin.container
+curl --create-dirs -o /usr/share/containers/systemd/navidrome.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/navidrome.container
+curl --create-dirs -o /usr/share/containers/systemd/audiobookshelf.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/audiobookshelf.container
+curl --create-dirs -o /usr/share/containers/systemd/syncthing.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/syncthing.container
+curl --create-dirs -o /usr/share/containers/systemd/stash.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/stash.container
+curl --create-dirs -o /usr/share/containers/systemd/stirlingpdf.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/stirlingpdf.container
 
 ### Packages
 # Tailscale
@@ -130,7 +131,7 @@ echo "enable audiobookshelf.service" >> /usr/lib/systemd/system-preset/100-conta
 echo "enable jellyfin.service" >> /usr/lib/systemd/system-preset/100-containers.preset
 echo "enable stash.service" >> /usr/lib/systemd/system-preset/100-containers.preset
 echo "enable syncthing.service" >> /usr/lib/systemd/system-preset/100-containers.preset
-echo "enable container_stirlingpdf.service" >> /usr/lib/systemd/system-preset/100-containers.preset
+echo "enable stirlingpdf.service" >> /usr/lib/systemd/system-preset/100-containers.preset
 
 curl --create-dirs -o /etc/yum.repos.d/_caddy.repo https://copr.fedorainfracloud.org/coprs/g/caddy/caddy/repo/fedora-$(rpm -E %fedora)/group_caddy-caddy-fedora-$(rpm -E %fedora).repo
 dnf install -y caddy
