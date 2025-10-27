@@ -127,11 +127,11 @@ systemctl enable cockpit.socket
 # jellyfin/kodi
 #dnf install -y jellyfin
 
-echo "enable audiobookshelf.service" >> /usr/lib/systemd/system-preset/100-containers.preset
-echo "enable jellyfin.service" >> /usr/lib/systemd/system-preset/100-containers.preset
-echo "enable stash.service" >> /usr/lib/systemd/system-preset/100-containers.preset
-echo "enable syncthing.service" >> /usr/lib/systemd/system-preset/100-containers.preset
-echo "enable stirlingpdf.service" >> /usr/lib/systemd/system-preset/100-containers.preset
+#echo "enable audiobookshelf.service" >> /usr/lib/systemd/system-preset/100-containers.preset
+#echo "enable jellyfin.service" >> /usr/lib/systemd/system-preset/100-containers.preset
+#echo "enable stash.service" >> /usr/lib/systemd/system-preset/100-containers.preset
+#echo "enable syncthing.service" >> /usr/lib/systemd/system-preset/100-containers.preset
+#echo "enable stirlingpdf.service" >> /usr/lib/systemd/system-preset/100-containers.preset
 
 #curl --create-dirs -o /etc/yum.repos.d/_caddy.repo https://copr.fedorainfracloud.org/coprs/g/caddy/caddy/repo/fedora-$(rpm -E %fedora)/group_caddy-caddy-fedora-$(rpm -E %fedora).repo
 #dnf install -y caddy
