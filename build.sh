@@ -81,6 +81,8 @@ dnf install -y cockpit cockpit-podman
 # podlet
 dnf install -y podlet
 
+dnf install -y smartmontools
+
 # docker
 #dnf install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
@@ -116,7 +118,7 @@ systemctl enable cockpit.socket
 #systemctl enable input-remapper
 # docker
 #systemctl enable docker
-
+systemctl enable smartd
 # rpm fusion
 #dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 #dnf install -y rpmfusion-free-release-tainted rpmfusion-nonfree-release-tainted
