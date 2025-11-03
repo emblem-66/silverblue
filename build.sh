@@ -83,6 +83,8 @@ dnf install -y podlet
 
 dnf install -y smartmontools
 
+dnf install -y syncthing
+
 # docker
 #dnf install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
