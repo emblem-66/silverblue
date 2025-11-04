@@ -144,6 +144,10 @@ systemctl enable smartd
 
 dnf install -y mergerfs
 
+dnf install -y btrfs-assistant
+dnf install -y btrfsd
+dnf install -y btrfsmaintenance
+
 # repo cleanup
 rm -rf /etc/yum.repos.d/_*.repo
 #rm -rf /etc/yum.repos.d/rpmfusion*.repo
