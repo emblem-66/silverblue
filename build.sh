@@ -79,11 +79,11 @@ dnf install -y cockpit cockpit-podman
 #chown 0777 /etc/vsftpd/vsftpd.conf
 
 # podlet
-dnf install -y podlet
+#dnf install -y podlet
 
 dnf install -y smartmontools
 
-dnf install -y syncthing
+#dnf install -y syncthing
 #systemctl enable syncthing.service
 
 # docker
