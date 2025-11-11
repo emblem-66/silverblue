@@ -86,6 +86,8 @@ dnf install -y smartmontools
 #dnf install -y syncthing
 #systemctl enable syncthing.service
 
+dnf install -y duperemove
+
 # docker
 #dnf install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
