@@ -83,8 +83,7 @@ dnf install -y cockpit cockpit-podman
 
 dnf install -y smartmontools
 
-#dnf install -y syncthing
-#systemctl enable syncthing.service
+dnf install -y unison
 
 dnf install -y duperemove
 
