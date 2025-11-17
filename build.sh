@@ -134,6 +134,9 @@ systemctl enable smartd
 # jellyfin/kodi
 #dnf install -y jellyfin
 
+systemctl enable btrfs-scrub.timer
+
+
 #echo "enable audiobookshelf.service" >> /usr/lib/systemd/system-preset/100-containers.preset
 #echo "enable jellyfin.service" >> /usr/lib/systemd/system-preset/100-containers.preset
 #echo "enable stash.service" >> /usr/lib/systemd/system-preset/100-containers.preset
