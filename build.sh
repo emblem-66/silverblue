@@ -134,7 +134,6 @@ systemctl enable smartd
 # jellyfin/kodi
 #dnf install -y jellyfin
 
-systemctl enable btrfs-scrub.timer
 
 
 #echo "enable audiobookshelf.service" >> /usr/lib/systemd/system-preset/100-containers.preset
@@ -151,6 +150,8 @@ dnf install -y mergerfs
 dnf install -y btrfs-assistant
 dnf install -y btrfsd
 dnf install -y btrfsmaintenance
+
+systemctl enable btrfs-scrub.timer
 
 # repo cleanup
 rm -rf /etc/yum.repos.d/_*.repo
