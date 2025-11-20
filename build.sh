@@ -143,7 +143,7 @@ systemctl enable smartd
 #echo "enable stirlingpdf.service" >> /usr/lib/systemd/system-preset/100-containers.preset
 
 #curl --create-dirs -o /etc/yum.repos.d/_caddy.repo https://copr.fedorainfracloud.org/coprs/g/caddy/caddy/repo/fedora-$(rpm -E %fedora)/group_caddy-caddy-fedora-$(rpm -E %fedora).repo
-#dnf install -y caddy
+dnf install -y caddy
 
 dnf install -y mergerfs
 
