@@ -87,6 +87,8 @@ dnf install -y unison
 
 dnf install -y duperemove
 
+dnf install -y fd-find
+
 # docker
 #dnf install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
