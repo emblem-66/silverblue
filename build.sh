@@ -83,7 +83,7 @@ dnf install -y cockpit cockpit-podman
 
 dnf install -y smartmontools
 
-dnf install -y unison
+dnf install -y unison unison-gtk
 
 dnf install -y duperemove
 
