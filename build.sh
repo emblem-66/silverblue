@@ -60,7 +60,7 @@ dnf remove -y \
     gnome-shell-extension* \
     gnome-tour \
     yelp* \
-    #gnome-software* \
+    gnome-software* \
     virtualbox-guest-additions \
     malcontent-control \
 # bulk remove
