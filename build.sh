@@ -83,11 +83,11 @@ dnf install -y cockpit cockpit-podman
 
 dnf install -y smartmontools
 
-dnf install -y unison unison-gtk
+#dnf install -y unison unison-gtk
 
-dnf install -y duperemove
+#dnf install -y duperemove
 
-dnf install -y fd-find
+#dnf install -y fd-find
 
 # docker
 #dnf install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
@@ -145,7 +145,7 @@ systemctl enable smartd
 #echo "enable stirlingpdf.service" >> /usr/lib/systemd/system-preset/100-containers.preset
 
 #curl --create-dirs -o /etc/yum.repos.d/_caddy.repo https://copr.fedorainfracloud.org/coprs/g/caddy/caddy/repo/fedora-$(rpm -E %fedora)/group_caddy-caddy-fedora-$(rpm -E %fedora).repo
-dnf install -y caddy
+#dnf install -y caddy
 
 dnf install -y mergerfs
 
