@@ -71,7 +71,7 @@ rpm -qa '*backgrounds*' | xargs dnf remove -y
 dnf install -y cockpit cockpit-podman
 # piper
 #dnf install -y piper
-
+dnf install -y podman podman-compose
 #dnf install -y input-remapper
 # FTP
 #dnf install -y vsftpd
