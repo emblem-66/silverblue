@@ -163,3 +163,6 @@ rm -rf /etc/yum.repos.d/_*.repo
 # https://www.redhat.com/en/blog/linux-tuned-tuning-profiles
 
 #dnf install -y nfs-utils samba tmux
+
+
+systemctl enable podman-auto-update.timer
