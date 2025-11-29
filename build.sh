@@ -1,6 +1,20 @@
 #!/bin/bash
 set -xeuo pipefail
 
+
+
+
+
+
+
+mkdir -p /linuxbrew
+mv /linuxbrew /home/
+
+curl -fLs https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash -s
+
+
+
+
 # check image release
 #cat /etc/os-release
 #source /usr/lib/os-release && echo "$OSTREE_VERSION"
@@ -166,13 +180,6 @@ rm -rf /etc/yum.repos.d/_*.repo
 
 
 systemctl enable podman-auto-update.timer
-
-
-
-
-mkdir -p /home/linuxbrew
-
-curl -fLs https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash -s
 
 
 
