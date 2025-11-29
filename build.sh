@@ -3,7 +3,7 @@ set -xeuo pipefail
 
 
 # Non-interactive install environment
-export NONINTERACTIVE=1
+#export NONINTERACTIVE=1
 #export HOMEBREW_PREFIX=/home/linuxbrew/.linuxbrew
 #export HOMEBREW_CACHE=/tmp/homebrew-cache
 #export HOMEBREW_NO_AUTO_UPDATE=1
@@ -23,13 +23,13 @@ export NONINTERACTIVE=1
 #brew --version
 
 
-mkdir -p /var/home/linuxbrew
+#mkdir -p /var/home/linuxbrew
 
 
 #mkdir -p /linuxbrew
 #mv /linuxbrew /home/
 
-curl -fLs https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash -s
+#curl -fLs https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash -s
 
 
 
