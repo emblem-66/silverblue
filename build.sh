@@ -108,9 +108,9 @@ systemctl enable flatpak-update.service
 systemctl enable flatpak-update.timer
 systemctl enable flatpak-packages.service
 # brew
-#systemctl enable brew-setup.service
-#systemctl enable brew-update.service
-#systemctl enable brew-packages.service
+systemctl enable brew-setup.service
+systemctl enable brew-update.service
+systemctl enable brew-packages.service
 # mask
 systemctl mask flatpak-add-fedora-repos.service
 systemctl mask fedora-third-party-refresh.service
