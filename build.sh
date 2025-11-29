@@ -170,7 +170,8 @@ systemctl enable podman-auto-update.timer
 
 
 
-mkdir /home/linuxbrew
+mkdir -p /home/linuxbrew
+
 curl -fLs https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash -s
 
 
