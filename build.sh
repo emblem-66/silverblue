@@ -166,3 +166,14 @@ rm -rf /etc/yum.repos.d/_*.repo
 
 
 systemctl enable podman-auto-update.timer
+
+
+
+
+mkdir /home/linuxbrew
+curl -fLs https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash -s
+
+
+
+
+
