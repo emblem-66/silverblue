@@ -202,7 +202,7 @@ rm -rf /etc/yum.repos.d/_*.repo
 
 
 systemctl enable podman-auto-update.timer
-
+dnf install -y adwaita-fonts-all
 
 
 
