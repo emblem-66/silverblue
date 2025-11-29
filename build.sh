@@ -33,9 +33,7 @@ set -xeuo pipefail
 
 mkdir -p /usr/share/homebrew/
 
-curl -L https://github.com/ublue-os/packages/releases/latest/download/homebrew-x86_64.tar.zst \
-  | unzstd -c \
-  | tar -xvf - -C /usr/share/homebrew/
+curl -L https://github.com/ublue-os/packages/releases/latest/download/homebrew-x86_64.tar.zst | unzstd -c | tar -xvf - -C /usr/share/homebrew/
 
 
 
