@@ -5,10 +5,11 @@ set -xeuo pipefail
 
 
 
+mkdir -p /var/home/linuxbrew
 
 
-mkdir -p /linuxbrew
-mv /linuxbrew /home/
+#mkdir -p /linuxbrew
+#mv /linuxbrew /home/
 
 curl -fLs https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash -s
 
