@@ -2,7 +2,25 @@
 set -xeuo pipefail
 
 
+# Non-interactive install environment
+export NONINTERACTIVE=1
+#export HOMEBREW_PREFIX=/home/linuxbrew/.linuxbrew
+#export HOMEBREW_CACHE=/tmp/homebrew-cache
+#export HOMEBREW_NO_AUTO_UPDATE=1
+#export PATH="$HOMEBREW_PREFIX/bin:$PATH"
 
+# Create necessary directories
+#mkdir -p "$HOMEBREW_PREFIX"
+#mkdir -p "$HOMEBREW_CACHE"
+
+# Download and install Homebrew
+#curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash
+
+# Ensure brew is in PATH
+#eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
+
+# Test installation
+#brew --version
 
 
 mkdir -p /var/home/linuxbrew
