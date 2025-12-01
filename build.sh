@@ -74,6 +74,9 @@ curl --create-dirs -o /usr/share/containers/systemd/stash.container https://raw.
 curl --create-dirs -o /usr/share/containers/systemd/stirlingpdf.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/stirlingpdf.container
 curl --create-dirs -o /usr/share/containers/systemd/qbittorent.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/qbittorent.container
 
+systemctl enable podman-auto-update.timer
+
+
 ### Packages
 # Tailscale
 dnf install -y tailscale #&& rm -rf /etc/yum.repos.d/tailscale.repo
@@ -206,7 +209,6 @@ rm -rf /etc/yum.repos.d/_*.repo
 #dnf install -y nfs-utils samba tmux
 
 
-systemctl enable podman-auto-update.timer
 #dnf install -y adwaita-fonts-all
 
 
