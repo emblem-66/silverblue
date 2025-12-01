@@ -61,7 +61,7 @@ curl --create-dirs -o /usr/lib/systemd/system/flatpak-update.service https://raw
 curl --create-dirs -o /usr/lib/systemd/system/flatpak-update.timer https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_system_flatpak-update.timer
 curl --create-dirs -o /usr/lib/systemd/system/flatpak-packages.service https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_system_flatpak-packages.service
 # systemd - brew
-#curl --create-dirs -o /usr/lib/systemd/system/brew-setup.service https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_system_brew-setup.service
+curl --create-dirs -o /usr/lib/systemd/system/brew-setup.service https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_system_brew-setup.service
 curl --create-dirs -o /usr/lib/systemd/system/brew-update.service https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_system_brew-update.service
 curl --create-dirs -o /usr/lib/systemd/system/brew-packages.service https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_system_brew-packages.service
 # containers
@@ -146,9 +146,9 @@ systemctl enable flatpak-update.service
 systemctl enable flatpak-update.timer
 systemctl enable flatpak-packages.service
 # brew
-systemctl enable brew-setup.service
-systemctl enable brew-update.service
-systemctl enable brew-packages.service
+#systemctl enable brew-setup.service
+#systemctl enable brew-update.service
+#systemctl enable brew-packages.service
 # mask
 systemctl mask flatpak-add-fedora-repos.service
 systemctl mask fedora-third-party-refresh.service
