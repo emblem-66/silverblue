@@ -119,11 +119,13 @@ dnf install -y podman podman-compose
 
 dnf install -y smartmontools
 
-#dnf install -y unison unison-gtk
+dnf install -y unison unison-gtk
 
-#dnf install -y duperemove
+dnf install -y duperemove
 
-#dnf install -y fd-find
+dnf install -y fd-find
+
+dnf install -y fzf
 
 # docker
 #dnf install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
