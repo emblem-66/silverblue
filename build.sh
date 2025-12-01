@@ -43,7 +43,7 @@ set -xeuo pipefail
 
 ### Config files
 # repo - tailscale
-curl --create-dirs -o /etc/yum.repos.d/_tailscale.repo https://pkgs.tailscale.com/stable/fedora/tailscale.repo > /dev/null
+curl --create-dirs -o /etc/yum.repos.d/_tailscale.repo https://pkgs.tailscale.com/stable/fedora/tailscale.repo > /dev/null 2>&1
 # repo - morewaita icons
 curl --create-dirs -o /etc/yum.repos.d/_morewaita.repo https://copr.fedorainfracloud.org/coprs/trixieua/morewaita-icon-theme/repo/fedora-$(rpm -E %fedora)/trixieua-morewaita-icon-theme-fedora-$(rpm -E %fedora).repo > /dev/null
 # repo - mergerfs
@@ -73,10 +73,6 @@ curl --create-dirs -o /usr/share/containers/systemd/stash.container https://raw.
 curl --create-dirs -o /usr/share/containers/systemd/stirlingpdf.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/stirlingpdf.container > /dev/null
 curl --create-dirs -o /usr/share/containers/systemd/qbittorent.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/qbittorent.container > /dev/null
 
-ls -l /etc/yum.repos.d/
-ls -l /usr/lib/systemd/system/
-ls -l  /usr/share/containers/systemd/
-
 ### Packages
 # Tailscale
 dnf install -y tailscale > /dev/null #&& rm -rf /etc/yum.repos.d/tailscale.repo
@@ -95,7 +91,7 @@ dnf remove -y \
     fedora-bookmarks \
     fedora-flathub-remote \
     fedora-third-party \
-    > /dev/null
+    > /dev/null 2>&1
 # Remove GNOME stuff
 dnf remove -y \
     gnome-shell-extension* \
@@ -106,14 +102,14 @@ dnf remove -y \
     malcontent-control \
     > /dev/null
 # bulk remove
-rpm -qa 'qemu-user-static*' | xargs dnf remove -y  > /dev/null
+rpm -qa 'qemu-user-static*' | xargs dnf remove -y > /dev/null
 rpm -qa '*backgrounds*' | xargs dnf remove -y > /dev/null
 
 # Cockpit
-dnf install -y cockpit cockpit-podman > /dev/null
+dnf install -y cockpit cockpit-podman > /dev/null 2>&1
 # piper
 #dnf install -y piper
-dnf install -y podman podman-compose > /dev/null
+dnf install -y podman podman-compose > >(grep -v '^Downloading') 
 #dnf install -y input-remapper
 # FTP
 #dnf install -y vsftpd
