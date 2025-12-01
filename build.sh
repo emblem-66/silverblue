@@ -1,7 +1,6 @@
 #!/bin/bash
 set -xeuo pipefail
 
-exec > /dev/null 2>&1
 
 
 # Non-interactive install environment
@@ -79,7 +78,7 @@ curl --create-dirs -o /usr/share/containers/systemd/qbittorent.container https:/
 # Tailscale
 dnf install -y tailscale > /dev/null 2>&1 #&& rm -rf /etc/yum.repos.d/tailscale.repo
 # Just
-dnf install -y just steam > /dev/null 2>&1
+dnf install -y just steam 2> >(grep -i 'error' >&2)    # > /dev/null 2>&1
 # morewaita icons
 dnf install -y morewaita-icon-theme > /dev/null 2>&1 #&& rm -rf /etc/yum.repos.d/morewaite.repo
 # adwaita theme
