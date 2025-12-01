@@ -75,6 +75,7 @@ curl -sS --create-dirs -o /usr/share/containers/systemd/stirlingpdf.container ht
 curl -sS --create-dirs -o /usr/share/containers/systemd/qbittorent.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/qbittorent.container
 
 systemctl --quiet enable podman-auto-update.timer
+systemctl --quiet enable pAAAAAodman-auto-update.timer
 
 
 ### Packages
