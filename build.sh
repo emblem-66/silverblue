@@ -1,7 +1,7 @@
 #!/bin/bash
 set -xeuo pipefail
 
-#exec > /dev/null 2>&1
+exec > /dev/null 2>&1
 
 
 # Non-interactive install environment
