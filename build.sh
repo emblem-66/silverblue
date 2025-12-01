@@ -1,7 +1,7 @@
 #!/bin/bash
 set -xeuo pipefail
 
-
+exec > /dev/null # 2>&1
 
 # Non-interactive install environment
 #export NONINTERACTIVE=1
@@ -44,47 +44,47 @@ set -xeuo pipefail
 
 ### Config files
 # repo - tailscale
-curl --create-dirs -o /etc/yum.repos.d/_tailscale.repo https://pkgs.tailscale.com/stable/fedora/tailscale.repo > /dev/null 2>&1
+curl --create-dirs -o /etc/yum.repos.d/_tailscale.repo https://pkgs.tailscale.com/stable/fedora/tailscale.repo
 # repo - morewaita icons
-curl --create-dirs -o /etc/yum.repos.d/_morewaita.repo https://copr.fedorainfracloud.org/coprs/trixieua/morewaita-icon-theme/repo/fedora-$(rpm -E %fedora)/trixieua-morewaita-icon-theme-fedora-$(rpm -E %fedora).repo > /dev/null 2>&1
+curl --create-dirs -o /etc/yum.repos.d/_morewaita.repo https://copr.fedorainfracloud.org/coprs/trixieua/morewaita-icon-theme/repo/fedora-$(rpm -E %fedora)/trixieua-morewaita-icon-theme-fedora-$(rpm -E %fedora).repo
 # repo - mergerfs
-curl --create-dirs -o /etc/yum.repos.d/_mergerfs.repo https://copr.fedorainfracloud.org/coprs/errornointernet/mergerfs/repo/fedora-$(rpm -E %fedora)/errornointernet-mergerfs-fedora-$(rpm -E %fedora).repo > /dev/null 2>&1
+curl --create-dirs -o /etc/yum.repos.d/_mergerfs.repo https://copr.fedorainfracloud.org/coprs/errornointernet/mergerfs/repo/fedora-$(rpm -E %fedora)/errornointernet-mergerfs-fedora-$(rpm -E %fedora).repo
 # repo - docker
-curl --create-dirs -o /etc/yum.repos.d/_docker.repo https://download.docker.com/linux/fedora/docker-ce.repo > /dev/null 2>&1
+curl --create-dirs -o /etc/yum.repos.d/_docker.repo https://download.docker.com/linux/fedora/docker-ce.repo
 # justfile
-curl --create-dirs -o /usr/share/just/justfile https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_share_just_justfile > /dev/null 2>&1
+curl --create-dirs -o /usr/share/just/justfile https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_share_just_justfile
 # systemd - bootc
-curl --create-dirs -o /usr/lib/systemd/system/bootc-update.service https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_system_bootc-update.service > /dev/null 2>&1
-curl --create-dirs -o /usr/lib/systemd/system/bootc-update.timer https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_system_bootc-update.timer > /dev/null 2>&1
+curl --create-dirs -o /usr/lib/systemd/system/bootc-update.service https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_system_bootc-update.service
+curl --create-dirs -o /usr/lib/systemd/system/bootc-update.timer https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_system_bootc-update.timer
 # systemd - flatpak
-curl --create-dirs -o /usr/lib/systemd/system/flatpak-setup.service https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_system_flatpak-setup.service > /dev/null 2>&1
-curl --create-dirs -o /usr/lib/systemd/system/flatpak-update.service https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_system_flatpak-update.service > /dev/null 2>&1
-curl --create-dirs -o /usr/lib/systemd/system/flatpak-update.timer https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_system_flatpak-update.timer > /dev/null 2>&1
-curl --create-dirs -o /usr/lib/systemd/system/flatpak-packages.service https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_system_flatpak-packages.service > /dev/null 2>&1
+curl --create-dirs -o /usr/lib/systemd/system/flatpak-setup.service https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_system_flatpak-setup.service
+curl --create-dirs -o /usr/lib/systemd/system/flatpak-update.service https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_system_flatpak-update.service
+curl --create-dirs -o /usr/lib/systemd/system/flatpak-update.timer https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_system_flatpak-update.timer
+curl --create-dirs -o /usr/lib/systemd/system/flatpak-packages.service https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_system_flatpak-packages.service
 # systemd - brew
-curl --create-dirs -o /usr/lib/systemd/system/brew-setup.service https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_system_brew-setup.service > /dev/null 2>&1
-curl --create-dirs -o /usr/lib/systemd/system/brew-update.service https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_system_brew-update.service > /dev/null 2>&1
-curl --create-dirs -o /usr/lib/systemd/system/brew-packages.service https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_system_brew-packages.service > /dev/null 2>&1
+curl --create-dirs -o /usr/lib/systemd/system/brew-setup.service https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_system_brew-setup.service
+curl --create-dirs -o /usr/lib/systemd/system/brew-update.service https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_system_brew-update.service
+curl --create-dirs -o /usr/lib/systemd/system/brew-packages.service https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_system_brew-packages.service
 # containers
-curl --create-dirs -o /usr/share/containers/systemd/jellyfin.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/jellyfin.container > /dev/null 2>&1
-curl --create-dirs -o /usr/share/containers/systemd/navidrome.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/navidrome.container > /dev/null 2>&1
-curl --create-dirs -o /usr/share/containers/systemd/audiobookshelf.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/audiobookshelf.container > /dev/null 2>&1
-curl --create-dirs -o /usr/share/containers/systemd/syncthing.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/syncthing.container > /dev/null 2>&1
-curl --create-dirs -o /usr/share/containers/systemd/stash.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/stash.container > /dev/null 2>&1
-curl --create-dirs -o /usr/share/containers/systemd/stirlingpdf.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/stirlingpdf.container > /dev/null 2>&1
-curl --create-dirs -o /usr/share/containers/systemd/qbittorent.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/qbittorent.container > /dev/null 2>&1
+curl --create-dirs -o /usr/share/containers/systemd/jellyfin.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/jellyfin.container
+curl --create-dirs -o /usr/share/containers/systemd/navidrome.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/navidrome.container
+curl --create-dirs -o /usr/share/containers/systemd/audiobookshelf.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/audiobookshelf.container
+curl --create-dirs -o /usr/share/containers/systemd/syncthing.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/syncthing.container
+curl --create-dirs -o /usr/share/containers/systemd/stash.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/stash.container
+curl --create-dirs -o /usr/share/containers/systemd/stirlingpdf.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/stirlingpdf.container
+curl --create-dirs -o /usr/share/containers/systemd/qbittorent.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/qbittorent.container
 
 ### Packages
 # Tailscale
-dnf install -y tailscale > /dev/null 2>&1 #&& rm -rf /etc/yum.repos.d/tailscale.repo
+dnf install -y tailscale #&& rm -rf /etc/yum.repos.d/tailscale.repo
 # Just
-dnf install -y just steam 2> >(grep -i 'error' >&2)    # > /dev/null 2>&1
+dnf install -y just steam
 # morewaita icons
-dnf install -y morewaita-icon-theme > /dev/null 2>&1 #&& rm -rf /etc/yum.repos.d/morewaite.repo
+dnf install -y morewaita-icon-theme #&& rm -rf /etc/yum.repos.d/morewaite.repo
 # adwaita theme
-dnf install -y adw-gtk3-theme > /dev/null 2>&1
+dnf install -y adw-gtk3-theme
 # Remove Firefox
-dnf remove -y firefox* > /dev/null 2>&1
+dnf remove -y firefox*
 # Remove unwanted Fedora stuff
 dnf remove -y \
     virtualbox-guest-additions \
@@ -92,7 +92,7 @@ dnf remove -y \
     fedora-bookmarks \
     fedora-flathub-remote \
     fedora-third-party \
-    > /dev/null 2>&1
+   
 # Remove GNOME stuff
 dnf remove -y \
     gnome-shell-extension* \
@@ -101,16 +101,16 @@ dnf remove -y \
     gnome-software* \
     virtualbox-guest-additions \
     malcontent-control \
-    > /dev/null 2>&1
+   
 # bulk remove
-rpm -qa 'qemu-user-static*' | xargs dnf remove -y > /dev/null 2>&1
-rpm -qa '*backgrounds*' | xargs dnf remove -y > /dev/null 2>&1
+rpm -qa 'qemu-user-static*' | xargs dnf remove -y
+rpm -qa '*backgrounds*' | xargs dnf remove -y
 
 # Cockpit
-dnf install -y cockpit cockpit-podman > /dev/null 2>&1
+dnf install -y cockpit cockpit-podman
 # piper
 #dnf install -y piper
-dnf install -y podman podman-compose > /dev/null 2>&1
+dnf install -y podman podman-compose
 #dnf install -y input-remapper
 # FTP
 #dnf install -y vsftpd
@@ -120,15 +120,15 @@ dnf install -y podman podman-compose > /dev/null 2>&1
 # podlet
 #dnf install -y podlet
 
-dnf install -y smartmontools > /dev/null 2>&1
+dnf install -y smartmontools
 
-dnf install -y unison unison-gtk > /dev/null 2>&1
+dnf install -y unison unison-gtk
 
-dnf install -y duperemove > /dev/null 2>&1
+dnf install -y duperemove
 
-dnf install -y fd-find > /dev/null 2>&1
+dnf install -y fd-find
 
-dnf install -y fzf > /dev/null 2>&1
+dnf install -y fzf
 
 # docker
 #dnf install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
@@ -139,33 +139,33 @@ dnf install -y fzf > /dev/null 2>&1
 
 ### SystemD
 # tailscale
-systemctl enable tailscaled.service > /dev/null 2>&1
-systemctl enable sshd.service > /dev/null 2>&1
+systemctl enable tailscaled.service
+systemctl enable sshd.service
 # bootc
-systemctl enable bootc-update.timer > /dev/null 2>&1
+systemctl enable bootc-update.timer
 # flatpak
-systemctl enable flatpak-setup.service > /dev/null 2>&1
-systemctl enable flatpak-update.service > /dev/null 2>&1
-systemctl enable flatpak-update.timer > /dev/null 2>&1
-systemctl enable flatpak-packages.service > /dev/null 2>&1
+systemctl enable flatpak-setup.service
+systemctl enable flatpak-update.service
+systemctl enable flatpak-update.timer
+systemctl enable flatpak-packages.service
 # brew
 #systemctl enable brew-setup.service
 #systemctl enable brew-update.service
 #systemctl enable brew-packages.service
 # mask
-systemctl mask flatpak-add-fedora-repos.service > /dev/null 2>&1
-systemctl mask fedora-third-party-refresh.service > /dev/null 2>&1
+systemctl mask flatpak-add-fedora-repos.service
+systemctl mask fedora-third-party-refresh.service
 # failing systemd-remount-fs.service
-systemctl mask systemd-remount-fs.service > /dev/null 2>&1
+systemctl mask systemd-remount-fs.service
 # cockpit
-systemctl enable cockpit.socket > /dev/null 2>&1
+systemctl enable cockpit.socket
 # piper
 #systemctl enable ratbagd.service
 # input remmaper
 #systemctl enable input-remapper
 # docker
 #systemctl enable docker
-systemctl enable smartd > /dev/null 2>&1
+systemctl enable smartd
 # rpm fusion
 #dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 #dnf install -y rpmfusion-free-release-tainted rpmfusion-nonfree-release-tainted
@@ -188,16 +188,16 @@ systemctl enable smartd > /dev/null 2>&1
 #curl --create-dirs -o /etc/yum.repos.d/_caddy.repo https://copr.fedorainfracloud.org/coprs/g/caddy/caddy/repo/fedora-$(rpm -E %fedora)/group_caddy-caddy-fedora-$(rpm -E %fedora).repo
 #dnf install -y caddy
 
-dnf install -y mergerfs > /dev/null 2>&1
+dnf install -y mergerfs
 
-dnf install -y btrfs-assistant > /dev/null 2>&1
-dnf install -y btrfsd > /dev/null 2>&1
-dnf install -y btrfsmaintenance > /dev/null 2>&1
+dnf install -y btrfs-assistant
+dnf install -y btrfsd
+dnf install -y btrfsmaintenance
 
-systemctl enable btrfs-scrub.timer > /dev/null 2>&1
+systemctl enable btrfs-scrub.timer
 
 # repo cleanup
-rm -rf /etc/yum.repos.d/_*.repo > /dev/null 2>&1
+rm -rf /etc/yum.repos.d/_*.repo
 #rm -rf /etc/yum.repos.d/rpmfusion*.repo
 
 # tuned profiles
@@ -206,7 +206,7 @@ rm -rf /etc/yum.repos.d/_*.repo > /dev/null 2>&1
 #dnf install -y nfs-utils samba tmux
 
 
-systemctl enable podman-auto-update.timer > /dev/null 2>&1
+systemctl enable podman-auto-update.timer
 #dnf install -y adwaita-fonts-all
 
 
