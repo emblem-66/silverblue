@@ -74,23 +74,21 @@ curl -sS --create-dirs -o /usr/share/containers/systemd/stash.container https://
 curl -sS --create-dirs -o /usr/share/containers/systemd/stirlingpdf.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/stirlingpdf.container
 curl -sS --create-dirs -o /usr/share/containers/systemd/qbittorent.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/qbittorent.container
 
-systemctl --quiet enable podman-auto-update.timer
-systemctl --quiet enable pAAAAAodman-auto-update.timer
 
 
 ### Packages
 # Tailscale
-dnf install -y tailscale #&& rm -rf /etc/yum.repos.d/tailscale.repo
+dnf install -q -y tailscale #&& rm -rf /etc/yum.repos.d/tailscale.repo
 # Just
-dnf install -q -y just steam
+dnf install -q -y just
 # morewaita icons
-dnf install -y morewaita-icon-theme #&& rm -rf /etc/yum.repos.d/morewaite.repo
+dnf install -q -y morewaita-icon-theme #&& rm -rf /etc/yum.repos.d/morewaite.repo
 # adwaita theme
-dnf install -y adw-gtk3-theme
+dnf install -q -y adw-gtk3-theme
 # Remove Firefox
-dnf remove -y firefox*
+dnf remove -q -y firefox*
 # Remove unwanted Fedora stuff
-dnf remove -y \
+dnf remove -q -y \
     virtualbox-guest-additions \
     fedora-chromium-config* \
     fedora-bookmarks \
@@ -98,7 +96,7 @@ dnf remove -y \
     fedora-third-party \
    
 # Remove GNOME stuff
-dnf remove -y \
+dnf remove -q -y \
     gnome-shell-extension* \
     gnome-tour \
     yelp* \
@@ -107,79 +105,79 @@ dnf remove -y \
     malcontent-control \
    
 # bulk remove
-rpm -qa 'qemu-user-static*' | xargs dnf remove -y
-rpm -qa '*backgrounds*' | xargs dnf remove -y
+rpm -qa 'qemu-user-static*' | xargs dnf remove -q -y
+rpm -qa '*backgrounds*' | xargs dnf remove -q -y
 
 # Cockpit
-dnf install -y cockpit cockpit-podman
+dnf install -q -y cockpit cockpit-podman
 # piper
-#dnf install -y piper
-dnf install -y podman podman-compose
-#dnf install -y input-remapper
+#dnf install -q -y piper
+dnf install -q -y podman podman-compose
+#dnf install -q -y input-remapper
 # FTP
-#dnf install -y vsftpd
-#systemctl enable vsftpd
+#dnf install -q -y vsftpd
+#systemctl --quiet enable vsftpd
 #chown 0777 /etc/vsftpd/vsftpd.conf
 
 # podlet
-#dnf install -y podlet
+#dnf install -q -y podlet
 
-dnf install -y smartmontools
+dnf install -q -y smartmontools
 
-dnf install -y unison unison-gtk
+dnf install -q -y unison unison-gtk
 
-dnf install -y duperemove
+dnf install -q -y duperemove
 
-dnf install -y fd-find
+dnf install -q -y fd-find
 
-dnf install -y fzf
+dnf install -q -y fzf
 
 # docker
-#dnf install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+#dnf install -q -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
 # Cosmic
 #curl -sS --create-dirs -o /etc/yum.repos.d/cosmic.repo https://copr.fedorainfracloud.org/coprs/ryanabx/cosmic-epoch/repo/fedora-$(rpm -E %fedora)/ryanabx/cosmic-epoch-fedora-$(rpm -E %fedora).repo
-#dnf install -y cosmic-desktop #&& rm -rf /etc/yum.repos.d/cosmic.repo
+#dnf install -q -y cosmic-desktop #&& rm -rf /etc/yum.repos.d/cosmic.repo
 
 ### SystemD
 # tailscale
-systemctl enable tailscaled.service
-systemctl enable sshd.service
+systemctl --quiet enable tailscaled.service
+systemctl --quiet enable sshd.service
 # bootc
-systemctl enable bootc-update.timer
+systemctl --quiet enable bootc-update.timer
 # flatpak
-systemctl enable flatpak-setup.service
-systemctl enable flatpak-update.service
-systemctl enable flatpak-update.timer
-systemctl enable flatpak-packages.service
+systemctl --quiet enable flatpak-setup.service
+systemctl --quiet enable flatpak-update.service
+systemctl --quiet enable flatpak-update.timer
+systemctl --quiet enable flatpak-packages.service
 # brew
-#systemctl enable brew-setup.service
-#systemctl enable brew-update.service
-#systemctl enable brew-packages.service
+#systemctl --quiet enable brew-setup.service
+#systemctl --quiet enable brew-update.service
+#systemctl --quiet enable brew-packages.service
 # mask
-systemctl mask flatpak-add-fedora-repos.service
-systemctl mask fedora-third-party-refresh.service
+systemctl --quiet mask flatpak-add-fedora-repos.service
+systemctl --quiet mask fedora-third-party-refresh.service
 # failing systemd-remount-fs.service
-systemctl mask systemd-remount-fs.service
+systemctl --quiet mask systemd-remount-fs.service
 # cockpit
-systemctl enable cockpit.socket
+systemctl --quiet enable cockpit.socket
 # piper
-#systemctl enable ratbagd.service
+#systemctl --quiet enable ratbagd.service
 # input remmaper
-#systemctl enable input-remapper
+#systemctl --quiet enable input-remapper
 # docker
-#systemctl enable docker
-systemctl enable smartd
+#systemctl --quiet enable docker
+systemctl --quiet enable smartd
 # rpm fusion
-#dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-#dnf install -y rpmfusion-free-release-tainted rpmfusion-nonfree-release-tainted
+#dnf install -q -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+#dnf install -q -y rpmfusion-free-release-tainted rpmfusion-nonfree-release-tainted
 
 # all codecs
-#dnf install -y libavcodec-freeworld 
-#dnf install -y --allowerasing ffmpeg
+#dnf install -q -y libavcodec-freeworld 
+#dnf install -q -y --allowerasing ffmpeg
 
 # jellyfin/kodi
-#dnf install -y jellyfin
+#dnf install -q -y jellyfin
 
 
 
@@ -190,15 +188,17 @@ systemctl enable smartd
 #echo "enable stirlingpdf.service" >> /usr/lib/systemd/system-preset/100-containers.preset
 
 #curl -sS --create-dirs -o /etc/yum.repos.d/_caddy.repo https://copr.fedorainfracloud.org/coprs/g/caddy/caddy/repo/fedora-$(rpm -E %fedora)/group_caddy-caddy-fedora-$(rpm -E %fedora).repo
-#dnf install -y caddy
+#dnf install -q -y caddy
 
-dnf install -y mergerfs
+dnf install -q -y mergerfs
 
-dnf install -y btrfs-assistant
-dnf install -y btrfsd
-dnf install -y btrfsmaintenance
+dnf install -q -y btrfs-assistant
+dnf install -q -y btrfsd
+dnf install -q -y btrfsmaintenance
 
-systemctl enable btrfs-scrub.timer
+systemctl --quiet enable btrfs-scrub.timer
+
+systemctl --quiet enable podman-auto-update.timer
 
 # repo cleanup
 rm -rf /etc/yum.repos.d/_*.repo
@@ -207,10 +207,10 @@ rm -rf /etc/yum.repos.d/_*.repo
 # tuned profiles
 # https://www.redhat.com/en/blog/linux-tuned-tuning-profiles
 
-#dnf install -y nfs-utils samba tmux
+#dnf install -q -y nfs-utils samba tmux
 
 
-#dnf install -y adwaita-fonts-all
+#dnf install -q -y adwaita-fonts-all
 
 
 
