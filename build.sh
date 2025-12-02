@@ -164,9 +164,9 @@ systemctl --quiet enable flatpak-update.service
 systemctl --quiet enable flatpak-update.timer
 systemctl --quiet enable flatpak-packages.service
 # brew
-#systemctl --quiet enable brew-setup.service
-#systemctl --quiet enable brew-update.service
-#systemctl --quiet enable brew-packages.service
+systemctl --quiet enable brew-setup.service
+systemctl --quiet enable brew-update.service
+systemctl --quiet enable brew-packages.service
 # mask
 systemctl --quiet mask flatpak-add-fedora-repos.service
 systemctl --quiet mask fedora-third-party-refresh.service
