@@ -64,7 +64,7 @@ curl -sS --create-dirs -o /usr/lib/systemd/user/flatpak-packages.service https:/
 # systemd - brew
 curl -sS --create-dirs -o /usr/lib/systemd/user/brew-setup.service https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_user_brew-setup.service
 curl -sS --create-dirs -o /usr/lib/systemd/user/brew-update.service https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_user_brew-update.service
-curl -sS --create-dirs -o /usr/lib/systemd/user/brew-packages.service https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_system_brew-packages.service
+curl -sS --create-dirs -o /usr/lib/systemd/user/brew-packages.service https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_user_brew-packages.service
 # containers
 curl -sS --create-dirs -o /usr/share/containers/systemd/jellyfin.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/jellyfin.container
 curl -sS --create-dirs -o /usr/share/containers/systemd/navidrome.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/navidrome.container
