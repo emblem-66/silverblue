@@ -50,7 +50,7 @@ curl -sS --create-dirs -o /etc/yum.repos.d/_morewaita.repo https://copr.fedorain
 # repo - mergerfs
 curl -sS --create-dirs -o /etc/yum.repos.d/_mergerfs.repo https://copr.fedorainfracloud.org/coprs/errornointernet/mergerfs/repo/fedora-$(rpm -E %fedora)/errornointernet-mergerfs-fedora-$(rpm -E %fedora).repo
 # repo - docker
-curl -sS --create-dirs -o /etc/yum.repos.d/_docker.repo https://download.docker.com/linux/fedora/docker-ce.repo
+#curl -sS --create-dirs -o /etc/yum.repos.d/_docker.repo https://download.docker.com/linux/fedora/docker-ce.repo
 # justfile
 curl -sS --create-dirs -o /usr/share/just/justfile https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_share_just_justfile
 # systemd - bootc
@@ -73,8 +73,6 @@ curl -sS --create-dirs -o /usr/share/containers/systemd/syncthing.container http
 curl -sS --create-dirs -o /usr/share/containers/systemd/stash.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/stash.container
 curl -sS --create-dirs -o /usr/share/containers/systemd/stirlingpdf.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/stirlingpdf.container
 curl -sS --create-dirs -o /usr/share/containers/systemd/qbittorent.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/qbittorent.container
-
-
 
 ### Packages
 # Tailscale
@@ -122,6 +120,8 @@ dnf install -y podman podman-compose
 # podlet
 #dnf install -y podlet
 
+dnf install -y fzf
+
 dnf install -y smartmontools
 
 dnf install -y unison unison-gtk
@@ -130,7 +130,20 @@ dnf install -y duperemove
 
 dnf install -y fd-find
 
-dnf install -y fzf
+
+dnf install -y mergerfs
+
+dnf install -y btrfs-assistant
+dnf install -y btrfsd
+dnf install -y btrfsmaintenance
+
+
+dnf install -y nfs-utils samba # tmux
+
+
+#dnf install -y adwaita-fonts-all
+
+
 
 # docker
 #dnf install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
@@ -168,50 +181,12 @@ systemctl --quiet enable cockpit.socket
 # docker
 #systemctl --quiet enable docker
 systemctl --quiet enable smartd
-# rpm fusion
-#dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-#dnf install -y rpmfusion-free-release-tainted rpmfusion-nonfree-release-tainted
-
-# all codecs
-#dnf install -y libavcodec-freeworld 
-#dnf install -y --allowerasing ffmpeg
-
-# jellyfin/kodi
-#dnf install -y jellyfin
-
-
-
-#echo "enable audiobookshelf.service" >> /usr/lib/systemd/system-preset/100-containers.preset
-#echo "enable jellyfin.service" >> /usr/lib/systemd/system-preset/100-containers.preset
-#echo "enable stash.service" >> /usr/lib/systemd/system-preset/100-containers.preset
-#echo "enable syncthing.service" >> /usr/lib/systemd/system-preset/100-containers.preset
-#echo "enable stirlingpdf.service" >> /usr/lib/systemd/system-preset/100-containers.preset
-
-#curl -sS --create-dirs -o /etc/yum.repos.d/_caddy.repo https://copr.fedorainfracloud.org/coprs/g/caddy/caddy/repo/fedora-$(rpm -E %fedora)/group_caddy-caddy-fedora-$(rpm -E %fedora).repo
-#dnf install -y caddy
-
-dnf install -y mergerfs
-
-dnf install -y btrfs-assistant
-dnf install -y btrfsd
-dnf install -y btrfsmaintenance
 
 systemctl --quiet enable btrfs-scrub.timer
 
-systemctl --quiet enable podman-auto-update.timer
+#systemctl --quiet enable podman-auto-update.timer
 
 # repo cleanup
 rm -rf /etc/yum.repos.d/_*.repo
-#rm -rf /etc/yum.repos.d/rpmfusion*.repo
-
-# tuned profiles
-# https://www.redhat.com/en/blog/linux-tuned-tuning-profiles
-
-#dnf install -y nfs-utils samba tmux
-
-
-#dnf install -y adwaita-fonts-all
-
-
 
 
