@@ -66,13 +66,19 @@ curl -sS --create-dirs -o /usr/lib/systemd/user/brew-setup.service https://raw.g
 curl -sS --create-dirs -o /usr/lib/systemd/user/brew-update.service https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_user_brew-update.service
 curl -sS --create-dirs -o /usr/lib/systemd/user/brew-packages.service https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_user_brew-packages.service
 # containers
-curl -sS --create-dirs -o /usr/share/containers/systemd/jellyfin.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/jellyfin.container
+#curl -sS --create-dirs -o /usr/share/containers/systemd/jellyfin.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/jellyfin.container
 curl -sS --create-dirs -o /usr/share/containers/systemd/navidrome.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/navidrome.container
 curl -sS --create-dirs -o /usr/share/containers/systemd/audiobookshelf.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/audiobookshelf.container
 curl -sS --create-dirs -o /usr/share/containers/systemd/syncthing.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/syncthing.container
 curl -sS --create-dirs -o /usr/share/containers/systemd/stash.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/stash.container
 curl -sS --create-dirs -o /usr/share/containers/systemd/stirlingpdf.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/stirlingpdf.container
 curl -sS --create-dirs -o /usr/share/containers/systemd/qbittorent.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/qbittorent.container
+
+#pod test
+curl -sS --create-dirs -o /usr/share/containers/systemd/jellyfin.pod https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/pod/jellyfin.pod
+curl -sS --create-dirs -o /usr/share/containers/systemd/jellyfin.network https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/pod/jellyfin.network
+curl -sS --create-dirs -o /usr/share/containers/systemd/jellyfin.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/pod/jellyfin.container
+curl -sS --create-dirs -o /usr/share/containers/systemd/jellyfin-ts.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/pod/jellyfin-ts.container
 
 ### Packages
 # Tailscale
