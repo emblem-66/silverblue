@@ -165,7 +165,7 @@ systemctl --quiet enable sshd.service
 # bootc
 systemctl --quiet enable bootc-update.timer
 # flatpak
-systemctl --quiet enable flatpak-setup.service
+systemctl --quiet enable --user flatpak-setup.service
 systemctl --quiet enable flatpak-update.service
 systemctl --quiet enable flatpak-update.timer
 systemctl --quiet enable flatpak-packages.service
