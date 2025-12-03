@@ -165,14 +165,14 @@ systemctl --quiet enable sshd.service
 # bootc
 systemctl --quiet enable bootc-update.timer
 # flatpak
-systemctl --quiet enable --user flatpak-setup.service
-systemctl --quiet enable flatpak-update.service
-systemctl --quiet enable flatpak-update.timer
-systemctl --quiet enable flatpak-packages.service
+#systemctl --quiet enable flatpak-setup.service
+#systemctl --quiet enable flatpak-update.service
+#systemctl --quiet enable flatpak-update.timer
+#systemctl --quiet enable flatpak-packages.service
 # brew
-systemctl --quiet enable brew-setup.service
-systemctl --quiet enable brew-update.service
-systemctl --quiet enable brew-packages.service
+#systemctl --quiet enable brew-setup.service
+#systemctl --quiet enable brew-update.service
+#systemctl --quiet enable brew-packages.service
 # mask
 systemctl --quiet mask flatpak-add-fedora-repos.service
 systemctl --quiet mask fedora-third-party-refresh.service
