@@ -80,7 +80,6 @@ curl -sS --create-dirs -o /usr/share/containers/systemd/syncthing.container http
 curl -sS --create-dirs -o /usr/share/containers/systemd/stash.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/stash.container
 curl -sS --create-dirs -o /usr/share/containers/systemd/stirlingpdf.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/stirlingpdf.container
 curl -sS --create-dirs -o /usr/share/containers/systemd/qbittorent.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/qbittorent.container
-
 #pod test
 #curl -sS --create-dirs -o /usr/share/containers/systemd/jellyfin.pod https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/pod/jellyfin.pod
 #curl -sS --create-dirs -o /usr/share/containers/systemd/jellyfin.network https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/pod/jellyfin.network
@@ -94,7 +93,6 @@ dnf install -y \
     hyprpaper \
     hyprshot \
     hyprpicker \
-    nwg-dock-hyprland \
     xdg-desktop-portal-hyprland \
     hyprland \
     waybar \
