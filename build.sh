@@ -95,6 +95,7 @@ dnf install -y \
     hyprshot \
     xdg-desktop-portal-hyprland \
     hyprland \
+    waybar \
 
 ### Packages
 # Tailscale
