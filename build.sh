@@ -55,7 +55,7 @@ curl -sS --create-dirs -o /etc/yum.repos.d/_mergerfs.repo https://copr.fedorainf
 # repo -ghostty
 curl -sS --create-dirs -o /etc/yum.repos.d/_ghostyy.repo https://copr.fedorainfracloud.org/coprs/scottames/ghostty/repo/fedora-$(rpm -E %fedora)/scottames-ghostty-fedora-$(rpm -E %fedora).repo
 # repo - hyprland
-curl -sS --create-dirs -o /etc/yum.repos.d/_hyprland.repo https://copr.fedorainfracloud.org/coprs/solopasha/hyprland/repo/fedora-$(rpm -E %fedora)/solopasha-hyprland-fedora-$(rpm -E %fedora).repo
+#curl -sS --create-dirs -o /etc/yum.repos.d/_hyprland.repo https://copr.fedorainfracloud.org/coprs/solopasha/hyprland/repo/fedora-$(rpm -E %fedora)/solopasha-hyprland-fedora-$(rpm -E %fedora).repo
 # repo - docker
 #curl -sS --create-dirs -o /etc/yum.repos.d/_docker.repo https://download.docker.com/linux/fedora/docker-ce.repo
 # justfile
@@ -87,16 +87,16 @@ curl -sS --create-dirs -o /usr/share/containers/systemd/qbittorent.container htt
 #curl -sS --create-dirs -o /usr/share/containers/systemd/jellyfin-ts.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/pod/jellyfin-ts.container
 
 # Hyprland
-dnf install -y \
-    hyprlock \
-    hypridle \
-    hyprpaper \
-    hyprshot \
-    hyprpicker \
-    xdg-desktop-portal-hyprland \
-    hyprland \
-    hyprland-devel \
-    waybar \
+#dnf install -y \
+#    hyprlock \
+#    hypridle \
+#    hyprpaper \
+#    hyprshot \
+#    hyprpicker \
+#    xdg-desktop-portal-hyprland \
+#    hyprland \
+#    hyprland-devel \
+#    waybar \
 
 ### Packages
 # Tailscale
