@@ -95,6 +95,7 @@ dnf install -y \
     hyprpicker \
     xdg-desktop-portal-hyprland \
     hyprland \
+    hyprland-devel \
     waybar \
 
 ### Packages
