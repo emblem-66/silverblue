@@ -149,15 +149,15 @@ dnf install -y podman podman-compose
 # podlet
 #dnf install -y podlet
 
-dnf install -y fzf
+#dnf install -y fzf
 
 dnf install -y smartmontools
 
 dnf install -y unison unison-gtk
 
-dnf install -y duperemove
+#dnf install -y duperemove
 
-dnf install -y fd-find
+#dnf install -y fd-find
 
 
 dnf install -y mergerfs
