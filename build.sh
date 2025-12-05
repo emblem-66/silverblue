@@ -114,6 +114,7 @@ dnf remove -y \
     gnome-software* \
     virtualbox-guest-additions \
     malcontent-control \
+    ptyxis \
 
 # bulk remove
 rpm -qa 'qemu-user-static*' | xargs dnf remove -q -y
