@@ -85,6 +85,15 @@ curl -sS --create-dirs -o /usr/share/containers/systemd/jellyfin.network https:/
 curl -sS --create-dirs -o /usr/share/containers/systemd/jellyfin.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/pod/jellyfin.container
 curl -sS --create-dirs -o /usr/share/containers/systemd/jellyfin-ts.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/pod/jellyfin-ts.container
 
+# Hyprland
+dnf install -y \
+    hyprlock \
+    hypridle \
+    hyprpaper \
+    hyprshot \
+    xdg-desktop-portal-hyprland \
+    hyprland \
+
 ### Packages
 # Tailscale
 dnf install -y tailscale #&& rm -rf /etc/yum.repos.d/tailscale.repo
