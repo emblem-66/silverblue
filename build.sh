@@ -93,9 +93,12 @@ dnf install -y \
     hypridle \
     hyprpaper \
     hyprshot \
+    hyprpicker \
+    nwg-dock-hyprland \
     xdg-desktop-portal-hyprland \
     hyprland \
     waybar \
+    
 
 ### Packages
 # Tailscale
