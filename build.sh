@@ -38,6 +38,9 @@ set -xeuo pipefail
 
 
 
+
+
+
 # check image release
 #cat /etc/os-release
 #source /usr/lib/os-release && echo "$OSTREE_VERSION"
@@ -49,6 +52,8 @@ curl -sS --create-dirs -o /etc/yum.repos.d/_tailscale.repo https://pkgs.tailscal
 curl -sS --create-dirs -o /etc/yum.repos.d/_morewaita.repo https://copr.fedorainfracloud.org/coprs/trixieua/morewaita-icon-theme/repo/fedora-$(rpm -E %fedora)/trixieua-morewaita-icon-theme-fedora-$(rpm -E %fedora).repo
 # repo - mergerfs
 curl -sS --create-dirs -o /etc/yum.repos.d/_mergerfs.repo https://copr.fedorainfracloud.org/coprs/errornointernet/mergerfs/repo/fedora-$(rpm -E %fedora)/errornointernet-mergerfs-fedora-$(rpm -E %fedora).repo
+# repo -ghostty
+curl -sS --create-dirs -o /etc/yum.repos.d/_ghostyy.repo https://copr.fedorainfracloud.org/coprs/scottames/ghostty/repo/fedora-$(rpm -E %fedora)/scottames-ghostty-fedora-$(rpm -E %fedora).repo
 # repo - docker
 #curl -sS --create-dirs -o /etc/yum.repos.d/_docker.repo https://download.docker.com/linux/fedora/docker-ce.repo
 # justfile
@@ -85,6 +90,8 @@ curl -sS --create-dirs -o /usr/share/containers/systemd/jellyfin-ts.container ht
 dnf install -y tailscale #&& rm -rf /etc/yum.repos.d/tailscale.repo
 # Just
 dnf install -y just
+# Ghostty
+dnf install -y ghostty
 # morewaita icons
 dnf install -y morewaita-icon-theme #&& rm -rf /etc/yum.repos.d/morewaite.repo
 # adwaita theme
