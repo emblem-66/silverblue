@@ -106,11 +106,10 @@ curl -sS --create-dirs -o /usr/share/containers/systemd/qbittorent.container htt
 dnf install -y \
     hyprland \
     hyprutils \
-    dms \
 
 # niri
 dnf install -y \
-#    niri \
+    ibm-plex* \
 
 ### Packages
 # Tailscale
