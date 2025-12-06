@@ -56,6 +56,8 @@ curl -sS --create-dirs -o /etc/yum.repos.d/_mergerfs.repo https://copr.fedorainf
 curl -sS --create-dirs -o /etc/yum.repos.d/_ghostyy.repo https://copr.fedorainfracloud.org/coprs/scottames/ghostty/repo/fedora-$(rpm -E %fedora)/scottames-ghostty-fedora-$(rpm -E %fedora).repo
 # repo - hyprland
 curl -sS --create-dirs -o /etc/yum.repos.d/_hyprland.repo https://copr.fedorainfracloud.org/coprs/solopasha/hyprland/repo/fedora-$(rpm -E %fedora)/solopasha-hyprland-fedora-$(rpm -E %fedora).repo
+# niri
+curl -sS --create-dirs -o /etc/yum.repos.d/_niri.repo https://copr.fedorainfracloud.org/coprs/yalter/niri/repo/fedora-$(rpm -E %fedora)/yalter-niri-fedora-$(rpm -E %fedora).repo
 # repo - docker
 #curl -sS --create-dirs -o /etc/yum.repos.d/_docker.repo https://download.docker.com/linux/fedora/docker-ce.repo
 # justfile
@@ -97,24 +99,28 @@ dnf install -y \
     hyprland \
     hyprland-devel \
     waybar \
-        hyprland                        \
-        hyprpaper                        \
-        hyprpicker                        \
-        hypridle                        \
-        hyprlock                        \
-        hyprsunset                        \
-        hyprpolkitagent                \
-        hyprsysteminfo                \
-        hyprpanel                        \
-        qt6ct-kde                        \
-        hyprland-qt-support        \
-        hyprland-qtutils
+    hyprland \
+    hyprpaper \
+    hyprpicker \
+    hypridle \
+    hyprlock \
+    hyprsunset \
+    hyprpolkitagent \
+    hyprsysteminfo \
+    hyprpanel \
+    qt6ct-kde \
+    hyprland-qt-support \
+    hyprland-qtutils \
+
+# niri
+dnf install -y \
+    niri \
 
 # more desktop-environment utils
-dnf -y install                        \
-        pipewire                \
-        wofi                        \
-        brightnessctl
+dnf install -y \
+    pipewire \
+    wofi \
+    brightnessctl \
 
 ### Packages
 # Tailscale
