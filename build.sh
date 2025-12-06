@@ -101,6 +101,15 @@ dnf install -y \
 dnf install -y \
     ibm-plex* \
 
+
+curl -sS --create-dirs -o /etc/yum.repos.d/_quickshell.repo https://copr.fedorainfracloud.org/coprs/errornointernet/quickshell/repo/fedora-$(rpm -E %fedora)/errornointernet-quickshell-fedora-$(rpm -E %fedora).repo
+
+#dnf copr enable errornointernet/quickshell
+
+dnf install -y quickshell
+# or
+#sudo dnf install quickshell-git
+
 ### Packages
 # Tailscale
 dnf install -y tailscale #&& rm -rf /etc/yum.repos.d/tailscale.repo
