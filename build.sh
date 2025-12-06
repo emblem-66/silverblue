@@ -55,17 +55,17 @@ curl -sS --create-dirs -o /etc/yum.repos.d/_mergerfs.repo https://copr.fedorainf
 # repo -ghostty
 curl -sS --create-dirs -o /etc/yum.repos.d/_ghostyy.repo https://copr.fedorainfracloud.org/coprs/scottames/ghostty/repo/fedora-$(rpm -E %fedora)/scottames-ghostty-fedora-$(rpm -E %fedora).repo
 # repo - hyprland
-curl -sS --create-dirs -o /etc/yum.repos.d/_hyprland.repo https://copr.fedorainfracloud.org/coprs/sdegler/hyprland/repo/fedora-$(rpm -E %fedora)/sdegler-hyprland-fedora-$(rpm -E %fedora).repo
+#curl -sS --create-dirs -o /etc/yum.repos.d/_hyprland.repo https://copr.fedorainfracloud.org/coprs/sdegler/hyprland/repo/fedora-$(rpm -E %fedora)/sdegler-hyprland-fedora-$(rpm -E %fedora).repo
 # niri
-curl -sS --create-dirs -o /etc/yum.repos.d/_niri.repo https://copr.fedorainfracloud.org/coprs/yalter/niri/repo/fedora-$(rpm -E %fedora)/yalter-niri-fedora-$(rpm -E %fedora).repo
-curl -sS --create-dirs -o /etc/yum.repos.d/_dms.repo https://copr.fedorainfracloud.org/coprs/avengemedia/dms/repo/fedora-$(rpm -E %fedora)/avengemedia-dms-fedora-$(rpm -E %fedora).repo
-
+#curl -sS --create-dirs -o /etc/yum.repos.d/_niri.repo https://copr.fedorainfracloud.org/coprs/yalter/niri/repo/fedora-$(rpm -E %fedora)/yalter-niri-fedora-$(rpm -E %fedora).repo
+# DMS
+#curl -sS --create-dirs -o /etc/yum.repos.d/_dms.repo https://copr.fedorainfracloud.org/coprs/avengemedia/dms/repo/fedora-$(rpm -E %fedora)/avengemedia-dms-fedora-$(rpm -E %fedora).repo
 # repo - docker
 #curl -sS --create-dirs -o /etc/yum.repos.d/_docker.repo https://download.docker.com/linux/fedora/docker-ce.repo
 # justfile
 curl -sS --create-dirs -o /usr/share/just/justfile https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_share_just_justfile
 # systemd - bootc
-curl -sS --create-dirs -o /usr/lib/systemd/system/bootc-update.service https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_system_bootc-update.service
+#url -sS --create-dirs -o /usr/lib/systemd/system/bootc-update.service https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_system_bootc-update.service
 curl -sS --create-dirs -o /usr/lib/systemd/system/bootc-update.timer https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_system_bootc-update.timer
 # systemd - flatpak
 curl -sS --create-dirs -o /usr/lib/systemd/system/flatpak-setup.service https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_system_flatpak-setup.service
@@ -91,19 +91,14 @@ curl -sS --create-dirs -o /usr/share/containers/systemd/qbittorent.container htt
 #curl -sS --create-dirs -o /usr/share/containers/systemd/jellyfin-ts.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/pod/jellyfin-ts.container
 
 # Hyprland
-dnf install -y \
-    hyprland \
-    hyprpaper \
-    hyprpanel \
-    hyprshot \
-    hyprlock \
-    hyprutils \
-    waybar \
+#dnf install -y \
+#    hyprland \
+#    hyprutils \
 
 # niri
-dnf install -y \
-    niri \
-    dms \
+#dnf install -y \
+#    niri \
+#    dms \
 
 ### Packages
 # Tailscale
