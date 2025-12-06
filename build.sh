@@ -97,7 +97,6 @@ dnf install -y \
 # niri
 dnf install -y \
     niri \
-    dms \
 
 # waybar
 dnf install -y \
