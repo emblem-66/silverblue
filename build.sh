@@ -93,17 +93,6 @@ curl -sS --create-dirs -o /usr/share/containers/systemd/qbittorent.container htt
 #curl -sS --create-dirs -o /usr/share/containers/systemd/jellyfin-ts.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/pod/jellyfin-ts.container
 
 
-
-
-
-
-
-
-# glibc-langpack
-dnf remove -y glibc-all-langpacks
-dnf install -y glibc-langpack-en
-
-
 # Hyprland
 dnf install -y \
     hyprland \
