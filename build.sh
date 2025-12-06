@@ -96,7 +96,8 @@ dnf install -y \
     hyprpaper \
     hyprpanel \
     hyprshot \
-    hypr
+    hyprlock \
+    hyprutils \
     waybar \
 
 # niri
