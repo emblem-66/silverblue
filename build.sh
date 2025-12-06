@@ -108,7 +108,6 @@ dnf install -y \
     hyprsunset \
     hyprpolkitagent \
     hyprpanel \
-    hyprland-qtutils \
 
 # niri
 dnf install -y \
