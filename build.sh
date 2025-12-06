@@ -103,6 +103,7 @@ dnf install -y \
 # niri
 dnf install -y \
     niri \
+    dms \
 
 ### Packages
 # Tailscale
