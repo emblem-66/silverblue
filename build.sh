@@ -98,9 +98,11 @@ dnf install -y \
     hyprland \
 #    hyprutils \
 
-# niri
 dnf install -y \
     ibm-plex* \
+
+dnf install -y \
+    greetd \
 
 ### Packages
 # Tailscale
