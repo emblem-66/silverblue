@@ -58,6 +58,8 @@ curl -sS --create-dirs -o /etc/yum.repos.d/_ghostyy.repo https://copr.fedorainfr
 curl -sS --create-dirs -o /etc/yum.repos.d/_hyprland.repo https://copr.fedorainfracloud.org/coprs/solopasha/hyprland/repo/fedora-$(rpm -E %fedora)/solopasha-hyprland-fedora-$(rpm -E %fedora).repo
 # niri
 curl -sS --create-dirs -o /etc/yum.repos.d/_niri.repo https://copr.fedorainfracloud.org/coprs/yalter/niri/repo/fedora-$(rpm -E %fedora)/yalter-niri-fedora-$(rpm -E %fedora).repo
+curl -sS --create-dirs -o /etc/yum.repos.d/_dms.repo https://copr.fedorainfracloud.org/coprs/avengemedia/dms/repo/fedora-$(rpm -E %fedora)/avengemedia-dms-fedora-$(rpm -E %fedora).repo
+
 # repo - docker
 #curl -sS --create-dirs -o /etc/yum.repos.d/_docker.repo https://download.docker.com/linux/fedora/docker-ce.repo
 # justfile
@@ -97,7 +99,6 @@ dnf install -y \
     hyprpicker \
     xdg-desktop-portal-hyprland \
     hyprland \
-    hyprland-devel \
     waybar \
     hyprland \
     hyprpaper \
@@ -115,12 +116,7 @@ dnf install -y \
 # niri
 dnf install -y \
     niri \
-
-# more desktop-environment utils
-dnf install -y \
-    pipewire \
-    wofi \
-    brightnessctl \
+    dms \
 
 ### Packages
 # Tailscale
