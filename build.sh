@@ -99,7 +99,9 @@ curl -sS --create-dirs -o /usr/share/containers/systemd/qbittorent.container htt
 
 
 
-
+# glibc-langpack
+dnf remove -y glibc-langpack-all
+dnf install -y glibc-langpack-en
 
 
 # Hyprland
@@ -141,6 +143,8 @@ dnf remove -y \
     virtualbox-guest-additions \
     malcontent-control \
     ptyxis \
+
+
 
 # bulk remove
 rpm -qa 'qemu-user-static*' | xargs dnf remove -q -y
