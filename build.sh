@@ -92,27 +92,16 @@ curl -sS --create-dirs -o /usr/share/containers/systemd/qbittorent.container htt
 
 # Hyprland
 dnf install -y \
-    hyprlock \
-    hypridle \
-    hyprpaper \
-    hyprshot \
-    hyprpicker \
-    xdg-desktop-portal-hyprland \
     hyprland \
-    waybar \
-    hyprland \
-    hyprpaper \
-    hyprpicker \
-    hypridle \
-    hyprlock \
-    hyprsunset \
-    hyprpolkitagent \
-    hyprpanel \
 
 # niri
 dnf install -y \
     niri \
     dms \
+
+# waybar
+dnf install -y \
+    waybar \
 
 ### Packages
 # Tailscale
