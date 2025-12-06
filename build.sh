@@ -107,10 +107,7 @@ dnf install -y \
     hyprlock \
     hyprsunset \
     hyprpolkitagent \
-    hyprsysteminfo \
     hyprpanel \
-    qt6ct-kde \
-    hyprland-qt-support \
     hyprland-qtutils \
 
 # niri
