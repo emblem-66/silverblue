@@ -111,9 +111,7 @@ dnf install -y \
         hyprland-qtutils
 
 # more desktop-environment utils
-dnf -y install                \
-        kitty                        \
-        sddm                        \
+dnf -y install                        \
         pipewire                \
         wofi                        \
         brightnessctl
