@@ -101,9 +101,6 @@ dnf install -y \
 dnf install -y \
     ibm-plex* \
 
-dnf install -y \
-    greetd \
-
 ### Packages
 # Tailscale
 dnf install -y tailscale #&& rm -rf /etc/yum.repos.d/tailscale.repo
