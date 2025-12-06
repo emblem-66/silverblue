@@ -100,7 +100,7 @@ curl -sS --create-dirs -o /usr/share/containers/systemd/qbittorent.container htt
 
 
 # glibc-langpack
-dnf remove -y glibc-langpack-all
+dnf remove -y glibc-all-langpacks
 dnf install -y glibc-langpack-en
 
 
