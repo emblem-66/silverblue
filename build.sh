@@ -105,7 +105,7 @@ curl -sS --create-dirs -o /usr/share/containers/systemd/qbittorent.container htt
 # Hyprland
 dnf install -y \
     hyprland \
-    hyprutils \
+#    hyprutils \
 
 # niri
 dnf install -y \
