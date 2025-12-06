@@ -46,6 +46,8 @@ set -xeuo pipefail
 #source /usr/lib/os-release && echo "$OSTREE_VERSION"
 
 ### Config files
+# Terra
+curl -sS --create-dirs -o /etc/yum.repos.d/terra.repo https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
 # repo - tailscale
 curl -sS --create-dirs -o /etc/yum.repos.d/_tailscale.repo https://pkgs.tailscale.com/stable/fedora/tailscale.repo
 # repo - morewaita icons
@@ -89,6 +91,16 @@ curl -sS --create-dirs -o /usr/share/containers/systemd/qbittorent.container htt
 #curl -sS --create-dirs -o /usr/share/containers/systemd/jellyfin.network https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/pod/jellyfin.network
 #curl -sS --create-dirs -o /usr/share/containers/systemd/jellyfin.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/pod/jellyfin.container
 #curl -sS --create-dirs -o /usr/share/containers/systemd/jellyfin-ts.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/pod/jellyfin-ts.container
+
+
+
+
+
+
+
+
+
+
 
 # Hyprland
 #dnf install -y \
