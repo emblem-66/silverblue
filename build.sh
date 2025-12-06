@@ -93,14 +93,11 @@ curl -sS --create-dirs -o /usr/share/containers/systemd/qbittorent.container htt
 # Hyprland
 dnf install -y \
     hyprland \
+    waybar \
 
 # niri
 dnf install -y \
     niri \
-
-# waybar
-dnf install -y \
-    waybar \
 
 ### Packages
 # Tailscale
