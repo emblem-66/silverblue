@@ -123,6 +123,10 @@ dnf install -y morewaita-icon-theme #&& rm -rf /etc/yum.repos.d/morewaite.repo
 dnf install -y adw-gtk3-theme
 # Remove Firefox
 dnf remove -y firefox*
+# Utils
+dnf install -y \
+    bat \
+
 # Remove unwanted Fedora stuff
 dnf remove -y \
     virtualbox-guest-additions \
