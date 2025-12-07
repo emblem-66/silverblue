@@ -96,7 +96,9 @@ curl -sS --create-dirs -o /usr/share/containers/systemd/qbittorent.container htt
 # Hyprland
 dnf install -y \
     hyprland \
-#    hyprutils \
+
+dnf install -y \
+    hyprutils \
 
 dnf install -y \
     ibm-plex* \
