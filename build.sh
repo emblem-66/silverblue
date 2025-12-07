@@ -103,6 +103,9 @@ dnf install -y \
 dnf install -y \
     ibm-plex* \
 
+dnf install -y \
+    waybar \
+
 
 curl -sS --create-dirs -o /etc/yum.repos.d/_quickshell.repo https://copr.fedorainfracloud.org/coprs/errornointernet/quickshell/repo/fedora-$(rpm -E %fedora)/errornointernet-quickshell-fedora-$(rpm -E %fedora).repo
 
