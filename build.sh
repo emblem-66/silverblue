@@ -92,20 +92,17 @@ curl -sS --create-dirs -o /usr/share/containers/systemd/qbittorent.container htt
 #curl -sS --create-dirs -o /usr/share/containers/systemd/jellyfin.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/pod/jellyfin.container
 #curl -sS --create-dirs -o /usr/share/containers/systemd/jellyfin-ts.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/pod/jellyfin-ts.container
 
-
 # Hyprland
 dnf install -y \
     hyprland \
-
-dnf install -y \
     hyprutils \
+    hyprpaper \
+    hyprlock \
+    hypridle \
+    waybar \
 
 dnf install -y \
     ibm-plex* \
-
-dnf install -y \
-    waybar \
-
 
 curl -sS --create-dirs -o /etc/yum.repos.d/_quickshell.repo https://copr.fedorainfracloud.org/coprs/errornointernet/quickshell/repo/fedora-$(rpm -E %fedora)/errornointernet-quickshell-fedora-$(rpm -E %fedora).repo
 
