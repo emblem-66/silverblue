@@ -61,7 +61,7 @@ curl -sS --create-dirs -o /etc/yum.repos.d/_hyprland.repo https://copr.fedorainf
 # niri
 #curl -sS --create-dirs -o /etc/yum.repos.d/_niri.repo https://copr.fedorainfracloud.org/coprs/yalter/niri/repo/fedora-$(rpm -E %fedora)/yalter-niri-fedora-$(rpm -E %fedora).repo
 # DMS
-#curl -sS --create-dirs -o /etc/yum.repos.d/_dms.repo https://copr.fedorainfracloud.org/coprs/avengemedia/dms/repo/fedora-$(rpm -E %fedora)/avengemedia-dms-fedora-$(rpm -E %fedora).repo
+curl -sS --create-dirs -o /etc/yum.repos.d/_dms.repo https://copr.fedorainfracloud.org/coprs/avengemedia/dms/repo/fedora-$(rpm -E %fedora)/avengemedia-dms-fedora-$(rpm -E %fedora).repo
 # repo - docker
 #curl -sS --create-dirs -o /etc/yum.repos.d/_docker.repo https://download.docker.com/linux/fedora/docker-ce.repo
 # justfile
@@ -95,14 +95,28 @@ curl -sS --create-dirs -o /usr/share/containers/systemd/qbittorent.container htt
 # Hyprland
 dnf install -y \
     hyprland \
+
+dnf install -y \
     hyprutils \
+
+dnf install -y \
     hyprpaper \
+
+dnf install -y \
     hyprlock \
+
+dnf install -y \
     hypridle \
+
+dnf install -y \
     waybar \
 
 dnf install -y \
-    sway \
+    hypr* \
+    *hyprland*
+
+dnf install -y \
+    dms \
 
 dnf install -y \
     ibm-plex* \
@@ -111,7 +125,7 @@ curl -sS --create-dirs -o /etc/yum.repos.d/_quickshell.repo https://copr.fedorai
 
 #dnf copr enable errornointernet/quickshell
 
-dnf install -y quickshell
+#dnf install -y quickshell
 # or
 #sudo dnf install quickshell-git
 
@@ -199,8 +213,8 @@ dnf install -y nfs-utils samba # tmux
 #dnf install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
 # Cosmic
-#curl -sS --create-dirs -o /etc/yum.repos.d/cosmic.repo https://copr.fedorainfracloud.org/coprs/ryanabx/cosmic-epoch/repo/fedora-$(rpm -E %fedora)/ryanabx/cosmic-epoch-fedora-$(rpm -E %fedora).repo
-#dnf install -y cosmic-desktop #&& rm -rf /etc/yum.repos.d/cosmic.repo
+curl -sS --create-dirs -o /etc/yum.repos.d/cosmic.repo https://copr.fedorainfracloud.org/coprs/ryanabx/cosmic-epoch/repo/fedora-$(rpm -E %fedora)/ryanabx/cosmic-epoch-fedora-$(rpm -E %fedora).repo
+dnf install -y cosmic-desktop #&& rm -rf /etc/yum.repos.d/cosmic.repo
 
 ### SystemD
 # tailscale
