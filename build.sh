@@ -98,6 +98,7 @@ dnf install -y \
 
 dnf install -y \
     hyprutils \
+    hyprland-guiutils \
 
 dnf install -y \
     hyprpaper \
@@ -110,10 +111,6 @@ dnf install -y \
 
 dnf install -y \
     waybar \
-
-dnf install -y \
-    hypr* \
-    *hyprland*
 
 dnf install -y \
     dms \
