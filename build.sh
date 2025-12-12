@@ -59,7 +59,7 @@ curl -sS --create-dirs -o /etc/yum.repos.d/_ghostyy.repo https://copr.fedorainfr
 # repo - hyprland
 curl -sS --create-dirs -o /etc/yum.repos.d/_hyprland.repo https://copr.fedorainfracloud.org/coprs/sdegler/hyprland/repo/fedora-$(rpm -E %fedora)/sdegler-hyprland-fedora-$(rpm -E %fedora).repo
 # niri
-#curl -sS --create-dirs -o /etc/yum.repos.d/_niri.repo https://copr.fedorainfracloud.org/coprs/yalter/niri/repo/fedora-$(rpm -E %fedora)/yalter-niri-fedora-$(rpm -E %fedora).repo
+curl -sS --create-dirs -o /etc/yum.repos.d/_niri.repo https://copr.fedorainfracloud.org/coprs/yalter/niri/repo/fedora-$(rpm -E %fedora)/yalter-niri-fedora-$(rpm -E %fedora).repo
 # DMS
 curl -sS --create-dirs -o /etc/yum.repos.d/_dms.repo https://copr.fedorainfracloud.org/coprs/avengemedia/dms/repo/fedora-$(rpm -E %fedora)/avengemedia-dms-fedora-$(rpm -E %fedora).repo
 # repo - docker
@@ -99,21 +99,36 @@ dnf install -y \
 dnf install -y \
     hyprutils \
     hyprland-guiutils \
-
-dnf install -y \
+    hyprland-autoname-workspaces \
     hyprpaper \
-
-dnf install -y \
     hyprlock \
-
-dnf install -y \
     hypridle \
+    hyprlauncher \
+    hyprnome \
+    hyprpwcenter \
+    hyprshot \
+    hyprsysteminfo \
+    hyprwire \
 
 dnf install -y \
     waybar \
+    material-icons-fonts \
+
+dnf install -y \
+    niri \
 
 dnf install -y \
     dms \
+    dms-greeter \
+
+dnf install -y \
+    mpvpaper \
+    waypaper \
+    swww \
+    material-icons-fonts \
+    matugen \
+    mpvpaper \
+    pyprland \
 
 dnf install -y \
     ibm-plex* \
