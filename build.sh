@@ -138,8 +138,26 @@ dnf install -y \
     pyprland \
 
 dnf install -y \
-    ibm-plex* \
+    ibm-plex*fonts \
+    adobe-source*fonts \
+    cascadia*fonts \
+    adwaita*fonts \
+    redhat*fonts \
+    glyphicons-halflings-fonts \
+    material-icons-fonts \
 
+dnf install -y \
+    google*fonts \
+
+dnf install -y \
+    google-go*fonts \
+    google-noto*fonts \
+    google-droid*fonts \
+    google-rubik*fonts \
+    google-carlito*fonts \
+    google-roboto*fonts \
+    google-cousine*fonts \
+    
 curl -sS --create-dirs -o /etc/yum.repos.d/_quickshell.repo https://copr.fedorainfracloud.org/coprs/errornointernet/quickshell/repo/fedora-$(rpm -E %fedora)/errornointernet-quickshell-fedora-$(rpm -E %fedora).repo
 
 #dnf copr enable errornointernet/quickshell
