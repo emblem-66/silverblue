@@ -147,9 +147,6 @@ dnf install -y \
     material-icons-fonts \
 
 dnf install -y \
-    google*fonts \
-
-dnf install -y \
     google-go*fonts \
     google-noto*fonts \
     google-droid*fonts \
@@ -157,7 +154,29 @@ dnf install -y \
     google-carlito*fonts \
     google-roboto*fonts \
     google-cousine*fonts \
-    
+
+dnf install -y \
+    google-android-emoji-fonts \
+    google-arimo-fonts \
+    google-carlito-fonts \
+    google-cousine-fonts \
+    google-crosextra-caladea-fonts \
+    google-droid-sans-mono-fonts \
+    google-droid-serif-fonts \
+    google-go-fonts \
+    google-go-mono-fonts \
+    google-go-smallcaps-fonts \
+    google-noto-sans-fonts \
+    google-noto-sans-mono-fonts \
+    google-noto-sans-symbols-fonts \
+    google-noto-serif-fonts \
+    google-roboto-condensed-fonts \
+    google-roboto-fonts \
+    google-roboto-mono-fonts \
+    google-roboto-slab-fonts \
+    google-rubik-fonts \
+    google-tinos-fonts \
+
 curl -sS --create-dirs -o /etc/yum.repos.d/_quickshell.repo https://copr.fedorainfracloud.org/coprs/errornointernet/quickshell/repo/fedora-$(rpm -E %fedora)/errornointernet-quickshell-fedora-$(rpm -E %fedora).repo
 
 #dnf copr enable errornointernet/quickshell
