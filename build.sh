@@ -122,6 +122,16 @@ dnf install -y \
 dnf install -y \
     dms \
     dms-greeter \
+    breakpad \
+    cli11 \
+    cliphist \
+    danksearch \
+    dgop \
+    ghostty \
+    material-symbols-fonts \
+
+dnf install -y --allowerasing \
+    dms-git \
 
 dnf install -y \
     mpvpaper \
@@ -176,7 +186,6 @@ dnf remove -y \
     gnome-software* \
     virtualbox-guest-additions \
     malcontent-control \
-    ptyxis \
 
 
 
