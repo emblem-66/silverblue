@@ -123,7 +123,6 @@ dnf install -y \
     dms \
     dms-greeter \
     breakpad \
-    cli11 \
     cliphist \
     danksearch \
     dgop \
