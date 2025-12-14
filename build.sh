@@ -121,7 +121,6 @@ dnf install -y \
 dnf install -y \
     pavucontrol \
     blueman \
-    blue \
     mako \
 
 dnf install -y \
