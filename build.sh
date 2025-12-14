@@ -107,6 +107,10 @@ dnf install -y \
     hyprwire \
     hyprpanel \
     hyprland-plugins \
+    hyprshot \
+    hyprland-qt-support \
+    hyprland-autoname-workspaces \
+    hyprcursor \
 
 dnf install -y \
     waybar \
