@@ -106,6 +106,7 @@ dnf install -y \
     hyprsysteminfo \
     hyprwire \
     hyprpanel \
+    hyprland-plugins \
 
 dnf install -y \
     waybar \
