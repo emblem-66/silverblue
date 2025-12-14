@@ -115,7 +115,10 @@ dnf install -y \
     
 
 dnf install -y \
-    niri \
+    pavucontrol \
+    blueman \
+    blue \
+    mako \
 
 dnf install -y \
     dms \
