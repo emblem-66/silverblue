@@ -36,11 +36,6 @@ set -xeuo pipefail
 
 #curl -sS -L https://github.com/ublue-os/packages/releases/latest/download/homebrew-x86_64.tar.zst | unzstd -c | tar -xvf - -C /usr/share/homebrew/
 
-
-
-
-
-
 # check image release
 #cat /etc/os-release
 #source /usr/lib/os-release && echo "$OSTREE_VERSION"
@@ -114,6 +109,8 @@ dnf install -y \
 dnf install -y \
     waybar \
     material-icons-fonts \
+    bluecurve-*-theme \
+    
 
 dnf install -y \
     niri \
