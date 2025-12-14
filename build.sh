@@ -135,7 +135,7 @@ dnf install -y \
     pyprland \
 
 dnf install -y \
-    ibm-plex*fonts \
+    ibm-plex* \
     adobe-source*fonts \
     cascadia*fonts \
     adwaita*fonts \
