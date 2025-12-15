@@ -122,6 +122,7 @@ dnf install -y \
     pavucontrol \
     blueman \
     mako \
+    wlogout \
 
 dnf install -y \
     dms \
