@@ -42,7 +42,7 @@ set -xeuo pipefail
 
 ### Config files
 # Terra
-curl -sS --create-dirs -o /etc/yum.repos.d/terra.repo https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
+#curl -sS --create-dirs -o /etc/yum.repos.d/terra.repo https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
 # repo - tailscale
 curl -sS --create-dirs -o /etc/yum.repos.d/_tailscale.repo https://pkgs.tailscale.com/stable/fedora/tailscale.repo
 # repo - morewaita icons
@@ -50,14 +50,14 @@ curl -sS --create-dirs -o /etc/yum.repos.d/_morewaita.repo https://copr.fedorain
 # repo - mergerfs
 curl -sS --create-dirs -o /etc/yum.repos.d/_mergerfs.repo https://copr.fedorainfracloud.org/coprs/errornointernet/mergerfs/repo/fedora-$(rpm -E %fedora)/errornointernet-mergerfs-fedora-$(rpm -E %fedora).repo
 # repo -ghostty
-curl -sS --create-dirs -o /etc/yum.repos.d/_ghostyy.repo https://copr.fedorainfracloud.org/coprs/scottames/ghostty/repo/fedora-$(rpm -E %fedora)/scottames-ghostty-fedora-$(rpm -E %fedora).repo
+#curl -sS --create-dirs -o /etc/yum.repos.d/_ghostyy.repo https://copr.fedorainfracloud.org/coprs/scottames/ghostty/repo/fedora-$(rpm -E %fedora)/scottames-ghostty-fedora-$(rpm -E %fedora).repo
 # repo - hyprland
-curl -sS --create-dirs -o /etc/yum.repos.d/_hyprland.repo https://copr.fedorainfracloud.org/coprs/sdegler/hyprland/repo/fedora-$(rpm -E %fedora)/sdegler-hyprland-fedora-$(rpm -E %fedora).repo
+#curl -sS --create-dirs -o /etc/yum.repos.d/_hyprland.repo https://copr.fedorainfracloud.org/coprs/sdegler/hyprland/repo/fedora-$(rpm -E %fedora)/sdegler-hyprland-fedora-$(rpm -E %fedora).repo
 # niri
-curl -sS --create-dirs -o /etc/yum.repos.d/_niri.repo https://copr.fedorainfracloud.org/coprs/yalter/niri/repo/fedora-$(rpm -E %fedora)/yalter-niri-fedora-$(rpm -E %fedora).repo
+#curl -sS --create-dirs -o /etc/yum.repos.d/_niri.repo https://copr.fedorainfracloud.org/coprs/yalter/niri/repo/fedora-$(rpm -E %fedora)/yalter-niri-fedora-$(rpm -E %fedora).repo
 # DMS
-curl -sS --create-dirs -o /etc/yum.repos.d/_danklinux.repo https://copr.fedorainfracloud.org/coprs/avengemedia/danklinux/repo/fedora-$(rpm -E %fedora)/avengemedia-danklinux-fedora-$(rpm -E %fedora).repo
-curl -sS --create-dirs -o /etc/yum.repos.d/_dms.repo https://copr.fedorainfracloud.org/coprs/avengemedia/dms/repo/fedora-$(rpm -E %fedora)/avengemedia-dms-fedora-$(rpm -E %fedora).repo
+#curl -sS --create-dirs -o /etc/yum.repos.d/_danklinux.repo https://copr.fedorainfracloud.org/coprs/avengemedia/danklinux/repo/fedora-$(rpm -E %fedora)/avengemedia-danklinux-fedora-$(rpm -E %fedora).repo
+#curl -sS --create-dirs -o /etc/yum.repos.d/_dms.repo https://copr.fedorainfracloud.org/coprs/avengemedia/dms/repo/fedora-$(rpm -E %fedora)/avengemedia-dms-fedora-$(rpm -E %fedora).repo
 # repo - docker
 #curl -sS --create-dirs -o /etc/yum.repos.d/_docker.repo https://download.docker.com/linux/fedora/docker-ce.repo
 # justfile
@@ -89,59 +89,59 @@ curl -sS --create-dirs -o /usr/share/containers/systemd/qbittorent.container htt
 #curl -sS --create-dirs -o /usr/share/containers/systemd/jellyfin-ts.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/pod/jellyfin-ts.container
 
 # Hyprland
-dnf install -y \
-    hyprland \
+#dnf install -y \
+#    hyprland \
 
-dnf install -y \
-    hyprutils \
-    hyprland-guiutils \
-    hyprland-autoname-workspaces \
-    hyprpaper \
-    hyprlock \
-    hypridle \
-    hyprlauncher \
-    hyprnome \
-    hyprpwcenter \
-    hyprshot \
-    hyprsysteminfo \
-    hyprwire \
-    hyprpanel \
-    hyprland-plugins \
-    hyprshot \
-    hyprland-qt-support \
-    hyprland-autoname-workspaces \
-    hyprcursor \
+#dnf install -y \
+#    hyprutils \
+#    hyprland-guiutils \
+#    hyprland-autoname-workspaces \
+#    hyprpaper \
+#    hyprlock \
+#    hypridle \
+#    hyprlauncher \
+#    hyprnome \
+#    hyprpwcenter \
+#    hyprshot \
+#    hyprsysteminfo \
+#    hyprwire \
+#    hyprpanel \
+#    hyprland-plugins \
+#    hyprshot \
+#    hyprland-qt-support \
+#    hyprland-autoname-workspaces \
+#    hyprcursor \
 
-dnf install -y \
-    waybar \
-    material-icons-fonts \
-    bluecurve-*-theme \
+#dnf install -y \
+#    waybar \
+#    material-icons-fonts \
+#    bluecurve-*-theme \
     
 
-dnf install -y \
-    pavucontrol \
-    blueman \
-    mako \
-    wlogout \
+#dnf install -y \
+#    pavucontrol \
+#    blueman \
+#    mako \
+#    wlogout \
 
-dnf install -y \
-    dms \
-    dms-greeter \
-    breakpad \
-    cliphist \
-    danksearch \
-    dgop \
-    ghostty \
-    material-symbols-fonts \
+#dnf install -y \
+#    dms \
+#    dms-greeter \
+#    breakpad \
+#    cliphist \
+#    danksearch \
+#    dgop \
+#    ghostty \
+#    material-symbols-fonts \
 
-dnf install -y \
-    mpvpaper \
-    waypaper \
-    swww \
-    material-icons-fonts \
-    matugen \
-    mpvpaper \
-    pyprland \
+#dnf install -y \
+#    mpvpaper \
+#    waypaper \
+#    swww \
+#    material-icons-fonts \
+#    matugen \
+#    mpvpaper \
+#    pyprland \
 
 dnf install -y \
     ibm-plex* \
@@ -149,7 +149,7 @@ dnf install -y \
     adwaita*fonts \
     redhat*fonts \
 
-curl -sS --create-dirs -o /etc/yum.repos.d/_quickshell.repo https://copr.fedorainfracloud.org/coprs/errornointernet/quickshell/repo/fedora-$(rpm -E %fedora)/errornointernet-quickshell-fedora-$(rpm -E %fedora).repo
+#curl -sS --create-dirs -o /etc/yum.repos.d/_quickshell.repo https://copr.fedorainfracloud.org/coprs/errornointernet/quickshell/repo/fedora-$(rpm -E %fedora)/errornointernet-quickshell-fedora-$(rpm -E %fedora).repo
 
 #dnf copr enable errornointernet/quickshell
 
@@ -163,7 +163,7 @@ dnf install -y tailscale #&& rm -rf /etc/yum.repos.d/tailscale.repo
 # Just
 dnf install -y just
 # Ghostty
-dnf install -y ghostty
+#dnf install -y ghostty
 # morewaita icons
 dnf install -y morewaita-icon-theme #&& rm -rf /etc/yum.repos.d/morewaite.repo
 # adwaita theme
