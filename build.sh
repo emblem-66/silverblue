@@ -145,7 +145,7 @@ curl -sS --create-dirs -o /usr/share/containers/systemd/qbittorent.container htt
 
 dnf install -y \
     ibm-plex* \
-    adobe-source*fonts \
+#    adobe-source*fonts \
     adwaita*fonts \
     redhat*fonts \
 
