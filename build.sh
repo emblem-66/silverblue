@@ -136,7 +136,6 @@ dnf install -y \
 
 dnf install -y \
     ibm-plex* \
-#    adobe-source*fonts \
     adwaita*fonts \
     redhat*fonts \
 
@@ -181,8 +180,6 @@ dnf remove -y \
     gnome-software* \
     virtualbox-guest-additions \
     malcontent-control \
-
-
 
 # bulk remove
 rpm -qa 'qemu-user-static*' | xargs dnf remove -q -y
