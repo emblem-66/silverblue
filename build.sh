@@ -228,8 +228,12 @@ dnf install -y nfs-utils samba # tmux
 #dnf install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
 # Cosmic
+# Official
+dnf install -y @cosmic-desktop-environment
+# COPR
 #curl -sS --create-dirs -o /etc/yum.repos.d/cosmic.repo https://copr.fedorainfracloud.org/coprs/ryanabx/cosmic-epoch/repo/fedora-$(rpm -E %fedora)/ryanabx/cosmic-epoch-fedora-$(rpm -E %fedora).repo
 #dnf install -y cosmic-desktop #&& rm -rf /etc/yum.repos.d/cosmic.repo
+
 
 ### SystemD
 # tailscale
