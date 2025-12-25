@@ -111,6 +111,7 @@ dnf install -y \
 
 dnf install -y \
     waybar \
+    waypaper \
     pavucontrol \
     blueman \
     mako \
