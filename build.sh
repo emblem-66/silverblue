@@ -1,6 +1,18 @@
 #!/bin/bash
 set -xeuo pipefail
 
+
+dnf install -y \
+  https://repos.fyralabs.com/terra$releasever/terra-release-mesa.rpm \
+  https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
+  https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+
+dnf config-manager setopt terra.priority=3
+dnf config-manager setopt fedora.exclude="mesa-*"
+dnf config-manager setopt rpmfusion.exclude="mesa-*"
+
+
+
 #exec > /dev/null # 2>&1
 
 # Non-interactive install environment
