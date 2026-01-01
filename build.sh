@@ -3,7 +3,7 @@ set -xeuo pipefail
 
 
 dnf install -y \
-  https://repos.fyralabs.com/terra$releasever/terra-release-mesa.rpm \
+  https://repos.fyralabs.com/terra$(rpm -E %fedora)/terra-release-mesa.rpm \
   https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
   https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
