@@ -14,7 +14,16 @@ jobs:
     steps:
     - name: Checkout action
       uses: actions/checkout@v6
-    - name: build
+    - name: Build image
       run: podman build -f Containerfile --disable-compression=false -t ${{ env.tag }} .
-    - name: push
+    - name: Rechunk Image
+      run: |
+        sudo podman run --rm --privileged \
+          -v /var/lib/containers:/var/lib/containers \
+          --entrypoint /usr/libexec/bootc-base-imagectl \
+          "localhost/${{ env.tag }}" \
+          rechunk --max-layers 96 \
+          "localhost/${{ env.tag }}" \
+          "localhost/${{ env.tag }}"
+    - name: Push image
       run: podman push --creds=${{ github.actor }}:${{ secrets.GITHUB_TOKEN }} ${{ env.tag }}
