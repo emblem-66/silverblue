@@ -7,6 +7,8 @@ FROM quay.io/fedora/fedora-silverblue:latest
 
 RUN grep '^OSTREE_VERSION=' /usr/lib/os-release
 
+COPY --from=ghcr.io/emblem-66/bootc-config:latest system_files/ /
+
 RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=cache,dst=/var/cache \
     --mount=type=cache,dst=/var/log \
