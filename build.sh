@@ -243,26 +243,26 @@ dnf install -y nfs-utils samba # tmux
 
 ### SystemD
 # tailscale
-systemctl --quiet enable tailscaled.service
-systemctl --quiet enable sshd.service
+#systemctl --quiet enable tailscaled.service
+#systemctl --quiet enable sshd.service
 # bootc
-systemctl --quiet enable bootc-update.timer
+#systemctl --quiet enable bootc-update.timer
 # flatpak
-systemctl --quiet enable flatpak-setup.service
-systemctl --quiet enable flatpak-update.service
-systemctl --quiet enable flatpak-update.timer
-systemctl --quiet enable flatpak-packages.service
+#systemctl --quiet enable flatpak-setup.service
+#systemctl --quiet enable flatpak-update.service
+#systemctl --quiet enable flatpak-update.timer
+#systemctl --quiet enable flatpak-packages.service
 # brew
 #systemctl --quiet enable brew-setup.service
-systemctl --quiet enable brew-update.service
-systemctl --quiet enable brew-packages.service
+#systemctl --quiet enable brew-update.service
+#systemctl --quiet enable brew-packages.service
 # mask
 systemctl --quiet mask flatpak-add-fedora-repos.service
 systemctl --quiet mask fedora-third-party-refresh.service
 # failing systemd-remount-fs.service
-systemctl --quiet mask systemd-remount-fs.service
+#systemctl --quiet mask systemd-remount-fs.service
 # cockpit
-systemctl --quiet enable cockpit.socket
+#systemctl --quiet enable cockpit.socket
 # piper
 #systemctl --quiet enable ratbagd.service
 # input remmaper
