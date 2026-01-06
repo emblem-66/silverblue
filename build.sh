@@ -2,13 +2,13 @@
 set -xeuo pipefail
 
 
-dnf install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
-dnf install -y mangowc
+#dnf install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
+#dnf install -y mangowc
 
-curl -sS --create-dirs -o /etc/yum.repos.d/_hyprland.repo https://copr.fedorainfracloud.org/coprs/avengemedia/dms/repo/fedora-$(rpm -E %fedora)/avengemedia-dms-fedora-$(rpm -E %fedora).repo
+#curl -sS --create-dirs -o /etc/yum.repos.d/_hyprland.repo https://copr.fedorainfracloud.org/coprs/avengemedia/dms/repo/fedora-$(rpm -E %fedora)/avengemedia-dms-fedora-$(rpm -E %fedora).repo
 
 #sudo dnf copr enable avengemedia/dms
-sudo dnf install -y niri dms
+#sudo dnf install -y niri dms
 
 #exec > /dev/null # 2>&1
 
@@ -57,11 +57,11 @@ curl -sS --create-dirs -o /etc/yum.repos.d/_tailscale.repo https://pkgs.tailscal
 # repo - morewaita icons
 curl -sS --create-dirs -o /etc/yum.repos.d/_morewaita.repo https://copr.fedorainfracloud.org/coprs/trixieua/morewaita-icon-theme/repo/fedora-$(rpm -E %fedora)/trixieua-morewaita-icon-theme-fedora-$(rpm -E %fedora).repo
 # repo - mergerfs
-curl -sS --create-dirs -o /etc/yum.repos.d/_mergerfs.repo https://copr.fedorainfracloud.org/coprs/errornointernet/mergerfs/repo/fedora-$(rpm -E %fedora)/errornointernet-mergerfs-fedora-$(rpm -E %fedora).repo
+#curl -sS --create-dirs -o /etc/yum.repos.d/_mergerfs.repo https://copr.fedorainfracloud.org/coprs/errornointernet/mergerfs/repo/fedora-$(rpm -E %fedora)/errornointernet-mergerfs-fedora-$(rpm -E %fedora).repo
 # repo -ghostty
 #curl -sS --create-dirs -o /etc/yum.repos.d/_ghostyy.repo https://copr.fedorainfracloud.org/coprs/scottames/ghostty/repo/fedora-$(rpm -E %fedora)/scottames-ghostty-fedora-$(rpm -E %fedora).repo
 # repo - hyprland
-curl -sS --create-dirs -o /etc/yum.repos.d/_hyprland.repo https://copr.fedorainfracloud.org/coprs/sdegler/hyprland/repo/fedora-$(rpm -E %fedora)/sdegler-hyprland-fedora-$(rpm -E %fedora).repo
+#curl -sS --create-dirs -o /etc/yum.repos.d/_hyprland.repo https://copr.fedorainfracloud.org/coprs/sdegler/hyprland/repo/fedora-$(rpm -E %fedora)/sdegler-hyprland-fedora-$(rpm -E %fedora).repo
 # niri
 #curl -sS --create-dirs -o /etc/yum.repos.d/_niri.repo https://copr.fedorainfracloud.org/coprs/yalter/niri/repo/fedora-$(rpm -E %fedora)/yalter-niri-fedora-$(rpm -E %fedora).repo
 # DMS
@@ -100,33 +100,33 @@ curl -sS --create-dirs -o /etc/yum.repos.d/_hyprland.repo https://copr.fedorainf
 #curl -sS --create-dirs -o /usr/share/containers/systemd/jellyfin-ts.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/pod/jellyfin-ts.container
 
 # Hyprland
-dnf install -y \
-    hyprland \
+#dnf install -y \
+#    hyprland \
 
-dnf install -y \
-    hyprutils \
-    hyprland-guiutils \
-    hyprland-autoname-workspaces \
-    hyprpaper \
-    hyprlock \
-    hypridle \
-    hyprlauncher \
-    hyprnome \
-    hyprshot \
-    hyprsysteminfo \
-    hyprwire \
-    hyprland-plugins \
-    hyprshot \
-    hyprland-qt-support \
-    hyprcursor \
+#dnf install -y \
+#    hyprutils \
+#    hyprland-guiutils \
+#    hyprland-autoname-workspaces \
+#    hyprpaper \
+#    hyprlock \
+#    hypridle \
+#    hyprlauncher \
+#    hyprnome \
+#    hyprshot \
+#    hyprsysteminfo \
+#    hyprwire \
+#    hyprland-plugins \
+#    hyprshot \
+#    hyprland-qt-support \
+#    hyprcursor \
 
-dnf install -y \
-    waybar \
-    waypaper \
-    pavucontrol \
-    blueman \
-    mako \
-    wlogout \
+#dnf install -y \
+#    waybar \
+#    waypaper \
+#    pavucontrol \
+#    blueman \
+#    mako \
+#    wlogout \
 
 #dnf install -y \
 #    dms \
@@ -222,7 +222,7 @@ dnf install -y unison unison-gtk
 #dnf install -y fd-find
 
 
-dnf install -y mergerfs
+#dnf install -y mergerfs
 
 dnf install -y btrfs-assistant
 dnf install -y btrfsd
