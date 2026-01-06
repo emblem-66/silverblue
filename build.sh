@@ -2,7 +2,13 @@
 set -xeuo pipefail
 
 
+dnf install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
+dnf install -y mangowc
 
+curl -sS --create-dirs -o /etc/yum.repos.d/_hyprland.repo https://copr.fedorainfracloud.org/coprs/avengemedia/dms/repo/fedora-$(rpm -E %fedora)/avengemedia-dms-fedora-$(rpm -E %fedora).repo
+
+#sudo dnf copr enable avengemedia/dms
+sudo dnf install -y niri dms
 
 #exec > /dev/null # 2>&1
 
