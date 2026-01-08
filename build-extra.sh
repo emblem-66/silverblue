@@ -72,9 +72,9 @@ dnf install -y \
 #    ghostty \
 #    material-symbols-fonts \
 
-#dnf install -y \
+dnf install -y \
 #    mpvpaper \
-#    swww \
+    swww \
 #    material-icons-fonts \
 #    matugen \
 #    mpvpaper \
