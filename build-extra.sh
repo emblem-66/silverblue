@@ -1,4 +1,4 @@
-nothing provides ld-linux-aarch64.so.1(GLIBC_2.17)(64bit) needed by hyprlock#!/usr/bin/env bash
+#!/usr/bin/env bash
 set -xeuo pipefail
 
 
