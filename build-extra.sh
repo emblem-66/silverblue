@@ -15,6 +15,7 @@ dnf install -y dms
 
 
 dnf install -y waybar
+dnf install -y swww
 
 dnf install -y niri
 dnf install -y mangowc
@@ -72,9 +73,7 @@ dnf install -y \
 #    ghostty \
 #    material-symbols-fonts \
 
-dnf install -y \
 #    mpvpaper \
-    swww \
 #    material-icons-fonts \
 #    matugen \
 #    mpvpaper \
