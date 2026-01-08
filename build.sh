@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -xeuo pipefail
 
+echo "::group:: ===$(basename "$0")==="
+
 
 #dnf install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
 #dnf install -y mangowc
@@ -284,4 +286,5 @@ systemctl --quiet enable btrfs-scrub.timer
 # repo cleanup
 rm -rf /etc/yum.repos.d/_*.repo
 
+echo "::endgroup::"
 
