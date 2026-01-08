@@ -9,9 +9,9 @@ dnf install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/ter
 
 #curl -sS --create-dirs -o /etc/yum.repos.d/_hyprland.repo https://copr.fedorainfracloud.org/coprs/avengemedia/dms/repo/fedora-$(rpm -E %fedora)/avengemedia-dms-fedora-$(rpm -E %fedora).repo
 
-dnf copr enable avengemedia/dms
+#dnf copr enable avengemedia/dms
 
-dnf install -y dms
+#dnf install -y dms
 
 
 dnf install -y waybar
