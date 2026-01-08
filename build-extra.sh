@@ -7,7 +7,7 @@ dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-
 dnf install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
 
 
-curl -sS --create-dirs -o /etc/yum.repos.d/_hyprland.repo https://copr.fedorainfracloud.org/coprs/avengemedia/dms/repo/fedora-$(rpm -E %fedora)/avengemedia-dms-fedora-$(rpm -E %fedora).repo
+#curl -sS --create-dirs -o /etc/yum.repos.d/_hyprland.repo https://copr.fedorainfracloud.org/coprs/avengemedia/dms/repo/fedora-$(rpm -E %fedora)/avengemedia-dms-fedora-$(rpm -E %fedora).repo
 
 dnf copr enable avengemedia/dms
 
@@ -19,11 +19,11 @@ dnf install -y waybar
 dnf install -y niri
 dnf install -y mangowc
 
-dnf install -y hyprland
+#dnf install -y hyprland
 
 
 
-dnf install -y hyprland-devel
+#dnf install -y hyprland-devel
 
 dnf install -y \
     kitty \
