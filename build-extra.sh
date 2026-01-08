@@ -7,7 +7,7 @@ dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-
 dnf install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
 
 
-#curl -sS --create-dirs -o /etc/yum.repos.d/_hyprland.repo https://copr.fedorainfracloud.org/coprs/avengemedia/dms/repo/fedora-$(rpm -E %fedora)/avengemedia-dms-fedora-$(rpm -E %fedora).repo
+curl -sS --create-dirs -o /etc/yum.repos.d/_hyprland.repo https://copr.fedorainfracloud.org/coprs/avengemedia/dms/repo/fedora-$(rpm -E %fedora)/avengemedia-dms-fedora-$(rpm -E %fedora).repo
 
 #dnf copr enable avengemedia/dms
 
@@ -37,30 +37,30 @@ dnf install -y helium-browser-bin
 
 # Hyprland
 
-#dnf install -y \
-#    hyprutils \
-#    hyprland-guiutils \
-#    hyprland-autoname-workspaces \
-#    hyprpaper \
-#    hyprlock \
-#    hypridle \
-#    hyprlauncher \
-#    hyprnome \
-#    hyprshot \
-#    hyprsysteminfo \
-#    hyprwire \
-#    hyprland-plugins \
-#    hyprshot \
-#    hyprland-qt-support \
-#    hyprcursor \
+dnf install -y \
+    hyprutils \
+    hyprland-guiutils \
+    hyprland-autoname-workspaces \
+    hyprpaper \
+    hyprlock \
+    hypridle \
+    hyprlauncher \
+    hyprnome \
+    hyprshot \
+    hyprsysteminfo \
+    hyprwire \
+    hyprland-plugins \
+    hyprshot \
+    hyprland-qt-support \
+    hyprcursor \
 
-#dnf install -y \
-#    waybar \
-#    waypaper \
-#    pavucontrol \
-#    blueman \
-#    mako \
-#    wlogout \
+dnf install -y \
+    waybar \
+    waypaper \
+    pavucontrol \
+    blueman \
+    mako \
+    wlogout \
 
 #dnf install -y \
 #    dms \
