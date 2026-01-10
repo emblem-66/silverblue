@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -xeuo pipefail
 
+echo "::group::Checkup"
+trap 'echo "::endgroup::"' EXIT
+
 ### Config files
 # Terra
 #curl -sS --create-dirs -o /etc/yum.repos.d/terra.repo https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
