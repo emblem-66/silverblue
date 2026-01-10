@@ -31,7 +31,6 @@ dnf install -y \
 
 ### Sway
 dnf install -y \
-    sway \
     swaybg \
     swaylock \
     swayidle \
