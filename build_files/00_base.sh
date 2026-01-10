@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
 set -xeuo pipefail
 
-echo "::group::Checkup"
+echo "::group::00"
 trap 'echo "::endgroup::"' EXIT
 
 ### Config files
 # Terra
 #curl -sS --create-dirs -o /etc/yum.repos.d/terra.repo https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
 # repo - tailscale
-curl -sS --create-dirs -o /etc/yum.repos.d/_tailscale.repo https://pkgs.tailscale.com/stable/fedora/tailscale.repo
+#curl -sS --create-dirs -o /etc/yum.repos.d/_tailscale.repo https://pkgs.tailscale.com/stable/fedora/tailscale.repo
 # repo - morewaita icons
-curl -sS --create-dirs -o /etc/yum.repos.d/_morewaita.repo https://copr.fedorainfracloud.org/coprs/trixieua/morewaita-icon-theme/repo/fedora-$(rpm -E %fedora)/trixieua-morewaita-icon-theme-fedora-$(rpm -E %fedora).repo
+#curl -sS --create-dirs -o /etc/yum.repos.d/_morewaita.repo https://copr.fedorainfracloud.org/coprs/trixieua/morewaita-icon-theme/repo/fedora-$(rpm -E %fedora)/trixieua-morewaita-icon-theme-fedora-$(rpm -E %fedora).repo
 
 dnf install -y \
     ibm-plex* \
@@ -27,20 +27,21 @@ dnf install -y \
 
 ### Packages
 # Tailscale
-dnf install -y tailscale #&& rm -rf /etc/yum.repos.d/tailscale.repo
+#dnf install -y tailscale #&& rm -rf /etc/yum.repos.d/tailscale.repo
 # Just
 dnf install -y just
 # Ghostty
 #dnf install -y ghostty
 # morewaita icons
+dnf copr enable trixieua/morewaita-icon-theme
 dnf install -y morewaita-icon-theme #&& rm -rf /etc/yum.repos.d/morewaite.repo
 # adwaita theme
 dnf install -y adw-gtk3-theme
 # Remove Firefox
 dnf remove -y firefox*
 # Utils
-dnf install -y \
-    bat \
+#dnf install -y \
+#    bat \
 
 # Remove unwanted Fedora stuff
 dnf remove -y \
@@ -133,4 +134,4 @@ systemctl --quiet enable btrfs-scrub.timer
 #systemctl --quiet enable podman-auto-update.timer
 
 # repo cleanup
-rm -rf /etc/yum.repos.d/_*.repo
+#rm -rf /etc/yum.repos.d/_*.repo
