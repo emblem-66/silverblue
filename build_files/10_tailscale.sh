@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -xeuo pipefail
 
-echo "::group::Executing build-gnome-extensions"
+echo "::group::Tailscale"
 trap 'echo "::endgroup::"' EXIT
 
 curl -sS --create-dirs -o /etc/yum.repos.d/_tailscale.repo https://pkgs.tailscale.com/stable/fedora/tailscale.repo
