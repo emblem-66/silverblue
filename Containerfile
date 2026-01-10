@@ -45,6 +45,18 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=cache,dst=/var/cache \
     --mount=type=cache,dst=/var/log \
     --mount=type=tmpfs,dst=/tmp \
+    /ctx/50_compositors.sh
+
+#RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
+#    --mount=type=cache,dst=/var/cache \
+#    --mount=type=cache,dst=/var/log \
+#    --mount=type=tmpfs,dst=/tmp \
+#    /ctx/80_steam.sh
+
+RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
+    --mount=type=cache,dst=/var/cache \
+    --mount=type=cache,dst=/var/log \
+    --mount=type=tmpfs,dst=/tmp \
     /ctx/90_extra.sh
 
 RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
