@@ -4,21 +4,10 @@ set -xeuo pipefail
 echo "::group::50"
 trap 'echo "::endgroup::"' EXIT
 
-#dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-
-### Utils
+### MangoWC
+dnf install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
 dnf install -y \
-    kitty \
-    wofi \
-    waybar \
-    waypaper \
-    pavucontrol \
-    blueman \
-    mako \
-    wlogout \
-    waybar \
-    swww \
-    grim \
+    mangowc \
 
 ### Hyprland
 #curl -sS --create-dirs -o /etc/yum.repos.d/_hyprland.repo https://copr.fedorainfracloud.org/coprs/sdegler/hyprland/repo/fedora-$(rpm -E %fedora)/sdegler-hyprland-fedora-$(rpm -E %fedora).repo
@@ -47,13 +36,10 @@ dnf install -y \
     swaylock \
     swayidle \
 
-### MangoWC
-dnf install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
-dnf install -y mangowc
-
 ### Niri
 dnf copr enable -y avengemedia/dms
-dnf install -y niri
+dnf install -y \
+    niri \
 
 ### DMS
 #curl -sS --create-dirs -o /etc/yum.repos.d/_dms.repo https://copr.fedorainfracloud.org/coprs/avengemedia/dms/repo/fedora-$(rpm -E %fedora)/avengemedia-dms-fedora-$(rpm -E %fedora).repo
@@ -62,3 +48,16 @@ dnf install -y \
     dms \
     dms-greeter \
 
+### Utils
+dnf install -y \
+    kitty \
+    wofi \
+    waybar \
+    waypaper \
+    pavucontrol \
+    blueman \
+    mako \
+    wlogout \
+    waybar \
+    swww \
+    grim \
