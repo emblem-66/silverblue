@@ -33,7 +33,7 @@ dnf install -y just
 # Ghostty
 #dnf install -y ghostty
 # morewaita icons
-dnf copr enable trixieua/morewaita-icon-theme
+dnf copr enable -y trixieua/morewaita-icon-theme
 dnf install -y morewaita-icon-theme #&& rm -rf /etc/yum.repos.d/morewaite.repo
 # adwaita theme
 dnf install -y adw-gtk3-theme
@@ -115,8 +115,8 @@ dnf install -y nfs-utils samba # tmux
 
 
 # mask
-systemctl --quiet mask flatpak-add-fedora-repos.service
-systemctl --quiet mask fedora-third-party-refresh.service
+systemctl mask flatpak-add-fedora-repos.service
+systemctl mask fedora-third-party-refresh.service
 # failing systemd-remount-fs.service
 #systemctl --quiet mask systemd-remount-fs.service
 # cockpit
@@ -127,9 +127,9 @@ systemctl --quiet mask fedora-third-party-refresh.service
 #systemctl --quiet enable input-remapper
 # docker
 #systemctl --quiet enable docker
-systemctl --quiet enable smartd
+systemctl enable smartd
 
-systemctl --quiet enable btrfs-scrub.timer
+systemctl enable btrfs-scrub.timer
 
 #systemctl --quiet enable podman-auto-update.timer
 
