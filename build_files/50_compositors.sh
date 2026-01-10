@@ -22,7 +22,7 @@ dnf install -y \
 
 ### Hyprland
 #curl -sS --create-dirs -o /etc/yum.repos.d/_hyprland.repo https://copr.fedorainfracloud.org/coprs/sdegler/hyprland/repo/fedora-$(rpm -E %fedora)/sdegler-hyprland-fedora-$(rpm -E %fedora).repo
-dnf copr enable sdegler/hyprland
+dnf copr enable -y sdegler/hyprland
 dnf install -y \
     hyprutils \
     hyprland-guiutils \
@@ -52,12 +52,12 @@ dnf install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/ter
 dnf install -y mangowc
 
 ### Niri
-dnf copr enable avengemedia/dms
+dnf copr enable -y avengemedia/dms
 dnf install -y niri
 
 ### DMS
 #curl -sS --create-dirs -o /etc/yum.repos.d/_dms.repo https://copr.fedorainfracloud.org/coprs/avengemedia/dms/repo/fedora-$(rpm -E %fedora)/avengemedia-dms-fedora-$(rpm -E %fedora).repo
-dnf copr enable avengemedia/dms
+dnf copr enable -y avengemedia/dms
 dnf install -y \
     dms \
     dms-greeter \
