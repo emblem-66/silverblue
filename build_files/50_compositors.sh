@@ -26,30 +26,29 @@ dnf install -y \
 ### Hyprland
 #curl -sS --create-dirs -o /etc/yum.repos.d/_hyprland.repo https://copr.fedorainfracloud.org/coprs/sdegler/hyprland/repo/fedora-$(rpm -E %fedora)/sdegler-hyprland-fedora-$(rpm -E %fedora).repo
 dnf copr enable -y sdegler/hyprland
+dnf install -y hyprland
 dnf install -y \
     hyprutils \
-    hyprland-guiutils \
-    hyprland-autoname-workspaces \
     hyprpaper \
     hyprlock \
     hypridle \
     hyprlauncher \
-    hyprnome \
     hyprshot \
+    hyprnome \
     hyprsysteminfo \
     hyprwire \
     hyprland-plugins \
     hyprshot \
     hyprland-qt-support \
     hyprcursor \
-
+    hyprland-guiutils \
+    hyprland-autoname-workspaces \
+    
 ### Sway
 dnf install -y \
     swaybg \
     swaylock \
     swayidle \
-
-
 
 ### Utils
 dnf install -y \
