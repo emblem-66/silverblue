@@ -36,7 +36,7 @@ dnf install -y \
     swayidle \
 
 ### Niri
-dnf copr enable -y avengemedia/dms
+dnf copr enable -y yalter/niri
 dnf install -y \
     niri \
 
