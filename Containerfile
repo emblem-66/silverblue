@@ -1,8 +1,7 @@
 FROM scratch AS ctx
 
 #COPY --chmod=755 build*.sh /
-#COPY --chmod=755 build_files/*.sh /
-COPY build_files/*.sh /
+COPY --chmod=755 build_files/*.sh /
 
 #FROM quay.io/fedora/fedora-bootc:latest
 FROM quay.io/fedora/fedora-silverblue:latest
