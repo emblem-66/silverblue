@@ -11,20 +11,16 @@ dnf install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/ter
 
 dnf search fontawesome
 
-dnf install -y \
-    mangowc \
+dnf install -y mangowc
 
 ### Niri
 dnf copr enable -y yalter/niri
-dnf install -y \
-    niri \
+dnf install -y niri
 
 ### DMS
 #curl -sS --create-dirs -o /etc/yum.repos.d/_dms.repo https://copr.fedorainfracloud.org/coprs/avengemedia/dms/repo/fedora-$(rpm -E %fedora)/avengemedia-dms-fedora-$(rpm -E %fedora).repo
 dnf copr enable -y avengemedia/dms
-dnf install -y \
-    dms \
-    dms-greeter \
+dnf install -y dms dms-greeter 
 
 ### Hyprland
 #curl -sS --create-dirs -o /etc/yum.repos.d/_hyprland.repo https://copr.fedorainfracloud.org/coprs/sdegler/hyprland/repo/fedora-$(rpm -E %fedora)/sdegler-hyprland-fedora-$(rpm -E %fedora).repo
@@ -48,10 +44,7 @@ dnf install -y \
     hyprland-autoname-workspaces \
     
 ### Sway
-dnf install -y \
-    swaybg \
-    swaylock \
-    swayidle \
+dnf install -y swaybg swaylock swayidle
 
 ### Utils
 dnf install -y \
