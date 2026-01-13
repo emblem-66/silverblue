@@ -23,8 +23,8 @@ dnf copr enable -y avengemedia/dms
 dnf install -y dms dms-greeter 
 
 ### Hyprland
-#curl -sS --create-dirs -o /etc/yum.repos.d/_hyprland.repo https://copr.fedorainfracloud.org/coprs/sdegler/hyprland/repo/fedora-$(rpm -E %fedora)/sdegler-hyprland-fedora-$(rpm -E %fedora).repo
-dnf copr enable -y sdegler/hyprland
+curl -sS --create-dirs -o /etc/yum.repos.d/_hyprland.repo https://copr.fedorainfracloud.org/coprs/sdegler/hyprland/repo/fedora-$(rpm -E %fedora)/sdegler-hyprland-fedora-$(rpm -E %fedora).repo
+#dnf copr enable -y sdegler/hyprland
 #dnf install -y hyprland
 dnf install -y hyprland \
     hyprutils \
