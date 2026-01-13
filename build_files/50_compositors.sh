@@ -32,6 +32,9 @@ dnf install -y hyprland \
     hyprlauncher \
     hyprshot \
 
+dnf install -y \
+    hyprland-plugin*
+
 ### Sway
 dnf install -y swaybg swaylock swayidle
 
