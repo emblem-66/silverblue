@@ -6,3 +6,7 @@ trap 'echo "::endgroup::"' EXIT
 
 dnf install -y glibc-minimal-langpack
 dnf remove -y glibc-all-langpacks
+
+
+dnf copr enable -y che/nerd-fonts
+dnf install -y nerd-fonts
