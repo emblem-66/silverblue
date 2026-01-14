@@ -15,7 +15,9 @@ dnf search fontawesome
 
 ### Niri
 dnf copr enable -y yalter/niri
-dnf install -y niri
+dnf install -y \
+    niri \
+    niri-settings \
 
 ### DMS
 #curl -sS --create-dirs -o /etc/yum.repos.d/_dms.repo https://copr.fedorainfracloud.org/coprs/avengemedia/dms/repo/fedora-$(rpm -E %fedora)/avengemedia-dms-fedora-$(rpm -E %fedora).repo
