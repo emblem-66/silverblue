@@ -9,7 +9,7 @@ dnf install -y waybar
 ### MangoWC
 #dnf install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
 
-dnf search fontawesome
+#dnf search fontawesome
 
 #dnf install -y mangowc
 
