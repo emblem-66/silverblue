@@ -7,11 +7,11 @@ trap 'echo "::endgroup::"' EXIT
 dnf install -y waybar
 
 ### MangoWC
-dnf install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
+#dnf install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
 
 dnf search fontawesome
 
-dnf install -y mangowc
+#dnf install -y mangowc
 
 ### Niri
 dnf copr enable -y yalter/niri
@@ -24,28 +24,28 @@ dnf install -y dms dms-greeter
 
 ### Hyprland
 #curl -sS --create-dirs -o /etc/yum.repos.d/_hyprland.repo https://copr.fedorainfracloud.org/coprs/sdegler/hyprland/repo/fedora-$(rpm -E %fedora)/sdegler-hyprland-fedora-$(rpm -E %fedora).repo
-dnf copr enable -y sdegler/hyprland
-dnf install -y \
-    hyprland \
-    hyprpaper \
-    hyprlock \
-    hypridle \
-    hyprlauncher \
-    hyprshot \
+#dnf copr enable -y sdegler/hyprland
+#dnf install -y \
+#    hyprland \
+#    hyprpaper \
+#    hyprlock \
+#    hypridle \
+#    hyprlauncher \
+#    hyprshot \
 
 ### Sway
-dnf install -y swaybg swaylock swayidle
+#dnf install -y swaybg swaylock swayidle
 
 ### Utils
-dnf install -y \
-    kitty \
-    wofi \
-    waybar \
-    waypaper \
-    pavucontrol \
-    blueman \
-    mako \
-    wlogout \
-    waybar \
-    swww \
-    grim \
+#dnf install -y \
+#    kitty \
+#    wofi \
+#    waybar \
+#    waypaper \
+#    pavucontrol \
+#    blueman \
+#    mako \
+#    wlogout \
+#    waybar \
+#    swww \
+#    grim \
