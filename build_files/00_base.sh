@@ -12,10 +12,10 @@ trap 'echo "::endgroup::"' EXIT
 # repo - morewaita icons
 #curl -sS --create-dirs -o /etc/yum.repos.d/_morewaita.repo https://copr.fedorainfracloud.org/coprs/trixieua/morewaita-icon-theme/repo/fedora-$(rpm -E %fedora)/trixieua-morewaita-icon-theme-fedora-$(rpm -E %fedora).repo
 
-dnf install -y \
-    ibm-plex* \
-    adwaita*fonts \
-    redhat*fonts \
+#dnf install -y \
+#    ibm-plex* \
+#    adwaita*fonts \
+#    redhat*fonts \
 
 #curl -sS --create-dirs -o /etc/yum.repos.d/_quickshell.repo https://copr.fedorainfracloud.org/coprs/errornointernet/quickshell/repo/fedora-$(rpm -E %fedora)/errornointernet-quickshell-fedora-$(rpm -E %fedora).repo
 
