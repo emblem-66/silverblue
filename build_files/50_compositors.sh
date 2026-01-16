@@ -4,8 +4,6 @@ set -xeuo pipefail
 echo "::group::50"
 trap 'echo "::endgroup::"' EXIT
 
-dnf install -y waybar
-
 ### MangoWC
 #dnf install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
 
@@ -18,6 +16,15 @@ dnf copr enable -y yalter/niri
 dnf install -y \
     niri \
     niri-settings \
+
+### Utils
+dnf install -y \
+    waybar \
+    pavucontrol \
+    blueman \
+    mako \
+    wlogout \
+    grim \
 
 ### DMS
 #curl -sS --create-dirs -o /etc/yum.repos.d/_dms.repo https://copr.fedorainfracloud.org/coprs/avengemedia/dms/repo/fedora-$(rpm -E %fedora)/avengemedia-dms-fedora-$(rpm -E %fedora).repo
