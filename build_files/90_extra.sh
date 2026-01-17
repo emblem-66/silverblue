@@ -19,7 +19,7 @@ dnf install -y \
     rbanffy-3270-fonts \
     adobe-source-sans-pro-fonts \
     adobe-source-serif-pro-fonts \
-    adobe-source-mono-pro-fonts \
+    adobe-source-code-pro-fonts \
     jetbrains-mono-fonts-all \
     fontawesome-fonts-all \
     
