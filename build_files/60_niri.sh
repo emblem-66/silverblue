@@ -6,8 +6,6 @@ trap 'echo "::endgroup::"' EXIT
 
 #dnf install -y waybar
 
-dnf search fontawesome
-
 #dnf install -y mangowc
 
 ### Niri
