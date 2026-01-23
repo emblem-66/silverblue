@@ -18,13 +18,13 @@ dnf install -y \
     niri-settings \
 
 ### Utils
-dnf install -y \
-    waybar \
-    pavucontrol \
-    blueman \
-    mako \
-    wlogout \
-    grim \
+#dnf install -y \
+#    waybar \
+#    pavucontrol \
+#    blueman \
+#    mako \
+#    wlogout \
+#    grim \
 
 ### DMS
 #curl -sS --create-dirs -o /etc/yum.repos.d/_dms.repo https://copr.fedorainfracloud.org/coprs/avengemedia/dms/repo/fedora-$(rpm -E %fedora)/avengemedia-dms-fedora-$(rpm -E %fedora).repo
