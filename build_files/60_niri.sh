@@ -4,7 +4,7 @@ set -xeuo pipefail
 echo "::group::50"
 trap 'echo "::endgroup::"' EXIT
 
-dnf install -y waybar
+#dnf install -y waybar
 
 dnf search fontawesome
 
