@@ -13,9 +13,7 @@ dnf install -y mangowc
 
 ### Niri
 dnf copr enable -y yalter/niri
-dnf install -y \
-    niri \
-    niri-settings \
+dnf install -y niri
 
 ### Utils
 #dnf install -y \
