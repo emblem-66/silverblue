@@ -5,11 +5,11 @@ echo "::group::50"
 trap 'echo "::endgroup::"' EXIT
 
 ### MangoWC
-dnf install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
+#dnf install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
 
 #dnf search fontawesome
 
-dnf install -y mangowc
+#dnf install -y mangowc
 
 ### Niri
 dnf copr enable -y yalter/niri
