@@ -1,170 +1,20 @@
 #!/usr/bin/env bash
 set -xeuo pipefail
 
-
-
-#dnf install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
-#dnf install -y mangowc
-
-#curl -sS --create-dirs -o /etc/yum.repos.d/_hyprland.repo https://copr.fedorainfracloud.org/coprs/avengemedia/dms/repo/fedora-$(rpm -E %fedora)/avengemedia-dms-fedora-$(rpm -E %fedora).repo
-
-#sudo dnf copr enable avengemedia/dms
-#sudo dnf install -y niri dms
-
-#exec > /dev/null # 2>&1
-
-# Non-interactive install environment
-#export NONINTERACTIVE=1
-#export HOMEBREW_PREFIX=/home/linuxbrew/.linuxbrew
-#export HOMEBREW_CACHE=/tmp/homebrew-cache
-#export HOMEBREW_NO_AUTO_UPDATE=1
-#export PATH="$HOMEBREW_PREFIX/bin:$PATH"
-
-# Create necessary directories
-#mkdir -p "$HOMEBREW_PREFIX"
-#mkdir -p "$HOMEBREW_CACHE"
-
-# Download and install Homebrew
-#curl -sS -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash
-
-# Ensure brew is in PATH
-#eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
-
-# Test installation
-#brew --version
-
-
-#mkdir -p /var/home/linuxbrew
-
-
-#mkdir -p /linuxbrew
-#mv /linuxbrew /home/
-
-#curl -sS -fLs https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash -s
-
-#mkdir -p /usr/share/homebrew/
-
-#curl -sS -L https://github.com/ublue-os/packages/releases/latest/download/homebrew-x86_64.tar.zst | unzstd -c | tar -xvf - -C /usr/share/homebrew/
-
-# check image release
-#cat /etc/os-release
-#source /usr/lib/os-release && echo "$OSTREE_VERSION"
-
-### Config files
-# Terra
-#curl -sS --create-dirs -o /etc/yum.repos.d/terra.repo https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
-# repo - tailscale
-curl -sS --create-dirs -o /etc/yum.repos.d/_tailscale.repo https://pkgs.tailscale.com/stable/fedora/tailscale.repo
-# repo - morewaita icons
-curl -sS --create-dirs -o /etc/yum.repos.d/_morewaita.repo https://copr.fedorainfracloud.org/coprs/trixieua/morewaita-icon-theme/repo/fedora-$(rpm -E %fedora)/trixieua-morewaita-icon-theme-fedora-$(rpm -E %fedora).repo
-# repo - mergerfs
-#curl -sS --create-dirs -o /etc/yum.repos.d/_mergerfs.repo https://copr.fedorainfracloud.org/coprs/errornointernet/mergerfs/repo/fedora-$(rpm -E %fedora)/errornointernet-mergerfs-fedora-$(rpm -E %fedora).repo
-# repo -ghostty
-#curl -sS --create-dirs -o /etc/yum.repos.d/_ghostyy.repo https://copr.fedorainfracloud.org/coprs/scottames/ghostty/repo/fedora-$(rpm -E %fedora)/scottames-ghostty-fedora-$(rpm -E %fedora).repo
-# repo - hyprland
-#curl -sS --create-dirs -o /etc/yum.repos.d/_hyprland.repo https://copr.fedorainfracloud.org/coprs/sdegler/hyprland/repo/fedora-$(rpm -E %fedora)/sdegler-hyprland-fedora-$(rpm -E %fedora).repo
-# niri
-#curl -sS --create-dirs -o /etc/yum.repos.d/_niri.repo https://copr.fedorainfracloud.org/coprs/yalter/niri/repo/fedora-$(rpm -E %fedora)/yalter-niri-fedora-$(rpm -E %fedora).repo
-# DMS
-#curl -sS --create-dirs -o /etc/yum.repos.d/_danklinux.repo https://copr.fedorainfracloud.org/coprs/avengemedia/danklinux/repo/fedora-$(rpm -E %fedora)/avengemedia-danklinux-fedora-$(rpm -E %fedora).repo
-#curl -sS --create-dirs -o /etc/yum.repos.d/_dms.repo https://copr.fedorainfracloud.org/coprs/avengemedia/dms/repo/fedora-$(rpm -E %fedora)/avengemedia-dms-fedora-$(rpm -E %fedora).repo
-# repo - docker
-#curl -sS --create-dirs -o /etc/yum.repos.d/_docker.repo https://download.docker.com/linux/fedora/docker-ce.repo
-
-### MOVED TO CONTAINERS
-# justfile
-#curl -sS --create-dirs -o /usr/share/just/justfile https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_share_just_justfile
-# systemd - bootc
-#curl -sS --create-dirs -o /usr/lib/systemd/system/bootc-update.service https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_system_bootc-update.service
-#curl -sS --create-dirs -o /usr/lib/systemd/system/bootc-update.timer https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_system_bootc-update.timer
-# systemd - flatpak
-#curl -sS --create-dirs -o /usr/lib/systemd/system/flatpak-setup.service https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_system_flatpak-setup.service
-#curl -sS --create-dirs -o /usr/lib/systemd/system/flatpak-update.service https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_system_flatpak-update.service
-#curl -sS --create-dirs -o /usr/lib/systemd/system/flatpak-update.timer https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_system_flatpak-update.timer
-#curl -sS --create-dirs -o /usr/lib/systemd/system/flatpak-packages.service https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_system_flatpak-packages.service
-# systemd - brew
-#curl -sS --create-dirs -o /usr/lib/systemd/system/brew-setup.service https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_system_brew-setup.service
-#curl -sS --create-dirs -o /usr/lib/systemd/system/brew-update.service https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_system_brew-update.service
-#curl -sS --create-dirs -o /usr/lib/systemd/system/brew-packages.service https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_system_brew-packages.service
-# containers
-#curl -sS --create-dirs -o /usr/share/containers/systemd/jellyfin.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/jellyfin.container
-#curl -sS --create-dirs -o /usr/share/containers/systemd/navidrome.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/navidrome.container
-#curl -sS --create-dirs -o /usr/share/containers/systemd/audiobookshelf.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/audiobookshelf.container
-#curl -sS --create-dirs -o /usr/share/containers/systemd/syncthing.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/syncthing.container
-#curl -sS --create-dirs -o /usr/share/containers/systemd/stash.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/stash.container
-#curl -sS --create-dirs -o /usr/share/containers/systemd/stirlingpdf.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/stirlingpdf.container
-#curl -sS --create-dirs -o /usr/share/containers/systemd/qbittorent.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/qbittorent.container
-#pod test
-#curl -sS --create-dirs -o /usr/share/containers/systemd/jellyfin.pod https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/pod/jellyfin.pod
-#curl -sS --create-dirs -o /usr/share/containers/systemd/jellyfin.network https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/pod/jellyfin.network
-#curl -sS --create-dirs -o /usr/share/containers/systemd/jellyfin.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/pod/jellyfin.container
-#curl -sS --create-dirs -o /usr/share/containers/systemd/jellyfin-ts.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/pod/jellyfin-ts.container
-
-# Hyprland
-#dnf install -y \
-#    hyprland \
-
-#dnf install -y \
-#    hyprutils \
-#    hyprland-guiutils \
-#    hyprland-autoname-workspaces \
-#    hyprpaper \
-#    hyprlock \
-#    hypridle \
-#    hyprlauncher \
-#    hyprnome \
-#    hyprshot \
-#    hyprsysteminfo \
-#    hyprwire \
-#    hyprland-plugins \
-#    hyprshot \
-#    hyprland-qt-support \
-#    hyprcursor \
-
-#dnf install -y \
-#    waybar \
-#    waypaper \
-#    pavucontrol \
-#    blueman \
-#    mako \
-#    wlogout \
-
-#dnf install -y \
-#    dms \
-#    dms-greeter \
-#    breakpad \
-#    cliphist \
-#    danksearch \
-#    dgop \
-#    ghostty \
-#    material-symbols-fonts \
-
-#dnf install -y \
-#    mpvpaper \
-#    swww \
-#    material-icons-fonts \
-#    matugen \
-#    mpvpaper \
-#    pyprland \
-
-dnf install -y \
-    ibm-plex* \
-    adwaita*fonts \
-    redhat*fonts \
-
-#curl -sS --create-dirs -o /etc/yum.repos.d/_quickshell.repo https://copr.fedorainfracloud.org/coprs/errornointernet/quickshell/repo/fedora-$(rpm -E %fedora)/errornointernet-quickshell-fedora-$(rpm -E %fedora).repo
-
-#dnf copr enable errornointernet/quickshell
-
-#dnf install -y quickshell
-# or
-#sudo dnf install quickshell-git
-
-### Packages
 # Tailscale
-dnf install -y tailscale #&& rm -rf /etc/yum.repos.d/tailscale.repo
+dnf config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo
+dnf config-manager setopt tailscale-stable.enabled=0
+dnf install -y --enablerepo='tailscale-stable' tailscale
+systemctl enable tailscaled
+systemctl enable sshd.service
 # Just
 dnf install -y just
+
+# repo - morewaita icons
+curl -sS --create-dirs -o /etc/yum.repos.d/_morewaita.repo https://copr.fedorainfracloud.org/coprs/trixieua/morewaita-icon-theme/repo/fedora-$(rpm -E %fedora)/trixieua-morewaita-icon-theme-fedora-$(rpm -E %fedora).repo
+
+
+
 # Ghostty
 #dnf install -y ghostty
 # morewaita icons
@@ -174,8 +24,7 @@ dnf install -y adw-gtk3-theme
 # Remove Firefox
 dnf remove -y firefox*
 # Utils
-dnf install -y \
-    bat \
+
 
 # Remove unwanted Fedora stuff
 dnf remove -y \
@@ -184,6 +33,8 @@ dnf remove -y \
     fedora-bookmarks \
     fedora-flathub-remote \
     fedora-third-party \
+    qemu-user-static* \
+    sssd* \
 
 # Remove GNOME stuff
 dnf remove -y \
@@ -193,10 +44,11 @@ dnf remove -y \
     gnome-software* \
     virtualbox-guest-additions \
     malcontent-control \
+    *backgrounds* \
 
 # bulk remove
-rpm -qa 'qemu-user-static*' | xargs dnf remove -q -y
-rpm -qa '*backgrounds*' | xargs dnf remove -q -y
+#rpm -qa 'qemu-user-static*' | xargs dnf remove -q -y
+#rpm -qa '*backgrounds*' | xargs dnf remove -q -y
 
 # Cockpit
 dnf install -y cockpit cockpit-podman
@@ -283,6 +135,6 @@ systemctl --quiet enable btrfs-scrub.timer
 #systemctl --quiet enable podman-auto-update.timer
 
 # repo cleanup
-rm -rf /etc/yum.repos.d/_*.repo
+#rm -rf /etc/yum.repos.d/_*.repo
 
 
