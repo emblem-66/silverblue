@@ -36,7 +36,7 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
 #    /ctx/00_base.sh
 
 #RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
-3    --mount=type=cache,dst=/var/cache \
+#    --mount=type=cache,dst=/var/cache \
 #    --mount=type=cache,dst=/var/log \
 #    --mount=type=tmpfs,dst=/tmp \
 #    /ctx/10_tailscale.sh
