@@ -11,11 +11,11 @@ FROM quay.io/fedora/fedora-silverblue:latest
 COPY --from=ghcr.io/emblem-66/bootc-config:latest system_files/ /
 COPY --from=ghcr.io/emblem-66/containers:latest system_files/ /
 
-#RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
-#    --mount=type=cache,dst=/var/cache \
-#    --mount=type=cache,dst=/var/log \
-#    --mount=type=tmpfs,dst=/tmp \
-#    /ctx/build.sh
+RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
+    --mount=type=cache,dst=/var/cache \
+    --mount=type=cache,dst=/var/log \
+    --mount=type=tmpfs,dst=/tmp \
+    /ctx/build.sh
 
 #RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
 #    --mount=type=cache,dst=/var/cache \
@@ -29,23 +29,23 @@ COPY --from=ghcr.io/emblem-66/containers:latest system_files/ /
 #    --mount=type=tmpfs,dst=/tmp \
 #    /ctx/build-extra.sh
 
-RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
-    --mount=type=cache,dst=/var/cache \
-    --mount=type=cache,dst=/var/log \
-    --mount=type=tmpfs,dst=/tmp \
-    /ctx/00_base.sh
+#RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
+#    --mount=type=cache,dst=/var/cache \
+#    --mount=type=cache,dst=/var/log \
+#    --mount=type=tmpfs,dst=/tmp \
+#    /ctx/00_base.sh
 
-RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
-    --mount=type=cache,dst=/var/cache \
-    --mount=type=cache,dst=/var/log \
-    --mount=type=tmpfs,dst=/tmp \
-    /ctx/10_tailscale.sh
+#RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
+3    --mount=type=cache,dst=/var/cache \
+#    --mount=type=cache,dst=/var/log \
+#    --mount=type=tmpfs,dst=/tmp \
+#    /ctx/10_tailscale.sh
 
-RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
-    --mount=type=cache,dst=/var/cache \
-    --mount=type=cache,dst=/var/log \
-    --mount=type=tmpfs,dst=/tmp \
-    /ctx/50_compositors.sh
+#RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
+#    --mount=type=cache,dst=/var/cache \
+#    --mount=type=cache,dst=/var/log \
+#    --mount=type=tmpfs,dst=/tmp \
+#    /ctx/50_compositors.sh
 
 #RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
 #    --mount=type=cache,dst=/var/cache \
@@ -53,18 +53,18 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
 #    --mount=type=tmpfs,dst=/tmp \
 #    /ctx/80_steam.sh
 
-RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
-    --mount=type=cache,dst=/var/cache \
-    --mount=type=cache,dst=/var/log \
-    --mount=type=tmpfs,dst=/tmp \
-    /ctx/90_extra.sh
+#RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
+#    --mount=type=cache,dst=/var/cache \
+#    --mount=type=cache,dst=/var/log \
+#    --mount=type=tmpfs,dst=/tmp \
+#    /ctx/90_extra.sh
 
-RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
-    --mount=type=cache,dst=/var/cache \
-    --mount=type=cache,dst=/var/log \
-    --mount=type=tmpfs,dst=/tmp \
-    /ctx/99_checkup.sh
+#RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
+#    --mount=type=cache,dst=/var/cache \
+#    --mount=type=cache,dst=/var/log \
+#    --mount=type=tmpfs,dst=/tmp \
+#    /ctx/99_checkup.sh
 
-RUN systemctl preset-all
+#RUN systemctl preset-all
 
 RUN bootc container lint
