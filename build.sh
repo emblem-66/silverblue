@@ -44,6 +44,8 @@ dnf remove -y \
     malcontent-control \
     *backgrounds* \
 
+dnf autoremove -y
+
 # bulk remove
 #rpm -qa 'qemu-user-static*' | xargs dnf remove -q -y
 #rpm -qa '*backgrounds*' | xargs dnf remove -q -y
