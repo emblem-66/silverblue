@@ -16,20 +16,23 @@ dnf copr enable -y yalter/niri
 dnf install -y niri
 
 ### Utils
-#dnf install -y \
-#    waybar \
-#    pavucontrol \
-#    blueman \
-#    mako \
-#    wlogout \
-#    grim \
+dnf install -y \
+    waybar \
+    pavucontrol \
+    blueman \
+    mako \
+    wlogout \
+    grim \
+    greetd
+### Sway
+dnf install -y swaybg swaylock swayidle
 
 ### DMS
 #curl -sS --create-dirs -o /etc/yum.repos.d/_dms.repo https://copr.fedorainfracloud.org/coprs/avengemedia/dms/repo/fedora-$(rpm -E %fedora)/avengemedia-dms-fedora-$(rpm -E %fedora).repo
-dnf copr enable -y avengemedia/dms
-dnf copr enable -y avengemedia/danklinux
-dnf install -y dms dms-greeter 
-dnf install -y danksearch dgop material-symbols-fonts
+#dnf copr enable -y avengemedia/dms
+#dnf copr enable -y avengemedia/danklinux
+#dnf install -y dms dms-greeter 
+#dnf install -y danksearch dgop material-symbols-fonts
 
 ### Hyprland
 #curl -sS --create-dirs -o /etc/yum.repos.d/_hyprland.repo https://copr.fedorainfracloud.org/coprs/sdegler/hyprland/repo/fedora-$(rpm -E %fedora)/sdegler-hyprland-fedora-$(rpm -E %fedora).repo
@@ -42,8 +45,7 @@ dnf install -y danksearch dgop material-symbols-fonts
 #    hyprlauncher \
 #    hyprshot \
 
-### Sway
-#dnf install -y swaybg swaylock swayidle
+
 
 ### Utils
 #dnf install -y \
