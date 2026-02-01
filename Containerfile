@@ -1,6 +1,6 @@
 FROM scratch AS ctx
 
-#COPY --chmod=755 build*.sh /
+COPY --chmod=755 build*.sh /
 COPY --chmod=755 build_files/*.sh /
 
 #FROM quay.io/fedora/fedora-bootc:latest
