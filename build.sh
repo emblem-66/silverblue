@@ -109,8 +109,8 @@ dnf install -y nfs-utils samba # tmux
 #systemctl --quiet enable brew-update.service
 #systemctl --quiet enable brew-packages.service
 # mask
-systemctl --quiet mask flatpak-add-fedora-repos.service
-systemctl --quiet mask fedora-third-party-refresh.service
+#systemctl --quiet mask flatpak-add-fedora-repos.service
+#systemctl --quiet mask fedora-third-party-refresh.service
 # failing systemd-remount-fs.service
 #systemctl --quiet mask systemd-remount-fs.service
 # cockpit
