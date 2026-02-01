@@ -13,20 +13,10 @@ systemctl enable sshd.service
 # Just
 dnf install -y just
 
-# repo - morewaita icons
-curl -sS --create-dirs -o /etc/yum.repos.d/_morewaita.repo https://copr.fedorainfracloud.org/coprs/trixieua/morewaita-icon-theme/repo/fedora-$(rpm -E %fedora)/trixieua-morewaita-icon-theme-fedora-$(rpm -E %fedora).repo
-
-
-
-# Ghostty
-#dnf install -y ghostty
-# morewaita icons
-dnf install -y morewaita-icon-theme #&& rm -rf /etc/yum.repos.d/morewaite.repo
 # adwaita theme
 dnf install -y adw-gtk3-theme
 # Remove Firefox
 dnf remove -y firefox*
-# Utils
 
 
 # Remove unwanted Fedora stuff
