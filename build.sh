@@ -14,7 +14,7 @@ dnf config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fed
 dnf config-manager setopt tailscale-stable.enabled=0
 dnf install -y --enablerepo='tailscale-stable' tailscale
 systemctl enable tailscaled
-systemctl enable sshd.service
+#systemctl enable sshd.service
 # Just
 dnf install -y just
 
