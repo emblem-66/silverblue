@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -xeuo pipefail
 
+# glibc
+dnf install -y glibc-minimal-langpack
+dnf remove -y glibc-all-langpacks
 # Tailscale
 dnf config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo
 dnf config-manager setopt tailscale-stable.enabled=0
@@ -137,4 +140,4 @@ systemctl --quiet enable btrfs-scrub.timer
 # repo cleanup
 #rm -rf /etc/yum.repos.d/_*.repo
 
-
+systemctl list-unit-files --state=enabled
