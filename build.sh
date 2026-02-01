@@ -53,6 +53,7 @@ dnf install -y cockpit cockpit-podman
 # piper
 #dnf install -y piper
 dnf install -y podman podman-compose
+systemctl enable cockpit.socket
 #dnf install -y input-remapper
 # FTP
 #dnf install -y vsftpd
