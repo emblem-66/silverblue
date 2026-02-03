@@ -10,20 +10,18 @@ dnf config-manager addrepo --from-repofile=https://github.com/terrapkg/subatomic
 #dnf install -y --enablerepo='tailscale-stable' tailscale
 dnf install -y terra-release
 # Tailscale
-#dnf config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo
-#dnf config-manager setopt tailscale-stable.enabled=0
-#dnf install -y --enablerepo='tailscale-stable' tailscale
-#systemctl enable tailscaled
-#systemctl enable sshd.service
-
-#
-dnf install -y --nogpgcheck --repofrompath 'tailscale,https://pkgs.tailscale.com/stable/fedora/tailscale.repo' tailscale
-  
+dnf config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo
+dnf config-manager setopt tailscale-stable.enabled=0
+dnf install -y --enablerepo='tailscale-stable' tailscale
+systemctl enable tailscaled
+systemctl enable sshd.service
 # Just
 dnf install -y just
-
-# adwaita theme
-dnf install -y adw-gtk3-theme
+# Adwaita & Morewaita
+dnf copr enable -y trixieua/morewaita-icon-theme
+#dnf config-manager setopt tailscale-stable.enabled=0
+#dnf install -y --enablerepo='tailscale-stable'
+dnf install -y adw-gtk3-theme morewaita-icon-theme
 # Remove Firefox
 dnf remove -y firefox*
 
