@@ -2,8 +2,8 @@
 set -xeuo pipefail
 
 # glibc
-dnf install -y glibc-minimal-langpack
-dnf remove -y glibc-all-langpacks
+#dnf install -y glibc-minimal-langpack
+#dnf remove -y glibc-all-langpacks
 
 dnf config-manager addrepo --from-repofile=https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
 #dnf config-manager setopt tailscale-stable.enabled=0
