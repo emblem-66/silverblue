@@ -25,6 +25,8 @@ dnf install -y adw-gtk3-theme morewaita-icon-theme
 # Remove Firefox
 dnf remove -y firefox*
 
+dnf copr enable -y errornointernet/mergerfs
+dnf install -y mergerfs
 
 # Remove unwanted Fedora stuff
 dnf remove -y \
