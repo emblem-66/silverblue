@@ -133,11 +133,11 @@ dnf install -y nfs-utils samba # tmux
 #systemctl --quiet enable input-remapper
 # docker
 #systemctl --quiet enable docker
-systemctl --quiet enable smartd
+systemctl enable smartd
 
-systemctl --quiet enable btrfs-scrub.timer
+systemctl enable btrfs-scrub.timer
 
-#systemctl --quiet enable podman-auto-update.timer
+systemctl enable podman-auto-update.timer
 
 # repo cleanup
 #rm -rf /etc/yum.repos.d/_*.repo
