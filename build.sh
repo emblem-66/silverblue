@@ -37,6 +37,7 @@ dnf remove -y \
     fedora-third-party \
     qemu-user-static* \
     sssd* \
+    evolution* \
 
 # Remove GNOME stuff
 dnf remove -y \
