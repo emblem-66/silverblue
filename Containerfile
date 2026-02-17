@@ -8,6 +8,7 @@ FROM quay.io/fedora/fedora-silverblue:latest
 
 #RUN grep '^OSTREE_VERSION=' /usr/lib/os-release
 
+COPY --from=ghcr.io/emblem-66/bootc-config:latest build_files/ /
 COPY --from=ghcr.io/emblem-66/bootc-config:latest system_files/ /
 COPY --from=ghcr.io/emblem-66/containers:latest system_files/ /
 
