@@ -93,7 +93,6 @@ dnf install -y nfs-utils samba # tmux
 #dnf install -y adwaita-fonts-all
 
 
-
 # docker
 #dnf install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
@@ -138,6 +137,11 @@ systemctl enable smartd
 systemctl enable btrfs-scrub.timer
 
 systemctl enable podman-auto-update.timer
+
+
+dnf install -y ddccontrol ddccontrol-gtk
+dnf install -y ddcutil
+dnf install -y i2c-tools
 
 # repo cleanup
 #rm -rf /etc/yum.repos.d/_*.repo
