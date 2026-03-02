@@ -141,7 +141,7 @@ systemctl enable podman-auto-update.timer
 
 #dnf install -y ddccontrol ddccontrol-gtk
 dnf install -y ddcutil
-#dnf install -y i2c-tools
+dnf install -y solaar
 
 # repo cleanup
 #rm -rf /etc/yum.repos.d/_*.repo
