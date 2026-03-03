@@ -87,7 +87,7 @@ dnf install -y btrfsd
 dnf install -y btrfsmaintenance
 
 
-dnf install -y nfs-utils samba # tmux
+#dnf install -y nfs-utils samba # tmux
 
 
 #dnf install -y adwaita-fonts-all
@@ -141,7 +141,7 @@ systemctl enable podman-auto-update.timer
 
 #dnf install -y ddccontrol ddccontrol-gtk
 dnf install -y ddcutil
-dnf install -y solaar
+#dnf install -y solaar
 
 # repo cleanup
 #rm -rf /etc/yum.repos.d/_*.repo
