@@ -16,7 +16,7 @@ dnf install -y --enablerepo='tailscale-stable' tailscale
 systemctl enable tailscaled
 systemctl enable sshd.service
 # Just
-dnf install -y just
+#dnf install -y just
 # Adwaita & Morewaita
 dnf copr enable -y trixieua/morewaita-icon-theme
 #dnf config-manager setopt tailscale-stable.enabled=0
