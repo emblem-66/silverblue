@@ -1,10 +1,6 @@
 #!/usr/bin/env bash
 set -xeuo pipefail
 
-# glibc
-#dnf install -y glibc-minimal-langpack
-#dnf remove -y glibc-all-langpacks
-
 dnf config-manager addrepo --from-repofile=https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
 #dnf config-manager setopt tailscale-stable.enabled=0
 #dnf install -y --enablerepo='tailscale-stable' tailscale
