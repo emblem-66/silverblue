@@ -143,7 +143,14 @@ systemctl enable podman-auto-update.timer
 dnf install -y ddcutil
 #dnf install -y solaar
 
+
+install -Dm440 /dev/stdin /etc/sudoers.d/99-wheel-nopasswd <<< '%wheel ALL=(ALL) NOPASSWD:ALL'
+
+sed -i 's|^ExecStart=.*|ExecStart=/usr/bin/bootc update --quiet|' /usr/lib/systemd/system/bootc-fetch-apply-updates.service
+sed -i 's|#AutomaticUpdatePolicy.*|AutomaticUpdatePolicy=stage|' /etc/rpm-ostreed.conf
+sed -i 's|#LockLayering.*|LockLayering=true|' /etc/rpm-ostreed.conf
+
 # repo cleanup
 #rm -rf /etc/yum.repos.d/_*.repo
 
-systemctl list-unit-files --state=enabled
+#systemctl list-unit-files --state=enabled
