@@ -15,8 +15,6 @@ systemctl enable sshd.service
 #dnf install -y just
 # Adwaita & Morewaita
 dnf copr enable -y trixieua/morewaita-icon-theme
-#dnf config-manager setopt tailscale-stable.enabled=0
-#dnf install -y --enablerepo='tailscale-stable'
 dnf install -y adw-gtk3-theme morewaita-icon-theme
 # Remove Firefox
 dnf remove -y firefox*
@@ -46,37 +44,14 @@ dnf remove -y \
 
 dnf autoremove -y
 
-# bulk remove
-#rpm -qa 'qemu-user-static*' | xargs dnf remove -q -y
-#rpm -qa '*backgrounds*' | xargs dnf remove -q -y
-
 # Cockpit
 dnf install -y cockpit cockpit-podman
-# piper
-#dnf install -y piper
 dnf install -y podman podman-compose
 systemctl enable cockpit.socket
-#dnf install -y input-remapper
-# FTP
-#dnf install -y vsftpd
-#systemctl --quiet enable vsftpd
-#chown 0777 /etc/vsftpd/vsftpd.conf
-
-# podlet
-#dnf install -y podlet
-
-#dnf install -y fzf
 
 dnf install -y smartmontools
 
 dnf install -y unison unison-gtk
-
-#dnf install -y duperemove
-
-#dnf install -y fd-find
-
-
-#dnf install -y mergerfs
 
 dnf install -y btrfs-assistant
 dnf install -y btrfsd
