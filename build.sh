@@ -150,6 +150,13 @@ sed -i 's|^ExecStart=.*|ExecStart=/usr/bin/bootc update --quiet|' /usr/lib/syste
 sed -i 's|#AutomaticUpdatePolicy.*|AutomaticUpdatePolicy=stage|' /etc/rpm-ostreed.conf
 sed -i 's|#LockLayering.*|LockLayering=true|' /etc/rpm-ostreed.conf
 
+
+curl -Lo /etc/flatpak/remotes.d/flathub.flatpakrepo https://dl.flathub.org/repo/flathub.flatpakrepo
+echo "Default=true" | tee -a /etc/flatpak/remotes.d/flathub.flatpakrepo > /dev/null
+flatpak remote-add --if-not-exists --system flathub /etc/flatpak/remotes.d/flathub.flatpakrepo
+flatpak remote-modify --system --enable flathub
+flatpak remote-modify --system --disable fedora
+
 # repo cleanup
 #rm -rf /etc/yum.repos.d/_*.repo
 
