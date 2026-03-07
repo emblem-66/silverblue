@@ -74,7 +74,7 @@ system_services=(
 
 user_services=(
   podman.socket
-  flathub-packages.service
+  flathub-update.timer
 )
 
 mask_services=(
