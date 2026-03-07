@@ -57,10 +57,9 @@ dnf remove -y \
 
 # Cockpit
 dnf install -y cockpit cockpit-podman
-dnf install -y podman podman-compose
 
-# Autoremove
-dnf autoremove -y
+# Podman
+dnf install -y podman podman-compose
 
 #system_services=(
 #  bootc-fetch-apply-updates.service
@@ -124,6 +123,10 @@ done
 #systemctl mask systemd-remount-fs.service
 #systemctl mask flatpak-add-fedora-repos.service
 
+systemctl mask \
+    systemd-remount-fs.service \
+    flatpak-add-fedora-repos.service \
+
 #user_services=(
 #    podman.socket
 #    flathub-update.timer
@@ -141,17 +144,10 @@ done
 #    echo "enable $s" >> "$system_preset_file"
 #done
 
-
-
 # Add user services
 #for u in "${user_services[@]}"; do
 #    echo "enable $u" >> "$user_preset_file"
 #done
-
-# Update tweaks
-sed -i 's|^ExecStart=.*|ExecStart=/usr/bin/bootc update --quiet|' /usr/lib/systemd/system/bootc-fetch-apply-updates.service
-sed -i 's|#AutomaticUpdatePolicy.*|AutomaticUpdatePolicy=stage|' /etc/rpm-ostreed.conf
-sed -i 's|#LockLayering.*|LockLayering=true|' /etc/rpm-ostreed.conf
 
 # Flathub setup
 #curl -Lo /etc/flatpak/remotes.d/flathub.flatpakrepo https://dl.flathub.org/repo/flathub.flatpakrepo
@@ -159,3 +155,11 @@ sed -i 's|#LockLayering.*|LockLayering=true|' /etc/rpm-ostreed.conf
 #flatpak remote-add --if-not-exists --system flathub /etc/flatpak/remotes.d/flathub.flatpakrepo
 #flatpak remote-modify --system --enable flathub || true
 #flatpak remote-modify --system --disable fedora || true
+
+# Update tweaks
+sed -i 's|^ExecStart=.*|ExecStart=/usr/bin/bootc update --quiet|' /usr/lib/systemd/system/bootc-fetch-apply-updates.service
+sed -i 's|#AutomaticUpdatePolicy.*|AutomaticUpdatePolicy=stage|' /etc/rpm-ostreed.conf
+sed -i 's|#LockLayering.*|LockLayering=true|' /etc/rpm-ostreed.conf
+
+# Autoremove
+dnf autoremove -y
