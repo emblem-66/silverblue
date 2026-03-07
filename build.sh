@@ -62,49 +62,87 @@ dnf install -y podman podman-compose
 # Autoremove
 dnf autoremove -y
 
-system_services=(
-  bootc-fetch-apply-updates.service
-  tailscaled.service
-  cockpit.socket
-  btrfs-scrub.timer
-  podman-auto-update.timer
-  smartd
-  btrfs-scrub.timer
-)
+#system_services=(
+#  bootc-fetch-apply-updates.service
+#  tailscaled.service
+#  cockpit.socket
+#  btrfs-scrub.timer
+#  podman-auto-update.timer
+#  smartd
+#  btrfs-scrub.timer
+#)
 
-user_services=(
-  podman.socket
-  flathub-update.timer
+#user_services=(
+#  podman.socket
+#  flathub-update.timer
+#)
+
+#mask_services=(
+#  systemd-remount-fs.service
+#  flatpak-add-fedora-repos.service
+#)
+
+#systemctl enable "${system_services[@]}"
+#systemctl mask "${mask_services[@]}"
+#systemctl --global enable "${user_services[@]}"
+
+#for service in "${system_services[@]}"; do
+#    echo "enable $service" >> "$preset_file"
+#done
+
+#mkdir -p "/etc/systemd/user-preset/"
+#preset_file="/etc/systemd/user-preset/01-user.preset"
+#touch "$preset_file"
+
+#install -Dm 644 /dev/null /etc/systemd/user-preset/01-user.preset
+
+#for service in "${user_services[@]}"; do
+#    echo "enable $service" >> "$preset_file"
+#done
+
+# Passwordless sudo
+#install -Dm440 /dev/stdin /etc/sudoers.d/99-wheel-nopasswd <<< '%wheel ALL=(ALL) NOPASSWD:ALL'
+
+system_services=(
+    bootc-fetch-apply-updates.service
+    tailscaled.service
+    cockpit.socket
+    btrfs-scrub.timer
+    podman-auto-update.timer
+    smartd.service
 )
 
 mask_services=(
-  logrotate.service
-  logrotate.timer
-  akmods-keygen.target
-  rpm-ostree-countme.timer
-  rpm-ostree-countme.service
-  systemd-remount-fs.service
-  flatpak-add-fedora-repos.service
+    systemd-remount-fs.service
+    flatpak-add-fedora-repos.service
 )
 
-systemctl enable "${system_services[@]}"
-systemctl mask "${mask_services[@]}"
-systemctl --global enable "${user_services[@]}"
+user_services=(
+    podman.socket
+    flathub-update.timer
+)
 
-for service in "${system_services[@]}"; do
-    echo "enable $service" >> "$preset_file"
+# Create preset files
+system_preset_file="/etc/systemd/system-preset/01-system.preset"
+user_preset_file="/etc/systemd/user-preset/01-user.preset"
+
+install -Dm 644 /dev/null "$system_preset_file"
+install -Dm 644 /dev/null "$user_preset_file"
+
+# Add system services
+for s in "${system_services[@]}"; do
+    echo "enable $s" >> "$system_preset_file"
 done
 
-mkdir -p "/etc/systemd/user-preset/"
-preset_file="/etc/systemd/user-preset/01-user.preset"
-touch "$preset_file"
-
-for service in "${user_services[@]}"; do
-    echo "enable $service" >> "$preset_file"
+# Add masked services
+for m in "${mask_services[@]}"; do
+    echo "mask $m" >> "$system_preset_file"
 done
 
-# Passwordless sudo
-install -Dm440 /dev/stdin /etc/sudoers.d/99-wheel-nopasswd <<< '%wheel ALL=(ALL) NOPASSWD:ALL'
+# Add user services
+for u in "${user_services[@]}"; do
+    echo "enable $u" >> "$user_preset_file"
+done
 
 # Update tweaks
 sed -i 's|^ExecStart=.*|ExecStart=/usr/bin/bootc update --quiet|' /usr/lib/systemd/system/bootc-fetch-apply-updates.service
