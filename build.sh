@@ -8,8 +8,8 @@ set -xeuo pipefail
 dnf config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo
 dnf config-manager setopt tailscale-stable.enabled=0
 dnf install -y --enablerepo='tailscale-stable' tailscale
-systemctl enable tailscaled
-systemctl enable sshd.service
+#systemctl enable tailscaled
+#systemctl enable sshd.service
 
 # Just
 #dnf install -y just
@@ -103,46 +103,46 @@ dnf autoremove -y
 # Passwordless sudo
 #install -Dm440 /dev/stdin /etc/sudoers.d/99-wheel-nopasswd <<< '%wheel ALL=(ALL) NOPASSWD:ALL'
 
-system_services=(
-    bootc-fetch-apply-updates.service
-    tailscaled.service
-    cockpit.socket
-    btrfs-scrub.timer
-    podman-auto-update.timer
-    smartd.service
-)
+#system_services=(
+#    bootc-fetch-apply-updates.service
+#    tailscaled.service
+#    cockpit.socket
+#    btrfs-scrub.timer
+#    podman-auto-update.timer
+#    smartd.service
+#)
+#
+#mask_services=(
+#    systemd-remount-fs.service
+#    flatpak-add-fedora-repos.service
+#)
 
-mask_services=(
-    systemd-remount-fs.service
-    flatpak-add-fedora-repos.service
-)
-
-user_services=(
-    podman.socket
-    flathub-update.timer
-)
+#user_services=(
+#    podman.socket
+#    flathub-update.timer
+#)
 
 # Create preset files
-system_preset_file="/etc/systemd/system-preset/01-system.preset"
-user_preset_file="/etc/systemd/user-preset/01-user.preset"
+#system_preset_file="/etc/systemd/system-preset/01-system.preset"
+#user_preset_file="/etc/systemd/user-preset/01-user.preset"
 
-install -Dm 644 /dev/null "$system_preset_file"
-install -Dm 644 /dev/null "$user_preset_file"
+#install -Dm 644 /dev/null "$system_preset_file"
+#install -Dm 644 /dev/null "$user_preset_file"
 
 # Add system services
-for s in "${system_services[@]}"; do
-    echo "enable $s" >> "$system_preset_file"
-done
+#for s in "${system_services[@]}"; do
+#    echo "enable $s" >> "$system_preset_file"
+#done
 
 # Add masked services
-for m in "${mask_services[@]}"; do
-    echo "mask $m" >> "$system_preset_file"
-done
+#for m in "${mask_services[@]}"; do
+#    echo "mask $m" >> "$system_preset_file"
+#done
 
 # Add user services
-for u in "${user_services[@]}"; do
-    echo "enable $u" >> "$user_preset_file"
-done
+#for u in "${user_services[@]}"; do
+#    echo "enable $u" >> "$user_preset_file"
+#done
 
 # Update tweaks
 sed -i 's|^ExecStart=.*|ExecStart=/usr/bin/bootc update --quiet|' /usr/lib/systemd/system/bootc-fetch-apply-updates.service
