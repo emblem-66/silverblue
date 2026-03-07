@@ -111,21 +111,21 @@ dnf install -y podman podman-compose
 #    smartd.service
 #)
 
-mask_services=(
-    systemd-remount-fs.service
-    flatpak-add-fedora-repos.service
-)
+#mask_services=(
+#    systemd-remount-fs.service
+#    flatpak-add-fedora-repos.service
+#)
 # Add masked services
-for m in "${mask_services[@]}"; do
-    systemctl mask "$m"
-done
+#for m in "${mask_services[@]}"; do
+#    systemctl mask "$m"
+#done
 
 #systemctl mask systemd-remount-fs.service
 #systemctl mask flatpak-add-fedora-repos.service
 
-systemctl mask \
-    systemd-remount-fs.service \
-    flatpak-add-fedora-repos.service \
+#systemctl mask \
+#    systemd-remount-fs.service \
+#    flatpak-add-fedora-repos.service \
 
 #user_services=(
 #    podman.socket
