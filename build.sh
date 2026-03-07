@@ -3,22 +3,37 @@ set -xeuo pipefail
 
 #dnf config-manager addrepo --from-repofile=https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
 #dnf install -y terra-release
+
 # Tailscale
 dnf config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo
 dnf config-manager setopt tailscale-stable.enabled=0
 dnf install -y --enablerepo='tailscale-stable' tailscale
 systemctl enable tailscaled
 systemctl enable sshd.service
+
 # Just
 #dnf install -y just
+
 # Adwaita & Morewaita
 dnf copr enable -y trixieua/morewaita-icon-theme
 dnf install -y adw-gtk3-theme morewaita-icon-theme
+
 # Remove Firefox
 dnf remove -y firefox*
 
+# File system
+dnf install -y \
+    smartmontools \
+    btrfs-assistant \
+    btrfsd \
+    btrfsmaintenance \
+
+# MergerFS
 dnf copr enable -y errornointernet/mergerfs
 dnf install -y mergerfs
+
+# Screen brightness
+dnf install -y ddcutil
 
 # Remove unwanted Fedora stuff
 dnf remove -y \
@@ -40,97 +55,12 @@ dnf remove -y \
     malcontent-control \
     *backgrounds* \
 
-dnf autoremove -y
-
 # Cockpit
 dnf install -y cockpit cockpit-podman
 dnf install -y podman podman-compose
-systemctl enable cockpit.socket
 
-dnf install -y smartmontools
-
-dnf install -y unison unison-gtk
-
-dnf install -y btrfs-assistant
-dnf install -y btrfsd
-dnf install -y btrfsmaintenance
-
-
-#dnf install -y nfs-utils samba # tmux
-
-
-#dnf install -y adwaita-fonts-all
-
-
-# docker
-#dnf install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-
-# Cosmic
-# Official
-#dnf install -y @cosmic-desktop-environment
-# COPR
-#curl -sS --create-dirs -o /etc/yum.repos.d/cosmic.repo https://copr.fedorainfracloud.org/coprs/ryanabx/cosmic-epoch/repo/fedora-$(rpm -E %fedora)/ryanabx/cosmic-epoch-fedora-$(rpm -E %fedora).repo
-#dnf install -y cosmic-desktop #&& rm -rf /etc/yum.repos.d/cosmic.repo
-
-
-### SystemD
-# tailscale
-#systemctl --quiet enable tailscaled.service
-#systemctl --quiet enable sshd.service
-# bootc
-#systemctl --quiet enable bootc-update.timer
-# flatpak
-#systemctl --quiet enable flatpak-setup.service
-#systemctl --quiet enable flatpak-update.service
-#systemctl --quiet enable flatpak-update.timer
-#systemctl --quiet enable flatpak-packages.service
-# brew
-#systemctl --quiet enable brew-setup.service
-#systemctl --quiet enable brew-update.service
-#systemctl --quiet enable brew-packages.service
-# mask
-#systemctl --quiet mask flatpak-add-fedora-repos.service
-#systemctl --quiet mask fedora-third-party-refresh.service
-# failing systemd-remount-fs.service
-#systemctl --quiet mask systemd-remount-fs.service
-# cockpit
-#systemctl --quiet enable cockpit.socket
-# piper
-#systemctl --quiet enable ratbagd.service
-# input remmaper
-#systemctl --quiet enable input-remapper
-# docker
-#systemctl --quiet enable docker
-systemctl enable smartd
-
-systemctl enable btrfs-scrub.timer
-
-systemctl enable podman-auto-update.timer
-
-
-#dnf install -y ddccontrol ddccontrol-gtk
-dnf install -y ddcutil
-#dnf install -y solaar
-
-
-install -Dm440 /dev/stdin /etc/sudoers.d/99-wheel-nopasswd <<< '%wheel ALL=(ALL) NOPASSWD:ALL'
-
-sed -i 's|^ExecStart=.*|ExecStart=/usr/bin/bootc update --quiet|' /usr/lib/systemd/system/bootc-fetch-apply-updates.service
-sed -i 's|#AutomaticUpdatePolicy.*|AutomaticUpdatePolicy=stage|' /etc/rpm-ostreed.conf
-sed -i 's|#LockLayering.*|LockLayering=true|' /etc/rpm-ostreed.conf
-
-
-curl -Lo /etc/flatpak/remotes.d/flathub.flatpakrepo https://dl.flathub.org/repo/flathub.flatpakrepo
-echo "Default=true" | tee -a /etc/flatpak/remotes.d/flathub.flatpakrepo > /dev/null
-flatpak remote-add --if-not-exists --system flathub /etc/flatpak/remotes.d/flathub.flatpakrepo
-flatpak remote-modify --system --enable flathub
-flatpak remote-modify --system --disable fedora
-
-# repo cleanup
-#rm -rf /etc/yum.repos.d/_*.repo
-
-#systemctl list-unit-files --state=enabled
-
+# Autoremove
+dnf autoremove -y
 
 system_services=(
   bootc-fetch-apply-updates.service
@@ -138,6 +68,8 @@ system_services=(
   cockpit.socket
   btrfs-scrub.timer
   podman-auto-update.timer
+  smartd
+  btrfs-scrub.timer
 )
 
 user_services=(
@@ -153,8 +85,6 @@ mask_services=(
   rpm-ostree-countme.service
   systemd-remount-fs.service
   flatpak-add-fedora-repos.service
-  NetworkManager-wait-online.service
-  akmods-keygen@akmods-keygen.service
 )
 
 systemctl enable "${system_services[@]}"
@@ -166,9 +96,24 @@ for service in "${system_services[@]}"; do
 done
 
 mkdir -p "/etc/systemd/user-preset/"
-preset_file="/etc/systemd/user-preset/01-zena.preset"
+preset_file="/etc/systemd/user-preset/01-user.preset"
 touch "$preset_file"
 
 for service in "${user_services[@]}"; do
     echo "enable $service" >> "$preset_file"
 done
+
+# Passwordless sudo
+install -Dm440 /dev/stdin /etc/sudoers.d/99-wheel-nopasswd <<< '%wheel ALL=(ALL) NOPASSWD:ALL'
+
+# Update tweaks
+sed -i 's|^ExecStart=.*|ExecStart=/usr/bin/bootc update --quiet|' /usr/lib/systemd/system/bootc-fetch-apply-updates.service
+sed -i 's|#AutomaticUpdatePolicy.*|AutomaticUpdatePolicy=stage|' /etc/rpm-ostreed.conf
+sed -i 's|#LockLayering.*|LockLayering=true|' /etc/rpm-ostreed.conf
+
+# Flathub setup
+curl -Lo /etc/flatpak/remotes.d/flathub.flatpakrepo https://dl.flathub.org/repo/flathub.flatpakrepo
+echo "Default=true" | tee -a /etc/flatpak/remotes.d/flathub.flatpakrepo > /dev/null
+flatpak remote-add --if-not-exists --system flathub /etc/flatpak/remotes.d/flathub.flatpakrepo
+flatpak remote-modify --system --enable flathub
+flatpak remote-modify --system --disable fedora
