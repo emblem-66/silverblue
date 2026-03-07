@@ -111,11 +111,18 @@ dnf autoremove -y
 #    podman-auto-update.timer
 #    smartd.service
 #)
-#
-#mask_services=(
-#    systemd-remount-fs.service
-#    flatpak-add-fedora-repos.service
-#)
+
+mask_services=(
+    systemd-remount-fs.service
+    flatpak-add-fedora-repos.service
+)
+# Add masked services
+for m in "${mask_services[@]}"; do
+    systemctl mask "$m"
+done
+
+#systemctl mask systemd-remount-fs.service
+#systemctl mask flatpak-add-fedora-repos.service
 
 #user_services=(
 #    podman.socket
@@ -134,10 +141,7 @@ dnf autoremove -y
 #    echo "enable $s" >> "$system_preset_file"
 #done
 
-# Add masked services
-#for m in "${mask_services[@]}"; do
-#    echo "mask $m" >> "$system_preset_file"
-#done
+
 
 # Add user services
 #for u in "${user_services[@]}"; do
