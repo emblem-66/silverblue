@@ -161,5 +161,12 @@ sed -i 's|^ExecStart=.*|ExecStart=/usr/bin/bootc update --quiet|' /usr/lib/syste
 sed -i 's|#AutomaticUpdatePolicy.*|AutomaticUpdatePolicy=stage|' /etc/rpm-ostreed.conf
 sed -i 's|#LockLayering.*|LockLayering=true|' /etc/rpm-ostreed.conf
 
+
 # Autoremove
 dnf autoremove -y
+
+
+
+dnf copr enable -y shadowblip/InputPlumber
+dnf install -y inputplumber
+systemctl enable inputplumber
