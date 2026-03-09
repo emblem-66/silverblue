@@ -166,3 +166,6 @@ sed -i 's|#LockLayering.*|LockLayering=true|' /etc/rpm-ostreed.conf
 
 # Autoremove
 dnf autoremove -y
+
+systemctl preset-all
+systemctl --global preset-all
