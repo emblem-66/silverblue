@@ -15,7 +15,6 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=tmpfs,dst=/tmp \
     /ctx/build.sh
 
-#RUN systemctl preset-all
-RUN systemctl --global preset-all
+#RUN systemctl preset-all && systemctl --global preset-all
 
 RUN bootc container lint
