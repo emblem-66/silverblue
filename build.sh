@@ -5,23 +5,27 @@ set -xeuo pipefail
 #dnf install -y terra-release
 
 # Tailscale
-#dnf config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo
-#dnf config-manager setopt tailscale-stable.enabled=0
-#dnf install -y --enablerepo='tailscale-stable' tailscale
+dnf config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo
+dnf config-manager setopt tailscale-stable.enabled=0
+dnf install -y --enablerepo='tailscale-stable' tailscale
 #systemctl enable tailscaled
 #systemctl enable sshd.service
-dnf install -y --repofrompath=tailscale-stable,https://pkgs.tailscale.com/stable/fedora/tailscale.repo tailscale
+#dnf install -y --repofrompath=tailscale-stable,https://pkgs.tailscale.com/stable/fedora/tailscale.repo tailscale
 
 # Just
 #dnf install -y just
 
 # Adwaita & Morewaita
 dnf copr enable -y trixieua/morewaita-icon-theme
-dnf config-manager setopt trixieua-morewaita-icon-theme.enabled=0
-dnf install -y --enablerepo='trixieua-morewaita-icon-theme' adw-gtk3-theme morewaita-icon-theme
+dnf config-manager setopt copr:copr.fedorainfracloud.org:trixieua:morewaita-icon-theme.enabled=0
+dnf install -y --enablerepo='copr:copr.fedorainfracloud.org:trixieua:morewaita-icon-theme' adw-gtk3-theme morewaita-icon-theme
+#dnf install -y adw-gtk3-theme morewaita-icon-theme
 
-# Remove Firefox
-dnf remove -y firefox*
+# MergerFS
+dnf copr enable -y errornointernet/mergerfs
+dnf config-manager setopt copr:copr.fedorainfracloud.org:errornointernet:mergerfs.enabled=0
+dnf install -y --enablerepo='copr:copr.fedorainfracloud.org:errornointernet:mergerfs' mergerfs
+#dnf install -y mergerfs
 
 # File system
 dnf install -y \
@@ -29,10 +33,6 @@ dnf install -y \
     btrfs-assistant \
     btrfsd \
     btrfsmaintenance \
-
-# MergerFS
-dnf copr enable -y errornointernet/mergerfs
-dnf install -y mergerfs
 
 # Screen brightness
 dnf install -y ddcutil
@@ -42,6 +42,9 @@ dnf install -y cockpit cockpit-podman
 
 # Podman
 dnf install -y podman podman-compose
+
+# Remove Firefox
+dnf remove -y firefox*
 
 # Remove unwanted Fedora stuff
 dnf remove -y \
