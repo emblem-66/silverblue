@@ -5,11 +5,12 @@ set -xeuo pipefail
 #dnf install -y terra-release
 
 # Tailscale
-dnf config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo
-dnf config-manager setopt tailscale-stable.enabled=0
-dnf install -y --enablerepo='tailscale-stable' tailscale
+#dnf config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo
+#dnf config-manager setopt tailscale-stable.enabled=0
+#dnf install -y --enablerepo='tailscale-stable' tailscale
 #systemctl enable tailscaled
 #systemctl enable sshd.service
+dnf install -y --repofrompath=tailscale-stable,https://pkgs.tailscale.com/stable/fedora/tailscale.repo tailscale
 
 # Just
 #dnf install -y just
