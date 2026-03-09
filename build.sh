@@ -17,7 +17,8 @@ dnf install -y --repofrompath=tailscale-stable,https://pkgs.tailscale.com/stable
 
 # Adwaita & Morewaita
 dnf copr enable -y trixieua/morewaita-icon-theme
-dnf install -y adw-gtk3-theme morewaita-icon-theme
+dnf config-manager setopt trixieua-morewaita-icon-theme.enabled=0
+dnf install -y --enablerepo='trixieua-morewaita-icon-theme' adw-gtk3-theme morewaita-icon-theme
 
 # Remove Firefox
 dnf remove -y firefox*
@@ -35,6 +36,12 @@ dnf install -y mergerfs
 
 # Screen brightness
 dnf install -y ddcutil
+
+# Cockpit
+dnf install -y cockpit cockpit-podman
+
+# Podman
+dnf install -y podman podman-compose
 
 # Remove unwanted Fedora stuff
 dnf remove -y \
@@ -55,12 +62,6 @@ dnf remove -y \
     virtualbox-guest-additions \
     malcontent-control \
     *backgrounds* \
-
-# Cockpit
-dnf install -y cockpit cockpit-podman
-
-# Podman
-dnf install -y podman podman-compose
 
 #system_services=(
 #  bootc-fetch-apply-updates.service
