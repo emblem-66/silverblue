@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 set -xeuo pipefail
 
-#dnf config-manager addrepo --from-repofile=https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
-#dnf install -y terra-release
+dnf config-manager addrepo --from-repofile=https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
+dnf install -y terra-release
+
+dnf install mangowm noctalia-shell
 
 # Tailscale
 dnf config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo
