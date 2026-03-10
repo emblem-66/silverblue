@@ -5,9 +5,9 @@ set -xeuo pipefail
 #dnf install -y terra-release
 
 # Tailscale
-#dnf config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo
-#dnf config-manager setopt tailscale-stable.enabled=0
-#dnf install -y --enablerepo='tailscale-stable' tailscale
+dnf config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo
+dnf config-manager setopt tailscale-stable.enabled=0
+dnf install -y --enablerepo='tailscale-stable' tailscale
 #systemctl enable tailscaled
 #systemctl enable sshd.service
 #dnf install -y --repofrompath=tailscale-stable,https://pkgs.tailscale.com/stable/fedora/tailscale.repo tailscale
@@ -166,13 +166,8 @@ sed -i 's|^ExecStart=.*|ExecStart=/usr/bin/bootc update --quiet|' /usr/lib/syste
 sed -i 's|#AutomaticUpdatePolicy.*|AutomaticUpdatePolicy=stage|' /etc/rpm-ostreed.conf
 sed -i 's|#LockLayering.*|LockLayering=true|' /etc/rpm-ostreed.conf
 
-dnf install -y tailscale headscale
-
-
 # Autoremove
 dnf autoremove -y
 
 systemctl preset-all
 systemctl --global preset-all
-
-systemctl enable headscale
