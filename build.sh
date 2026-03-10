@@ -173,4 +173,18 @@ dnf autoremove -y
 systemctl preset-all
 systemctl --global preset-all
 
-curl -fsSL https://pkgs.netbird.io/install.sh
+sudo tee /etc/yum.repos.d/netbird.repo <<EOF
+[netbird]
+name=netbird
+baseurl=https://pkgs.netbird.io/yum/
+enabled=1
+gpgcheck=0
+gpgkey=https://pkgs.netbird.io/yum/repodata/repomd.xml.key
+repo_gpgcheck=1
+EOF
+
+dnf config-manager addrepo --from-repofile=/etc/yum.repos.d/netbird.repo
+
+dnf install -y netbird
+dnf install -y netbird-ui
+
