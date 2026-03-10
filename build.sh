@@ -172,3 +172,7 @@ dnf autoremove -y
 
 systemctl preset-all
 systemctl --global preset-all
+
+dnf config-manager addrepo --from-repofile=https://pkgs.netbird.io/yum/netbird.repo
+#dnf config-manager setopt .enabled=0
+dnf install -y --enablerepo='tailscale-stable' tailscale
