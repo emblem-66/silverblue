@@ -9,6 +9,7 @@ dnf config-manager setopt fedora-cisco-openh264.enabled=0
 
 # Tailscale
 dnf config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo
+cat /etc/yum.repos.d/tailscale.repo
 dnf config-manager setopt tailscale-stable.enabled=0
 cat /etc/yum.repos.d/tailscale.repo
 dnf install -y --enablerepo='tailscale-stable' tailscale
