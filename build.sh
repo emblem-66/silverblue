@@ -5,11 +5,15 @@ set -xeuo pipefail
 #dnf install -y terra-release
 
 #dnf install mangowm noctalia-shell
+dnf config-manager setopt fedora-cisco-openh264.enabled=0
 
 # Tailscale
 dnf config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo
 dnf config-manager setopt tailscale-stable.enabled=0
+cat /etc/yum.repos.d/tailscale.repo
 dnf install -y --enablerepo='tailscale-stable' tailscale
+cat /etc/yum.repos.d/tailscale.repo
+
 #systemctl enable tailscaled
 #systemctl enable sshd.service
 #dnf install -y --repofrompath=tailscale-stable,https://pkgs.tailscale.com/stable/fedora/tailscale.repo tailscale
