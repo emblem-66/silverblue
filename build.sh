@@ -173,3 +173,5 @@ dnf autoremove -y
 
 systemctl preset-all
 systemctl --global preset-all
+
+systemctl list-unit-files --state=enabled
