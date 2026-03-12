@@ -1,72 +1,30 @@
 #!/usr/bin/env bash
 set -xeuo pipefail
 
-#dnf config-manager setopt fedora-cisco-openh264.enabled=0
-
 #dnf config-manager addrepo --from-repofile=https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
 #dnf config-manager setopt terra.enabled=1
 #dnf install -y terra-release
 #dnf install -y mangowm noctalia-shell
-
-# Just
-#dnf install -y just
 
 # Tailscale
 #dnf config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo
 #dnf config-manager setopt tailscale-stable.enabled=0
 #dnf install -y --enablerepo='tailscale-stable' tailscale
 #dnf install -y --repofrompath=tailscale-stable,https://pkgs.tailscale.com/stable/fedora/tailscale.repo tailscale
-
-sudo tee /etc/yum.repos.d/tailscale.repo > /dev/null <<EOF
-[tailscale-stable]
-name=Tailscale stable
-baseurl=https://pkgs.tailscale.com/stable/fedora/$basearch
-enabled=1
-type=rpm
-repo_gpgcheck=1
-gpgcheck=1
-gpgkey=https://pkgs.tailscale.com/stable/fedora/repo.gpg
-EOF
 rpm-ostree install -y tailscale
-
 
 # Adwaita & Morewaita
 #dnf copr enable -y trixieua/morewaita-icon-theme
 #dnf config-manager setopt copr:copr.fedorainfracloud.org:trixieua:morewaita-icon-theme.enabled=0
 #dnf install -y --enablerepo='copr:copr.fedorainfracloud.org:trixieua:morewaita-icon-theme' adw-gtk3-theme morewaita-icon-theme
 #dnf install -y adw-gtk3-theme morewaita-icon-theme
-
-sudo tee /etc/yum.repos.d/morewaita.repo > /dev/null <<EOF
-[copr:copr.fedorainfracloud.org:trixieua:morewaita-icon-theme]
-name=Copr repo for morewaita-icon-theme owned by trixieua
-baseurl=https://download.copr.fedorainfracloud.org/results/trixieua/morewaita-icon-theme/fedora-$releasever-$basearch/
-type=rpm-md
-skip_if_unavailable=True
-gpgcheck=1
-gpgkey=https://download.copr.fedorainfracloud.org/results/trixieua/morewaita-icon-theme/pubkey.gpg
-repo_gpgcheck=0
-enabled=1
-enabled_metadata=1
-EOF
 rpm-ostree install -y adw-gtk3-theme morewaita-icon-theme
+
 # MergerFS
 #dnf copr enable -y errornointernet/mergerfs
 #dnf config-manager setopt copr:copr.fedorainfracloud.org:errornointernet:mergerfs.enabled=0
 #dnf install -y --enablerepo='copr:copr.fedorainfracloud.org:errornointernet:mergerfs' mergerfs
 #dnf install -y mergerfs
-
-sudo tee /etc/yum.repos.d/mergerfs.repo > /dev/null <<EOF
-[copr:copr.fedorainfracloud.org:errornointernet:mergerfs]
-name=Copr repo for mergerfs owned by errornointernet
-baseurl=https://download.copr.fedorainfracloud.org/results/errornointernet/mergerfs/fedora-$releasever-$basearch/
-type=rpm-md
-skip_if_unavailable=True
-gpgcheck=1
-gpgkey=https://download.copr.fedorainfracloud.org/results/errornointernet/mergerfs/pubkey.gpg
-repo_gpgcheck=0
-enabled=1
-enabled_metadata=1
-EOF
 rpm-ostree install -y mergerfs
 
 # File system
@@ -76,22 +34,17 @@ rpm-ostree install -y \
     btrfsd \
     btrfsmaintenance \
 
-
 # Screen brightness
 rpm-ostree install -y ddcutil
-
 
 # Cockpit
 rpm-ostree install -y cockpit cockpit-podman
 
-
 # Podman
 rpm-ostree install -y podman podman-compose
 
-
 # Remove Firefox
 rpm-ostree remove -y firefox*
-
 
 # Remove unwanted Fedora stuff
 rpm-ostree remove -y \
@@ -103,7 +56,6 @@ rpm-ostree remove -y \
     qemu-user-static* \
     sssd* \
 
-
 # Remove GNOME stuff
 rpm-ostree remove -y \
     gnome-shell-extension* \
@@ -114,109 +66,10 @@ rpm-ostree remove -y \
     malcontent-control \
     *backgrounds* \
 
-
-#system_services=(
-#  bootc-fetch-apply-updates.service
-#  tailscaled.service
-#  cockpit.socket
-#  btrfs-scrub.timer
-#  podman-auto-update.timer
-#  smartd
-#  btrfs-scrub.timer
-#)
-
-#user_services=(
-#  podman.socket
-#  flathub-update.timer
-#)
-
-#mask_services=(
-#  systemd-remount-fs.service
-#  flatpak-add-fedora-repos.service
-#)
-
-#systemctl enable "${system_services[@]}"
-#systemctl mask "${mask_services[@]}"
-#systemctl --global enable "${user_services[@]}"
-
-#for service in "${system_services[@]}"; do
-#    echo "enable $service" >> "$preset_file"
-#done
-
-#mkdir -p "/etc/systemd/user-preset/"
-#preset_file="/etc/systemd/user-preset/01-user.preset"
-#touch "$preset_file"
-
-#install -Dm 644 /dev/null /etc/systemd/user-preset/01-user.preset
-
-#for service in "${user_services[@]}"; do
-#    echo "enable $service" >> "$preset_file"
-#done
-
-# Passwordless sudo
-#install -Dm440 /dev/stdin /etc/sudoers.d/99-wheel-nopasswd <<< '%wheel ALL=(ALL) NOPASSWD:ALL'
-
-#system_services=(
-#    bootc-fetch-apply-updates.service
-#    tailscaled.service
-#    cockpit.socket
-#    btrfs-scrub.timer
-#    podman-auto-update.timer
-#    smartd.service
-#)
-
-#mask_services=(
-#    systemd-remount-fs.service
-#    flatpak-add-fedora-repos.service
-#)
-# Add masked services
-#for m in "${mask_services[@]}"; do
-#    systemctl mask "$m"
-#done
-
-#systemctl mask systemd-remount-fs.service
-#systemctl mask flatpak-add-fedora-repos.service
-
-#systemctl mask \
-#    systemd-remount-fs.service \
-#    flatpak-add-fedora-repos.service \
-
-#user_services=(
-#    podman.socket
-#    flathub-update.timer
-#)
-
-# Create preset files
-#system_preset_file="/etc/systemd/system-preset/01-system.preset"
-#user_preset_file="/etc/systemd/user-preset/01-user.preset"
-
-#install -Dm 644 /dev/null "$system_preset_file"
-#install -Dm 644 /dev/null "$user_preset_file"
-
-# Add system services
-#for s in "${system_services[@]}"; do
-#    echo "enable $s" >> "$system_preset_file"
-#done
-
-# Add user services
-#for u in "${user_services[@]}"; do
-#    echo "enable $u" >> "$user_preset_file"
-#done
-
-# Flathub setup
-#curl -Lo /etc/flatpak/remotes.d/flathub.flatpakrepo https://dl.flathub.org/repo/flathub.flatpakrepo
-#echo "Default=true" | tee -a /etc/flatpak/remotes.d/flathub.flatpakrepo > /dev/null
-#flatpak remote-add --if-not-exists --system flathub /etc/flatpak/remotes.d/flathub.flatpakrepo
-#flatpak remote-modify --system --enable flathub || true
-#flatpak remote-modify --system --disable fedora || true
-
 # Update tweaks
 sed -i 's|^ExecStart=.*|ExecStart=/usr/bin/bootc update --quiet|' /usr/lib/systemd/system/bootc-fetch-apply-updates.service
 sed -i 's|#AutomaticUpdatePolicy.*|AutomaticUpdatePolicy=stage|' /etc/rpm-ostreed.conf
 sed -i 's|#LockLayering.*|LockLayering=true|' /etc/rpm-ostreed.conf
-
-# Autoremove
-#dnf autoremove -y
 
 systemctl preset-all
 systemctl --global preset-all
