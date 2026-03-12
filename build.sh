@@ -1,16 +1,15 @@
 #!/usr/bin/env bash
 set -xeuo pipefail
 
-dnf config-manager addrepo --from-repofile=https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
-dnf install -y terra-release
-dnf install mangowm noctalia-shell
+#dnf config-manager setopt fedora-cisco-openh264.enabled=0
 
+dnf config-manager addrepo --from-repofile=https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
+dnf config-manager setopt terra.enabled=1
+dnf install -y terra-release
+dnf install -y mangowm noctalia-shell
 
 # Just
 #dnf install -y just
-
-
-dnf config-manager setopt fedora-cisco-openh264.enabled=0
 
 # Tailscale
 dnf config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo
