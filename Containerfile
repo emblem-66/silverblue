@@ -1,13 +1,13 @@
 FROM scratch AS ctx
 
-COPY --chmod=755 build.sh /
-COPY --from=ghcr.io/emblem-66/bootc-config:latest build_files/ /
+COPY --chmod=0755 build.sh /
+COPY --chmod=0755 --from=ghcr.io/emblem-66/bootc-config:latest build_files/ /
 
 #FROM quay.io/fedora/fedora-bootc:latest
 FROM quay.io/fedora/fedora-silverblue:latest
 
-COPY --from=ghcr.io/emblem-66/bootc-config:latest system_files/ /
-COPY --from=ghcr.io/emblem-66/containers:latest system_files/ /
+COPY --chmod=0755 --from=ghcr.io/emblem-66/bootc-config:latest system_files/ /
+COPY --chmod=0755 --from=ghcr.io/emblem-66/containers:latest system_files/ /
 
 RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=cache,dst=/var/cache \
