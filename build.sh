@@ -3,53 +3,98 @@ set -xeuo pipefail
 
 #dnf config-manager setopt fedora-cisco-openh264.enabled=0
 
-dnf config-manager addrepo --from-repofile=https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
-dnf config-manager setopt terra.enabled=1
-dnf install -y terra-release
-dnf install -y mangowm noctalia-shell
+#dnf config-manager addrepo --from-repofile=https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
+#dnf config-manager setopt terra.enabled=1
+#dnf install -y terra-release
+#dnf install -y mangowm noctalia-shell
 
 # Just
 #dnf install -y just
 
 # Tailscale
-dnf config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo
-dnf config-manager setopt tailscale-stable.enabled=0
-dnf install -y --enablerepo='tailscale-stable' tailscale
+#dnf config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo
+#dnf config-manager setopt tailscale-stable.enabled=0
+#dnf install -y --enablerepo='tailscale-stable' tailscale
 #dnf install -y --repofrompath=tailscale-stable,https://pkgs.tailscale.com/stable/fedora/tailscale.repo tailscale
 
-# Adwaita & Morewaita
-dnf copr enable -y trixieua/morewaita-icon-theme
-dnf config-manager setopt copr:copr.fedorainfracloud.org:trixieua:morewaita-icon-theme.enabled=0
-dnf install -y --enablerepo='copr:copr.fedorainfracloud.org:trixieua:morewaita-icon-theme' adw-gtk3-theme morewaita-icon-theme
-dnf install -y adw-gtk3-theme morewaita-icon-theme
+sudo tee /etc/yum.repos.d/tailscale.repo > /dev/null <<EOF
+[tailscale-stable]
+name=Tailscale stable
+baseurl=https://pkgs.tailscale.com/stable/fedora/$basearch
+enabled=1
+type=rpm
+repo_gpgcheck=1
+gpgcheck=1
+gpgkey=https://pkgs.tailscale.com/stable/fedora/repo.gpg
+EOF
+rpm-ostree install -y tailscale
 
+
+# Adwaita & Morewaita
+#dnf copr enable -y trixieua/morewaita-icon-theme
+#dnf config-manager setopt copr:copr.fedorainfracloud.org:trixieua:morewaita-icon-theme.enabled=0
+#dnf install -y --enablerepo='copr:copr.fedorainfracloud.org:trixieua:morewaita-icon-theme' adw-gtk3-theme morewaita-icon-theme
+#dnf install -y adw-gtk3-theme morewaita-icon-theme
+
+sudo tee /etc/yum.repos.d/morewaita.repo > /dev/null <<EOF
+[copr:copr.fedorainfracloud.org:trixieua:morewaita-icon-theme]
+name=Copr repo for morewaita-icon-theme owned by trixieua
+baseurl=https://download.copr.fedorainfracloud.org/results/trixieua/morewaita-icon-theme/fedora-$releasever-$basearch/
+type=rpm-md
+skip_if_unavailable=True
+gpgcheck=1
+gpgkey=https://download.copr.fedorainfracloud.org/results/trixieua/morewaita-icon-theme/pubkey.gpg
+repo_gpgcheck=0
+enabled=1
+enabled_metadata=1
+EOF
+rpm-ostree install -y adw-gtk3-theme morewaita-icon-theme
 # MergerFS
-dnf copr enable -y errornointernet/mergerfs
-dnf config-manager setopt copr:copr.fedorainfracloud.org:errornointernet:mergerfs.enabled=0
-dnf install -y --enablerepo='copr:copr.fedorainfracloud.org:errornointernet:mergerfs' mergerfs
-dnf install -y mergerfs
+#dnf copr enable -y errornointernet/mergerfs
+#dnf config-manager setopt copr:copr.fedorainfracloud.org:errornointernet:mergerfs.enabled=0
+#dnf install -y --enablerepo='copr:copr.fedorainfracloud.org:errornointernet:mergerfs' mergerfs
+#dnf install -y mergerfs
+
+sudo tee /etc/yum.repos.d/mergerfs.repo > /dev/null <<EOF
+[copr:copr.fedorainfracloud.org:errornointernet:mergerfs]
+name=Copr repo for mergerfs owned by errornointernet
+baseurl=https://download.copr.fedorainfracloud.org/results/errornointernet/mergerfs/fedora-$releasever-$basearch/
+type=rpm-md
+skip_if_unavailable=True
+gpgcheck=1
+gpgkey=https://download.copr.fedorainfracloud.org/results/errornointernet/mergerfs/pubkey.gpg
+repo_gpgcheck=0
+enabled=1
+enabled_metadata=1
+EOF
+rpm-ostree install -y mergerfs
 
 # File system
-dnf install -y \
+rpm-ostree install -y \
     smartmontools \
     btrfs-assistant \
     btrfsd \
     btrfsmaintenance \
 
+
 # Screen brightness
-dnf install -y ddcutil
+rpm-ostree install -y ddcutil
+
 
 # Cockpit
-dnf install -y cockpit cockpit-podman
+rpm-ostree install -y cockpit cockpit-podman
+
 
 # Podman
-dnf install -y podman podman-compose
+rpm-ostree install -y podman podman-compose
+
 
 # Remove Firefox
-dnf remove -y firefox*
+rpm-ostree remove -y firefox*
+
 
 # Remove unwanted Fedora stuff
-dnf remove -y \
+rpm-ostree remove -y \
     virtualbox-guest-additions \
     fedora-chromium-config* \
     fedora-bookmarks \
@@ -58,8 +103,9 @@ dnf remove -y \
     qemu-user-static* \
     sssd* \
 
+
 # Remove GNOME stuff
-dnf remove -y \
+rpm-ostree remove -y \
     gnome-shell-extension* \
     gnome-tour \
     yelp* \
@@ -67,6 +113,7 @@ dnf remove -y \
     virtualbox-guest-additions \
     malcontent-control \
     *backgrounds* \
+
 
 #system_services=(
 #  bootc-fetch-apply-updates.service
@@ -169,7 +216,7 @@ sed -i 's|#AutomaticUpdatePolicy.*|AutomaticUpdatePolicy=stage|' /etc/rpm-ostree
 sed -i 's|#LockLayering.*|LockLayering=true|' /etc/rpm-ostreed.conf
 
 # Autoremove
-dnf autoremove -y
+#dnf autoremove -y
 
 systemctl preset-all
 systemctl --global preset-all
