@@ -21,13 +21,13 @@ dnf install -y --enablerepo='tailscale-stable' tailscale
 dnf copr enable -y trixieua/morewaita-icon-theme
 dnf config-manager setopt copr:copr.fedorainfracloud.org:trixieua:morewaita-icon-theme.enabled=0
 dnf install -y --enablerepo='copr:copr.fedorainfracloud.org:trixieua:morewaita-icon-theme' adw-gtk3-theme morewaita-icon-theme
-#dnf install -y adw-gtk3-theme morewaita-icon-theme
+dnf install -y adw-gtk3-theme morewaita-icon-theme
 
 # MergerFS
 dnf copr enable -y errornointernet/mergerfs
 dnf config-manager setopt copr:copr.fedorainfracloud.org:errornointernet:mergerfs.enabled=0
 dnf install -y --enablerepo='copr:copr.fedorainfracloud.org:errornointernet:mergerfs' mergerfs
-#dnf install -y mergerfs
+dnf install -y mergerfs
 
 # File system
 dnf install -y \
