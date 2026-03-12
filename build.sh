@@ -44,27 +44,27 @@ rpm-ostree install -y cockpit cockpit-podman
 rpm-ostree install -y podman podman-compose
 
 # Remove Firefox
-rpm-ostree uninstall -y firefox*
+rpm-ostree uninstall -y firefox
 
 # Remove unwanted Fedora stuff
-rpm-ostree uninstall -y \
-    virtualbox-guest-additions \
-    fedora-chromium-config* \
-    fedora-bookmarks \
-    fedora-flathub-remote \
-    fedora-third-party \
-    qemu-user-static* \
-    sssd* \
+#rpm-ostree uninstall -y \
+#    virtualbox-guest-additions \
+#    fedora-chromium-config* \
+#    fedora-bookmarks \
+#    fedora-flathub-remote \
+#    fedora-third-party \
+#    qemu-user-static* \
+#    sssd* \
 
 # Remove GNOME stuff
-rpm-ostree uninstall -y \
-    gnome-shell-extension* \
-    gnome-tour \
-    yelp* \
-    gnome-software* \
-    virtualbox-guest-additions \
-    malcontent-control \
-    *backgrounds* \
+#rpm-ostree uninstall -y \
+#    gnome-shell-extension* \
+#    gnome-tour \
+#    yelp* \
+#    gnome-software* \
+#    virtualbox-guest-additions \
+#    malcontent-control \
+#    *backgrounds* \
 
 # Update tweaks
 sed -i 's|^ExecStart=.*|ExecStart=/usr/bin/bootc update --quiet|' /usr/lib/systemd/system/bootc-fetch-apply-updates.service
