@@ -44,7 +44,7 @@ rpm-ostree install -y cockpit cockpit-podman
 rpm-ostree install -y podman podman-compose
 
 # Remove Firefox
-rpm-ostree uninstall -y firefox
+rpm-ostree uninstall -y firefox firefox-langpacks
 
 # Remove unwanted Fedora stuff
 #rpm-ostree uninstall -y \
