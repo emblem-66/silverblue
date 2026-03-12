@@ -44,10 +44,10 @@ rpm-ostree install -y cockpit cockpit-podman
 rpm-ostree install -y podman podman-compose
 
 # Remove Firefox
-rpm-ostree remove -y firefox*
+rpm-ostree uninstall -y firefox*
 
 # Remove unwanted Fedora stuff
-rpm-ostree remove -y \
+rpm-ostree uninstall -y \
     virtualbox-guest-additions \
     fedora-chromium-config* \
     fedora-bookmarks \
@@ -57,7 +57,7 @@ rpm-ostree remove -y \
     sssd* \
 
 # Remove GNOME stuff
-rpm-ostree remove -y \
+rpm-ostree uninstall -y \
     gnome-shell-extension* \
     gnome-tour \
     yelp* \
