@@ -47,11 +47,11 @@ rpm-ostree install -y podman podman-compose
 rpm-ostree uninstall -y firefox firefox-langpacks
 
 # Remove unwanted Fedora stuff
-rpm-ostree uninstall -y \
-    virtualbox-guest-additions \
-    fedora-bookmarks \
-    fedora-flathub-remote \
-    fedora-third-party \
+#rpm-ostree uninstall -y \
+#    virtualbox-guest-additions \
+#    fedora-bookmarks \
+#    fedora-flathub-remote \
+#    fedora-third-party \
 
 #    fedora-chromium-config* \
 #    qemu-user-static* \
@@ -61,9 +61,9 @@ rpm-ostree uninstall -y \
 rpm-ostree uninstall -y \
     gnome-tour \
     yelp \
-    virtualbox-guest-additions \
     malcontent-control \
-    
+
+#    virtualbox-guest-additions \
 #    gnome-software* \
 #    gnome-shell-extension* \
 #    *backgrounds* \
