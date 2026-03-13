@@ -46,27 +46,47 @@ rpm-ostree install -y podman podman-compose
 # Remove Firefox
 rpm-ostree uninstall -y firefox firefox-langpacks
 
-# Remove unwanted Fedora stuff
-#rpm-ostree uninstall -y \
-#    virtualbox-guest-additions \
-#    fedora-bookmarks \
-#    fedora-flathub-remote \
-#    fedora-third-party \
-
-#    fedora-chromium-config* \
-#    qemu-user-static* \
-#    sssd* \
-
 # Remove GNOME stuff
 rpm-ostree uninstall -y \
     gnome-tour \
-    yelp \
     malcontent-control \
-
-#    virtualbox-guest-additions \
-#    gnome-software* \
-#    gnome-shell-extension* \
-#    *backgrounds* \
+    desktop-backgrounds-gnome \
+    f43-backgrounds-base \
+    f43-backgrounds-gnome \
+    fedora-bookmarks \
+    fedora-chromium-config \
+    fedora-chromium-config-gnome \
+    fedora-flathub-remote \
+    fedora-third-party \
+    fedora-workstation-backgrounds \
+    fedora-workstation-repositories \
+    gnome-backgrounds \
+    gnome-classic-session \
+    gnome-shell-extension-apps-menu \
+    gnome-shell-extension-background \
+    gnome-shell-extension-common \
+    gnome-shell-extension-launch-new-instance \
+    gnome-shell-extension-places-menu \
+    gnome-shell-extension-window-list \
+    gnome-software \
+    gnome-software-rpm-ostree \
+    gnome-tour \
+    jxrlib \
+    kde-filesystem \
+    kf6-filesystem \
+    kf6-karchive \
+    kf6-kimageformats \
+    malcontent-control \
+    qemu-user-static-aarch64 \
+    sssd-client \
+    sssd-common \
+    sssd-kcm \
+    sssd-krb5-common \
+    sssd-nfs-idmap \
+    virtualbox-guest-additions \
+    yelp \
+    yelp-libs \
+    yelp-xsl \
 
 # Update tweaks
 sed -i 's|^ExecStart=.*|ExecStart=/usr/bin/bootc update --quiet|' /usr/lib/systemd/system/bootc-fetch-apply-updates.service
