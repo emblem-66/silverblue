@@ -48,8 +48,6 @@ rpm-ostree uninstall -y firefox firefox-langpacks
 
 # Remove GNOME stuff
 rpm-ostree uninstall -y \
-    gnome-tour \
-    malcontent-control \
     desktop-backgrounds-gnome \
     f43-backgrounds-base \
     f43-backgrounds-gnome \
