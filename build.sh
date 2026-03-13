@@ -61,7 +61,7 @@ rpm-ostree uninstall -y \
     gnome-backgrounds \
     gnome-classic-session \
     gnome-shell-extension-apps-menu \
-    gnome-shell-extension-background \
+    gnome-shell-extension-background-logo \
     gnome-shell-extension-common \
     gnome-shell-extension-launch-new-instance \
     gnome-shell-extension-places-menu \
