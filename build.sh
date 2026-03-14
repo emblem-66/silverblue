@@ -1,100 +1,84 @@
 #!/usr/bin/env bash
 set -xeuo pipefail
 
-#dnf config-manager addrepo --from-repofile=https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
-#dnf config-manager setopt terra.enabled=1
-#dnf install -y terra-release
+dnf config-manager addrepo --from-repofile=https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
+dnf config-manager setopt terra.enabled=0
+dnf install -y -enablerepo='terra' terra-release
+dnf install -y -enablerepo='terra' terra-release-extras
+dnf install -y -enablerepo='terra' terra-release-mesa
+dnf install -y -enablerepo='terra' terra-release-nvidia
+dnf install -y -enablerepo='terra' terra-release-multimedia
+#dnf swap mesa-va-drivers-freeworld mesa-va-drivers
 #dnf install -y mangowm noctalia-shell
 
 # Tailscale
-#dnf config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo
-#dnf config-manager setopt tailscale-stable.enabled=0
-#dnf install -y --enablerepo='tailscale-stable' tailscale
+dnf config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo
+dnf config-manager setopt tailscale-stable.enabled=0
+dnf install -y --enablerepo='tailscale-stable' tailscale
 #dnf install -y --repofrompath=tailscale-stable,https://pkgs.tailscale.com/stable/fedora/tailscale.repo tailscale
-curl -fsSL --create-dirs -o /etc/yum.repos.d/tailscale.repo \
-https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/system_files/etc/yum.repos.d/tailscale.repo
-rpm-ostree install -y tailscale
+#curl -fsSL --create-dirs -o /etc/yum.repos.d/tailscale.repo \
+#https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/system_files/etc/yum.repos.d/tailscale.repo
+#dnf install -y tailscale
 
 # Adwaita & Morewaita
-#dnf copr enable -y trixieua/morewaita-icon-theme
-#dnf config-manager setopt copr:copr.fedorainfracloud.org:trixieua:morewaita-icon-theme.enabled=0
-#dnf install -y --enablerepo='copr:copr.fedorainfracloud.org:trixieua:morewaita-icon-theme' adw-gtk3-theme morewaita-icon-theme
+dnf copr enable -y trixieua/morewaita-icon-theme
+dnf config-manager setopt copr:copr.fedorainfracloud.org:trixieua:morewaita-icon-theme.enabled=0
+dnf install -y --enablerepo='copr:copr.fedorainfracloud.org:trixieua:morewaita-icon-theme' adw-gtk3-theme morewaita-icon-theme
 #dnf install -y adw-gtk3-theme morewaita-icon-theme
-curl -fsSL --create-dirs -o /etc/yum.repos.d/morewaita.repo \
-https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/system_files/etc/yum.repos.d/morewaita.repo
-rpm-ostree install -y adw-gtk3-theme morewaita-icon-theme
+#curl -fsSL --create-dirs -o /etc/yum.repos.d/morewaita.repo \
+#https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/system_files/etc/yum.repos.d/morewaita.repo
+#dnf install -y adw-gtk3-theme morewaita-icon-theme
 
 # MergerFS
-#dnf copr enable -y errornointernet/mergerfs
-#dnf config-manager setopt copr:copr.fedorainfracloud.org:errornointernet:mergerfs.enabled=0
-#dnf install -y --enablerepo='copr:copr.fedorainfracloud.org:errornointernet:mergerfs' mergerfs
+dnf copr enable -y errornointernet/mergerfs
+dnf config-manager setopt copr:copr.fedorainfracloud.org:errornointernet:mergerfs.enabled=0
+dnf install -y --enablerepo='copr:copr.fedorainfracloud.org:errornointernet:mergerfs' mergerfs
 #dnf install -y mergerfs
-curl -fsSL --create-dirs -o /etc/yum.repos.d/mergerfs.repo \
-https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/system_files/etc/yum.repos.d/mergerfs.repo
-rpm-ostree install -y mergerfs
+#curl -fsSL --create-dirs -o /etc/yum.repos.d/mergerfs.repo \
+#https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/system_files/etc/yum.repos.d/mergerfs.repo
+#dnf install -y mergerfs
 
 # File system
-rpm-ostree install -y \
+dnf install -y \
     smartmontools \
     btrfs-assistant \
     btrfsd \
     btrfsmaintenance \
 
 # Screen brightness
-rpm-ostree install -y ddcutil
+dnf install -y ddcutil
 
 # Cockpit
-rpm-ostree install -y cockpit cockpit-podman
+dnf install -y cockpit cockpit-podman
 
 # Podman
-rpm-ostree install -y podman podman-compose
+dnf install -y podman podman-compose
 
 # Remove Firefox
-rpm-ostree uninstall -y firefox firefox-langpacks
+dnf remove -y firefox firefox-langpacks
 
 # Toolbox Distrobox swap
-rpm-ostree uninstall -y toolbox
-rpm-ostree install -y distrobox
+dnf remove -y toolbox
+dnf install -y distrobox
 
 # Remove GNOME stuff
-rpm-ostree uninstall -y \
-    desktop-backgrounds-gnome \
-    f43-backgrounds-base \
-    f43-backgrounds-gnome \
+dnf remove -y \
+    *backgrounds* \
     fedora-bookmarks \
-    fedora-chromium-config \
-    fedora-chromium-config-gnome \
+    fedora-chromium-config* \
     fedora-flathub-remote \
     fedora-third-party \
     fedora-workstation-backgrounds \
     fedora-workstation-repositories \
-    gnome-backgrounds \
     gnome-classic-session \
-    gnome-shell-extension-apps-menu \
-    gnome-shell-extension-background-logo \
-    gnome-shell-extension-common \
-    gnome-shell-extension-launch-new-instance \
-    gnome-shell-extension-places-menu \
-    gnome-shell-extension-window-list \
-    gnome-software \
-    gnome-software-rpm-ostree \
+    gnome-shell-extension* \
+    gnome-software* \
     gnome-tour \
-    jxrlib \
-    kde-filesystem \
-    kf6-filesystem \
-    kf6-karchive \
-    kf6-kimageformats \
     malcontent-control \
-    qemu-user-static-aarch64 \
-    sssd-client \
-    sssd-common \
-    sssd-kcm \
-    sssd-krb5-common \
-    sssd-nfs-idmap \
+    qemu-user-static* \
+    sssd* \
     virtualbox-guest-additions \
-    yelp \
-    yelp-libs \
-    yelp-xsl \
+    yelp* \
 
 # Update tweaks
 sed -i 's|^ExecStart=.*|ExecStart=/usr/bin/bootc update --quiet|' /usr/lib/systemd/system/bootc-fetch-apply-updates.service
