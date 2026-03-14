@@ -6,7 +6,7 @@ COPY --chmod=0755 --from=ghcr.io/emblem-66/bootc-config:latest build_files/ /
 #FROM quay.io/fedora/fedora-bootc:latest
 FROM quay.io/fedora/fedora-silverblue:latest
 
-#COPY --chmod=0755 --from=ghcr.io/emblem-66/bootc-config:latest system_files/ /
+COPY --chmod=0755 --from=ghcr.io/emblem-66/bootc-config:latest system_files/ /
 #COPY --chmod=0755 --from=ghcr.io/emblem-66/containers:latest system_files/ /
 
 RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
