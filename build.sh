@@ -3,11 +3,11 @@ set -xeuo pipefail
 
 dnf config-manager addrepo --from-repofile=https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
 dnf config-manager setopt terra.enabled=0
-dnf install -y -enablerepo='terra' terra-release
-dnf install -y -enablerepo='terra' terra-release-extras
-dnf install -y -enablerepo='terra' terra-release-mesa
-dnf install -y -enablerepo='terra' terra-release-nvidia
-dnf install -y -enablerepo='terra' terra-release-multimedia
+dnf install -y --enablerepo='terra' terra-release
+dnf install -y --enablerepo='terra' terra-release-extras
+dnf install -y --enablerepo='terra' terra-release-mesa
+dnf install -y --enablerepo='terra' terra-release-nvidia
+dnf install -y --enablerepo='terra' terra-release-multimedia
 #dnf swap mesa-va-drivers-freeworld mesa-va-drivers
 #dnf install -y mangowm noctalia-shell
 
