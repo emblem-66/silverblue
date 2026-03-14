@@ -1,6 +1,7 @@
 FROM scratch AS ctx
 
 COPY --chmod=0755 build.sh /
+COPY --chmod=0755 cleanup.sh /
 COPY --chmod=0755 --from=ghcr.io/emblem-66/bootc-config:latest build_files/ /
 
 #FROM quay.io/fedora/fedora-bootc:latest
