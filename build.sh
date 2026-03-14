@@ -11,6 +11,8 @@ set -xeuo pipefail
 #dnf config-manager setopt tailscale-stable.enabled=0
 #dnf install -y --enablerepo='tailscale-stable' tailscale
 #dnf install -y --repofrompath=tailscale-stable,https://pkgs.tailscale.com/stable/fedora/tailscale.repo tailscale
+curl -fsSL --create-dirs -o /etc/yum.repos.d/tailscale.repo \
+https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/system_files/etc/yum.repos.d/tailscale.repo
 rpm-ostree install -y tailscale
 
 # Adwaita & Morewaita
@@ -18,6 +20,8 @@ rpm-ostree install -y tailscale
 #dnf config-manager setopt copr:copr.fedorainfracloud.org:trixieua:morewaita-icon-theme.enabled=0
 #dnf install -y --enablerepo='copr:copr.fedorainfracloud.org:trixieua:morewaita-icon-theme' adw-gtk3-theme morewaita-icon-theme
 #dnf install -y adw-gtk3-theme morewaita-icon-theme
+curl -fsSL --create-dirs -o /etc/yum.repos.d/morewaita.repo \
+https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/system_files/etc/yum.repos.d/morewaita.repo
 rpm-ostree install -y adw-gtk3-theme morewaita-icon-theme
 
 # MergerFS
@@ -25,6 +29,8 @@ rpm-ostree install -y adw-gtk3-theme morewaita-icon-theme
 #dnf config-manager setopt copr:copr.fedorainfracloud.org:errornointernet:mergerfs.enabled=0
 #dnf install -y --enablerepo='copr:copr.fedorainfracloud.org:errornointernet:mergerfs' mergerfs
 #dnf install -y mergerfs
+curl -fsSL --create-dirs -o /etc/yum.repos.d/mergerfs.repo \
+https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/system_files/etc/yum.repos.d/mergerfs.repo
 rpm-ostree install -y mergerfs
 
 # File system
@@ -45,6 +51,10 @@ rpm-ostree install -y podman podman-compose
 
 # Remove Firefox
 rpm-ostree uninstall -y firefox firefox-langpacks
+
+# Toolbox Distrobox swap
+rpm-ostree uninstall -y toolbox
+rpm-ostree install -y distrobox
 
 # Remove GNOME stuff
 rpm-ostree uninstall -y \
