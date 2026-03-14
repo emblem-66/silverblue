@@ -2,7 +2,7 @@
 
 set -eoux pipefail
 
-dnf5 clean all
+dnf clean all
 rm -rf /tmp/* || true
 rm -rf /var/log/dnf5.log || true
 rm -rf /boot/* || true
