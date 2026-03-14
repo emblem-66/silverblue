@@ -80,6 +80,8 @@ dnf remove -y \
     virtualbox-guest-additions \
     yelp* \
 
+dnf autoremove -y
+
 # Update tweaks
 sed -i 's|^ExecStart=.*|ExecStart=/usr/bin/bootc update --quiet|' /usr/lib/systemd/system/bootc-fetch-apply-updates.service
 sed -i 's|#AutomaticUpdatePolicy.*|AutomaticUpdatePolicy=stage|' /etc/rpm-ostreed.conf
