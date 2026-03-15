@@ -1,8 +1,13 @@
 #!/usr/bin/env bash
 set -xeuo pipefail
 
+dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+dnf config-manager setopt fedora-cisco-openh264.enabled=1
+
+#dnf config-manager setopt fedora-cisco-openh264.enabled=0
+
 dnf config-manager addrepo --from-repofile=https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
-dnf config-manager setopt terra.enabled=0
+#dnf config-manager setopt terra.enabled=0
 dnf install -y --enablerepo='terra' terra-release
 dnf install -y --enablerepo='terra' terra-release-extras
 dnf install -y --enablerepo='terra' terra-release-mesa
@@ -68,7 +73,6 @@ dnf remove -y \
     fedora-chromium-config* \
     fedora-flathub-remote \
     fedora-third-party \
-    fedora-workstation-backgrounds \
     fedora-workstation-repositories \
     gnome-classic-session \
     gnome-shell-extension* \
