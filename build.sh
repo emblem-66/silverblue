@@ -8,11 +8,18 @@ dnf config-manager setopt fedora-cisco-openh264.enabled=1
 
 dnf config-manager addrepo --from-repofile=https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
 #dnf config-manager setopt terra.enabled=0
-dnf install -y --enablerepo='terra' terra-release
-dnf install -y --enablerepo='terra' terra-release-extras
-dnf install -y --enablerepo='terra' terra-release-mesa
-dnf install -y --enablerepo='terra' terra-release-nvidia
-dnf install -y --enablerepo='terra' terra-release-multimedia
+#dnf install -y --enablerepo='terra' terra-release
+#dnf install -y --enablerepo='terra' terra-release-extras
+#dnf install -y --enablerepo='terra' terra-release-mesa
+#dnf install -y --enablerepo='terra' terra-release-nvidia
+#dnf install -y --enablerepo='terra' terra-release-multimedia
+
+dnf install -y terra-release
+dnf install -y terra-release-extras
+dnf install -y terra-release-mesa
+dnf install -y terra-release-nvidia
+dnf install -y terra-release-multimedia
+
 #dnf swap mesa-va-drivers-freeworld mesa-va-drivers
 #dnf install -y mangowm noctalia-shell
 
