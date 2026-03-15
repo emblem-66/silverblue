@@ -14,6 +14,7 @@ dnf config-manager addrepo --from-repofile=https://github.com/terrapkg/subatomic
 #dnf install -y --enablerepo='terra' terra-release-nvidia
 #dnf install -y --enablerepo='terra' terra-release-multimedia
 
+dnf install -y terra-release*
 dnf install -y terra-release
 dnf install -y terra-release-extras
 dnf install -y terra-release-mesa
