@@ -1,0 +1,40 @@
+name: rechunk build container
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * *"
+
+env:
+  tag: ghcr.io/${{ github.actor }}/${{ github.event.repository.name }}:latest
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v6
+
+    - name: Build image
+      run: |
+        podman build -f Containerfile -t localbuild:latest .
+
+    - name: Rechunk image
+      run: |
+        set -e
+        podman run --rm \
+          --mount=type=image,source=localbuild:latest,target=/chunkah \
+          -e CHUNKAH_CONFIG_STR="$(podman inspect localbuild:latest)" \
+          quay.io/jlebon/chunkah build --max-layers 100 | podman load
+
+    - name: Tag image
+      run: |
+        podman tag localbuild:latest ${{ env.tag }}
+
+    - name: Push image
+      run: |
+        podman push --creds=${{ github.actor }}:${{ secrets.GITHUB_TOKEN }} ${{ env.tag }}
