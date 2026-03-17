@@ -24,6 +24,12 @@ jobs:
         podman build -f Containerfile -t localbuild:latest .
 
     - name: Rechunk image
+      # https://github.com/coreos/chunkah
+      # IMG=quay.io/fedora/fedora-minimal:latest
+      # podman pull $IMG # image must be available locally
+      # export CHUNKAH_CONFIG_STR="$(podman inspect $IMG)"
+      # podman run --rm --mount=type=image,src=$IMG,dest=/chunkah \
+      #   -e CHUNKAH_CONFIG_STR quay.io/jlebon/chunkah build | podman load
       run: |
         set -e
         podman run --rm \
