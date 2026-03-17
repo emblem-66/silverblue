@@ -5,60 +5,40 @@ on:
   schedule:
     - cron: "0 0 * * *"
 
-env:
-  REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}
-  TAG: latest
-  LOCAL_TAG: localbuild:latest
-
 jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
       contents: read
       packages: write
-      id-token: write
+      #id-token: write
 
     steps:
-    - name: Checkout source
-      uses: actions/checkout@v4
+    - name: Checkout
+      uses: actions/checkout@v6
 
-    - name: Install Cosign
-      uses: sigstore/cosign-installer@v4.1.0
-
-    - name: Build image with Podman
-      id: build
+    - name: Build
       run: |
         set -euo pipefail
-        podman build \
-          -f Containerfile \
-          -t "${LOCAL_TAG}" \
-          --iidfile imageid.txt .
-        echo "local_digest=$(cat imageid.txt)" >> "$GITHUB_OUTPUT"
+        podman build -f Containerfile -t localbuild:latest .
 
-    - name: Rechunk image
-      id: rechunk
+    - name: Rechunk
       run: |
         set -euo pipefail
         podman run --rm \
-          --mount=type=image,source="${LOCAL_TAG}",target=/chunkah \
-          -e CHUNKAH_CONFIG_STR="$(podman inspect ${LOCAL_TAG})" \
+          --mount=type=image,source=localbuild:latest,target=/chunkah \
+          -e CHUNKAH_CONFIG_STR="$(podman inspect localbuild:latest)" \
           quay.io/jlebon/chunkah build --max-layers 100 | podman load
 
-    - name: Tag image for GHCR
-      run: |
-        podman tag "${LOCAL_TAG}" "${REGISTRY}/${IMAGE_NAME}:${TAG}"
-
-    - name: Push image to GHCR
-      id: push
+    - name: Tag
       run: |
         set -euo pipefail
-        DIGEST=$(podman push \
-          --creds="${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}" \
-          "${REGISTRY}/${IMAGE_NAME}:${TAG}" | \
-          grep -o 'sha256:[a-f0-9]\+')
-        echo "digest=$DIGEST" >> "$GITHUB_OUTPUT"
+        podman tag localbuild:latest ghcr.io/${{ github.repository }}:latest
 
-    - name: Sign pushed image with Cosign (keyless)
+    - name: Push
       run: |
-        cosign sign --yes "${REGISTRY}/${IMAGE_NAME}@${{ steps.push.outputs.digest }}"
+        set -euo pipefail
+        podman push --creds=${{ github.actor }}:${{ secrets.GITHUB_TOKEN }} ghcr.io/${{ github.repository }}:latest
+
+#    - name: Install Cosign
+#      uses: sigstore/cosign-installer@v4.1.0
