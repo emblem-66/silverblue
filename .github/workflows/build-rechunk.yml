@@ -6,7 +6,7 @@ on:
     - cron: "0 0 * * *"
 
 env:
-  tag: ghcr.io/${{ github.actor }}/${{ github.event.repository.name }}:latest
+  tag: ghcr.io/${{ github.actor }}/${{ github.repository }}:latest
 
 jobs:
   build:
@@ -50,6 +50,10 @@ jobs:
       run: |
         podman push --creds=${{ github.actor }}:${{ secrets.GITHUB_TOKEN }} ${{ env.tag }}
 
-    - name: Sign container image with Cosign
+    - name: Sign image with Cosign
+      env:
+        COSIGN_EXPERIMENTAL: "1"
+        IMAGE: ${{ env.tag }}
       run: |
-        cosign sign --yes ${{ env.tag }}
+        cosign sign --yes $IMAGE
+
