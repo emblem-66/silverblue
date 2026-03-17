@@ -5,6 +5,12 @@ on:
   schedule:
     - cron: "0 0 * * *"
 
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+  TAG: latest
+  LOCAL_TAG: localbuild:latest
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -15,7 +21,7 @@ jobs:
 
     steps:
     - name: Checkout source
-      uses: actions/checkout@v6
+      uses: actions/checkout@v4
 
     - name: Install Cosign
       uses: sigstore/cosign-installer@v4.1.0
@@ -26,7 +32,7 @@ jobs:
         set -euo pipefail
         podman build \
           -f Containerfile \
-          -t localbuild:latest \
+          -t "${LOCAL_TAG}" \
           --iidfile imageid.txt .
         echo "local_digest=$(cat imageid.txt)" >> "$GITHUB_OUTPUT"
 
@@ -35,13 +41,13 @@ jobs:
       run: |
         set -euo pipefail
         podman run --rm \
-          --mount=type=image,source=localbuild:latest,target=/chunkah \
-          -e CHUNKAH_CONFIG_STR="$(podman inspect localbuild:latest)" \
+          --mount=type=image,source="${LOCAL_TAG}",target=/chunkah \
+          -e CHUNKAH_CONFIG_STR="$(podman inspect ${LOCAL_TAG})" \
           quay.io/jlebon/chunkah build --max-layers 100 | podman load
 
     - name: Tag image for GHCR
       run: |
-        podman tag localbuild:latest ghcr.io/${{ github.repository }}:latest
+        podman tag "${LOCAL_TAG}" "${REGISTRY}/${IMAGE_NAME}:${TAG}"
 
     - name: Push image to GHCR
       id: push
@@ -49,10 +55,10 @@ jobs:
         set -euo pipefail
         DIGEST=$(podman push \
           --creds="${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}" \
-          ghcr.io/${{ github.repository }}:latest | \
+          "${REGISTRY}/${IMAGE_NAME}:${TAG}" | \
           grep -o 'sha256:[a-f0-9]\+')
         echo "digest=$DIGEST" >> "$GITHUB_OUTPUT"
 
     - name: Sign pushed image with Cosign (keyless)
       run: |
-        cosign sign --yes ghcr.io/${{ github.repository }}@${{ steps.push.outputs.digest }}
+        cosign sign --yes "${REGISTRY}/${IMAGE_NAME}@${{ steps.push.outputs.digest }}"
