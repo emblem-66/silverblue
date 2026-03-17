@@ -6,7 +6,7 @@ on:
     - cron: "0 0 * * *"
 
 env:
-  tag: ghcr.io/${{ github.actor }}/${{ github.repository }}:latest
+  tag: ghcr.io/${{ github.repository }}:latest
 
 jobs:
   build:
