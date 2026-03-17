@@ -49,16 +49,3 @@ jobs:
     - name: Push image
       run: |
         podman push --creds=${{ github.actor }}:${{ secrets.GITHUB_TOKEN }} ${{ env.tag }}
-
-    - name: Get image digest
-      id: digest
-      run: |
-        DIGEST=$(podman inspect --format='{{index .RepoDigests 0}}' ${{ env.tag }})
-        echo "digest=$DIGEST" >> $GITHUB_OUTPUT
-        echo "Resolved digest: $DIGEST"
-
-    - name: Sign image (keyless, OIDC)
-      env:
-        COSIGN_EXPERIMENTAL: "1"
-      run: |
-        cosign sign ${{ steps.digest.outputs.digest }}
