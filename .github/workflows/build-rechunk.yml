@@ -27,19 +27,19 @@ jobs:
       run: |
         podman build -f Containerfile -t localbuild:latest .
 
-    - name: Rechunk image
+#    - name: Rechunk image
       # https://github.com/coreos/chunkah
       # IMG=quay.io/fedora/fedora-minimal:latest
       # podman pull $IMG # image must be available locally
       # export CHUNKAH_CONFIG_STR="$(podman inspect $IMG)"
       # podman run --rm --mount=type=image,src=$IMG,dest=/chunkah \
       #   -e CHUNKAH_CONFIG_STR quay.io/jlebon/chunkah build | podman load
-      run: |
-        set -e
-        podman run --rm \
-          --mount=type=image,source=localbuild:latest,target=/chunkah \
-          -e CHUNKAH_CONFIG_STR="$(podman inspect localbuild:latest)" \
-          quay.io/jlebon/chunkah build | podman load
+#      run: |
+#        set -e
+#        podman run --rm \
+#          --mount=type=image,source=localbuild:latest,target=/chunkah \
+#          -e CHUNKAH_CONFIG_STR="$(podman inspect localbuild:latest)" \
+#          quay.io/jlebon/chunkah build | podman load
       # quay.io/jlebon/chunkah build --max-layers 100 | podman load
 
     - name: Tag image
@@ -50,11 +50,15 @@ jobs:
       run: |
         podman push --creds=${{ github.actor }}:${{ secrets.GITHUB_TOKEN }} ${{ env.tag }}
 
-    - name: Sign image with Cosign
+    - name: Get image digest
+      id: digest
+      run: |
+        DIGEST=$(podman inspect --format='{{index .RepoDigests 0}}' ${{ env.tag }})
+        echo "digest=$DIGEST" >> $GITHUB_OUTPUT
+        echo "Resolved digest: $DIGEST"
+
+    - name: Sign image (keyless, OIDC)
       env:
         COSIGN_EXPERIMENTAL: "1"
-        # IMAGE: ${{ env.tag }}
       run: |
-        cosign sign --yes ${{ env.tag }}
-      # $IMAGE
-
+        cosign sign ${{ steps.digest.outputs.digest }}
