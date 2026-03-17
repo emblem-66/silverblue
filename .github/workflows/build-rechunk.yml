@@ -21,7 +21,7 @@ jobs:
       uses: actions/checkout@v6
 
     - name: Install Cosign
-      uses: sigstore/cosign-installer@3
+      uses: sigstore/cosign-installer@v4
 
     - name: Build image
       run: |
