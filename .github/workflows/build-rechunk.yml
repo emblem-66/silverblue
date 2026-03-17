@@ -53,7 +53,8 @@ jobs:
     - name: Sign image with Cosign
       env:
         COSIGN_EXPERIMENTAL: "1"
-        IMAGE: ${{ env.tag }}
+        # IMAGE: ${{ env.tag }}
       run: |
-        cosign sign --yes $IMAGE
+        cosign sign --yes ${{ env.tag }}
+      # $IMAGE
 
