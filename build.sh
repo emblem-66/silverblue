@@ -9,7 +9,8 @@ dnf config-manager setopt fedora-cisco-openh264.enabled=1
 #dnf config-manager setopt fedora-cisco-openh264.enabled=0
 
 dnf config-manager addrepo --from-repofile=https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
-#dnf config-manager setopt terra.enabled=0
+#sed -i '0,/enabled=0/s/enabled=0/enabled=1/' /etc/yum.repos.d/terra-mesa.repo
+dnf config-manager setopt terra.enabled=1
 #dnf install -y --enablerepo='terra' terra-release
 #dnf install -y --enablerepo='terra' terra-release-extras
 #dnf install -y --enablerepo='terra' terra-release-mesa
