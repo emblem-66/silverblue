@@ -40,5 +40,14 @@ jobs:
         set -euo pipefail
         podman push --creds=${{ github.actor }}:${{ secrets.GITHUB_TOKEN }} ghcr.io/${{ github.repository }}:latest
 
+#    - name: Rechunk centos-bootc/centos-bootc
+#      run: |
+#        set -euo pipefail
+#        podman run --rm --privileged -v /var/lib/containers:/var/lib/containers \
+#        quay.io/centos-bootc/centos-bootc:stream10 \
+#        /usr/libexec/bootc-base-imagectl rechunk \
+#        ghcr.io/${{ github.repository }}:single \
+#        ghcr.io/${{ github.repository }}:latest
+
 #    - name: Install Cosign
 #      uses: sigstore/cosign-installer@v4.1.0
