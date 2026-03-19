@@ -48,21 +48,21 @@ jobs:
 
 
 
-    - name: Rechunk centos-bootc/centos-bootc
-      run: |
-        set -euo pipefail
-        podman run --rm --privileged -v /var/lib/containers:/var/lib/containers \
-        quay.io/centos-bootc/centos-bootc:stream10 \
-        /usr/libexec/bootc-base-imagectl rechunk \
-        ghcr.io/${{ github.repository }}:single \
-        ghcr.io/${{ github.repository }}:latest
+#    - name: Rechunk centos-bootc/centos-bootc
+#      run: |
+#        set -euo pipefail
+#        podman run --rm --privileged -v /var/lib/containers:/var/lib/containers \
+#        quay.io/centos-bootc/centos-bootc:stream10 \
+#        /usr/libexec/bootc-base-imagectl rechunk \
+#        ghcr.io/${{ github.repository }}:single \
+#        ghcr.io/${{ github.repository }}:latest
 
-    - name: rpm-ostree compose build-chunked-oci --bootc
-      run: |
-        set -euo pipefail
-        podman build -t ghcr.io/${{ github.repository }}:single
-        rpm-ostree compose build-chunked-oci --bootc --format-version=1 \
-        --from=ghcr.io/${{ github.repository }}:single --output containers-storage:ghcr.io/${{ github.repository }}:latest
+#    - name: rpm-ostree compose build-chunked-oci --bootc
+#      run: |
+#        set -euo pipefail
+#        podman build -t ghcr.io/${{ github.repository }}:single
+#        rpm-ostree compose build-chunked-oci --bootc --format-version=1 \
+#        --from=ghcr.io/${{ github.repository }}:single --output containers-storage:ghcr.io/${{ github.repository }}:latest
         podman push --creds=${{ github.actor }}:${{ secrets.GITHUB_TOKEN }} ghcr.io/${{ github.repository }}:latest
 
 
