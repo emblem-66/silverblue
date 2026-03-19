@@ -63,7 +63,7 @@ jobs:
 #        podman build -t ghcr.io/${{ github.repository }}:single
 #        rpm-ostree compose build-chunked-oci --bootc --format-version=1 \
 #        --from=ghcr.io/${{ github.repository }}:single --output containers-storage:ghcr.io/${{ github.repository }}:latest
-        podman push --creds=${{ github.actor }}:${{ secrets.GITHUB_TOKEN }} ghcr.io/${{ github.repository }}:latest
+#        podman push --creds=${{ github.actor }}:${{ secrets.GITHUB_TOKEN }} ghcr.io/${{ github.repository }}:latest
 
 
 
