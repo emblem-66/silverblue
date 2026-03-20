@@ -13,6 +13,7 @@ dnf -y config-manager setopt "*terra*".priority=3 #"*terra*".exclude="nerd-fonts
 dnf -y config-manager setopt "*rpmfusion*".priority=5 "*rpmfusion*".exclude="mesa-*"
 dnf -y config-manager setopt "*fedora*".exclude="mesa-* kernel-core-* kernel-modules-* kernel-uki-virt-*"
 
+dnf reposync -y
 
 # --setopt=install_weak_deps=False
 
