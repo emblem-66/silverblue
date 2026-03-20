@@ -33,7 +33,7 @@ jobs:
         podman run --rm \
           --mount=type=image,source=localbuild:latest,target=/chunkah \
           -e CHUNKAH_CONFIG_STR="$(podman inspect localbuild:latest)" \
-          quay.io/jlebon/chunkah build --max-layers 100 | podman load
+          quay.io/coreos/chunkah build --max-layers 100 | podman load
 
     - name: Tag
       run: |
