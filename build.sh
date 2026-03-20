@@ -11,9 +11,7 @@ dnf -y install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-
 dnf -y config-manager setopt "*terra*".priority=3 #"*terra*".exclude="nerd-fonts topgrade scx-tools scx-scheds steam python3-protobuf zlib-devel"
 #dnf -y config-manager setopt "terra-mesa".enabled=false
 dnf -y config-manager setopt "*rpmfusion*".priority=5 "*rpmfusion*".exclude="mesa-* steam*"
-dnf -y config-manager setopt "*fedora*".exclude="mesa-* kernel-core-* kernel-modules-* kernel-uki-virt-*"
-
-dnf reposync -y
+dnf -y config-manager setopt "*fedora*".exclude="mesa-*" # kernel-core-* kernel-modules-* kernel-uki-virt-*"
 
 # --setopt=install_weak_deps=False
 
