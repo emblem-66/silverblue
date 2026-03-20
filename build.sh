@@ -135,18 +135,3 @@ systemctl --global preset-all
 
 
 
-dnf install -y \
-    steam \
-    steam-devices \
-    mesa-dri-drivers \
-    mesa-vulkan-drivers \
-    mesa-va-drivers \
-
-
-
-#dnf -y --enable-repo=terra-mesa --setopt=install_weak_deps=False install \
-#    steam \
-#    steam-devices
-
-
-dnf autoremove -y
