@@ -137,8 +137,10 @@ systemctl --global preset-all
 
 dnf install -y \
     steam \
-    steam-devices
-
+    steam-devices \
+    mesa-dri-drivers \
+    mesa-vulkan-drivers \
+    mesa-va-drivers \
 
 
 
