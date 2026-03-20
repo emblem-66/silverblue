@@ -1,8 +1,8 @@
 name: build container
 on:
   workflow_dispatch:
-#  schedule:
-#    - cron: "0 0 * * *"
+  schedule:
+    - cron: "0 0 * * *"
 env:
   tag: ghcr.io/${{ github.actor }}/${{ github.event.repository.name }}:latest
 jobs: 
@@ -16,5 +16,5 @@ jobs:
       uses: actions/checkout@v6
     - name: Build image
       run: podman build -f Containerfile --disable-compression=false -t ${{ env.tag }} .
-#    - name: Push image
-#      run: podman push --creds=${{ github.actor }}:${{ secrets.GITHUB_TOKEN }} ${{ env.tag }}
+    - name: Push image
+      run: podman push --creds=${{ github.actor }}:${{ secrets.GITHUB_TOKEN }} ${{ env.tag }}
