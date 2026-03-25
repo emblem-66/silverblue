@@ -82,6 +82,9 @@ dnf install -y evtest
 # OpenRGB
 dnf install -y openrgb
 
+# fancontrol
+dnf install -y fancontrol-gui
+
 # Cockpit
 dnf install -y cockpit cockpit-podman
 
