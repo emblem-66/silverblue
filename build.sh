@@ -79,6 +79,9 @@ dnf install -y ddcutil
 # Debug
 dnf install -y evtest
 
+# OpenRGB
+dnf install -y openrgb
+
 # Cockpit
 dnf install -y cockpit cockpit-podman
 
