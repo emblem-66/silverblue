@@ -80,7 +80,7 @@ dnf install -y ddcutil
 dnf install -y evtest
 
 # OpenRGB
-dnf install -y openrgb
+#dnf install -y openrgb
 
 # fancontrol
 dnf install -y fancontrol-gui
