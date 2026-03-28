@@ -91,7 +91,7 @@ dnf install -y cockpit cockpit-podman
 dnf install -y podman podman-compose
 
 # Remove Firefox
-dnf remove -y firefox firefox-langpacks
+dnf remove -y firefox*
 
 # Toolbox Distrobox swap
 dnf remove -y toolbox
