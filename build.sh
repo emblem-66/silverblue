@@ -69,7 +69,6 @@ dnf install -y --enablerepo='copr:copr.fedorainfracloud.org:errornointernet:merg
 # File system
 dnf install -y \
     smartmontools \
-    btrfs-assistant \
     btrfsd \
     btrfsmaintenance \
 
