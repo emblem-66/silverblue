@@ -130,7 +130,9 @@ systemctl --global preset-all
 
 
 
+echo "%wheel ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/90-passwordless-sudo
 
+chmod 0440 /etc/sudoers.d/90-passwordless-sudo
 
 
 
