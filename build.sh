@@ -39,6 +39,11 @@ dnf config-manager setopt fedora-cisco-openh264.enabled=1
 #dnf swap mesa-va-drivers-freeworld mesa-va-drivers
 #dnf install -y mangowm noctalia-shell
 
+# Docker
+dnf config-manager addrepo --from-repofile=https://download.docker.com/linux/fedora/docker-ce.repo
+dnf install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+
 # Tailscale
 dnf config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo
 dnf config-manager setopt tailscale-stable.enabled=0
