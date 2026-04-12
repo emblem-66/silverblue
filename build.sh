@@ -62,6 +62,9 @@ dnf install -y --enablerepo='copr:copr.fedorainfracloud.org:trixieua:morewaita-i
 #https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/system_files/etc/yum.repos.d/morewaita.repo
 #dnf install -y adw-gtk3-theme morewaita-icon-theme
 
+dnf copr enable -y peterwu/rendezvous
+dnf install -y bibata-cursor-themes
+
 # MergerFS
 dnf copr enable -y errornointernet/mergerfs
 dnf config-manager setopt copr:copr.fedorainfracloud.org:errornointernet:mergerfs.enabled=0
