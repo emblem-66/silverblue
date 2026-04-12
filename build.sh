@@ -56,14 +56,17 @@ dnf install -y --enablerepo='tailscale-stable' tailscale
 # Adwaita & Morewaita
 dnf copr enable -y trixieua/morewaita-icon-theme
 dnf config-manager setopt copr:copr.fedorainfracloud.org:trixieua:morewaita-icon-theme.enabled=0
-dnf install -y --enablerepo='copr:copr.fedorainfracloud.org:trixieua:morewaita-icon-theme' adw-gtk3-theme morewaita-icon-theme
+dnf install -y --enablerepo='copr:copr.fedorainfracloud.org:trixieua:morewaita-icon-theme' morewaita-icon-theme
 #dnf install -y adw-gtk3-theme morewaita-icon-theme
 #curl -fsSL --create-dirs -o /etc/yum.repos.d/morewaita.repo \
 #https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/system_files/etc/yum.repos.d/morewaita.repo
 #dnf install -y adw-gtk3-theme morewaita-icon-theme
 
 dnf copr enable -y peterwu/rendezvous
-dnf install -y bibata-cursor-themes
+dnf config-manager setopt copr:copr.fedorainfracloud.org:peterwu:rendezvous.enabled=0
+dnf install -y --enablerepo='copr:copr.fedorainfracloud.org:peterwu:rendezvous' bibata-cursor-themes
+
+dnf install -y papirus-icon-theme adw-gtk3-theme 
 
 # MergerFS
 dnf copr enable -y errornointernet/mergerfs
