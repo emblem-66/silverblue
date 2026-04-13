@@ -79,6 +79,9 @@ dnf install -y --enablerepo='copr:copr.fedorainfracloud.org:errornointernet:merg
 #https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/system_files/etc/yum.repos.d/mergerfs.repo
 #dnf install -y mergerfs
 
+
+dnf install -y greetd tuigreet
+
 dnf copr enable -y yalter/niri
 dnf config-manager setopt copr:copr.fedorainfracloud.org:yalter:niri.enabled=0
 dnf install -y --enablerepo='copr:copr.fedorainfracloud.org:yalter:niri' niri
