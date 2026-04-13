@@ -79,6 +79,21 @@ dnf install -y --enablerepo='copr:copr.fedorainfracloud.org:errornointernet:merg
 #https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/system_files/etc/yum.repos.d/mergerfs.repo
 #dnf install -y mergerfs
 
+dnf copr enable -y yalter/niri
+dnf config-manager setopt copr:copr.fedorainfracloud.org:yalter:niri.enabled=0
+dnf install -y --enablerepo='copr:copr.fedorainfracloud.org:yalter:niri' niri
+
+dnf install -y \
+    fuzzel \
+    alacritty \
+    SwayNotificationCenter \
+    swaybg \
+    swayidle \
+    swaylock \
+    waybar \
+    mako \
+
+
 # File system
 dnf install -y \
     smartmontools \
