@@ -45,6 +45,9 @@ dnf config-manager setopt fedora-cisco-openh264.enabled=1
 dnf config-manager addrepo --from-repofile=https://download.docker.com/linux/fedora/docker-ce.repo
 dnf install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
+dnf copr enable -y che/nerd-fonts
+dnf config-manager setopt copr:copr.fedorainfracloud.org:che:nerd-fonts.enabled=0
+dnf install -y --enablerepo='copr:copr.fedorainfracloud.org:che:nerd-fonts' nerd-fonts
 
 # Tailscale
 dnf config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo
