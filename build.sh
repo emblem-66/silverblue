@@ -95,6 +95,8 @@ dnf install -y \
     swaylock \
     waybar \
     mako \
+    grim \
+    sluro \
 
 
 # File system
