@@ -99,7 +99,7 @@ dnf install -y \
     waybar \
     mako \
     grim \
-    sluro \
+    slurp \
 
 
 # File system
