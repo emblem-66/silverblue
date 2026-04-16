@@ -13,8 +13,6 @@ dnf -y install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/ter
 #dnf -y config-manager setopt "*rpmfusion*".priority=5 "*rpmfusion*".exclude="mesa-* steam*"
 #dnf -y config-manager setopt "*fedora*".exclude="mesa-*" # kernel-core-* kernel-modules-* kernel-uki-virt-*"
 
-dnf search winboat
-
 # --setopt=install_weak_deps=False
 
 dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
@@ -153,6 +151,7 @@ dnf remove -y \
 
 dnf autoremove -y
 
+dnf search winboat
 
 
 # Update tweaks
