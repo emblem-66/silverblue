@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 set -xeuo pipefail
 
+rpm -qa --qf '%{NAME}\n' | sort
 
+rpm -qa --qf '%{NAME}.%{ARCH}\n' | sort > packagelist_start.txt
 
 
 
@@ -171,7 +173,9 @@ chmod 0440 /etc/sudoers.d/90-passwordless-sudo
 
 
 
+rpm -qa --qf '%{NAME}.%{ARCH}\n' | sort > packagelist_end.txt
 
+comm -13 packagelist_start.txt packagelist_end.txt || true
 
 
 
