@@ -133,6 +133,9 @@ dnf remove -y firefox*
 dnf remove -y toolbox
 dnf install -y distrobox
 
+
+dnf install -y libfreeaptx libldac fdk-aac
+
 # Remove GNOME stuff
 dnf remove -y \
     *backgrounds* \
