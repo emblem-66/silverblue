@@ -153,6 +153,7 @@ dnf remove -y \
     sssd* \
     virtualbox-guest-additions \
     yelp* \
+    abrt \
 
 dnf autoremove -y
 
