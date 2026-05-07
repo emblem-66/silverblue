@@ -74,9 +74,9 @@ dnf install -y --enablerepo='copr:copr.fedorainfracloud.org:peterwu:rendezvous' 
 dnf install -y papirus-icon-theme adw-gtk3-theme 
 
 # MergerFS
-dnf copr enable -y errornointernet/mergerfs
-dnf config-manager setopt copr:copr.fedorainfracloud.org:errornointernet:mergerfs.enabled=0
-dnf install -y --enablerepo='copr:copr.fedorainfracloud.org:errornointernet:mergerfs' mergerfs
+#dnf copr enable -y errornointernet/mergerfs
+#dnf config-manager setopt copr:copr.fedorainfracloud.org:errornointernet:mergerfs.enabled=0
+#dnf install -y --enablerepo='copr:copr.fedorainfracloud.org:errornointernet:mergerfs' mergerfs
 #dnf install -y mergerfs
 #curl -fsSL --create-dirs -o /etc/yum.repos.d/mergerfs.repo \
 #https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/system_files/etc/yum.repos.d/mergerfs.repo
