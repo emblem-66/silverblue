@@ -17,6 +17,12 @@ jobs:
     - name: Build image
       run: podman build -f Containerfile -t localbuild .
     - name: Rechunk image
-      run: chunkah build --from containers-storage:localbuild containers-storage:${{ env.tag }}
+#      run: chunkah build --from containers-storage:localbuild containers-storage:${{ env.tag }}
+      run: |
+        podman run --rm \
+          -v /var/lib/containers:/var/lib/containers \
+          quay.io/coreos/chunkah \
+          build --from containers-storage:localbuild \
+          containers-storage:${{ env.tag }}
     - name: Push image
       run: podman push --creds=${{ github.actor }}:${{ secrets.GITHUB_TOKEN }} ${{ env.tag }}
