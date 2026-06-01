@@ -159,6 +159,7 @@ dnf autoremove -y
 
 dnf search winboat
 
+dnf install -y steam
 
 # Update tweaks
 sed -i 's|^ExecStart=.*|ExecStart=/usr/bin/bootc update --quiet|' /usr/lib/systemd/system/bootc-fetch-apply-updates.service
