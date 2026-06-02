@@ -1,75 +1,42 @@
-name: build chunkah container
+name: Build with Chunkah
 on:
   workflow_dispatch:
-  #schedule:
-  #  - cron: "0 0 * * *"
+  schedule:
+    - cron: "0 0 * * *"
 env:
-  tag: ghcr.io/${{ github.actor }}/${{ github.event.repository.name }}:latest
-#jobs: 
-#  build:
-#    runs-on: ubuntu-latest
-#    permissions:
-#      contents: read
-#      packages: write
-#    steps:
-#    - name: Checkout action
-#      uses: actions/checkout@v6
-#    - name: Build image
-#      run: podman build -f Containerfile -t localbuild .
-#    - name: Rechunk image
-#      run: chunkah build --from containers-storage:localbuild containers-storage:${{ env.tag }}
-#      run: |
-#        podman run --rm \
-#          -v /var/lib/containers:/var/lib/containers \
-#          quay.io/coreos/chunkah \
-#          build --from containers-storage:localbuild \
-#          containers-storage:${{ env.tag }}
-#    - name: Push image
-#      run: podman push --creds=${{ github.actor }}:${{ secrets.GITHUB_TOKEN }} ${{ env.tag }}
-
-jobs:
+  file: Containerfile
+  repo: ghcr.io/${{ github.actor }}/${{ github.event.repository.name }}:latest
+jobs: 
   build:
     runs-on: ubuntu-latest
-
     permissions:
       contents: read
       packages: write
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v6
+    - name: Checkout action
+      uses: actions/checkout@v6
+    - name: Build image
+      run: |
+        podman build \
+          -f ${{ env.file }} \
+          -t ${{ env.repo }} .
 
-      - name: Build image
-        run: |
-          podman build -f Containerfile -t localbuild .
+    - name: Rechunk image with chunkah
+      run: |
+        mkdir -p /tmp/rootfs
+        podman export $(podman create --name rechunk ${{ env.repo }}) | tar -xC /tmp/rootfs
+        podman rm rechunk
+        CHUNKAH_CONFIG_STR="$(podman inspect ${{ env.repo }})" \
+        podman run --rm \
+          -v /tmp/rootfs:/chunkah:ro \
+          --security-opt=label=disable \
+          -e CHUNKAH_CONFIG_STR \
+          quay.io/coreos/chunkah build --max-layers 128 --skip-special-files --prune /sysroot/ \
+            -t ${{ env.repo }} | podman load
 
-      - name: Export rootfs
-        run: |
-          cid=$(podman create localbuild)
-          mkdir -p rootfs
-          podman export "$cid" | tar -C rootfs -xf -
-          podman rm "$cid"
-
-      - name: Rechunk image (containerized)
-        run: |
-          podman run --rm \
-            -v "$(pwd)/rootfs:/rootfs:Z" \
-            -v "$(pwd):/out:Z" \
-            quay.io/coreos/chunkah \
-            build \
-            --rootfs /rootfs \
-            /out/rechunked-image
-
-      - name: Load rechunked image into Podman
-        run: |
-          podman load -i rechunked-image
-
-      - name: Tag image
-        run: |
-          podman tag localhost/rechunked ${{ env.tag }}
-
-      - name: Push image
-        run: |
-          podman push \
-            --creds=${{ github.actor }}:${{ secrets.GITHUB_TOKEN }} \
-            ${{ env.tag }}
+    - name: Push image
+      run: |
+        podman push \
+          --compression-format zstd:chunked \
+          --creds=${{ github.actor }}:${{ secrets.GITHUB_TOKEN }} \
+          ${{ env.repo }}
