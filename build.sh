@@ -1,6 +1,13 @@
 #!/usr/bin/env bash
 set -xeuo pipefail
 
+
+# OPT writable
+rm -rf /opt && ln -s /var/opt /opt
+
+
+
+
 rpm -qa --qf '%{NAME}\n' | sort
 
 rpm -qa --qf '%{NAME}.%{ARCH}\n' | sort > packagelist_start.txt
