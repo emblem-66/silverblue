@@ -3,7 +3,7 @@ set -xeuo pipefail
 
 
 # OPT writable
-rm -rf /opt && ln -s /var/opt /opt
+#rm -rf /opt && ln -s /var/opt /opt
 
 
 
@@ -82,10 +82,10 @@ dnf install -y papirus-icon-theme adw-gtk3-theme
 
 
 # Brave & Helium
-dnf config-manager addrepo --from-repofile=https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
-dnf config-manager setopt brave-browser.enabled=0
-dnf install -y --enablerepo='brave-browser' brave-origin
-dnf install -y helium-browser-bin
+#dnf config-manager addrepo --from-repofile=https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
+#dnf config-manager setopt brave-browser.enabled=0
+#dnf install -y --enablerepo='brave-browser' brave-origin
+#dnf install -y helium-browser-bin
 
 # MergerFS
 #dnf copr enable -y errornointernet/mergerfs
@@ -172,6 +172,8 @@ dnf remove -y \
 dnf autoremove -y
 
 dnf search winboat
+
+dnf search brave
 
 dnf install -y steam
 
