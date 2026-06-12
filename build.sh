@@ -177,6 +177,44 @@ dnf search brave
 
 dnf install -y steam
 
+# Install the cachyos kernel
+dnf copr enable -y bieszczaders/kernel-cachyos-lto
+dnf copr enable -y bieszczaders/kernel-cachyos-addons
+dnf install -y kernel-cachyos-lto kernel-cachyos-lto-devel-matched
+setsebool -P domain_kernel_load_modules on
+
+
+
+
+dnf install -y \
+    scx-scheds \
+    scx-manager \
+    scx-tools \
+    scxctl \
+    ananicy-cpp \
+    cachyos-ananicy-rules \
+
+systemctl enable ananicy-cpp
+
+# -----------------------------
+# Boot and system tweaks
+# -----------------------------
+section "Boot and system tweaks"
+systemctl disable NetworkManager-wait-online.service || true
+systemctl set-default graphical.target
+
+
+# -----------------------------
+# Final cleanup
+# -----------------------------
+section "Cleanup unused dependencies"
+
+info "Removing unused packages"
+dnf -y autoremove || true
+
+info "Cleaning package cache"
+dnf -y clean all || true
+
 # Update tweaks
 sed -i 's|^ExecStart=.*|ExecStart=/usr/bin/bootc update --quiet|' /usr/lib/systemd/system/bootc-fetch-apply-updates.service
 sed -i 's|#AutomaticUpdatePolicy.*|AutomaticUpdatePolicy=stage|' /etc/rpm-ostreed.conf
