@@ -73,6 +73,13 @@ dnf install -y --enablerepo='copr:copr.fedorainfracloud.org:peterwu:rendezvous' 
 
 dnf install -y papirus-icon-theme adw-gtk3-theme 
 
+
+# Brave & Helium
+dnf config-manager addrepo --from-repofile=https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
+dnf config-manager setopt brave-browser.enabled=0
+dnf install -y --enablerepo='brave-browser' brave-origin
+dnf install -y helium-browser-bin
+
 # MergerFS
 #dnf copr enable -y errornointernet/mergerfs
 #dnf config-manager setopt copr:copr.fedorainfracloud.org:errornointernet:mergerfs.enabled=0
