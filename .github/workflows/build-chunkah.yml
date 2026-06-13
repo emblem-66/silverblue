@@ -1,8 +1,8 @@
 name: Build with Chunkah
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "0 0 * * *"
+#  schedule:
+#    - cron: "0 0 * * *"
 env:
   file: Containerfile
   repo: ghcr.io/${{ github.actor }}/${{ github.event.repository.name }}:latest
